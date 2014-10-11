@@ -1,0 +1,274 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>EAS.Metadata</name>
+    </assembly>
+    <members>
+        <member name="T:EAS.Metadatas.ReportMetadata">
+            <summary>
+            报表元数据。
+            </summary>
+        </member>
+        <member name="M:EAS.Metadatas.ReportMetadata.#ctor">
+            <summary>
+            初始化ReportMetadata对象实例。
+            </summary>
+        </member>
+        <member name="P:EAS.Metadatas.ReportMetadata.ID">
+            <summary>
+            ID。
+            </summary>
+        </member>
+        <member name="P:EAS.Metadatas.ReportMetadata.Name">
+            <summary>
+            报表名称。
+            </summary>
+        </member>
+        <member name="P:EAS.Metadatas.ReportMetadata.Define">
+            <summary>
+            报表定义。
+            </summary>
+        </member>
+        <member name="P:EAS.Metadatas.ReportMetadata.QueryText">
+            <summary>
+            查询定义。
+            </summary>
+        </member>
+        <member name="P:EAS.Metadatas.ReportMetadata.Width">
+            <summary>
+            高度。
+            </summary>
+        </member>
+        <member name="P:EAS.Metadatas.ReportMetadata.Height">
+            <summary>
+            宽度。
+            </summary>
+        </member>
+        <member name="P:EAS.Metadatas.ReportMetadata.Printer">
+            <summary>
+            打印机。
+            </summary>
+        </member>
+        <member name="P:EAS.Metadatas.ReportMetadata.Landscape">
+            <summary>
+            横向打印。
+            </summary>
+        </member>
+        <member name="P:EAS.Metadatas.ReportMetadata.Attributes">
+            <summary>
+            属性。
+            </summary>
+        </member>
+        <member name="P:EAS.Metadatas.ReportMetadata.PrintMode">
+            <summary>
+            是否为打印模式。
+            </summary>
+        </member>
+        <member name="P:EAS.Metadatas.ReportMetadata.PopCondition">
+            <summary>
+            是否为弹窗式条件选择。
+            </summary>
+        </member>
+        <member name="P:EAS.Metadatas.ReportMetadata.UpdateCycle">
+            <summary>
+            缓存更新周期。
+            </summary>
+        </member>
+        <member name="P:EAS.Metadatas.ReportMetadata.Parameters">
+            <summary>
+            参数。
+            </summary>
+        </member>
+        <member name="T:EAS.Metadatas.ReportMetadata.Parameter">
+            <summary>
+            条件。
+            </summary>
+        </member>
+        <member name="M:EAS.Metadatas.ReportMetadata.Parameter.#ctor">
+            <summary>
+            初始化Parameter对象实例。
+            </summary>
+        </member>
+        <member name="P:EAS.Metadatas.ReportMetadata.Parameter.Name">
+            <summary>
+            名称。
+            </summary>
+        </member>
+        <member name="P:EAS.Metadatas.ReportMetadata.Parameter.Caption">
+            <summary>
+            标题。
+            </summary>
+        </member>
+        <member name="P:EAS.Metadatas.ReportMetadata.Parameter.Type">
+            <summary>
+            参数类型。
+            </summary>
+        </member>
+        <member name="P:EAS.Metadatas.ReportMetadata.Parameter.NotNull">
+            <summary>
+             必选参数
+            </summary>
+        </member>
+        <member name="P:EAS.Metadatas.ReportMetadata.Parameter.InputID">
+            <summary>
+            字典ID。
+            </summary>
+        </member>
+        <member name="P:EAS.Metadatas.ReportMetadata.Parameter.Default">
+            <summary>
+            默认值。
+            </summary>
+        </member>
+        <member name="M:EAS.Metadatas.InputMetadata.GeTData">
+            <summary>
+            获取数据类型。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:EAS.Metadatas.InputMetadata.InputID">
+            <summary>
+            ID。
+            </summary>
+        </member>
+        <member name="P:EAS.Metadatas.InputMetadata.Name">
+            <summary>
+            字典名称。
+            </summary>
+        </member>
+        <member name="P:EAS.Metadatas.InputMetadata.DataType">
+            <summary>
+            数据类型。
+            </summary>
+        </member>
+        <member name="P:EAS.Metadatas.InputMetadata.Width">
+            <summary>
+            高度。
+            </summary>
+        </member>
+        <member name="P:EAS.Metadatas.InputMetadata.Height">
+            <summary>
+            宽度。
+            </summary>
+        </member>
+        <member name="P:EAS.Metadatas.InputMetadata.Top">
+            <summary>
+            Top条数。
+            </summary>
+        </member>
+        <member name="P:EAS.Metadatas.InputMetadata.UseCached">
+            <summary>
+            是否使用缓存。
+            </summary>
+        </member>
+        <member name="P:EAS.Metadatas.InputMetadata.UpdateField">
+            <summary>
+            更新属性。
+            </summary>
+        </member>
+        <member name="P:EAS.Metadatas.InputMetadata.ValueField">
+            <summary>
+            码值属性。
+            </summary>
+        </member>
+        <member name="P:EAS.Metadatas.InputMetadata.TextField">
+            <summary>
+            显示属性。
+            </summary>
+        </member>
+        <member name="P:EAS.Metadatas.InputMetadata.UpdateCycle">
+            <summary>
+            缓存更新周期。
+            </summary>
+        </member>
+        <member name="P:EAS.Metadatas.InputMetadata.Columns">
+            <summary>
+            显示定义。
+            </summary>
+        </member>
+        <member name="P:EAS.Metadatas.InputMetadata.Filters">
+            <summary>
+            数据筛选器。
+            </summary>
+        </member>
+        <member name="P:EAS.Metadatas.InputMetadata.Conditions">
+            <summary>
+            条件定义。
+            </summary>
+        </member>
+        <member name="P:EAS.Metadatas.InputMetadata.InputColumn.Name">
+            <summary>
+            名称。
+            </summary>
+        </member>
+        <member name="P:EAS.Metadatas.InputMetadata.InputColumn.Caption">
+            <summary>
+            标题。
+            </summary>
+        </member>
+        <member name="P:EAS.Metadatas.InputMetadata.InputColumn.Visible">
+            <summary>
+            可见。
+            </summary>
+        </member>
+        <member name="P:EAS.Metadatas.InputMetadata.InputColumn.Width">
+            <summary>
+            宽度。
+            </summary>
+        </member>
+        <member name="P:EAS.Metadatas.InputMetadata.InputColumn.Index">
+            <summary>
+            索引。
+            </summary>
+        </member>
+        <member name="T:EAS.Metadatas.InputMetadata.FilterColumn">
+            <summary>
+            筛选列。
+            </summary>
+        </member>
+        <member name="M:EAS.Metadatas.InputMetadata.FilterColumn.#ctor">
+            <summary>
+            初始化FilterColumn对象实例。
+            </summary>
+        </member>
+        <member name="P:EAS.Metadatas.InputMetadata.FilterColumn.Name">
+            <summary>
+            名称。
+            </summary>
+        </member>
+        <member name="P:EAS.Metadatas.InputMetadata.FilterColumn.Enable">
+            <summary>
+            启用。
+            </summary>
+        </member>
+        <member name="P:EAS.Metadatas.InputMetadata.FilterColumn.Type">
+            <summary>
+            筛选器类型。
+            </summary>
+        </member>
+        <member name="P:EAS.Metadatas.InputMetadata.FilterColumn.Value">
+            <summary>
+            值。
+            </summary>
+        </member>
+        <member name="T:EAS.Metadatas.InputMetadata.ConditionColumn">
+            <summary>
+            检索每件。
+            </summary>
+        </member>
+        <member name="P:EAS.Metadatas.InputMetadata.ConditionColumn.Name">
+            <summary>
+            名称。
+            </summary>
+        </member>
+        <member name="P:EAS.Metadatas.InputMetadata.ConditionColumn.Enable">
+            <summary>
+            启用。
+            </summary>
+        </member>
+        <member name="P:EAS.Metadatas.InputMetadata.ConditionColumn.Type">
+            <summary>
+            条件类型。
+            </summary>
+        </member>
+    </members>
+</doc>

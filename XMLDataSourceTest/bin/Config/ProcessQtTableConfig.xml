@@ -1,0 +1,59 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table PROCESS_CODE="HRM" TABLE_CHINESE="2250热轧报告表" TABLE_NAME="HRM_L2_COILREPORTS">
+    <Column COLUMN_CHINESE="sd" COLUMN_NAME="COIL_ID" />
+    <Column COLUMN_CHINESE="sdd" COLUMN_NAME="SLAB_ID" />
+    <Column COLUMN_CHINESE="asda" COLUMN_NAME="STEELGRADE" />
+    <Column COLUMN_CHINESE="序号" COLUMN_NAME="HSM_NO" />
+    <Column COLUMN_CHINESE="fsff" COLUMN_NAME="ROLLED_TIME" />
+    <Column COLUMN_NAME="THK_MEAN" />
+    <Column COLUMN_NAME="THK_MAX" />
+    <Column COLUMN_NAME="THK_MIN" />
+    <Column COLUMN_NAME="THK_PCNT_ON" />
+    <Column COLUMN_NAME="THK_PCNT_OVER" />
+    <Column COLUMN_NAME="THK_PCNT_UNDER" />
+    <Column COLUMN_NAME="THK_STD" />
+    <Column COLUMN_NAME="WID_MEAN" />
+    <Column COLUMN_NAME="WID_MAX" />
+    <Column COLUMN_NAME="WID_MIN" />
+    <Column COLUMN_NAME="WID_PCNT_ON" />
+    <Column COLUMN_NAME="WID_PCNT_OVER" />
+    <Column COLUMN_NAME="WID_PCNT_UNDER" />
+    <Column COLUMN_NAME="WID_STD" />
+    <Column COLUMN_NAME="FDT_MEAN" />
+    <Column COLUMN_NAME="FDT_MAX" />
+    <Column COLUMN_NAME="FDT_MIN" />
+    <Column COLUMN_NAME="FDT_PCNT_ON" />
+    <Column COLUMN_NAME="FDT_PCNT_OVER" />
+    <Column COLUMN_NAME="FDT_PCNT_UNDER" />
+    <Column COLUMN_NAME="FDT_STD" />
+    <Column COLUMN_NAME="CT_MEAN" />
+    <Column COLUMN_NAME="CT_MAX" />
+    <Column COLUMN_NAME="CT_MIN" />
+    <Column COLUMN_NAME="CT_PCNT_ON" />
+    <Column COLUMN_NAME="CT_PCNT_OVER" />
+    <Column COLUMN_NAME="CT_PCNT_UNDER" />
+    <Column COLUMN_NAME="CT_STD" />
+    <Column COLUMN_NAME="PROF_MEAN" />
+    <Column COLUMN_NAME="PROF_MAX" />
+    <Column COLUMN_NAME="PROF_MIN" />
+    <Column COLUMN_NAME="PROF_PCNT_ON" />
+    <Column COLUMN_NAME="PROF_PCNT_OVER" />
+    <Column COLUMN_NAME="PROF_PCNT_UNDER" />
+    <Column COLUMN_NAME="PROF_STD" />
+    <Column COLUMN_NAME="WDG_MEAN" />
+    <Column COLUMN_NAME="WDG_MAX" />
+    <Column COLUMN_NAME="WDG_MIN" />
+    <Column COLUMN_NAME="WDG_PCNT_ON" />
+    <Column COLUMN_NAME="WDG_PCNT_OVER" />
+    <Column COLUMN_NAME="WDG_PCNT_UNDER" />
+    <Column COLUMN_NAME="WDG_STD" />
+    <Column COLUMN_NAME="COIL_LEN" />
+    <Column COLUMN_NAME="FLAT_MEAN" />
+    <Column COLUMN_NAME="FLAT_MAX" />
+    <Column COLUMN_NAME="FLAT_MIN" />
+    <Column COLUMN_NAME="FLAT_PCT_ON" />
+    <Column COLUMN_NAME="FLAT_PCT_OVER" />
+    <Column COLUMN_NAME="FLAT_PCT_UNDER" />
+  </Table>
+</NewDataSet>

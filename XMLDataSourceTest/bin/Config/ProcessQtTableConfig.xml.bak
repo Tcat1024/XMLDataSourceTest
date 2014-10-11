@@ -1,0 +1,47 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table PROCESS_CODE="MI" TABLE_NAME="CRM_AF_INFO">
+    <Column COLUMN_NAME="IN_MAT" />
+    <Column COLUMN_NAME="OUT_MAT" />
+    <Column COLUMN_NAME="STACK_ID" />
+    <Column COLUMN_NAME="COIL_POS" />
+    <Column COLUMN_NAME="ON_BASE" />
+    <Column COLUMN_NAME="ANNEALED" />
+    <Column COLUMN_NAME="BASE_ID" />
+    <Column COLUMN_NAME="CYCLE" />
+    <Column COLUMN_NAME="HHOOD_ID" />
+    <Column COLUMN_NAME="CHOOD_ID" />
+    <Column COLUMN_NAME="ICOVER_ID" />
+    <Column COLUMN_NAME="HEIGHT" />
+    <Column COLUMN_NAME="WEIGHT" />
+    <Column COLUMN_NAME="WIDTH" />
+    <Column COLUMN_NAME="OUTERDIAM" />
+    <Column COLUMN_NAME="INNERDIAM" />
+    <Column COLUMN_NAME="THICKNESS" />
+    <Column COLUMN_NAME="PRIORITY" />
+    <Column COLUMN_NAME="COMMENT_COUNT" />
+    <Column COLUMN_NAME="TRANSPORT_ID" />
+  </Table>
+  <Table PROCESS_CODE="MI" TABLE_NAME="CRM_AF_INFO">
+    <Column COLUMN_NAME="IN_MAT" />
+    <Column COLUMN_NAME="OUT_MAT" />
+    <Column COLUMN_NAME="STACK_ID" />
+    <Column COLUMN_NAME="COIL_POS" />
+    <Column COLUMN_NAME="ON_BASE" />
+    <Column COLUMN_NAME="ANNEALED" />
+    <Column COLUMN_NAME="BASE_ID" />
+    <Column COLUMN_NAME="CYCLE" />
+    <Column COLUMN_NAME="HHOOD_ID" />
+    <Column COLUMN_NAME="CHOOD_ID" />
+    <Column COLUMN_NAME="ICOVER_ID" />
+    <Column COLUMN_NAME="HEIGHT" />
+    <Column COLUMN_NAME="WEIGHT" />
+    <Column COLUMN_NAME="WIDTH" />
+    <Column COLUMN_NAME="OUTERDIAM" />
+    <Column COLUMN_NAME="INNERDIAM" />
+    <Column COLUMN_NAME="THICKNESS" />
+    <Column COLUMN_NAME="PRIORITY" />
+    <Column COLUMN_NAME="COMMENT_COUNT" />
+    <Column COLUMN_NAME="TRANSPORT_ID" />
+  </Table>
+</NewDataSet>
