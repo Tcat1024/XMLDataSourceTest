@@ -1,0 +1,10 @@
+[类型]:Error
+[线程]:9
+[内存]:2.07M
+[时间]:2014-10-14 10:57:30
+[内容]:未能启用约束。一行或多行中包含违反非空、唯一或外键约束的值。
+[来源]:QtDataTrace.Access
+[目标]:System.Collections.Generic.List`1[System.Data.DataSet] GetProcessQtTableConfig()
+[堆栈]:   在 QtDataTrace.Access.BaseTableService.GetProcessQtTableConfig() 位置 c:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\QtDataTrace.Access\BaseTableService.cs:行号 104
+
+

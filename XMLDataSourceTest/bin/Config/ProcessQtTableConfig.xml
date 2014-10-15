@@ -1,4 +1,4 @@
-<?xml version="1.0" standalone="yes"?>
+﻿<?xml version="1.0" standalone="yes"?>
 <NewDataSet>
   <Table PROCESS_CODE="HRM" TABLE_CHINESE="2250热轧报告表" TABLE_NAME="HRM_L2_COILREPORTS">
     <Column COLUMN_CHINESE="sd" COLUMN_NAME="COIL_ID" />

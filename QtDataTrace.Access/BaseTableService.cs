@@ -76,8 +76,8 @@ namespace QtDataTrace.Access
             try
             {
 
-                data[0].ReadXml(string.Format("{0}\\..\\Config\\ProcessQtTableConfig.xml", path));
                 data[0].ReadXmlSchema(string.Format("{0}\\..\\Config\\ProcessQtTableConfig.xsd", path));
+                data[0].ReadXml(string.Format("{0}\\..\\Config\\ProcessQtTableConfig.xml", path));
 
                 connection.Open();
 

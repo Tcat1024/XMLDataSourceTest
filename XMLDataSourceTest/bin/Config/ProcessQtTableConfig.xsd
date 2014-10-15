@@ -19,16 +19,13 @@
 						<xs:attribute name="TABLE_CHINESE" use="optional" type="xs:NCName"/>
 						<xs:attribute name="TABLE_NAME" use="required" type="xs:NCName"/>
 					</xs:complexType>
-					<xs:unique name="ColumnUnique">
-						<xs:selector xpath="Column"/>
-						<xs:field xpath="@COLUMN_NAME"/>
-					</xs:unique>
 				</xs:element>
 			</xs:sequence>
 		</xs:complexType>
 		<xs:unique name="TableUnique">
 			<xs:selector xpath="Table"/>
 			<xs:field xpath="@TABLE_NAME"/>
+			<xs:field xpath="@PROCESS_CODE"/>
 		</xs:unique>
 	</xs:element>
 </xs:schema>
