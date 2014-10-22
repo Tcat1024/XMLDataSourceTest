@@ -11,20 +11,31 @@
 									<xs:attribute name="COLUMN_CHINESE" use="optional" type="xs:NCName"/>
 									<xs:attribute name="COLUMN_NAME" use="required" type="xs:NCName"/>
 									<xs:attribute name="COLUMN_SEQ" use="optional" type="xs:integer"/>
+									<xs:attribute name="KEY">
+										<xs:simpleType>
+											<xs:restriction base="xs:NCName">
+												<xs:enumeration value="IN_MAT_ID"/>
+												<xs:enumeration value="OUT_MAT_ID"/>
+												<xs:enumeration value="PROCESS_CODE"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:attribute>
 								</xs:complexType>
 							</xs:element>
 						</xs:sequence>
+						<xs:attribute name="PROCESS_CHINESE" use="optional" type="xs:NCName"/>
 						<xs:attribute name="PROCESS_CODE" use="required" type="xs:NCName"/>
 						<xs:attribute name="PROCESS_SEQ" use="optional" type="xs:integer"/>
 						<xs:attribute name="TABLE_CHINESE" use="optional" type="xs:NCName"/>
 						<xs:attribute name="TABLE_NAME" use="required" type="xs:NCName"/>
 					</xs:complexType>
-					<xs:unique name="ColumnUnique">
-						<xs:selector xpath=".//Column"/>
-						<xs:field xpath="@COLUMN_NAME"/>
-					</xs:unique>
 				</xs:element>
 			</xs:sequence>
 		</xs:complexType>
+		<xs:unique name="TableUnique">
+			<xs:selector xpath="Table"/>
+			<xs:field xpath="@TABLE_NAME"/>
+			<xs:field xpath="@PROCESS_CODE"/>
+		</xs:unique>
 	</xs:element>
 </xs:schema>

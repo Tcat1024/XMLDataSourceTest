@@ -23,7 +23,13 @@ namespace XMLDataSourceTest
             {
                 myDataAnalysis = new QtDataTrace.UI.DataAnalysisStartUpAdv();
                 myDataAnalysis.Dock = DockStyle.Fill;
-                this.panelControl1.Controls.Add(myDataAnalysis);
+                this.xtraTabPage1.Controls.Add(myDataAnalysis);
+            }
+            if(myTableConfig==null)
+            {
+                myTableConfig = new QtDataTrace.UI.ProcessQtTableConfig();
+                myTableConfig.Dock = DockStyle.Fill;
+                this.xtraTabPage2.Controls.Add(myTableConfig);
             }
 
         }
