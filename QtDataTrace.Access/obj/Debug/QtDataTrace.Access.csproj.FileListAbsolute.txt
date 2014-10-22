@@ -1,8 +1,20 @@
 C:\Users\Tcat\Desktop\WorkSpace\Others\质量项目数据库查询\QtDataTrace\QtDataTrace.Access\obj\Debug\QtDataTrace.Access.csprojResolveAssemblyReference.cache
+C:\Users\Tcat\Desktop\WorkSpace\Others\质量项目数据库查询\QtDataTrace\QtDataTrace.Access\bin\Debug\QtDataTrace.Access.dll
+C:\Users\Tcat\Desktop\WorkSpace\Others\质量项目数据库查询\QtDataTrace\QtDataTrace.Access\bin\Debug\QtDataTrace.Access.pdb
+C:\Users\Tcat\Desktop\WorkSpace\Others\质量项目数据库查询\QtDataTrace\QtDataTrace.Access\bin\Debug\DuHisPic.dll
+C:\Users\Tcat\Desktop\WorkSpace\Others\质量项目数据库查询\QtDataTrace\QtDataTrace.Access\bin\Debug\EAS.MicroKernel.dll
+C:\Users\Tcat\Desktop\WorkSpace\Others\质量项目数据库查询\QtDataTrace\QtDataTrace.Access\bin\Debug\Expression.dll
+C:\Users\Tcat\Desktop\WorkSpace\Others\质量项目数据库查询\QtDataTrace\QtDataTrace.Access\bin\Debug\GenuineChannels.dll
+C:\Users\Tcat\Desktop\WorkSpace\Others\质量项目数据库查询\QtDataTrace\QtDataTrace.Access\bin\Debug\ICSharpCode.SharpZipLib.dll
+C:\Users\Tcat\Desktop\WorkSpace\Others\质量项目数据库查询\QtDataTrace\QtDataTrace.Access\bin\Debug\itextsharp.dll
+C:\Users\Tcat\Desktop\WorkSpace\Others\质量项目数据库查询\QtDataTrace\QtDataTrace.Access\bin\Debug\log4net.dll
+C:\Users\Tcat\Desktop\WorkSpace\Others\质量项目数据库查询\QtDataTrace\QtDataTrace.Access\bin\Debug\QtDataTrace.Interfaces.dll
+C:\Users\Tcat\Desktop\WorkSpace\Others\质量项目数据库查询\QtDataTrace\QtDataTrace.Access\bin\Debug\QtDataTrace.Interfaces.pdb
+C:\Users\Tcat\Desktop\WorkSpace\Others\质量项目数据库查询\QtDataTrace\QtDataTrace.Access\obj\Debug\QtDataTrace.Access.dll
+C:\Users\Tcat\Desktop\WorkSpace\Others\质量项目数据库查询\QtDataTrace\QtDataTrace.Access\obj\Debug\QtDataTrace.Access.pdb
 C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\QtDataTrace.Access\bin\Debug\QtDataTrace.Access.dll
 C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\QtDataTrace.Access\bin\Debug\QtDataTrace.Access.pdb
 C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\QtDataTrace.Access\bin\Debug\DuHisPic.dll
-C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\QtDataTrace.Access\bin\Debug\EAS.MicroKernel.dll
 C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\QtDataTrace.Access\bin\Debug\Expression.dll
 C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\QtDataTrace.Access\bin\Debug\GenuineChannels.dll
 C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\QtDataTrace.Access\bin\Debug\ICSharpCode.SharpZipLib.dll
@@ -13,3 +25,4 @@ C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\QtDataTrace.Access\bin
 C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\QtDataTrace.Access\obj\Debug\QtDataTrace.Access.csprojResolveAssemblyReference.cache
 C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\QtDataTrace.Access\obj\Debug\QtDataTrace.Access.dll
 C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\QtDataTrace.Access\obj\Debug\QtDataTrace.Access.pdb
+C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\QtDataTrace.Access\bin\Debug\EAS.MicroKernel.dll

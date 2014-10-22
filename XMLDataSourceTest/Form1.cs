@@ -15,22 +15,17 @@ namespace XMLDataSourceTest
         {
             InitializeComponent();
         }
-        QtDataTrace.UI.DataAnalysisStartUp myDataAnalysis;
+        QtDataTrace.UI.DataAnalysisStartUpAdv myDataAnalysis;
         QtDataTrace.UI.ProcessQtTableConfig myTableConfig;
         private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             if (myDataAnalysis == null)
             {
-                myDataAnalysis = new QtDataTrace.UI.DataAnalysisStartUp();
+                myDataAnalysis = new QtDataTrace.UI.DataAnalysisStartUpAdv();
                 myDataAnalysis.Dock = DockStyle.Fill;
-                this.xtraTabPage1.Controls.Add(myDataAnalysis);
+                this.panelControl1.Controls.Add(myDataAnalysis);
             }
-            if(myTableConfig==null)
-            {
-                myTableConfig = new QtDataTrace.UI.ProcessQtTableConfig();
-                myTableConfig.Dock = DockStyle.Fill;
-                this.xtraTabPage2.Controls.Add(myTableConfig);
-            }
+
         }
 
 

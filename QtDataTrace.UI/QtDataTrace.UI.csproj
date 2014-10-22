@@ -44,9 +44,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\Library\Charts.dll</HintPath>
     </Reference>
-    <Reference Include="CPKtool">
-      <HintPath>..\..\..\Library\CPKtool.dll</HintPath>
-    </Reference>
     <Reference Include="DevExpress.Charts.v13.2.Core, Version=13.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.CodeParser.v13.2, Version=13.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Data.v13.2, Version=13.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
@@ -72,6 +69,7 @@
     <Reference Include="DevExpress.XtraRichEdit.v13.2, Version=13.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraTreeList.v13.2, Version=13.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraVerticalGrid.v13.2, Version=13.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraWizard.v13.2, Version=13.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="EAS.Data, Version=5.0.0.0, Culture=neutral, PublicKeyToken=a550803c4cd9dbb5, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\agileeas.net.5.2\bin\dotnet\EAS.Data.dll</HintPath>
@@ -93,6 +91,18 @@
     </Reference>
     <Reference Include="QtDataTrace.Data">
       <HintPath>..\QtDataTrace.Data\obj\Debug\QtDataTrace.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="SPC.Base, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Library\SPC.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="SPC.CPKtool, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Library\SPC.CPKtool.dll</HintPath>
+    </Reference>
+    <Reference Include="SPC.Monitor, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Library\SPC.Monitor.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -116,11 +126,17 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataAnalysisStartUp.cs">
+    <Compile Include="CpkModule.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="DataAnalysisStartUp.designer.cs">
-      <DependentUpon>DataAnalysisStartUp.cs</DependentUpon>
+    <Compile Include="CpkModule.designer.cs">
+      <DependentUpon>CpkModule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataAnalysisStartUpAdv.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DataAnalysisStartUpAdv.designer.cs">
+      <DependentUpon>DataAnalysisStartUpAdv.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -139,6 +155,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="SpcModule.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SpcModule.designer.cs">
+      <DependentUpon>SpcModule.cs</DependentUpon>
+    </Compile>
     <Compile Include="TriStateTreeView.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -147,8 +169,11 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="DataAnalysisStartUp.resx">
-      <DependentUpon>DataAnalysisStartUp.cs</DependentUpon>
+    <EmbeddedResource Include="CpkModule.resx">
+      <DependentUpon>CpkModule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataAnalysisStartUpAdv.resx">
+      <DependentUpon>DataAnalysisStartUpAdv.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="ProcessQtTableConfig.resx">
@@ -159,18 +184,15 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="SpcModule.resx">
+      <DependentUpon>SpcModule.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TriStateTreeView.resx">
       <DependentUpon>TriStateTreeView.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\QtDataTrace.Interfaces\QtDataTrace.Interfaces.csproj">
-      <Project>{41ecbe03-933e-41d6-a1c6-eb7b20ee46bd}</Project>
-      <Name>QtDataTrace.Interfaces</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\DataSources\QtDataTrace.Entities.HRM_L2_PDI.datasource" />
@@ -205,7 +227,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Resources\Zoomout.bmp" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\QtDataTrace.Interfaces\QtDataTrace.Interfaces.csproj">
+      <Project>{41ecbe03-933e-41d6-a1c6-eb7b20ee46bd}</Project>
+      <Name>QtDataTrace.Interfaces</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

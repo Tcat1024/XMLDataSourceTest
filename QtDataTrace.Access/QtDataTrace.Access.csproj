@@ -77,10 +77,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseTableService.cs" />
+    <Compile Include="HiResTimer.cs" />
+    <Compile Include="PersistentService.cs" />
+    <Compile Include="QtDataTraceService.cs" />
+    <Compile Include="SingleQtTable.cs" />
     <Compile Include="ConnectionString.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SingleQtTable.cs" />
     <Compile Include="SingleQtTableLY210.cs" />
+    <Compile Include="SingleQtTableLY2250.cs" />
+    <Compile Include="SingleQtTableLYCRM.cs" />
     <Compile Include="SingleQtTableService.cs" />
   </ItemGroup>
   <ItemGroup>

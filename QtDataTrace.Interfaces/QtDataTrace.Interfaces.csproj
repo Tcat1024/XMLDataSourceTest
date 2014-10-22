@@ -54,12 +54,54 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BOFHeatInfo.cs" />
+    <Compile Include="CAcqLocation.cs" />
+    <Compile Include="CastInfo.cs" />
+    <Compile Include="CCHeatInfo.cs" />
+    <Compile Include="CDevice.cs" />
+    <Compile Include="CoilDefect.cs" />
+    <Compile Include="CoilSurfaceDefect.cs" />
+    <Compile Include="CPoint.cs" />
+    <Compile Include="CRMCoilInfo.cs" />
+    <Compile Include="EquipmentInfo.cs" />
+    <Compile Include="HotCoilInfo.cs" />
+    <Compile Include="HotCoilInfoVama.cs" />
+    <Compile Include="HotCoilInfoVamaCal.cs" />
+    <Compile Include="HrmCoilSetup.cs" />
+    <Compile Include="HrmCTCSetup.cs" />
+    <Compile Include="HrmPdi.cs" />
     <Compile Include="IBaseTableService.cs" />
+    <Compile Include="IHistorainDataTrace.cs" />
+    <Compile Include="IIoDataProvider.cs" />
+    <Compile Include="IIoManager.cs" />
+    <Compile Include="IKeepAlive.cs" />
+    <Compile Include="IoConfig.cs" />
+    <Compile Include="IoDataMessage.cs" />
+    <Compile Include="IQtDataTraceServer.cs" />
+    <Compile Include="IQtDataTraceServerManager.cs" />
+    <Compile Include="IQtDataTraceService.cs" />
     <Compile Include="ISingleQtTableService.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="KRHeatInfo.cs" />
+    <Compile Include="LFHeatInfo.cs" />
+    <Compile Include="LYQ2250.cs" />
+    <Compile Include="Material.cs" />
+    <Compile Include="MaterialTracking.cs" />
+    <Compile Include="MIHeatInfo.cs" />
+    <Compile Include="Module.cs" />
+    <Compile Include="PersistentAttribute.cs" />
     <Compile Include="QtDataSourceConfig.cs" />
     <Compile Include="QtDataTableColumnConfig.cs" />
     <Compile Include="QtDataTableConfig.cs" />
+    <Compile Include="QualityCurve.cs" />
+    <Compile Include="QueryArgs.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="CPointConfig.cs" />
+    <Compile Include="RHHeatInfo.cs" />
+    <Compile Include="Signal.cs" />
+    <Compile Include="SignalId.cs" />
+    <Compile Include="SignalRequest.cs" />
+    <Compile Include="TimeRange.cs" />
+    <Compile Include="Workshop.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Service\" />
