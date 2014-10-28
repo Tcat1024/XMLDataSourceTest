@@ -10,3 +10,4 @@ C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\QtDataTrace.Interfaces
 C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\QtDataTrace.Interfaces\bin\Debug\GenuineChannels.dll
 C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\QtDataTrace.Interfaces\obj\Debug\QtDataTrace.Interfaces.dll
 C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\QtDataTrace.Interfaces\obj\Debug\QtDataTrace.Interfaces.pdb
+C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\QtDataTrace.Interfaces\obj\Debug\QtDataTrace.Interfaces.csprojResolveAssemblyReference.cache

@@ -22,8 +22,7 @@ namespace QtDataTrace.UI
         public ProcessQtTableConfig()
         {
             InitializeComponent();
-            ToolStripControlHost host1 = new ToolStripControlHost(this.dropDownButton1);
-            this.bindingNavigator1.Items.Insert(10, host1);
+            this.bindingNavigator1.Items.Insert(10, new ToolStripControlHost(this.dropDownButton1));
             this.dropDownButton1.Visible = true;
         }
 
@@ -166,8 +165,126 @@ namespace QtDataTrace.UI
                 row.DataView.AddNew();
         }
 
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            var view = (this.gridControl1.FocusedView as DevExpress.XtraGrid.Views.Grid.GridView);
+            var selects = view.GetSelectedRows();
+            if (selects.Length > 0 && view.GetDataRow(selects[selects.Length - 1] + 1) != null)
+            {
+                for (int i = selects.Length - 1; i >= 0; i--)
+                {
+                    InsertAfterRow(view.GetDataRow(selects[i]), view.GetDataRow(selects[i] + 1), data[0].Tables[view.Name == "gridView1" ? 0 : 1]);
+                }
 
+                view.SelectRows(selects[0] + 1, selects[selects.Length - 1] + 1);
+                view.FocusedRowHandle = selects[0] + 1;
+            }
+        }
 
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            var view = (this.gridControl1.FocusedView as DevExpress.XtraGrid.Views.Grid.GridView);
+            var selects = view.GetSelectedRows();
+            if (selects.Length > 0 && selects[0] > 0)
+            {
+                foreach (var select in selects)
+                {
+                    InsertBeforeRow(view.GetDataRow(select), view.GetDataRow(select - 1), data[0].Tables[view.Name == "gridView1" ? 0 : 1]);
+
+                }
+
+                view.SelectRows(selects[0] - 1, selects[selects.Length - 1] - 1);
+                view.FocusedRowHandle = selects[0] - 1;
+            }
+        }
+        private void InsertBeforeRow(DataRow row, DataRow tar, DataTable table)
+        {
+            var temp = table.NewRow();
+            var indext = table.Rows.IndexOf(tar);
+            table.BeginLoadData();
+            for (int i = 0; i < row.ItemArray.Length; i++)
+            {
+                temp[i] = row[i];
+            }
+            table.Rows.InsertAt(temp, indext);
+            for (int i = 0; i < table.ChildRelations.Count; i++)
+            {
+                foreach (var child in row.GetChildRows(table.ChildRelations[i]))
+                {
+                    child.SetParentRow(temp,table.ChildRelations[i]);
+                }
+            }
+            for (int i = 0; i < table.ParentRelations.Count; i++)
+            {
+                foreach (var parent in row.GetParentRows(table.ParentRelations[i]))
+                {
+                    temp.SetParentRow(parent, table.ParentRelations[i]);
+                }
+            }
+            table.Rows.Remove(row);
+
+            table.EndLoadData();
+        }
+        private void InsertAfterRow(DataRow row, DataRow tar, DataTable table)
+        {
+            var temp = table.NewRow();
+            var indext = table.Rows.IndexOf(tar)+1;
+            table.BeginLoadData();
+            for (int i = 0; i < row.ItemArray.Length; i++)
+            {
+                temp[i] = row[i];
+            }
+            table.Rows.InsertAt(temp, indext);
+            for (int i = 0; i < table.ChildRelations.Count; i++)
+            {
+                foreach (var child in row.GetChildRows(table.ChildRelations[i]))
+                {
+                    child.SetParentRow(temp, table.ChildRelations[i]);
+                }
+            }
+            for (int i = 0; i < table.ParentRelations.Count; i++)
+            {
+                foreach (var parent in row.GetParentRows(table.ParentRelations[i]))
+                {
+                    temp.SetParentRow(parent, table.ParentRelations[i]);
+                }
+            }
+            table.Rows.Remove(row);
+
+            table.EndLoadData();
+        }
+
+        private void toolStripButton3_Click(object sender, EventArgs e)
+        {
+            var view = (this.gridControl1.FocusedView as DevExpress.XtraGrid.Views.Grid.GridView);
+            var selects = view.GetSelectedRows();
+            if (selects.Length > 0)
+            {
+                for (int i = 0; i < selects.Length; i++)
+                {
+                    InsertAfterRow(view.GetDataRow(selects[i]-i), view.GetDataRow(view.DataRowCount-1), data[0].Tables[view.Name == "gridView1" ? 0 : 1]);
+                }
+                view.MoveLast();
+                view.SelectRows(view.DataRowCount - selects.Length, view.DataRowCount - 1);
+
+            }
+        }
+
+        private void toolStripButton4_Click(object sender, EventArgs e)
+        {
+            var view = (this.gridControl1.FocusedView as DevExpress.XtraGrid.Views.Grid.GridView);
+            var selects = view.GetSelectedRows();
+            if (selects.Length > 0)
+            {
+                for (int i = 0; i <selects.Length; i++)
+                {
+                    InsertBeforeRow(view.GetDataRow(selects[i]), view.GetDataRow(i), data[0].Tables[view.Name == "gridView1" ? 0 : 1]);
+                }
+                view.MoveFirst();
+                view.SelectRows(0, selects.Length - 1);
+
+            }
+        }
 
 
 

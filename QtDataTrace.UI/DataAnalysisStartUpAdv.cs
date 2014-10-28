@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using EAS.Services;
 using EAS.Modularization;
 using QtDataTrace.Interfaces;
+using System.Threading;
 
 namespace QtDataTrace.UI
 {
@@ -30,19 +31,22 @@ namespace QtDataTrace.UI
             }
             private set
             {
-                this._processNo = value;
-                //try
-                //{
-                InitTreeList();
-                //}
-                //catch (Exception ex)
-                //{
-                //    MessageBox.Show(ex.Message);
-                //}
-                //finally
-                //{
-                //    this.triStateTreeView1.EndUpdate();
-                //}
+                if (this._processNo != value)
+                {
+                    this._processNo = value;
+                    //try
+                    //{
+                        InitTreeList();
+                    //}
+                    //catch (Exception ex)
+                    //{
+                    //    MessageBox.Show(ex.Message);
+                    //}
+                    //finally
+                    //{
+                    //    this.triStateTreeView1.EndUpdate();
+                    //}
+                }
             }
         }
         private string _processName;
@@ -57,6 +61,7 @@ namespace QtDataTrace.UI
                 this._processName = value;
             }
         }
+        public string ProcessSEQ { get; set; }
         public DataAnalysisStartUpAdv()
         {
             InitializeComponent();
@@ -98,47 +103,82 @@ namespace QtDataTrace.UI
         {
             this.triStateTreeView1.BeginUpdate();
             this.triStateTreeView1.Nodes.Clear();
-            var rootNode = new TreeNode() { Name = this.ProcessNo, Text = this.ProcessName, ForeColor = Color.Red };
-            this.triStateTreeView1.Nodes.Add(rootNode);
-            var temptable = this.processData.Tables[0];
-            for (int i = 0; i < temptable.Rows.Count; i++)
+            var root = this.configFile.Tables["Table"].Select("PROCESS_CODE ='" + this.ProcessNo+"'");
+            TreeNode rootNode = null;
+            if (root.Count() > 0)
             {
-                TreeNode processNode;
-                string tempno;
-                string tempname;
-                if (temptable.Rows[i]["PROCESS_NO"].ToString() != this.ProcessNo)
-                {
-                    tempno = temptable.Rows[i]["PROCESS_NO"].ToString();
-                    tempname = temptable.Rows[i]["PROC_COMMENTS"].ToString();
-                    processNode = this.triStateTreeView1.Nodes.Add(tempno, tempname);
-                }
+                rootNode = this.triStateTreeView1.Nodes.Add(root.FirstOrDefault()["PROCESS_SEQ"].ToString(), root.FirstOrDefault()["PROCESS_CHINESE"].ToString());
+                rootNode.ForeColor = Color.Red;
+                this.ProcessSEQ = rootNode.Name;
+                this.btnBackQrace.Enabled = true;
+                this.btnPreQtrace.Enabled = true;
+            }
+            else
+            {
+                this.ProcessSEQ = "";
+                this.btnBackQrace.Enabled = false;
+                this.btnPreQtrace.Enabled = false;
+            }
+            foreach (var temprow in (from r in this.configFile.Tables["Table"].AsEnumerable() orderby r["PROCESS_SEQ"] group r by r["PROCESS_CHINESE"] into g select g.FirstOrDefault()))
+            {
+                TreeNode processnode;
+                if (rootNode != null && temprow["PROCESS_CHINESE"].ToString() == rootNode.Text)
+                    processnode = rootNode;
                 else
+                    processnode = this.triStateTreeView1.Nodes.Add(temprow["PROCESS_SEQ"].ToString(), temprow["PROCESS_CHINESE"].ToString());
+                var tables = from r in this.configFile.Tables["Table"].AsEnumerable() where r["PROCESS_CHINESE"].ToString() == processnode.Text group r by r["TABLE_CHINESE"] into g select g.FirstOrDefault()["TABLE_CHINESE"];
+                for (int i = 0; i < tables.Count(); i++)
                 {
-                    tempno = this.ProcessNo;
-                    tempname = this.ProcessName;
-                    processNode = rootNode;
-                }
-                configFileView.RowFilter = "PROCESS_CODE = '" + tempno + "'";
-                for (int j = 0; j < configFileView.Count; j++)
-                {
-                    string e = configFileView[j]["TABLE_NAME"].ToString();
-                    string c = configFileView[j]["TABLE_CHINESE"].ToString();
-                    if (c == null || c.Trim() == "")
-                        c = e;
-                    var tablenode = processNode.Nodes.Add(e, c);
-                    foreach (var column in configFileView[j].Row.GetChildRows("Table_Column"))
+                    var tablenode = processnode.Nodes.Add(tables.ElementAt(i).ToString());
+                    var columns = from r in this.configFile.Tables["Column"].AsEnumerable() where r.GetParentRow("Table_Column")["TABLE_CHINESE"].ToString() == tablenode.Text group r by r["COLUMN_CHINESE"].ToString() == "" ? r["COLUMN_NAME"] : r["COLUMN_CHINESE"]  into g select g.FirstOrDefault();
+                    foreach (var column in columns)
                     {
-                        string ee = column["COLUMN_NAME"].ToString();
-                        string cc = column["COLUMN_CHINESE"].ToString();
-                        if (cc.Trim() == "")
-                            cc = ee;
-                        tablenode.Nodes.Add(ee, cc);
+                        var s = column["COLUMN_CHINESE"].ToString();
+                        tablenode.Nodes.Add(s==""?column["COLUMN_NAME"].ToString():s);
                     }
                 }
             }
+            //this.triStateTreeView1.Nodes.Add(rootNode);
+            //var temptable = this.processData.Tables[0];
+            //for (int i = 0; i < temptable.Rows.Count; i++)
+            //{
+            //    TreeNode processNode;
+            //    string tempno;
+            //    string tempname;
+            //    if (temptable.Rows[i]["PROCESS_NO"].ToString() != this.ProcessNo)
+            //    {
+            //        tempno = temptable.Rows[i]["PROCESS_NO"].ToString();
+            //        tempname = temptable.Rows[i]["PROC_COMMENTS"].ToString();
+            //        processNode = this.triStateTreeView1.Nodes.Add(tempno, tempname);
+            //    }
+            //    else
+            //    {
+            //        tempno = this.ProcessNo;
+            //        tempname = this.ProcessName;
+            //        processNode = rootNode;
+            //    }
+            //    configFileView.RowFilter = "PROCESS_CODE = '" + tempno + "'";
+            //    for (int j = 0; j < configFileView.Count; j++)
+            //    {
+            //        string e = configFileView[j]["TABLE_NAME"].ToString();
+            //        string c = configFileView[j]["TABLE_CHINESE"].ToString();
+            //        if (c == null || c.Trim() == "")
+            //            c = e;
+            //        var tablenode = processNode.Nodes.Add(e, c);
+            //        foreach (var column in configFileView[j].Row.GetChildRows("Table_Column"))
+            //        {
+            //            string ee = column["COLUMN_NAME"].ToString();
+            //            string cc = column["COLUMN_CHINESE"].ToString();
+            //            if (cc.Trim() == "")
+            //                cc = ee;
+            //            tablenode.Nodes.Add(ee, cc);
+            //        }
+            //    }
+            //}
             this.triStateTreeView1.EndUpdate();
             this.triStateTreeView1.Refresh();
-            rootNode.Expand();
+            if(rootNode!=null)
+                rootNode.Expand();
         }
         private void btnQuery_Click(object sender, EventArgs e)
         {
@@ -279,12 +319,7 @@ namespace QtDataTrace.UI
             //EAS.Application.Instance.OpenModule(module);
 
         }
-
-        private void btnTraceQuery_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-
-        }
-
+        /*
         private void btnQuickQuery_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             //Object obj = lookUpEdit1.GetColumnValue("PROCESS_NO");
@@ -337,7 +372,7 @@ namespace QtDataTrace.UI
             gridControl1.DataSource = data.Tables[0];
             setGraphEnable(true);
         }
-
+        */
         private void btnCPK_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             if (data == null)
@@ -439,5 +474,157 @@ namespace QtDataTrace.UI
                 (btn as DevExpress.XtraBars.BarItemLink).Item.Enabled = t;
             }
         }
+        private void setTraceEnable(bool t)
+        {
+            foreach (var btn in this.bar2.ItemLinks)
+            {
+                (btn as DevExpress.XtraBars.BarItemLink).Item.Enabled = t;
+            }
+        }
+        private void btnBackQrace_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (this.ProcessSEQ == null || this.ProcessSEQ.Trim() == "")
+            {
+                MessageBox.Show("所选工序不符合追溯条件");
+                return;
+            }
+            List<QtDataProcessConfig> processes = new List<QtDataProcessConfig>();
+            bool hasdata = false;
+            foreach (TreeNode processnode in this.triStateTreeView1.Nodes)
+            {
+                if (int.Parse(processnode.Name) >= int.Parse(this.ProcessSEQ)&&processnode.Checked!=false)
+                {
+                    var process = new QtDataProcessConfig() { ChineseName = processnode.Text };
+                    processes.Add(process);
+                    for (int i = 0; i < processnode.Nodes.Count; i++)
+                    {
+                        var tablenode = processnode.Nodes[i];
+                        if (tablenode.Checked)
+                        {
+                            var table = new QtDataTableConfig() { ChineseName = tablenode.Text };
+                            process.Tables.Add(table);
+                            for (int j = 0; j < tablenode.Nodes.Count; j++)
+                            {
+                                var columnnode = tablenode.Nodes[j];
+                                if (columnnode.Checked)
+                                {
+                                    table.Columns.Add(new QtDataTableColumnConfig() { ChineseName = columnnode.Text });
+                                    if (!hasdata)
+                                        hasdata = true;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            var idlist = this.getIdList();
+            if (!hasdata||idlist.Count<=0)
+            {
+                MessageBox.Show("没有选择数据");
+                return;
+            }
+            setGraphEnable(false);
+            setTraceEnable(false);
+            this.progressPanel1.Visible = true;
+            Thread backtrace = new Thread(traceThreadMethod) { IsBackground = true};
+            backtrace.Start(new TraceThreadDataType(processes, idlist,true));
+
+        }
+        private delegate void traceCallBackType();
+        private void traceCallBack()
+        {
+            this.gridView1.Columns.Clear();
+            gridControl1.DataSource = data.Tables[0];
+            setGraphEnable(true);
+            setTraceEnable(true);
+            this.progressPanel1.Visible = false;
+        }
+        private void traceThreadMethod(object tracedata)
+        {
+            var datatype = tracedata as TraceThreadDataType;
+            data = ServiceContainer.GetService<IQtDataTraceService>().DataTrace(this.ProcessNo, datatype.idlist, datatype.processes,datatype.back);
+            traceCallBackType callback = new traceCallBackType(traceCallBack);
+            this.Invoke(callback);
+        }
+        private class TraceThreadDataType
+        {
+            public List<QtDataProcessConfig> processes;
+            public List<string> idlist;
+            public bool back;
+            public TraceThreadDataType(List<QtDataProcessConfig> p,List<string> i,bool n)
+            {
+                this.processes = p;
+                this.idlist = i;
+                this.back = n;
+            }
+        }
+        private List<string> getIdList()
+        {
+            List<string> result = new List<string>();
+            var da = (this.materialBindingSource.DataSource as IList<MaterialInfo>);
+            for(int i = 0;i<da.Count;i++)
+            {
+                if (da[i].choose)
+                    result.Add(da[i].OutId);
+            }
+            return result;
+        }
+
+        private void btnPreQtrace_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+
+            if (this.ProcessSEQ == null || this.ProcessSEQ.Trim() == "")
+            {
+                MessageBox.Show("所选工序不符合追溯条件");
+                return;
+            }
+            List<QtDataProcessConfig> processes = new List<QtDataProcessConfig>();
+            bool hasdata = false;
+            foreach (TreeNode processnode in this.triStateTreeView1.Nodes)
+            {
+                if (int.Parse(processnode.Name) <= int.Parse(this.ProcessSEQ) && processnode.Checked != false)
+                {
+                    var process = new QtDataProcessConfig() { ChineseName = processnode.Text };
+                    processes.Add(process);
+                    for (int i = 0; i < processnode.Nodes.Count; i++)
+                    {
+                        var tablenode = processnode.Nodes[i];
+                        if (tablenode.Checked)
+                        {
+                            var table = new QtDataTableConfig() { ChineseName = tablenode.Text };
+                            process.Tables.Add(table);
+                            for (int j = 0; j < tablenode.Nodes.Count; j++)
+                            {
+                                var columnnode = tablenode.Nodes[j];
+                                if (columnnode.Checked)
+                                {
+                                    table.Columns.Add(new QtDataTableColumnConfig() { ChineseName = columnnode.Text });
+                                    if (!hasdata)
+                                        hasdata = true;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            var idlist = this.getIdList();
+            if (!hasdata || idlist.Count <= 0)
+            {
+                MessageBox.Show("没有选择数据");
+                return;
+            }
+
+            setGraphEnable(false);
+            setTraceEnable(false);
+            this.progressPanel1.Visible = true;
+            Thread backtrace = new Thread(traceThreadMethod) { IsBackground = true };
+            backtrace.Start(new TraceThreadDataType(processes, idlist, false));
+        }
+
+        private void gridControl1_ClientSizeChanged(object sender, EventArgs e)
+        {
+            this.progressPanel1.Location = new Point(gridControl1.Location.X + gridControl1.Width / 2 - this.progressPanel1.Width / 2, gridControl1.Location.Y + gridControl1.Height / 2 - this.progressPanel1.Height / 2);
+        }
+
     }
 }

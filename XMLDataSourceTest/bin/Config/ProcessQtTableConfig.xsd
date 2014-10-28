@@ -10,7 +10,6 @@
 								<xs:complexType>
 									<xs:attribute name="COLUMN_CHINESE" use="optional" type="xs:NCName"/>
 									<xs:attribute name="COLUMN_NAME" use="required" type="xs:NCName"/>
-									<xs:attribute name="COLUMN_SEQ" use="optional" type="xs:integer"/>
 									<xs:attribute name="KEY">
 										<xs:simpleType>
 											<xs:restriction base="xs:NCName">

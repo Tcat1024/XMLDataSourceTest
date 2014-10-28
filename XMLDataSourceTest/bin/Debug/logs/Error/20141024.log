@@ -1,0 +1,12 @@
+[类型]:Error
+[线程]:10
+[内存]:3.83M
+[时间]:2014-10-24 17:16:13
+[内容]:未指定的错误
+ORA-01000: maximum open cursors exceeded
+[来源]:Microsoft OLE DB Provider for Oracle
+[目标]:System.Data.DataTable Start()
+[堆栈]:   在 QtDataTrace.Access.QtDataTraceService.NextTraceFactory.Start() 位置 c:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\QtDataTrace.Access\QtDataTraceService.cs:行号 802
+   在 QtDataTrace.Access.QtDataTraceService.NextTrace(String processNo, IList`1 iDList, IList`1 processes) 位置 c:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\QtDataTrace.Access\QtDataTraceService.cs:行号 748
+
+

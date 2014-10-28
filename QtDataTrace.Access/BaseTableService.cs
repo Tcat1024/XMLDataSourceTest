@@ -346,12 +346,15 @@ namespace QtDataTrace.Access
 
                 sql = "select TABLE_NAME from user_tables order by table_name";
                 adapter = new OleDbDataAdapter(sql, connection);
-                adapter.MissingSchemaAction = MissingSchemaAction.AddWithKey;
                 adapter.Fill(data[1], "USER_TABLES");
-
-                sql = "select COLUMN_NAME,TABLE_NAME from USER_TAB_COLUMNS";
+                sql = "select VIEW_NAME \"TABLE_NAME\" from user_views order by VIEW_NAME";
                 adapter = new OleDbDataAdapter(sql, connection);
-                adapter.MissingSchemaAction = MissingSchemaAction.AddWithKey;
+                DataTable viewtemp = new DataTable();
+                adapter.Fill(data[1], "USER_TABLES");
+                adapter.Fill(viewtemp);
+
+                sql = "select COLUMN_NAME,TABLE_NAME from USER_TAB_COLs";
+                adapter = new OleDbDataAdapter(sql, connection);
                 adapter.Fill(data[1], "USER_TAB_COLUMNS");
             }
             catch (Exception ex)

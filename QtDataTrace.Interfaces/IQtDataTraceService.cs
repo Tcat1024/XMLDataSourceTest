@@ -12,5 +12,7 @@ namespace QtDataTrace.Interfaces
         IList<MaterialInfo> GetMaterialPedigree(string matId);
 
         DataSet GetQtData(QueryArgs arg, QtDataTableConfig table);
+
+        DataSet DataTrace(String processNo,IList<string> IDList, IList<QtDataProcessConfig> processes,bool back);
     }
 }

@@ -1,6 +1,6 @@
-﻿<?xml version="1.0" standalone="yes"?>
+<?xml version="1.0" standalone="yes"?>
 <NewDataSet>
-  <Table PROCESS_CHINESE="热轧" PROCESS_CODE="HRM" TABLE_CHINESE="热轧质量报告" TABLE_NAME="HRM_L2_COILREPORTS">
+  <Table PROCESS_CHINESE="热轧" PROCESS_CODE="HRM" PROCESS_SEQ="5" TABLE_CHINESE="热轧质量报告" TABLE_NAME="HRM_L2_COILREPORTS">
     <Column COLUMN_CHINESE="钢卷号" COLUMN_NAME="COIL_ID" KEY="OUT_MAT_ID" />
     <Column COLUMN_CHINESE="板坯号" COLUMN_NAME="SLAB_ID" KEY="IN_MAT_ID" />
     <Column COLUMN_CHINESE="钢种" COLUMN_NAME="STEELGRADE" />
@@ -55,185 +55,9 @@
     <Column COLUMN_CHINESE="平直度超上限" COLUMN_NAME="FLAT_PCT_OVER" />
     <Column COLUMN_NAME="FLAT_PCT_UNDER" />
   </Table>
-  <Table PROCESS_CHINESE="BOF" PROCESS_CODE="BOF" TABLE_CHINESE="转炉元素含量" TABLE_NAME="SM_ELEM_ANA">
+  <Table PROCESS_CHINESE="BOF" PROCESS_CODE="BOF" PROCESS_SEQ="1" TABLE_CHINESE="转炉质量报告" TABLE_NAME="SM_BOF_HEAT">
     <Column COLUMN_NAME="DEVICE_NO" />
-    <Column COLUMN_NAME="STATION" />
-    <Column COLUMN_NAME="HEAT_ID" />
-    <Column COLUMN_NAME="IRON_ID" />
-    <Column COLUMN_NAME="SAMPLETIME" />
-    <Column COLUMN_NAME="SAMPLE_NUMBER" />
-    <Column COLUMN_NAME="SAMPLE_ID" />
-    <Column COLUMN_NAME="ELE_ALS" />
-    <Column COLUMN_NAME="ELE_ALT" />
-    <Column COLUMN_NAME="ELE_AS" />
-    <Column COLUMN_NAME="ELE_B" />
-    <Column COLUMN_NAME="ELE_BI" />
-    <Column COLUMN_NAME="ELE_C" />
-    <Column COLUMN_NAME="ELE_CA" />
-    <Column COLUMN_NAME="ELE_CE" />
-    <Column COLUMN_NAME="ELE_CEQ" />
-    <Column COLUMN_NAME="ELE_CO" />
-    <Column COLUMN_NAME="ELE_CR" />
-    <Column COLUMN_NAME="ELE_CU" />
-    <Column COLUMN_NAME="ELE_H" />
-    <Column COLUMN_NAME="ELE_MG" />
-    <Column COLUMN_NAME="ELE_MN" />
-    <Column COLUMN_NAME="ELE_MO" />
-    <Column COLUMN_NAME="ELE_N" />
-    <Column COLUMN_NAME="ELE_NB" />
-    <Column COLUMN_NAME="ELE_NI" />
-    <Column COLUMN_NAME="ELE_O" />
-    <Column COLUMN_NAME="ELE_P" />
-    <Column COLUMN_NAME="ELE_PB" />
-    <Column COLUMN_NAME="ELE_RE" />
-    <Column COLUMN_NAME="ELE_S" />
-    <Column COLUMN_NAME="ELE_SB" />
-    <Column COLUMN_NAME="ELE_SE" />
-    <Column COLUMN_NAME="ELE_SI" />
-    <Column COLUMN_NAME="ELE_SN" />
-    <Column COLUMN_NAME="ELE_TA" />
-    <Column COLUMN_NAME="ELE_TE" />
-    <Column COLUMN_NAME="ELE_TI" />
-    <Column COLUMN_NAME="ELE_V" />
-    <Column COLUMN_NAME="ELE_W" />
-    <Column COLUMN_NAME="ELE_ZN" />
-    <Column COLUMN_NAME="ELE_ZR" />
-  </Table>
-  <Table PROCESS_CHINESE="LF" PROCESS_CODE="LF" TABLE_CHINESE="LF炉元素含量" TABLE_NAME="SM_ELEM_ANA">
-    <Column COLUMN_NAME="DEVICE_NO" />
-    <Column COLUMN_NAME="STATION" />
-    <Column COLUMN_NAME="HEAT_ID" />
-    <Column COLUMN_NAME="IRON_ID" />
-    <Column COLUMN_NAME="SAMPLETIME" />
-    <Column COLUMN_NAME="SAMPLE_NUMBER" />
-    <Column COLUMN_NAME="SAMPLE_ID" />
-    <Column COLUMN_NAME="ELE_ALS" />
-    <Column COLUMN_NAME="ELE_ALT" />
-    <Column COLUMN_NAME="ELE_AS" />
-    <Column COLUMN_NAME="ELE_B" />
-    <Column COLUMN_NAME="ELE_BI" />
-    <Column COLUMN_NAME="ELE_C" />
-    <Column COLUMN_NAME="ELE_CA" />
-    <Column COLUMN_NAME="ELE_CE" />
-    <Column COLUMN_NAME="ELE_CEQ" />
-    <Column COLUMN_NAME="ELE_CO" />
-    <Column COLUMN_NAME="ELE_CR" />
-    <Column COLUMN_NAME="ELE_CU" />
-    <Column COLUMN_NAME="ELE_H" />
-    <Column COLUMN_NAME="ELE_MG" />
-    <Column COLUMN_NAME="ELE_MN" />
-    <Column COLUMN_NAME="ELE_MO" />
-    <Column COLUMN_NAME="ELE_N" />
-    <Column COLUMN_NAME="ELE_NB" />
-    <Column COLUMN_NAME="ELE_NI" />
-    <Column COLUMN_NAME="ELE_O" />
-    <Column COLUMN_NAME="ELE_P" />
-    <Column COLUMN_NAME="ELE_PB" />
-    <Column COLUMN_NAME="ELE_RE" />
-    <Column COLUMN_NAME="ELE_S" />
-    <Column COLUMN_NAME="ELE_SB" />
-    <Column COLUMN_NAME="ELE_SE" />
-    <Column COLUMN_NAME="ELE_SI" />
-    <Column COLUMN_NAME="ELE_SN" />
-    <Column COLUMN_NAME="ELE_TA" />
-    <Column COLUMN_NAME="ELE_TE" />
-    <Column COLUMN_NAME="ELE_TI" />
-    <Column COLUMN_NAME="ELE_V" />
-    <Column COLUMN_NAME="ELE_W" />
-    <Column COLUMN_NAME="ELE_ZN" />
-    <Column COLUMN_NAME="ELE_ZR" />
-  </Table>
-  <Table PROCESS_CHINESE="RH" PROCESS_CODE="RH" TABLE_CHINESE="RH炉元素含量" TABLE_NAME="SM_ELEM_ANA">
-    <Column COLUMN_NAME="DEVICE_NO" />
-    <Column COLUMN_NAME="STATION" />
-    <Column COLUMN_NAME="HEAT_ID" />
-    <Column COLUMN_NAME="IRON_ID" />
-    <Column COLUMN_NAME="SAMPLETIME" />
-    <Column COLUMN_NAME="SAMPLE_NUMBER" />
-    <Column COLUMN_NAME="SAMPLE_ID" />
-    <Column COLUMN_NAME="ELE_ALS" />
-    <Column COLUMN_NAME="ELE_ALT" />
-    <Column COLUMN_NAME="ELE_AS" />
-    <Column COLUMN_NAME="ELE_B" />
-    <Column COLUMN_NAME="ELE_BI" />
-    <Column COLUMN_NAME="ELE_C" />
-    <Column COLUMN_NAME="ELE_CA" />
-    <Column COLUMN_NAME="ELE_CE" />
-    <Column COLUMN_NAME="ELE_CEQ" />
-    <Column COLUMN_NAME="ELE_CO" />
-    <Column COLUMN_NAME="ELE_CR" />
-    <Column COLUMN_NAME="ELE_CU" />
-    <Column COLUMN_NAME="ELE_H" />
-    <Column COLUMN_NAME="ELE_MG" />
-    <Column COLUMN_NAME="ELE_MN" />
-    <Column COLUMN_NAME="ELE_MO" />
-    <Column COLUMN_NAME="ELE_N" />
-    <Column COLUMN_NAME="ELE_NB" />
-    <Column COLUMN_NAME="ELE_NI" />
-    <Column COLUMN_NAME="ELE_O" />
-    <Column COLUMN_NAME="ELE_P" />
-    <Column COLUMN_NAME="ELE_PB" />
-    <Column COLUMN_NAME="ELE_RE" />
-    <Column COLUMN_NAME="ELE_S" />
-    <Column COLUMN_NAME="ELE_SB" />
-    <Column COLUMN_NAME="ELE_SE" />
-    <Column COLUMN_NAME="ELE_SI" />
-    <Column COLUMN_NAME="ELE_SN" />
-    <Column COLUMN_NAME="ELE_TA" />
-    <Column COLUMN_NAME="ELE_TE" />
-    <Column COLUMN_NAME="ELE_TI" />
-    <Column COLUMN_NAME="ELE_V" />
-    <Column COLUMN_NAME="ELE_W" />
-    <Column COLUMN_NAME="ELE_ZN" />
-    <Column COLUMN_NAME="ELE_ZR" />
-  </Table>
-  <Table PROCESS_CHINESE="CCM" PROCESS_CODE="CCM" TABLE_CHINESE="CCM元素含量" TABLE_NAME="SM_ELEM_ANA">
-    <Column COLUMN_NAME="DEVICE_NO" />
-    <Column COLUMN_NAME="STATION" />
-    <Column COLUMN_NAME="HEAT_ID" />
-    <Column COLUMN_NAME="IRON_ID" />
-    <Column COLUMN_NAME="SAMPLETIME" />
-    <Column COLUMN_NAME="SAMPLE_NUMBER" />
-    <Column COLUMN_NAME="SAMPLE_ID" />
-    <Column COLUMN_NAME="ELE_ALS" />
-    <Column COLUMN_NAME="ELE_ALT" />
-    <Column COLUMN_NAME="ELE_AS" />
-    <Column COLUMN_NAME="ELE_B" />
-    <Column COLUMN_NAME="ELE_BI" />
-    <Column COLUMN_NAME="ELE_C" />
-    <Column COLUMN_NAME="ELE_CA" />
-    <Column COLUMN_NAME="ELE_CE" />
-    <Column COLUMN_NAME="ELE_CEQ" />
-    <Column COLUMN_NAME="ELE_CO" />
-    <Column COLUMN_NAME="ELE_CR" />
-    <Column COLUMN_NAME="ELE_CU" />
-    <Column COLUMN_NAME="ELE_H" />
-    <Column COLUMN_NAME="ELE_MG" />
-    <Column COLUMN_NAME="ELE_MN" />
-    <Column COLUMN_NAME="ELE_MO" />
-    <Column COLUMN_NAME="ELE_N" />
-    <Column COLUMN_NAME="ELE_NB" />
-    <Column COLUMN_NAME="ELE_NI" />
-    <Column COLUMN_NAME="ELE_O" />
-    <Column COLUMN_NAME="ELE_P" />
-    <Column COLUMN_NAME="ELE_PB" />
-    <Column COLUMN_NAME="ELE_RE" />
-    <Column COLUMN_NAME="ELE_S" />
-    <Column COLUMN_NAME="ELE_SB" />
-    <Column COLUMN_NAME="ELE_SE" />
-    <Column COLUMN_NAME="ELE_SI" />
-    <Column COLUMN_NAME="ELE_SN" />
-    <Column COLUMN_NAME="ELE_TA" />
-    <Column COLUMN_NAME="ELE_TE" />
-    <Column COLUMN_NAME="ELE_TI" />
-    <Column COLUMN_NAME="ELE_V" />
-    <Column COLUMN_NAME="ELE_W" />
-    <Column COLUMN_NAME="ELE_ZN" />
-    <Column COLUMN_NAME="ELE_ZR" />
-  </Table>
-  <Table PROCESS_CHINESE="BOF" PROCESS_CODE="BOF" TABLE_CHINESE="转炉质量报告" TABLE_NAME="SM_BOF_HEAT">
-    <Column COLUMN_NAME="DEVICE_NO" />
-    <Column COLUMN_NAME="HEAT_ID" />
+    <Column COLUMN_NAME="HEAT_ID" KEY="OUT_MAT_ID" />
     <Column COLUMN_NAME="STATION" />
     <Column COLUMN_NAME="PLAN_NO" />
     <Column COLUMN_NAME="PONO" />
@@ -348,11 +172,56 @@
     <Column COLUMN_NAME="LSCRW_WEIGHT" />
     <Column COLUMN_NAME="SSCRW_WEIGHT" />
   </Table>
-  <Table PROCESS_CHINESE="LF" PROCESS_CODE="LF" TABLE_CHINESE="LF炉质量报告" TABLE_NAME="SM_LF_HEAT">
+  <Table PROCESS_CHINESE="BOF" PROCESS_CODE="BOF" PROCESS_SEQ="1" TABLE_CHINESE="转炉元素含量" TABLE_NAME="SM_ELEM_ANA_DA">
+    <Column COLUMN_NAME="PROCESS_CODE" KEY="PROCESS_CODE" />
+    <Column COLUMN_NAME="DEVICE_NO" />
+    <Column COLUMN_NAME="STATION" />
+    <Column COLUMN_NAME="HEAT_ID" KEY="OUT_MAT_ID" />
+    <Column COLUMN_NAME="IRON_ID" />
+    <Column COLUMN_NAME="SAMPLETIME" />
+    <Column COLUMN_NAME="SAMPLE_NUMBER" />
+    <Column COLUMN_NAME="SAMPLE_ID" />
+    <Column COLUMN_NAME="ELE_ALS" />
+    <Column COLUMN_NAME="ELE_ALT" />
+    <Column COLUMN_NAME="ELE_AS" />
+    <Column COLUMN_NAME="ELE_B" />
+    <Column COLUMN_NAME="ELE_BI" />
+    <Column COLUMN_NAME="ELE_C" />
+    <Column COLUMN_NAME="ELE_CA" />
+    <Column COLUMN_NAME="ELE_CE" />
+    <Column COLUMN_NAME="ELE_CEQ" />
+    <Column COLUMN_NAME="ELE_CO" />
+    <Column COLUMN_NAME="ELE_CR" />
+    <Column COLUMN_NAME="ELE_CU" />
+    <Column COLUMN_NAME="ELE_H" />
+    <Column COLUMN_NAME="ELE_MG" />
+    <Column COLUMN_NAME="ELE_MN" />
+    <Column COLUMN_NAME="ELE_MO" />
+    <Column COLUMN_NAME="ELE_N" />
+    <Column COLUMN_NAME="ELE_NB" />
+    <Column COLUMN_NAME="ELE_NI" />
+    <Column COLUMN_NAME="ELE_O" />
+    <Column COLUMN_NAME="ELE_P" />
+    <Column COLUMN_NAME="ELE_PB" />
+    <Column COLUMN_NAME="ELE_RE" />
+    <Column COLUMN_NAME="ELE_S" />
+    <Column COLUMN_NAME="ELE_SB" />
+    <Column COLUMN_NAME="ELE_SE" />
+    <Column COLUMN_NAME="ELE_SI" />
+    <Column COLUMN_NAME="ELE_SN" />
+    <Column COLUMN_NAME="ELE_TA" />
+    <Column COLUMN_NAME="ELE_TE" />
+    <Column COLUMN_NAME="ELE_TI" />
+    <Column COLUMN_NAME="ELE_V" />
+    <Column COLUMN_NAME="ELE_W" />
+    <Column COLUMN_NAME="ELE_ZN" />
+    <Column COLUMN_NAME="ELE_ZR" />
+  </Table>
+  <Table PROCESS_CHINESE="LF" PROCESS_CODE="LF" PROCESS_SEQ="2" TABLE_CHINESE="LF炉质量报告" TABLE_NAME="SM_LF_HEAT">
     <Column COLUMN_NAME="STATION" />
     <Column COLUMN_NAME="TREATPOS" />
     <Column COLUMN_NAME="PON" />
-    <Column COLUMN_NAME="HEAT_ID" />
+    <Column COLUMN_NAME="HEAT_ID" KEY="OUT_MAT_ID" />
     <Column COLUMN_NAME="STRTTIME" />
     <Column COLUMN_NAME="ENDTIME" />
     <Column COLUMN_NAME="ROUTE" />
@@ -391,12 +260,57 @@
     <Column COLUMN_NAME="LOG" />
     <Column COLUMN_NAME="TOTELETRDCON" />
   </Table>
-  <Table PROCESS_CHINESE="RH" PROCESS_CODE="RH" TABLE_CHINESE="RH炉质量报告" TABLE_NAME="SM_RH_HEAT">
+  <Table PROCESS_CHINESE="LF" PROCESS_CODE="LF" PROCESS_SEQ="2" TABLE_CHINESE="LF炉元素含量" TABLE_NAME="SM_ELEM_ANA_DA">
+    <Column COLUMN_NAME="PROCESS_CODE" KEY="PROCESS_CODE" />
+    <Column COLUMN_NAME="DEVICE_NO" />
+    <Column COLUMN_NAME="STATION" />
+    <Column COLUMN_NAME="HEAT_ID" KEY="OUT_MAT_ID" />
+    <Column COLUMN_NAME="IRON_ID" />
+    <Column COLUMN_NAME="SAMPLETIME" />
+    <Column COLUMN_NAME="SAMPLE_NUMBER" />
+    <Column COLUMN_NAME="SAMPLE_ID" />
+    <Column COLUMN_NAME="ELE_ALS" />
+    <Column COLUMN_NAME="ELE_ALT" />
+    <Column COLUMN_NAME="ELE_AS" />
+    <Column COLUMN_NAME="ELE_B" />
+    <Column COLUMN_NAME="ELE_BI" />
+    <Column COLUMN_NAME="ELE_C" />
+    <Column COLUMN_NAME="ELE_CA" />
+    <Column COLUMN_NAME="ELE_CE" />
+    <Column COLUMN_NAME="ELE_CEQ" />
+    <Column COLUMN_NAME="ELE_CO" />
+    <Column COLUMN_NAME="ELE_CR" />
+    <Column COLUMN_NAME="ELE_CU" />
+    <Column COLUMN_NAME="ELE_H" />
+    <Column COLUMN_NAME="ELE_MG" />
+    <Column COLUMN_NAME="ELE_MN" />
+    <Column COLUMN_NAME="ELE_MO" />
+    <Column COLUMN_NAME="ELE_N" />
+    <Column COLUMN_NAME="ELE_NB" />
+    <Column COLUMN_NAME="ELE_NI" />
+    <Column COLUMN_NAME="ELE_O" />
+    <Column COLUMN_NAME="ELE_P" />
+    <Column COLUMN_NAME="ELE_PB" />
+    <Column COLUMN_NAME="ELE_RE" />
+    <Column COLUMN_NAME="ELE_S" />
+    <Column COLUMN_NAME="ELE_SB" />
+    <Column COLUMN_NAME="ELE_SE" />
+    <Column COLUMN_NAME="ELE_SI" />
+    <Column COLUMN_NAME="ELE_SN" />
+    <Column COLUMN_NAME="ELE_TA" />
+    <Column COLUMN_NAME="ELE_TE" />
+    <Column COLUMN_NAME="ELE_TI" />
+    <Column COLUMN_NAME="ELE_V" />
+    <Column COLUMN_NAME="ELE_W" />
+    <Column COLUMN_NAME="ELE_ZN" />
+    <Column COLUMN_NAME="ELE_ZR" />
+  </Table>
+  <Table PROCESS_CHINESE="RH" PROCESS_CODE="RH" PROCESS_SEQ="3" TABLE_CHINESE="RH炉质量报告" TABLE_NAME="SM_RH_HEAT">
     <Column COLUMN_NAME="STATION" />
     <Column COLUMN_NAME="READ_TIME" />
     <Column COLUMN_NAME="PONO" />
     <Column COLUMN_NAME="RH_TREATMENT_ID" />
-    <Column COLUMN_NAME="HEAT_ID" />
+    <Column COLUMN_NAME="HEAT_ID" KEY="OUT_MAT_ID" />
     <Column COLUMN_NAME="PLAN_NO" />
     <Column COLUMN_NAME="CREW_ID" />
     <Column COLUMN_NAME="SHIFT_ID" />
@@ -458,7 +372,7 @@
     <Column COLUMN_NAME="TREAT_TIME" />
     <Column COLUMN_NAME="MIN_VACUUM" />
     <Column COLUMN_NAME="MACHINE_COOLING_WATER_CONS" />
-    <Column COLUMN_NAME="CONDENSOR_COOLING_WATER_CONS" />
+    <Column COLUMN_CHINESE="冷凝器" COLUMN_NAME="CONDENSOR_COOLING_WATER_CONS" />
     <Column COLUMN_NAME="LANCE_NO" />
     <Column COLUMN_NAME="LANCE_AGE" />
     <Column COLUMN_NAME="HOT_BEND_TUBE_NO" />
@@ -467,5 +381,95 @@
     <Column COLUMN_NAME="VACUUM_SLOT_NUM" />
     <Column COLUMN_NAME="UPDOWN_NUM" />
     <Column COLUMN_NAME="LADLE_TARE_WT" />
+  </Table>
+  <Table PROCESS_CHINESE="RH" PROCESS_CODE="RH" PROCESS_SEQ="3" TABLE_CHINESE="RH炉元素含量" TABLE_NAME="SM_ELEM_ANA_DA">
+    <Column COLUMN_NAME="PROCESS_CODE" KEY="PROCESS_CODE" />
+    <Column COLUMN_NAME="DEVICE_NO" />
+    <Column COLUMN_NAME="STATION" />
+    <Column COLUMN_NAME="HEAT_ID" KEY="OUT_MAT_ID" />
+    <Column COLUMN_NAME="IRON_ID" />
+    <Column COLUMN_NAME="SAMPLETIME" />
+    <Column COLUMN_NAME="SAMPLE_NUMBER" />
+    <Column COLUMN_NAME="SAMPLE_ID" />
+    <Column COLUMN_NAME="ELE_ALS" />
+    <Column COLUMN_NAME="ELE_ALT" />
+    <Column COLUMN_NAME="ELE_AS" />
+    <Column COLUMN_NAME="ELE_B" />
+    <Column COLUMN_NAME="ELE_BI" />
+    <Column COLUMN_NAME="ELE_C" />
+    <Column COLUMN_NAME="ELE_CA" />
+    <Column COLUMN_NAME="ELE_CE" />
+    <Column COLUMN_NAME="ELE_CEQ" />
+    <Column COLUMN_NAME="ELE_CO" />
+    <Column COLUMN_NAME="ELE_CR" />
+    <Column COLUMN_NAME="ELE_CU" />
+    <Column COLUMN_NAME="ELE_H" />
+    <Column COLUMN_NAME="ELE_MG" />
+    <Column COLUMN_NAME="ELE_MN" />
+    <Column COLUMN_NAME="ELE_MO" />
+    <Column COLUMN_NAME="ELE_N" />
+    <Column COLUMN_NAME="ELE_NB" />
+    <Column COLUMN_NAME="ELE_NI" />
+    <Column COLUMN_NAME="ELE_O" />
+    <Column COLUMN_NAME="ELE_P" />
+    <Column COLUMN_NAME="ELE_PB" />
+    <Column COLUMN_NAME="ELE_RE" />
+    <Column COLUMN_NAME="ELE_S" />
+    <Column COLUMN_NAME="ELE_SB" />
+    <Column COLUMN_NAME="ELE_SE" />
+    <Column COLUMN_NAME="ELE_SI" />
+    <Column COLUMN_NAME="ELE_SN" />
+    <Column COLUMN_NAME="ELE_TA" />
+    <Column COLUMN_NAME="ELE_TE" />
+    <Column COLUMN_NAME="ELE_TI" />
+    <Column COLUMN_NAME="ELE_V" />
+    <Column COLUMN_NAME="ELE_W" />
+    <Column COLUMN_NAME="ELE_ZN" />
+    <Column COLUMN_NAME="ELE_ZR" />
+  </Table>
+  <Table PROCESS_CHINESE="CCM" PROCESS_CODE="CCM" PROCESS_SEQ="4" TABLE_CHINESE="CCM元素含量" TABLE_NAME="SM_ELEM_ANA_DA">
+    <Column COLUMN_NAME="PROCESS_CODE" KEY="PROCESS_CODE" />
+    <Column COLUMN_NAME="DEVICE_NO" />
+    <Column COLUMN_NAME="STATION" />
+    <Column COLUMN_NAME="HEAT_ID" KEY="OUT_MAT_ID" />
+    <Column COLUMN_NAME="IRON_ID" />
+    <Column COLUMN_NAME="SAMPLETIME" />
+    <Column COLUMN_NAME="SAMPLE_NUMBER" />
+    <Column COLUMN_NAME="SAMPLE_ID" />
+    <Column COLUMN_NAME="ELE_ALS" />
+    <Column COLUMN_NAME="ELE_ALT" />
+    <Column COLUMN_NAME="ELE_AS" />
+    <Column COLUMN_NAME="ELE_B" />
+    <Column COLUMN_NAME="ELE_BI" />
+    <Column COLUMN_NAME="ELE_C" />
+    <Column COLUMN_NAME="ELE_CA" />
+    <Column COLUMN_NAME="ELE_CE" />
+    <Column COLUMN_NAME="ELE_CEQ" />
+    <Column COLUMN_NAME="ELE_CO" />
+    <Column COLUMN_NAME="ELE_CR" />
+    <Column COLUMN_NAME="ELE_CU" />
+    <Column COLUMN_NAME="ELE_H" />
+    <Column COLUMN_NAME="ELE_MG" />
+    <Column COLUMN_NAME="ELE_MN" />
+    <Column COLUMN_NAME="ELE_MO" />
+    <Column COLUMN_NAME="ELE_N" />
+    <Column COLUMN_NAME="ELE_NB" />
+    <Column COLUMN_NAME="ELE_NI" />
+    <Column COLUMN_NAME="ELE_O" />
+    <Column COLUMN_NAME="ELE_P" />
+    <Column COLUMN_NAME="ELE_PB" />
+    <Column COLUMN_NAME="ELE_RE" />
+    <Column COLUMN_NAME="ELE_S" />
+    <Column COLUMN_NAME="ELE_SB" />
+    <Column COLUMN_NAME="ELE_SE" />
+    <Column COLUMN_NAME="ELE_SI" />
+    <Column COLUMN_NAME="ELE_SN" />
+    <Column COLUMN_NAME="ELE_TA" />
+    <Column COLUMN_NAME="ELE_TE" />
+    <Column COLUMN_NAME="ELE_TI" />
+    <Column COLUMN_NAME="ELE_V" />
+    <Column COLUMN_NAME="ELE_W" />
+    <Column COLUMN_NAME="ELE_ZN" />
+    <Column COLUMN_NAME="ELE_ZR" />
   </Table>
 </NewDataSet>

@@ -11,7 +11,7 @@ namespace QtDataTrace.Interfaces
     {
         string tableName;
         string chineseName;
-        IList<QtDataTableColumnConfig> columns = new BindingList<QtDataTableColumnConfig>();
+        IList<QtDataTableColumnConfig> columns = new List<QtDataTableColumnConfig>();
 
         public string TableName
         {
@@ -29,6 +29,24 @@ namespace QtDataTrace.Interfaces
         {
             get { return columns; }
             set { columns = value; }
+        }
+    }
+    [Serializable]
+    public class QtDataProcessConfig
+    {
+        string chineseName;
+        IList<QtDataTableConfig> _Tables = new List<QtDataTableConfig>();
+
+        public string ChineseName
+        {
+            get { return chineseName; }
+            set { chineseName = value; }
+        }
+
+        public IList<QtDataTableConfig> Tables
+        {
+            get { return _Tables; }
+            set { _Tables = value; }
         }
     }
 }

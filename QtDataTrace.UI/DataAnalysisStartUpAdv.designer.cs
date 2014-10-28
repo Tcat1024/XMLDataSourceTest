@@ -35,6 +35,7 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.triStateTreeView1 = new QtDataTrace.UI.TriStateTreeView();
             this.standaloneBarDockControl2 = new DevExpress.XtraBars.StandaloneBarDockControl();
+            this.progressPanel1 = new DevExpress.XtraWaitForm.ProgressPanel();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.standaloneBarDockControl1 = new DevExpress.XtraBars.StandaloneBarDockControl();
@@ -76,10 +77,8 @@
             this.btnNormalCheck = new DevExpress.XtraBars.BarButtonItem();
             this.btnFrequency = new DevExpress.XtraBars.BarButtonItem();
             this.bar2 = new DevExpress.XtraBars.Bar();
-            this.btnQuickQuery = new DevExpress.XtraBars.BarButtonItem();
-            this.subTraceQuery = new DevExpress.XtraBars.BarSubItem();
-            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
+            this.btnPreQtrace = new DevExpress.XtraBars.BarButtonItem();
+            this.btnBackQrace = new DevExpress.XtraBars.BarButtonItem();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
@@ -134,10 +133,11 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.splitContainer1.Panel2.Controls.Add(this.progressPanel1);
             this.splitContainer1.Panel2.Controls.Add(this.gridControl1);
             this.splitContainer1.Panel2.Controls.Add(this.standaloneBarDockControl1);
             this.splitContainer1.Size = new System.Drawing.Size(1457, 459);
-            this.splitContainer1.SplitterDistance = 277;
+            this.splitContainer1.SplitterDistance = 304;
             this.splitContainer1.SplitterWidth = 5;
             this.splitContainer1.TabIndex = 22;
             // 
@@ -147,7 +147,7 @@
             this.triStateTreeView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.triStateTreeView1.Location = new System.Drawing.Point(0, 34);
             this.triStateTreeView1.Name = "triStateTreeView1";
-            this.triStateTreeView1.Size = new System.Drawing.Size(277, 425);
+            this.triStateTreeView1.Size = new System.Drawing.Size(304, 425);
             this.triStateTreeView1.TabIndex = 0;
             // 
             // standaloneBarDockControl2
@@ -158,8 +158,23 @@
             this.standaloneBarDockControl2.Location = new System.Drawing.Point(0, 0);
             this.standaloneBarDockControl2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.standaloneBarDockControl2.Name = "standaloneBarDockControl2";
-            this.standaloneBarDockControl2.Size = new System.Drawing.Size(277, 34);
+            this.standaloneBarDockControl2.Size = new System.Drawing.Size(304, 34);
             this.standaloneBarDockControl2.Text = "standaloneBarDockControl2";
+            // 
+            // progressPanel1
+            // 
+            this.progressPanel1.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.progressPanel1.Appearance.Options.UseBackColor = true;
+            this.progressPanel1.AppearanceCaption.Font = new System.Drawing.Font("Microsoft Sans Serif", 28F);
+            this.progressPanel1.AppearanceCaption.Options.UseFont = true;
+            this.progressPanel1.AppearanceDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.progressPanel1.AppearanceDescription.Options.UseFont = true;
+            this.progressPanel1.Location = new System.Drawing.Point(151, 189);
+            this.progressPanel1.Name = "progressPanel1";
+            this.progressPanel1.Size = new System.Drawing.Size(295, 75);
+            this.progressPanel1.TabIndex = 3;
+            this.progressPanel1.Text = "progressPanel1";
+            this.progressPanel1.Visible = false;
             // 
             // gridControl1
             // 
@@ -167,10 +182,11 @@
             this.gridControl1.Location = new System.Drawing.Point(0, 34);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(1175, 425);
+            this.gridControl1.Size = new System.Drawing.Size(1148, 425);
             this.gridControl1.TabIndex = 1;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
+            this.gridControl1.ClientSizeChanged += new System.EventHandler(this.gridControl1_ClientSizeChanged);
             // 
             // gridView1
             // 
@@ -189,7 +205,7 @@
             this.standaloneBarDockControl1.Location = new System.Drawing.Point(0, 0);
             this.standaloneBarDockControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.standaloneBarDockControl1.Name = "standaloneBarDockControl1";
-            this.standaloneBarDockControl1.Size = new System.Drawing.Size(1175, 34);
+            this.standaloneBarDockControl1.Size = new System.Drawing.Size(1148, 34);
             this.standaloneBarDockControl1.Text = "standaloneBarDockControl1";
             // 
             // checkBox1
@@ -391,6 +407,7 @@
             this.gridView2.Name = "gridView2";
             this.gridView2.OptionsBehavior.Editable = false;
             this.gridView2.OptionsSelection.MultiSelect = true;
+            this.gridView2.OptionsView.ShowFooter = true;
             // 
             // colTime
             // 
@@ -489,10 +506,8 @@
             this.btnSamleAvg,
             this.btnNormalCheck,
             this.btnFrequency,
-            this.btnQuickQuery,
-            this.subTraceQuery,
-            this.barButtonItem1,
-            this.barButtonItem2});
+            this.btnPreQtrace,
+            this.btnBackQrace});
             this.barManager1.MaxItemId = 15;
             // 
             // bar1
@@ -575,50 +590,31 @@
             this.bar2.DockRow = 0;
             this.bar2.DockStyle = DevExpress.XtraBars.BarDockStyle.Standalone;
             this.bar2.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnQuickQuery, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(this.subTraceQuery, true)});
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnPreQtrace, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnBackQrace, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
             this.bar2.OptionsBar.AllowQuickCustomization = false;
             this.bar2.OptionsBar.DrawDragBorder = false;
             this.bar2.OptionsBar.UseWholeRow = true;
             this.bar2.StandaloneBarDockControl = this.standaloneBarDockControl2;
             this.bar2.Text = "Custom 4";
             // 
-            // btnQuickQuery
+            // btnPreQtrace
             // 
-            this.btnQuickQuery.Caption = "快速查询";
-            this.btnQuickQuery.Glyph = ((System.Drawing.Image)(resources.GetObject("btnQuickQuery.Glyph")));
-            this.btnQuickQuery.Id = 7;
-            this.btnQuickQuery.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("btnQuickQuery.LargeGlyph")));
-            this.btnQuickQuery.Name = "btnQuickQuery";
-            this.btnQuickQuery.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnQuickQuery_ItemClick);
+            this.btnPreQtrace.Caption = "向前追溯";
+            this.btnPreQtrace.Glyph = ((System.Drawing.Image)(resources.GetObject("btnPreQtrace.Glyph")));
+            this.btnPreQtrace.Id = 13;
+            this.btnPreQtrace.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("btnPreQtrace.LargeGlyph")));
+            this.btnPreQtrace.Name = "btnPreQtrace";
+            this.btnPreQtrace.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnPreQtrace_ItemClick);
             // 
-            // subTraceQuery
+            // btnBackQrace
             // 
-            this.subTraceQuery.Caption = "追溯查询";
-            this.subTraceQuery.Glyph = ((System.Drawing.Image)(resources.GetObject("subTraceQuery.Glyph")));
-            this.subTraceQuery.Id = 12;
-            this.subTraceQuery.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("subTraceQuery.LargeGlyph")));
-            this.subTraceQuery.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem1),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem2)});
-            this.subTraceQuery.Name = "subTraceQuery";
-            this.subTraceQuery.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
-            // 
-            // barButtonItem1
-            // 
-            this.barButtonItem1.Caption = "向前追溯";
-            this.barButtonItem1.Glyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.Glyph")));
-            this.barButtonItem1.Id = 13;
-            this.barButtonItem1.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.LargeGlyph")));
-            this.barButtonItem1.Name = "barButtonItem1";
-            // 
-            // barButtonItem2
-            // 
-            this.barButtonItem2.Caption = "向后追溯";
-            this.barButtonItem2.Glyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem2.Glyph")));
-            this.barButtonItem2.Id = 14;
-            this.barButtonItem2.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem2.LargeGlyph")));
-            this.barButtonItem2.Name = "barButtonItem2";
+            this.btnBackQrace.Caption = "向后追溯";
+            this.btnBackQrace.Glyph = ((System.Drawing.Image)(resources.GetObject("btnBackQrace.Glyph")));
+            this.btnBackQrace.Id = 14;
+            this.btnBackQrace.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("btnBackQrace.LargeGlyph")));
+            this.btnBackQrace.Name = "btnBackQrace";
+            this.btnBackQrace.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnBackQrace_ItemClick);
             // 
             // barDockControlTop
             // 
@@ -786,7 +782,6 @@
         private DevExpress.XtraBars.BarDockControl barDockControlLeft;
         private DevExpress.XtraBars.BarDockControl barDockControlRight;
         private DevExpress.XtraBars.StandaloneBarDockControl standaloneBarDockControl2;
-        private DevExpress.XtraBars.BarButtonItem btnQuickQuery;
         private DevExpress.XtraGrid.GridControl gridControl2;
         private SPC.Base.Control.CanChooseDataGridView gridView2;
         private DevExpress.XtraGrid.Columns.GridColumn colTime;
@@ -798,11 +793,11 @@
         private DevExpress.XtraGrid.Columns.GridColumn colBatch;
         private DevExpress.XtraGrid.Columns.GridColumn colOrderId;
         private DevExpress.XtraBars.Bar bar2;
-        private DevExpress.XtraBars.BarSubItem subTraceQuery;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem1;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem2;
+        private DevExpress.XtraBars.BarButtonItem btnPreQtrace;
+        private DevExpress.XtraBars.BarButtonItem btnBackQrace;
         private DevExpress.XtraBars.Docking.DockManager dockManager1;
         private DevExpress.XtraBars.Docking.DockPanel dockPanel1;
         private DevExpress.XtraBars.Docking.ControlContainer dockPanel1_Container;
+        private DevExpress.XtraWaitForm.ProgressPanel progressPanel1;
     }
 }
