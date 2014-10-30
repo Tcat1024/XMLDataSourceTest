@@ -35,66 +35,66 @@ namespace QtDataTrace.Interfaces
             get { return steel_grade; }
             set { steel_grade = value; }
         }
-        public string promodecode;
-        public string bof_campaign;
-        public string bof_life;
-        public string tappinghole;
-        public string tap_hole_campaign;
-        public string tap_hole_life;
-        public string mainlance_id;
-        public string mainlance_life;
-        public string sublance_id;
-        public string sublance_life;
-        public string bath_level;
-        public string steelladleid;
-        public string slag_cal_weight;
-        public string slag_net_weight;
-        public string weight_cal;
-        public string weight_act;
-        public string weighting_time;
-        public string tem_act;
-        public string tem_time;
-        public string bofc_act;
-        public string o2ppm_act;
-        public string ladleid;
-        public string hmw_act;
-        public string hm_tem;
-        public string hm_c;
-        public string hm_si;
-        public string hm_mn;
-        public string hm_p;
-        public string hm_s;
-        public string bucketid;
-        public string scrw_act;
-        public string pi_act;
-        public string return_act;
-        public string metal_act;
-        public string cao_weight;
-        public string dolo_weight;
-        public string rdolo_weight;
-        public string mgo_weight;
-        public string caf2_weight;
-        public string iron_weight;
-        public string o2_act;
-        public string ar_act;
-        public string n2_act;
-        public string tsc_tem;
-        public string tsc_c;
-        public string tsc_duration;
-        public string tso_tem;
-        public string tso_c;
-        public string tso_o2ppm;
-        public string tso_duration;
-        public string o2_duration;
-        public string ar_duration;
-        public string n2_duration;
-        public string after_stiring_duration;
-        public string reblow_num;
-        public string reblow1_tem;
-        public string reblow2_tem;
-        public string deslag_num;
-        public string slag_splash_n2;
-        private string ready_time;
+        public string promodecode {get; set;}
+        public string bof_campaign { get; set; }
+        public string bof_life { get; set; }
+        public string tappinghole { get; set; }
+        public string tap_hole_campaign { get; set; }
+        public string tap_hole_life { get; set; }
+        public string mainlance_id { get; set; }
+        public string mainlance_life { get; set; }
+        public string sublance_id { get; set; }
+        public string sublance_life { get; set; }
+        public string bath_level { get; set; }
+        public string steelladleid { get; set; }
+        public string slag_cal_weight { get; set; }
+        public string slag_net_weight { get; set; }
+        public string weight_cal { get; set; }
+        public string weight_act { get; set; }
+        public string weighting_time { get; set; }
+        public string tem_act { get; set; }
+        public string tem_time { get; set; }
+        public string bofc_act { get; set; }
+        public string o2ppm_act { get; set; }
+        public string ladleid { get; set; }
+        public string hmw_act { get; set; }
+        public string hm_tem { get; set; }
+        public string hm_c { get; set; }
+        public string hm_si { get; set; }
+        public string hm_mn { get; set; }
+        public string hm_p { get; set; }
+        public string hm_s { get; set; }
+        public string bucketid { get; set; }
+        public string scrw_act { get; set; }
+        public string pi_act { get; set; }
+        public string return_act { get; set; }
+        public string metal_act { get; set; }
+        public string cao_weight { get; set; }
+        public string dolo_weight { get; set; }
+        public string rdolo_weight { get; set; }
+        public string mgo_weight { get; set; }
+        public string caf2_weight { get; set; }
+        public string iron_weight { get; set; }
+        public string o2_act { get; set; }
+        public string ar_act { get; set; }
+        public string n2_act { get; set; }
+        public string tsc_tem { get; set; }
+        public string tsc_c { get; set; }
+        public string tsc_duration { get; set; }
+        public string tso_tem { get; set; }
+        public string tso_c { get; set; }
+        public string tso_o2ppm { get; set; }
+        public string tso_duration { get; set; }
+        public string o2_duration { get; set; }
+        public string ar_duration { get; set; }
+        public string n2_duration { get; set; }
+        public string after_stiring_duration { get; set; }
+        public string reblow_num { get; set; }
+        public string reblow1_tem { get; set; }
+        public string reblow2_tem { get; set; }
+        public string deslag_num { get; set; }
+        public string slag_splash_n2 { get; set; }
+        private string ready_time { get; set; }
 
         [DisplayName("入炉时间")]
         public string Ready_time
@@ -102,111 +102,111 @@ namespace QtDataTrace.Interfaces
             get { return ready_time; }
             set { ready_time = value; }
         }
-        public string charging_starttime;
-        public string hm_time;
-        public string scrap_time;
-        public string charging_endtime;
-        public string blow_starttime;
-        public string blow_endtime;
-        public string reblow1_starttime;
-        public string reblow1_endtime;
-        public string reblow1_duration;
-        public string reblow2_starttime;
-        public string reblow2_endtime;
-        public string reblow2_duration;
-        public string slag_nr;
-        public string tapping_starttime;
-        public string tapping_endtime;
-        public string tapping_duration;
-        public string slag_starttime;
-        public string slag_endtime;
-        public string slag_duration;
-        private string product_day;
+        public string charging_starttime { get; set; }
+        public string hm_time { get; set; }
+        public string scrap_time { get; set; }
+        public string charging_endtime { get; set; }
+        public string blow_starttime { get; set; }
+        public string blow_endtime { get; set; }
+        public string reblow1_starttime { get; set; }
+        public string reblow1_endtime { get; set; }
+        public string reblow1_duration { get; set; }
+        public string reblow2_starttime { get; set; }
+        public string reblow2_endtime { get; set; }
+        public string reblow2_duration { get; set; }
+        public string slag_nr { get; set; }
+        public string tapping_starttime { get; set; }
+        public string tapping_endtime { get; set; }
+        public string tapping_duration { get; set; }
+        public string slag_starttime { get; set; }
+        public string slag_endtime { get; set; }
+        public string slag_duration { get; set; }
+        private string product_day { get; set; }
 
         public string Product_day
         {
             get { return product_day; }
             set { product_day = value; }
         }
-        public string shift_id;
-        public string crew_id;
-        public string operator_c;
-        public string checkdate;
-        public string checkoperator;
-        public string checkflag;
-        public string ge_no;
-        public string tsc_starttime;
-        public string tsc_endtime;
-        public string tso_starttime;
-        public string tso_endtime;
-        public string splash_starttime;
-        public string splash_endtime;
-        public string splash_duration;
-        public string o2_press;
-        public string o2_flux;
-        public string n2_press;
-        public string n2_flux;
-        public string sheetiron_wgt;
-        public string restrin_wgt;
-        public string alloycao_wgt;
-        public string cadd_wgt;
-        public string fesi_wgt;
-        public string al_wgt;
-        public string mnsi_wgt;
-        public string femn_wgt;
-        public string fenb_wgt;
-        public string hscrw_wgt;
-        public string lscrw_wgt;
-        public string sscrw_wgt;
-        public string mfemn_wgt;
-        public string lfemn_wgt;
-        public string duststeam_vol;
-        public string dustwater_vol;
-        public string recyclesteam_vol;
-        public string outsteam_vol;
-        public string mainlance_id1;
-        public string mainlance_life1;
-        public string ladlear_act;
-        public string ironid;
-        public string rdolo_wgt;
-        public string change_wgt;
-        public string burnslag_wgt;
-        public string lfslag_wgt;
-        public string sicabei_wgt;
-        public string sialfe_wgt;
-        public string mn_wgt;
+        public string shift_id { get; set; }
+        public string crew_id { get; set; }
+        public string operator_c { get; set; }
+        public string checkdate { get; set; }
+        public string checkoperator { get; set; }
+        public string checkflag { get; set; }
+        public string ge_no { get; set; }
+        public string tsc_starttime { get; set; }
+        public string tsc_endtime { get; set; }
+        public string tso_starttime { get; set; }
+        public string tso_endtime { get; set; }
+        public string splash_starttime { get; set; }
+        public string splash_endtime { get; set; }
+        public string splash_duration { get; set; }
+        public string o2_press { get; set; }
+        public string o2_flux { get; set; }
+        public string n2_press { get; set; }
+        public string n2_flux { get; set; }
+        public string sheetiron_wgt { get; set; }
+        public string restrin_wgt { get; set; }
+        public string alloycao_wgt { get; set; }
+        public string cadd_wgt { get; set; }
+        public string fesi_wgt { get; set; }
+        public string al_wgt { get; set; }
+        public string mnsi_wgt { get; set; }
+        public string femn_wgt { get; set; }
+        public string fenb_wgt { get; set; }
+        public string hscrw_wgt { get; set; }
+        public string lscrw_wgt { get; set; }
+        public string sscrw_wgt { get; set; }
+        public string mfemn_wgt { get; set; }
+        public string lfemn_wgt { get; set; }
+        public string duststeam_vol { get; set; }
+        public string dustwater_vol { get; set; }
+        public string recyclesteam_vol { get; set; }
+        public string outsteam_vol { get; set; }
+        public string mainlance_id1 { get; set; }
+        public string mainlance_life1 { get; set; }
+        public string ladlear_act { get; set; }
+        public string ironid { get; set; }
+        public string rdolo_wgt { get; set; }
+        public string change_wgt { get; set; }
+        public string burnslag_wgt { get; set; }
+        public string lfslag_wgt { get; set; }
+        public string sicabei_wgt { get; set; }
+        public string sialfe_wgt { get; set; }
+        public string mn_wgt { get; set; }
 
-        public string IRON_LADLE_ID;
-        public string IRON_ID;
-        public string HM_WEIGHT;
-        public string HM_TRPMTURE;
-        public string HM_TIME;
-        public string HM_SOUREC;
-        public string SCRAP_BUCKET_ID; 
-        public string SCRAP_ID;
-        public string SCRAP_WEIGHT;
-        public string HSCRW_WEIGHT;
-        public string LSCRW_WEIGHT;
-        public string SSCRW_WEIGHT;
+        public string IRON_LADLE_ID { get; set; }
+        public string IRON_ID { get; set; }
+        public string HM_WEIGHT { get; set; }
+        public string HM_TRPMTURE { get; set; }
+        public string HM_TIME { get; set; }
+        public string HM_SOUREC { get; set; }
+        public string SCRAP_BUCKET_ID { get; set; }
+        public string SCRAP_ID { get; set; }
+        public string SCRAP_WEIGHT { get; set; }
+        public string HSCRW_WEIGHT { get; set; }
+        public string LSCRW_WEIGHT { get; set; }
+        public string SSCRW_WEIGHT { get; set; }
 
     }
      
    [System.SerializableAttribute]
     public class BOF_HisDB
     {
-        public DateTime datetime;
-        public float Duration;
-        public float O2;
-        public float CO;
-        public float CO2;
+       public DateTime datetime { get; set; }
+       public float Duration { get; set; }
+       public float O2 { get; set; }
+       public float CO { get; set; }
+       public float CO2 { get; set; }
 
-        public float ACT_INCLINE_ANGLE;
-        public float ACT_LANCE_HEIGHT;
-        public float ACT_O2_FLUX;
+       public float ACT_INCLINE_ANGLE { get; set; }
+       public float ACT_LANCE_HEIGHT { get; set; }
+       public float ACT_O2_FLUX { get; set; }
 
-        public float ACT_N2_FLUX;
-        public float ACT_AR_FLUX;
-        public float ACT_BATH_LEVEL;
+       public float ACT_N2_FLUX { get; set; }
+       public float ACT_AR_FLUX { get; set; }
+       public float ACT_BATH_LEVEL { get; set; }
     }
 
     [System.SerializableAttribute]
@@ -384,20 +384,20 @@ namespace QtDataTrace.Interfaces
     [System.SerializableAttribute]
     public class BOF_HM 
     {
-        public string HEATID;
-        public string LADLEID;
-        public string IRONID;
-        public string MOLTENIRON_WEIGHT;
-        public string MOLTENIRON_TEMPERATURE;
-        public string MOLTENIRON_TEMPERATURE_TIME;
-        public string C;
-        public string SI;
-        public string MN;
-        public string P;
-        public string S;
-        public string MOLTENIRON_SOURCE;
-        public string MOLTENSTEEL_WEIGHT;
-        public string REMARK;
+        public string HEATID { get; set; }
+        public string LADLEID { get; set; }
+        public string IRONID { get; set; }
+        public string MOLTENIRON_WEIGHT { get; set; }
+        public string MOLTENIRON_TEMPERATURE { get; set; }
+        public string MOLTENIRON_TEMPERATURE_TIME { get; set; }
+        public string C { get; set; }
+        public string SI { get; set; }
+        public string MN { get; set; }
+        public string P { get; set; }
+        public string S { get; set; }
+        public string MOLTENIRON_SOURCE { get; set; }
+        public string MOLTENSTEEL_WEIGHT { get; set; }
+        public string REMARK { get; set; }
     }
 
     public class HEAT_TRACK

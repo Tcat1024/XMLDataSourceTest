@@ -34,5 +34,7 @@ namespace QtDataTrace.Interfaces
         List<CastInfo> GetCC_CastInfo(DateTime startTime, DateTime stopTime);
 
         List<EquipmentAreaInfo> GetDeviceAreaInfo(string device);
+
+        IList<PLTCM_CoilInfo> GetPLTCM_CoilInfo(string matId);
     }
 }

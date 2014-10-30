@@ -44,8 +44,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\Library\DuHisPic.dll</HintPath>
     </Reference>
-    <Reference Include="EAS.MicroKernel">
-      <HintPath>..\..\..\..\ref.old\EAS.MicroKernel.dll</HintPath>
+    <Reference Include="EAS.MicroKernel, Version=5.0.0.0, Culture=neutral, PublicKeyToken=a550803c4cd9dbb5, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Library\EAS.MicroKernel.dll</HintPath>
     </Reference>
     <Reference Include="Expression, Version=1.0.5248.13425, Culture=neutral, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
@@ -79,6 +80,7 @@
     <Compile Include="BaseTableService.cs" />
     <Compile Include="HiResTimer.cs" />
     <Compile Include="PersistentService.cs" />
+    <Compile Include="QtDataTraceBLL.cs" />
     <Compile Include="QtDataTraceService.cs" />
     <Compile Include="SingleQtTable.cs" />
     <Compile Include="ConnectionString.cs" />
@@ -92,6 +94,10 @@
     <ProjectReference Include="..\QtDataTrace.Interfaces\QtDataTrace.Interfaces.csproj">
       <Project>{41ecbe03-933e-41d6-a1c6-eb7b20ee46bd}</Project>
       <Name>QtDataTrace.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\QtDataTrace.IService\QtDataTrace.IService.csproj">
+      <Project>{74e2e529-8309-4e7d-81eb-f134cf29195f}</Project>
+      <Name>QtDataTrace.IService</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

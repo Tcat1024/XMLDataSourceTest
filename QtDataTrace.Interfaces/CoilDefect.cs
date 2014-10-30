@@ -68,11 +68,13 @@ namespace QtDataTrace.Interfaces
 	    [Persistent("ABS_POS_CD")]
         public double AbsPosCD { get; set; }
     }
+
     [Serializable]
     public class CoilDefectClass
     {
         [Persistent("CLASSID")]
         public int ClassId { get; set; }
+
         [Persistent("NAME")]
         public string Name { get; set; }
 

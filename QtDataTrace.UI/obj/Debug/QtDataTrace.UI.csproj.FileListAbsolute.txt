@@ -114,10 +114,12 @@ C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\QtDataTrace.UI\bin\Deb
 C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\QtDataTrace.UI\bin\Debug\GenuineChannels.dll
 C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\QtDataTrace.UI\bin\Debug\QtDataTrace.Data.dll
 C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\QtDataTrace.UI\bin\Debug\QtDataTrace.Interfaces.dll
+C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\QtDataTrace.UI\bin\Debug\QtDataTrace.IService.dll
 C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\QtDataTrace.UI\bin\Debug\SPC.Base.dll
 C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\QtDataTrace.UI\bin\Debug\SPC.CPKtool.dll
 C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\QtDataTrace.UI\bin\Debug\SPC.Monitor.dll
 C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\QtDataTrace.UI\bin\Debug\QtDataTrace.Interfaces.pdb
+C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\QtDataTrace.UI\bin\Debug\QtDataTrace.IService.pdb
 C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\QtDataTrace.UI\obj\Debug\QtDataTrace.UI.csprojResolveAssemblyReference.cache
 C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\QtDataTrace.UI\obj\Debug\QtDataTrace.UI.CpkModule.resources
 C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\QtDataTrace.UI\obj\Debug\QtDataTrace.UI.DataAnalysisStartUpAdv.resources

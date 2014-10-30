@@ -140,6 +140,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.repositoryItemComboBox2.Items.AddRange(new object[] {
             "",
+            "IN_MAT_ID",
             "OUT_MAT_ID",
             "PROCESS_CODE"});
             this.repositoryItemComboBox2.Name = "repositoryItemComboBox2";
@@ -322,7 +323,6 @@
             // 
             this.bindingNavigatorPositionItem.AccessibleName = "位置";
             this.bindingNavigatorPositionItem.AutoSize = false;
-            this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Microsoft YaHei UI", 8.830189F);
             this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
             this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(58, 24);
             this.bindingNavigatorPositionItem.Text = "0";

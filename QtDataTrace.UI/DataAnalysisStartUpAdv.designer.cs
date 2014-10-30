@@ -28,33 +28,55 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DataAnalysisStartUpAdv));
             this.dateTimeStart = new System.Windows.Forms.DateTimePicker();
             this.dateTimeStop = new System.Windows.Forms.DateTimePicker();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.triStateTreeView1 = new QtDataTrace.UI.TriStateTreeView();
             this.standaloneBarDockControl2 = new DevExpress.XtraBars.StandaloneBarDockControl();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.progressPanel1 = new DevExpress.XtraWaitForm.ProgressPanel();
-            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
+            this.progressBarControl1 = new DevExpress.XtraEditors.ProgressBarControl();
+            this.barManager1 = new DevExpress.XtraBars.BarManager();
+            this.bar1 = new DevExpress.XtraBars.Bar();
+            this.btnCPK = new DevExpress.XtraBars.BarButtonItem();
+            this.btnSampleRun = new DevExpress.XtraBars.BarButtonItem();
+            this.btnSampleControl = new DevExpress.XtraBars.BarButtonItem();
+            this.btnSamleAvg = new DevExpress.XtraBars.BarButtonItem();
+            this.btnNormalCheck = new DevExpress.XtraBars.BarButtonItem();
+            this.btnFrequency = new DevExpress.XtraBars.BarButtonItem();
             this.standaloneBarDockControl1 = new DevExpress.XtraBars.StandaloneBarDockControl();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.lookUpEdit1 = new DevExpress.XtraEditors.LookUpEdit();
+            this.bar2 = new DevExpress.XtraBars.Bar();
+            this.btnPreQtrace = new DevExpress.XtraBars.BarButtonItem();
+            this.btnBackQrace = new DevExpress.XtraBars.BarButtonItem();
+            this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
+            this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
+            this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
+            this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
+            this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager();
+            this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
+            this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.btnQuery = new DevExpress.XtraEditors.SimpleButton();
+            this.textMinWidth = new System.Windows.Forms.TextBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.checkThick = new System.Windows.Forms.CheckBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.textMaxThick = new System.Windows.Forms.TextBox();
+            this.lookUpEdit1 = new DevExpress.XtraEditors.LookUpEdit();
+            this.textMinThick = new System.Windows.Forms.TextBox();
+            this.checkBox3 = new System.Windows.Forms.CheckBox();
+            this.checkWidth = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.checkTime = new System.Windows.Forms.CheckBox();
+            this.textMaxWidth = new System.Windows.Forms.TextBox();
             this.comboxGrade = new System.Windows.Forms.ComboBox();
             this.checkGrade = new System.Windows.Forms.CheckBox();
-            this.textMaxWidth = new System.Windows.Forms.TextBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.checkWidth = new System.Windows.Forms.CheckBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.textMinWidth = new System.Windows.Forms.TextBox();
-            this.textMinThick = new System.Windows.Forms.TextBox();
-            this.textMaxThick = new System.Windows.Forms.TextBox();
-            this.checkThick = new System.Windows.Forms.CheckBox();
+            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
+            this.imageCollection1 = new DevExpress.Utils.ImageCollection();
+            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
             this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
             this.gridControl2 = new DevExpress.XtraGrid.GridControl();
@@ -68,41 +90,28 @@
             this.colBatch = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colOrderId = new DevExpress.XtraGrid.Columns.GridColumn();
             this.xtraTabPage2 = new DevExpress.XtraTab.XtraTabPage();
-            this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
-            this.bar1 = new DevExpress.XtraBars.Bar();
-            this.btnCPK = new DevExpress.XtraBars.BarButtonItem();
-            this.btnSampleRun = new DevExpress.XtraBars.BarButtonItem();
-            this.btnSampleControl = new DevExpress.XtraBars.BarButtonItem();
-            this.btnSamleAvg = new DevExpress.XtraBars.BarButtonItem();
-            this.btnNormalCheck = new DevExpress.XtraBars.BarButtonItem();
-            this.btnFrequency = new DevExpress.XtraBars.BarButtonItem();
-            this.bar2 = new DevExpress.XtraBars.Bar();
-            this.btnPreQtrace = new DevExpress.XtraBars.BarButtonItem();
-            this.btnBackQrace = new DevExpress.XtraBars.BarButtonItem();
-            this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
-            this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
-            this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
-            this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
-            this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
-            this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
-            this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
+            this.panelControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.progressBarControl1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
+            this.dockPanel1.SuspendLayout();
+            this.dockPanel1_Container.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imageCollection1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.xtraTabControl1.SuspendLayout();
             this.xtraTabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             this.xtraTabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
-            this.dockPanel1.SuspendLayout();
-            this.dockPanel1_Container.SuspendLayout();
             this.SuspendLayout();
             // 
             // dateTimeStart
@@ -133,10 +142,10 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.splitContainer1.Panel2.Controls.Add(this.progressPanel1);
+            this.splitContainer1.Panel2.Controls.Add(this.panel1);
             this.splitContainer1.Panel2.Controls.Add(this.gridControl1);
             this.splitContainer1.Panel2.Controls.Add(this.standaloneBarDockControl1);
-            this.splitContainer1.Size = new System.Drawing.Size(1457, 459);
+            this.splitContainer1.Size = new System.Drawing.Size(1461, 460);
             this.splitContainer1.SplitterDistance = 304;
             this.splitContainer1.SplitterWidth = 5;
             this.splitContainer1.TabIndex = 22;
@@ -145,9 +154,9 @@
             // 
             this.triStateTreeView1.CheckBoxes = true;
             this.triStateTreeView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.triStateTreeView1.Location = new System.Drawing.Point(0, 34);
+            this.triStateTreeView1.Location = new System.Drawing.Point(0, 31);
             this.triStateTreeView1.Name = "triStateTreeView1";
-            this.triStateTreeView1.Size = new System.Drawing.Size(304, 425);
+            this.triStateTreeView1.Size = new System.Drawing.Size(304, 429);
             this.triStateTreeView1.TabIndex = 0;
             // 
             // standaloneBarDockControl2
@@ -158,333 +167,66 @@
             this.standaloneBarDockControl2.Location = new System.Drawing.Point(0, 0);
             this.standaloneBarDockControl2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.standaloneBarDockControl2.Name = "standaloneBarDockControl2";
-            this.standaloneBarDockControl2.Size = new System.Drawing.Size(304, 34);
+            this.standaloneBarDockControl2.Size = new System.Drawing.Size(304, 31);
             this.standaloneBarDockControl2.Text = "standaloneBarDockControl2";
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.panelControl1);
+            this.panel1.Location = new System.Drawing.Point(379, 169);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(347, 134);
+            this.panel1.TabIndex = 9;
+            this.panel1.Visible = false;
+            // 
+            // panelControl1
+            // 
+            this.panelControl1.Controls.Add(this.progressPanel1);
+            this.panelControl1.Controls.Add(this.btnCancel);
+            this.panelControl1.Controls.Add(this.progressBarControl1);
+            this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelControl1.Location = new System.Drawing.Point(0, 0);
+            this.panelControl1.Name = "panelControl1";
+            this.panelControl1.Size = new System.Drawing.Size(345, 132);
+            this.panelControl1.TabIndex = 11;
             // 
             // progressPanel1
             // 
             this.progressPanel1.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.progressPanel1.Appearance.Options.UseBackColor = true;
-            this.progressPanel1.AppearanceCaption.Font = new System.Drawing.Font("Microsoft Sans Serif", 28F);
+            this.progressPanel1.AppearanceCaption.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.progressPanel1.AppearanceCaption.Options.UseFont = true;
-            this.progressPanel1.AppearanceDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.progressPanel1.AppearanceDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.progressPanel1.AppearanceDescription.Options.UseFont = true;
-            this.progressPanel1.Location = new System.Drawing.Point(151, 189);
+            this.progressPanel1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.progressPanel1.Caption = "Please Wait, Loading ...";
+            this.progressPanel1.Description = "";
+            this.progressPanel1.Location = new System.Drawing.Point(34, 14);
             this.progressPanel1.Name = "progressPanel1";
-            this.progressPanel1.Size = new System.Drawing.Size(295, 75);
+            this.progressPanel1.Size = new System.Drawing.Size(277, 37);
             this.progressPanel1.TabIndex = 3;
             this.progressPanel1.Text = "progressPanel1";
-            this.progressPanel1.Visible = false;
             // 
-            // gridControl1
-            // 
-            this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl1.Location = new System.Drawing.Point(0, 34);
-            this.gridControl1.MainView = this.gridView1;
-            this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(1148, 425);
-            this.gridControl1.TabIndex = 1;
-            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView1});
-            this.gridControl1.ClientSizeChanged += new System.EventHandler(this.gridControl1_ClientSizeChanged);
-            // 
-            // gridView1
-            // 
-            this.gridView1.GridControl = this.gridControl1;
-            this.gridView1.Name = "gridView1";
-            this.gridView1.OptionsBehavior.Editable = false;
-            this.gridView1.OptionsSelection.MultiSelect = true;
-            this.gridView1.OptionsView.ColumnAutoWidth = false;
-            this.gridView1.OptionsView.ShowGroupPanel = false;
-            // 
-            // standaloneBarDockControl1
-            // 
-            this.standaloneBarDockControl1.AutoSize = true;
-            this.standaloneBarDockControl1.CausesValidation = false;
-            this.standaloneBarDockControl1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.standaloneBarDockControl1.Location = new System.Drawing.Point(0, 0);
-            this.standaloneBarDockControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.standaloneBarDockControl1.Name = "standaloneBarDockControl1";
-            this.standaloneBarDockControl1.Size = new System.Drawing.Size(1148, 34);
-            this.standaloneBarDockControl1.Text = "standaloneBarDockControl1";
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(309, 12);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(54, 18);
-            this.checkBox1.TabIndex = 20;
-            this.checkBox1.Text = "订单";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(372, 11);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(170, 21);
-            this.comboBox1.TabIndex = 1;
-            // 
-            // lookUpEdit1
-            // 
-            this.lookUpEdit1.Location = new System.Drawing.Point(69, 10);
-            this.lookUpEdit1.Name = "lookUpEdit1";
-            this.lookUpEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lookUpEdit1.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("PROCESS_NO", "工序代码"),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("PROC_COMMENTS", "工序名称"),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("DISPLAY_NUM", "序号", 10, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.Ascending)});
-            this.lookUpEdit1.Properties.DropDownRows = 15;
-            this.lookUpEdit1.Properties.NullText = "请选择工序";
-            this.lookUpEdit1.Properties.SortColumnIndex = 2;
-            this.lookUpEdit1.Size = new System.Drawing.Size(233, 22);
-            this.lookUpEdit1.TabIndex = 0;
-            // 
-            // btnQuery
-            // 
-            this.btnQuery.Appearance.Font = new System.Drawing.Font("Tahoma", 13.83019F);
-            this.btnQuery.Appearance.Options.UseFont = true;
-            this.btnQuery.Image = ((System.Drawing.Image)(resources.GetObject("btnQuery.Image")));
-            this.btnQuery.Location = new System.Drawing.Point(1164, 19);
-            this.btnQuery.Name = "btnQuery";
-            this.btnQuery.Size = new System.Drawing.Size(103, 33);
-            this.btnQuery.TabIndex = 21;
-            this.btnQuery.Text = "筛选";
-            this.btnQuery.Click += new System.EventHandler(this.btnQuery_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(22, 14);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 14);
-            this.label1.TabIndex = 17;
-            this.label1.Text = "工序";
-            // 
-            // checkTime
-            // 
-            this.checkTime.AutoSize = true;
-            this.checkTime.Location = new System.Drawing.Point(7, 41);
-            this.checkTime.Name = "checkTime";
-            this.checkTime.Size = new System.Drawing.Size(54, 18);
-            this.checkTime.TabIndex = 4;
-            this.checkTime.Text = "时间";
-            this.checkTime.UseVisualStyleBackColor = true;
-            // 
-            // comboxGrade
-            // 
-            this.comboxGrade.FormattingEnabled = true;
-            this.comboxGrade.Location = new System.Drawing.Point(619, 11);
-            this.comboxGrade.Name = "comboxGrade";
-            this.comboxGrade.Size = new System.Drawing.Size(188, 21);
-            this.comboxGrade.TabIndex = 2;
-            // 
-            // checkGrade
-            // 
-            this.checkGrade.AutoSize = true;
-            this.checkGrade.Location = new System.Drawing.Point(556, 12);
-            this.checkGrade.Name = "checkGrade";
-            this.checkGrade.Size = new System.Drawing.Size(54, 18);
-            this.checkGrade.TabIndex = 6;
-            this.checkGrade.Text = "钢种";
-            this.checkGrade.UseVisualStyleBackColor = true;
-            // 
-            // textMaxWidth
-            // 
-            this.textMaxWidth.Location = new System.Drawing.Point(996, 10);
-            this.textMaxWidth.Name = "textMaxWidth";
-            this.textMaxWidth.Size = new System.Drawing.Size(121, 22);
-            this.textMaxWidth.TabIndex = 8;
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(884, 40);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(233, 21);
-            this.comboBox2.TabIndex = 9;
-            // 
-            // checkWidth
-            // 
-            this.checkWidth.AutoSize = true;
-            this.checkWidth.Location = new System.Drawing.Point(822, 12);
-            this.checkWidth.Name = "checkWidth";
-            this.checkWidth.Size = new System.Drawing.Size(54, 18);
-            this.checkWidth.TabIndex = 13;
-            this.checkWidth.Text = "宽度";
-            this.checkWidth.UseVisualStyleBackColor = true;
-            // 
-            // checkBox3
-            // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(821, 41);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(54, 18);
-            this.checkBox3.TabIndex = 8;
-            this.checkBox3.Text = "班组";
-            this.checkBox3.UseVisualStyleBackColor = true;
-            // 
-            // textMinWidth
-            // 
-            this.textMinWidth.Location = new System.Drawing.Point(884, 10);
-            this.textMinWidth.Name = "textMinWidth";
-            this.textMinWidth.Size = new System.Drawing.Size(104, 22);
-            this.textMinWidth.TabIndex = 7;
-            // 
-            // textMinThick
-            // 
-            this.textMinThick.Location = new System.Drawing.Point(619, 39);
-            this.textMinThick.Name = "textMinThick";
-            this.textMinThick.Size = new System.Drawing.Size(81, 22);
-            this.textMinThick.TabIndex = 5;
-            // 
-            // textMaxThick
-            // 
-            this.textMaxThick.Location = new System.Drawing.Point(708, 39);
-            this.textMaxThick.Name = "textMaxThick";
-            this.textMaxThick.Size = new System.Drawing.Size(100, 22);
-            this.textMaxThick.TabIndex = 6;
-            // 
-            // checkThick
-            // 
-            this.checkThick.AutoSize = true;
-            this.checkThick.Location = new System.Drawing.Point(557, 41);
-            this.checkThick.Name = "checkThick";
-            this.checkThick.Size = new System.Drawing.Size(54, 18);
-            this.checkThick.TabIndex = 10;
-            this.checkThick.Text = "厚度";
-            this.checkThick.UseVisualStyleBackColor = true;
-            // 
-            // xtraTabControl1
-            // 
-            this.xtraTabControl1.AppearancePage.Header.Options.UseTextOptions = true;
-            this.xtraTabControl1.AppearancePage.Header.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.xtraTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.xtraTabControl1.Location = new System.Drawing.Point(0, 98);
-            this.xtraTabControl1.Name = "xtraTabControl1";
-            this.xtraTabControl1.SelectedTabPage = this.xtraTabPage1;
-            this.xtraTabControl1.Size = new System.Drawing.Size(1463, 491);
-            this.xtraTabControl1.TabIndex = 25;
-            this.xtraTabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
-            this.xtraTabPage1,
-            this.xtraTabPage2});
-            this.xtraTabControl1.TabPageWidth = 100;
-            // 
-            // xtraTabPage1
-            // 
-            this.xtraTabPage1.Controls.Add(this.gridControl2);
-            this.xtraTabPage1.Name = "xtraTabPage1";
-            this.xtraTabPage1.Size = new System.Drawing.Size(1457, 459);
-            this.xtraTabPage1.TabPageWidth = 100;
-            this.xtraTabPage1.Text = "数据选择";
-            // 
-            // gridControl2
-            // 
-            this.gridControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl2.Location = new System.Drawing.Point(0, 0);
-            this.gridControl2.MainView = this.gridView2;
-            this.gridControl2.Name = "gridControl2";
-            this.gridControl2.Size = new System.Drawing.Size(1457, 459);
-            this.gridControl2.TabIndex = 1;
-            this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView2});
-            // 
-            // gridView2
-            // 
-            this.gridView2.ChooseColumnName = "choose";
-            this.gridView2.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colTime,
-            this.colInId,
-            this.colOutId,
-            this.colSteelGrade,
-            this.colThickness,
-            this.colWidth,
-            this.colBatch,
-            this.colOrderId});
-            this.gridView2.GridControl = this.gridControl2;
-            this.gridView2.Name = "gridView2";
-            this.gridView2.OptionsBehavior.Editable = false;
-            this.gridView2.OptionsSelection.MultiSelect = true;
-            this.gridView2.OptionsView.ShowFooter = true;
-            // 
-            // colTime
-            // 
-            this.colTime.Caption = "生产时间";
-            this.colTime.DisplayFormat.FormatString = "yyyy-MM-dd HH:mm:ss";
-            this.colTime.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.colTime.FieldName = "Time";
-            this.colTime.Name = "colTime";
-            this.colTime.Visible = true;
-            this.colTime.VisibleIndex = 0;
-            // 
-            // colInId
-            // 
-            this.colInId.Caption = "入口物料号";
-            this.colInId.FieldName = "InId";
-            this.colInId.Name = "colInId";
-            this.colInId.Visible = true;
-            this.colInId.VisibleIndex = 1;
-            // 
-            // colOutId
-            // 
-            this.colOutId.Caption = "出口物料号";
-            this.colOutId.FieldName = "OutId";
-            this.colOutId.Name = "colOutId";
-            this.colOutId.Visible = true;
-            this.colOutId.VisibleIndex = 2;
-            // 
-            // colSteelGrade
-            // 
-            this.colSteelGrade.Caption = "钢种";
-            this.colSteelGrade.FieldName = "SteelGrade";
-            this.colSteelGrade.Name = "colSteelGrade";
-            this.colSteelGrade.Visible = true;
-            this.colSteelGrade.VisibleIndex = 3;
-            // 
-            // colThickness
-            // 
-            this.colThickness.Caption = "厚度";
-            this.colThickness.DisplayFormat.FormatString = "#0.00";
-            this.colThickness.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
-            this.colThickness.FieldName = "Thickness";
-            this.colThickness.Name = "colThickness";
-            this.colThickness.Visible = true;
-            this.colThickness.VisibleIndex = 4;
-            // 
-            // colWidth
-            // 
-            this.colWidth.Caption = "宽度";
-            this.colWidth.DisplayFormat.FormatString = "#0";
-            this.colWidth.FieldName = "Width";
-            this.colWidth.Name = "colWidth";
-            this.colWidth.Visible = true;
-            this.colWidth.VisibleIndex = 5;
-            // 
-            // colBatch
-            // 
-            this.colBatch.Caption = "批号";
-            this.colBatch.FieldName = "Batch";
-            this.colBatch.Name = "colBatch";
-            this.colBatch.Visible = true;
-            this.colBatch.VisibleIndex = 6;
-            // 
-            // colOrderId
-            // 
-            this.colOrderId.Caption = "订单号";
-            this.colOrderId.FieldName = "OrderId";
-            this.colOrderId.Name = "colOrderId";
-            this.colOrderId.Visible = true;
-            this.colOrderId.VisibleIndex = 7;
-            // 
-            // xtraTabPage2
-            // 
-            this.xtraTabPage2.Controls.Add(this.splitContainer1);
-            this.xtraTabPage2.Name = "xtraTabPage2";
-            this.xtraTabPage2.PageEnabled = false;
-            this.xtraTabPage2.Size = new System.Drawing.Size(1457, 459);
-            this.xtraTabPage2.Text = "数据追溯";
+            // btnCancel
+            // 
+            this.btnCancel.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+            this.btnCancel.Location = new System.Drawing.Point(123, 99);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(98, 23);
+            this.btnCancel.TabIndex = 6;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // progressBarControl1
+            // 
+            this.progressBarControl1.Location = new System.Drawing.Point(15, 57);
+            this.progressBarControl1.MenuManager = this.barManager1;
+            this.progressBarControl1.Name = "progressBarControl1";
+            this.progressBarControl1.Properties.Step = 1;
+            this.progressBarControl1.Size = new System.Drawing.Size(315, 30);
+            this.progressBarControl1.TabIndex = 5;
             // 
             // barManager1
             // 
@@ -582,6 +324,17 @@
             this.btnFrequency.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("btnFrequency.LargeGlyph")));
             this.btnFrequency.Name = "btnFrequency";
             this.btnFrequency.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnFrequency_ItemClick);
+            // 
+            // standaloneBarDockControl1
+            // 
+            this.standaloneBarDockControl1.AutoSize = true;
+            this.standaloneBarDockControl1.CausesValidation = false;
+            this.standaloneBarDockControl1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.standaloneBarDockControl1.Location = new System.Drawing.Point(0, 0);
+            this.standaloneBarDockControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.standaloneBarDockControl1.Name = "standaloneBarDockControl1";
+            this.standaloneBarDockControl1.Size = new System.Drawing.Size(1152, 31);
+            this.standaloneBarDockControl1.Text = "standaloneBarDockControl1";
             // 
             // bar2
             // 
@@ -699,10 +452,341 @@
             this.dockPanel1_Container.Controls.Add(this.textMaxWidth);
             this.dockPanel1_Container.Controls.Add(this.comboxGrade);
             this.dockPanel1_Container.Controls.Add(this.checkGrade);
-            this.dockPanel1_Container.Location = new System.Drawing.Point(4, 24);
+            this.dockPanel1_Container.Location = new System.Drawing.Point(3, 25);
             this.dockPanel1_Container.Name = "dockPanel1_Container";
-            this.dockPanel1_Container.Size = new System.Drawing.Size(1455, 70);
+            this.dockPanel1_Container.Size = new System.Drawing.Size(1457, 70);
             this.dockPanel1_Container.TabIndex = 0;
+            // 
+            // btnQuery
+            // 
+            this.btnQuery.Appearance.Font = new System.Drawing.Font("Tahoma", 13.83019F);
+            this.btnQuery.Appearance.Options.UseFont = true;
+            this.btnQuery.Image = ((System.Drawing.Image)(resources.GetObject("btnQuery.Image")));
+            this.btnQuery.Location = new System.Drawing.Point(1164, 19);
+            this.btnQuery.Name = "btnQuery";
+            this.btnQuery.Size = new System.Drawing.Size(103, 33);
+            this.btnQuery.TabIndex = 21;
+            this.btnQuery.Text = "筛选";
+            this.btnQuery.Click += new System.EventHandler(this.btnQuery_Click);
+            // 
+            // textMinWidth
+            // 
+            this.textMinWidth.Location = new System.Drawing.Point(884, 10);
+            this.textMinWidth.Name = "textMinWidth";
+            this.textMinWidth.Size = new System.Drawing.Size(104, 22);
+            this.textMinWidth.TabIndex = 7;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(309, 12);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(54, 18);
+            this.checkBox1.TabIndex = 20;
+            this.checkBox1.Text = "订单";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // checkThick
+            // 
+            this.checkThick.AutoSize = true;
+            this.checkThick.Location = new System.Drawing.Point(557, 41);
+            this.checkThick.Name = "checkThick";
+            this.checkThick.Size = new System.Drawing.Size(54, 18);
+            this.checkThick.TabIndex = 10;
+            this.checkThick.Text = "厚度";
+            this.checkThick.UseVisualStyleBackColor = true;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(372, 11);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(170, 21);
+            this.comboBox1.TabIndex = 1;
+            // 
+            // textMaxThick
+            // 
+            this.textMaxThick.Location = new System.Drawing.Point(708, 39);
+            this.textMaxThick.Name = "textMaxThick";
+            this.textMaxThick.Size = new System.Drawing.Size(100, 22);
+            this.textMaxThick.TabIndex = 6;
+            // 
+            // lookUpEdit1
+            // 
+            this.lookUpEdit1.Location = new System.Drawing.Point(69, 10);
+            this.lookUpEdit1.Name = "lookUpEdit1";
+            this.lookUpEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lookUpEdit1.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("PROCESS_NO", "工序代码"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("PROC_COMMENTS", "工序名称"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("DISPLAY_NUM", "序号", 10, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.Ascending)});
+            this.lookUpEdit1.Properties.DropDownRows = 15;
+            this.lookUpEdit1.Properties.NullText = "请选择工序";
+            this.lookUpEdit1.Properties.SortColumnIndex = 2;
+            this.lookUpEdit1.Size = new System.Drawing.Size(233, 22);
+            this.lookUpEdit1.TabIndex = 0;
+            // 
+            // textMinThick
+            // 
+            this.textMinThick.Location = new System.Drawing.Point(619, 39);
+            this.textMinThick.Name = "textMinThick";
+            this.textMinThick.Size = new System.Drawing.Size(81, 22);
+            this.textMinThick.TabIndex = 5;
+            // 
+            // checkBox3
+            // 
+            this.checkBox3.AutoSize = true;
+            this.checkBox3.Location = new System.Drawing.Point(821, 41);
+            this.checkBox3.Name = "checkBox3";
+            this.checkBox3.Size = new System.Drawing.Size(54, 18);
+            this.checkBox3.TabIndex = 8;
+            this.checkBox3.Text = "班组";
+            this.checkBox3.UseVisualStyleBackColor = true;
+            // 
+            // checkWidth
+            // 
+            this.checkWidth.AutoSize = true;
+            this.checkWidth.Location = new System.Drawing.Point(822, 12);
+            this.checkWidth.Name = "checkWidth";
+            this.checkWidth.Size = new System.Drawing.Size(54, 18);
+            this.checkWidth.TabIndex = 13;
+            this.checkWidth.Text = "宽度";
+            this.checkWidth.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(22, 14);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 14);
+            this.label1.TabIndex = 17;
+            this.label1.Text = "工序";
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(884, 40);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(233, 21);
+            this.comboBox2.TabIndex = 9;
+            // 
+            // checkTime
+            // 
+            this.checkTime.AutoSize = true;
+            this.checkTime.Location = new System.Drawing.Point(7, 41);
+            this.checkTime.Name = "checkTime";
+            this.checkTime.Size = new System.Drawing.Size(54, 18);
+            this.checkTime.TabIndex = 4;
+            this.checkTime.Text = "时间";
+            this.checkTime.UseVisualStyleBackColor = true;
+            // 
+            // textMaxWidth
+            // 
+            this.textMaxWidth.Location = new System.Drawing.Point(996, 10);
+            this.textMaxWidth.Name = "textMaxWidth";
+            this.textMaxWidth.Size = new System.Drawing.Size(121, 22);
+            this.textMaxWidth.TabIndex = 8;
+            // 
+            // comboxGrade
+            // 
+            this.comboxGrade.FormattingEnabled = true;
+            this.comboxGrade.Location = new System.Drawing.Point(619, 11);
+            this.comboxGrade.Name = "comboxGrade";
+            this.comboxGrade.Size = new System.Drawing.Size(188, 21);
+            this.comboxGrade.TabIndex = 2;
+            // 
+            // checkGrade
+            // 
+            this.checkGrade.AutoSize = true;
+            this.checkGrade.Location = new System.Drawing.Point(556, 12);
+            this.checkGrade.Name = "checkGrade";
+            this.checkGrade.Size = new System.Drawing.Size(54, 18);
+            this.checkGrade.TabIndex = 6;
+            this.checkGrade.Text = "钢种";
+            this.checkGrade.UseVisualStyleBackColor = true;
+            // 
+            // gridControl1
+            // 
+            this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControl1.EmbeddedNavigator.Appearance.Font = new System.Drawing.Font("Times New Roman", 8.830189F);
+            this.gridControl1.EmbeddedNavigator.Appearance.Options.UseFont = true;
+            this.gridControl1.EmbeddedNavigator.Buttons.Append.Visible = false;
+            this.gridControl1.EmbeddedNavigator.Buttons.CancelEdit.Visible = false;
+            this.gridControl1.EmbeddedNavigator.Buttons.Edit.Visible = false;
+            this.gridControl1.EmbeddedNavigator.Buttons.EndEdit.Visible = false;
+            this.gridControl1.EmbeddedNavigator.Buttons.First.ImageIndex = 0;
+            this.gridControl1.EmbeddedNavigator.Buttons.ImageList = this.imageCollection1;
+            this.gridControl1.EmbeddedNavigator.Buttons.Last.ImageIndex = 5;
+            this.gridControl1.EmbeddedNavigator.Buttons.Next.ImageIndex = 3;
+            this.gridControl1.EmbeddedNavigator.Buttons.NextPage.ImageIndex = 4;
+            this.gridControl1.EmbeddedNavigator.Buttons.Prev.ImageIndex = 2;
+            this.gridControl1.EmbeddedNavigator.Buttons.PrevPage.ImageIndex = 1;
+            this.gridControl1.EmbeddedNavigator.Buttons.Remove.Visible = false;
+            this.gridControl1.EmbeddedNavigator.TextStringFormat = "{0} / {1}";
+            this.gridControl1.Location = new System.Drawing.Point(0, 31);
+            this.gridControl1.MainView = this.gridView1;
+            this.gridControl1.Name = "gridControl1";
+            this.gridControl1.Size = new System.Drawing.Size(1152, 429);
+            this.gridControl1.TabIndex = 1;
+            this.gridControl1.UseEmbeddedNavigator = true;
+            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView1});
+            this.gridControl1.ClientSizeChanged += new System.EventHandler(this.gridControl1_ClientSizeChanged);
+            // 
+            // imageCollection1
+            // 
+            this.imageCollection1.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("imageCollection1.ImageStream")));
+            this.imageCollection1.InsertGalleryImage("doublefirst_16x16.png", "images/arrows/doublefirst_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("images/arrows/doublefirst_16x16.png"), 0);
+            this.imageCollection1.Images.SetKeyName(0, "doublefirst_16x16.png");
+            this.imageCollection1.InsertGalleryImage("doubleprev_16x16.png", "images/arrows/doubleprev_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("images/arrows/doubleprev_16x16.png"), 1);
+            this.imageCollection1.Images.SetKeyName(1, "doubleprev_16x16.png");
+            this.imageCollection1.InsertGalleryImage("prev_16x16.png", "images/arrows/prev_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("images/arrows/prev_16x16.png"), 2);
+            this.imageCollection1.Images.SetKeyName(2, "prev_16x16.png");
+            this.imageCollection1.InsertGalleryImage("next_16x16.png", "images/arrows/next_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("images/arrows/next_16x16.png"), 3);
+            this.imageCollection1.Images.SetKeyName(3, "next_16x16.png");
+            this.imageCollection1.InsertGalleryImage("doublenext_16x16.png", "images/arrows/doublenext_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("images/arrows/doublenext_16x16.png"), 4);
+            this.imageCollection1.Images.SetKeyName(4, "doublenext_16x16.png");
+            this.imageCollection1.InsertGalleryImage("doublelast_16x16.png", "images/arrows/doublelast_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("images/arrows/doublelast_16x16.png"), 5);
+            this.imageCollection1.Images.SetKeyName(5, "doublelast_16x16.png");
+            // 
+            // gridView1
+            // 
+            this.gridView1.GridControl = this.gridControl1;
+            this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsBehavior.Editable = false;
+            this.gridView1.OptionsSelection.MultiSelect = true;
+            this.gridView1.OptionsView.ColumnAutoWidth = false;
+            this.gridView1.OptionsView.ShowGroupPanel = false;
+            // 
+            // xtraTabControl1
+            // 
+            this.xtraTabControl1.AppearancePage.Header.Options.UseTextOptions = true;
+            this.xtraTabControl1.AppearancePage.Header.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.xtraTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.xtraTabControl1.Location = new System.Drawing.Point(0, 98);
+            this.xtraTabControl1.Name = "xtraTabControl1";
+            this.xtraTabControl1.SelectedTabPage = this.xtraTabPage1;
+            this.xtraTabControl1.Size = new System.Drawing.Size(1463, 491);
+            this.xtraTabControl1.TabIndex = 25;
+            this.xtraTabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
+            this.xtraTabPage1,
+            this.xtraTabPage2});
+            this.xtraTabControl1.TabPageWidth = 100;
+            // 
+            // xtraTabPage1
+            // 
+            this.xtraTabPage1.Controls.Add(this.gridControl2);
+            this.xtraTabPage1.Name = "xtraTabPage1";
+            this.xtraTabPage1.Size = new System.Drawing.Size(1461, 460);
+            this.xtraTabPage1.TabPageWidth = 100;
+            this.xtraTabPage1.Text = "数据选择";
+            // 
+            // gridControl2
+            // 
+            this.gridControl2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControl2.Location = new System.Drawing.Point(0, 0);
+            this.gridControl2.MainView = this.gridView2;
+            this.gridControl2.Name = "gridControl2";
+            this.gridControl2.Size = new System.Drawing.Size(1461, 460);
+            this.gridControl2.TabIndex = 1;
+            this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView2});
+            // 
+            // gridView2
+            // 
+            this.gridView2.ChooseColumnName = "choose";
+            this.gridView2.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colTime,
+            this.colInId,
+            this.colOutId,
+            this.colSteelGrade,
+            this.colThickness,
+            this.colWidth,
+            this.colBatch,
+            this.colOrderId});
+            this.gridView2.GridControl = this.gridControl2;
+            this.gridView2.Name = "gridView2";
+            this.gridView2.OptionsBehavior.Editable = false;
+            this.gridView2.OptionsSelection.MultiSelect = true;
+            this.gridView2.OptionsView.ShowFooter = true;
+            // 
+            // colTime
+            // 
+            this.colTime.Caption = "生产时间";
+            this.colTime.DisplayFormat.FormatString = "yyyy-MM-dd HH:mm:ss";
+            this.colTime.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.colTime.FieldName = "Time";
+            this.colTime.Name = "colTime";
+            this.colTime.Visible = true;
+            this.colTime.VisibleIndex = 0;
+            // 
+            // colInId
+            // 
+            this.colInId.Caption = "入口物料号";
+            this.colInId.FieldName = "InId";
+            this.colInId.Name = "colInId";
+            this.colInId.Visible = true;
+            this.colInId.VisibleIndex = 1;
+            // 
+            // colOutId
+            // 
+            this.colOutId.Caption = "出口物料号";
+            this.colOutId.FieldName = "OutId";
+            this.colOutId.Name = "colOutId";
+            this.colOutId.Visible = true;
+            this.colOutId.VisibleIndex = 2;
+            // 
+            // colSteelGrade
+            // 
+            this.colSteelGrade.Caption = "钢种";
+            this.colSteelGrade.FieldName = "SteelGrade";
+            this.colSteelGrade.Name = "colSteelGrade";
+            this.colSteelGrade.Visible = true;
+            this.colSteelGrade.VisibleIndex = 3;
+            // 
+            // colThickness
+            // 
+            this.colThickness.Caption = "厚度";
+            this.colThickness.DisplayFormat.FormatString = "#0.00";
+            this.colThickness.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
+            this.colThickness.FieldName = "Thickness";
+            this.colThickness.Name = "colThickness";
+            this.colThickness.Visible = true;
+            this.colThickness.VisibleIndex = 4;
+            // 
+            // colWidth
+            // 
+            this.colWidth.Caption = "宽度";
+            this.colWidth.DisplayFormat.FormatString = "#0";
+            this.colWidth.FieldName = "Width";
+            this.colWidth.Name = "colWidth";
+            this.colWidth.Visible = true;
+            this.colWidth.VisibleIndex = 5;
+            // 
+            // colBatch
+            // 
+            this.colBatch.Caption = "批号";
+            this.colBatch.FieldName = "Batch";
+            this.colBatch.Name = "colBatch";
+            this.colBatch.Visible = true;
+            this.colBatch.VisibleIndex = 6;
+            // 
+            // colOrderId
+            // 
+            this.colOrderId.Caption = "订单号";
+            this.colOrderId.FieldName = "OrderId";
+            this.colOrderId.Name = "colOrderId";
+            this.colOrderId.Visible = true;
+            this.colOrderId.VisibleIndex = 7;
+            // 
+            // xtraTabPage2
+            // 
+            this.xtraTabPage2.Controls.Add(this.splitContainer1);
+            this.xtraTabPage2.Name = "xtraTabPage2";
+            this.xtraTabPage2.PageEnabled = false;
+            this.xtraTabPage2.Size = new System.Drawing.Size(1461, 460);
+            this.xtraTabPage2.Text = "数据追溯";
             // 
             // DataAnalysisStartUpAdv
             // 
@@ -723,20 +807,25 @@
             this.splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
+            this.panelControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.progressBarControl1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).EndInit();
+            this.dockPanel1.ResumeLayout(false);
+            this.dockPanel1_Container.ResumeLayout(false);
+            this.dockPanel1_Container.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imageCollection1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).EndInit();
             this.xtraTabControl1.ResumeLayout(false);
             this.xtraTabPage1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
             this.xtraTabPage2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).EndInit();
-            this.dockPanel1.ResumeLayout(false);
-            this.dockPanel1_Container.ResumeLayout(false);
-            this.dockPanel1_Container.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -798,6 +887,11 @@
         private DevExpress.XtraBars.Docking.DockManager dockManager1;
         private DevExpress.XtraBars.Docking.DockPanel dockPanel1;
         private DevExpress.XtraBars.Docking.ControlContainer dockPanel1_Container;
+        private DevExpress.XtraEditors.ProgressBarControl progressBarControl1;
+        private System.Windows.Forms.Panel panel1;
+        private DevExpress.XtraEditors.SimpleButton btnCancel;
+        private DevExpress.XtraEditors.PanelControl panelControl1;
         private DevExpress.XtraWaitForm.ProgressPanel progressPanel1;
+        private DevExpress.Utils.ImageCollection imageCollection1;
     }
 }

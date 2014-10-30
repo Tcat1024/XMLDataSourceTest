@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using EAS.Services;
 using EAS.Modularization;
 using QtDataTrace.Interfaces;
+using QtDataTrace.IService;
 using System.Threading;
 
 namespace QtDataTrace.UI
@@ -211,7 +212,7 @@ namespace QtDataTrace.UI
             {
                 foreach (var child in row.GetChildRows(table.ChildRelations[i]))
                 {
-                    child.SetParentRow(temp,table.ChildRelations[i]);
+                    child.SetParentRow(temp, table.ChildRelations[i]);
                 }
             }
             for (int i = 0; i < table.ParentRelations.Count; i++)
@@ -228,7 +229,7 @@ namespace QtDataTrace.UI
         private void InsertAfterRow(DataRow row, DataRow tar, DataTable table)
         {
             var temp = table.NewRow();
-            var indext = table.Rows.IndexOf(tar)+1;
+            var indext = table.Rows.IndexOf(tar) + 1;
             table.BeginLoadData();
             for (int i = 0; i < row.ItemArray.Length; i++)
             {
@@ -262,7 +263,7 @@ namespace QtDataTrace.UI
             {
                 for (int i = 0; i < selects.Length; i++)
                 {
-                    InsertAfterRow(view.GetDataRow(selects[i]-i), view.GetDataRow(view.DataRowCount-1), data[0].Tables[view.Name == "gridView1" ? 0 : 1]);
+                    InsertAfterRow(view.GetDataRow(selects[i] - i), view.GetDataRow(view.DataRowCount - 1), data[0].Tables[view.Name == "gridView1" ? 0 : 1]);
                 }
                 view.MoveLast();
                 view.SelectRows(view.DataRowCount - selects.Length, view.DataRowCount - 1);
@@ -276,7 +277,7 @@ namespace QtDataTrace.UI
             var selects = view.GetSelectedRows();
             if (selects.Length > 0)
             {
-                for (int i = 0; i <selects.Length; i++)
+                for (int i = 0; i < selects.Length; i++)
                 {
                     InsertBeforeRow(view.GetDataRow(selects[i]), view.GetDataRow(i), data[0].Tables[view.Name == "gridView1" ? 0 : 1]);
                 }

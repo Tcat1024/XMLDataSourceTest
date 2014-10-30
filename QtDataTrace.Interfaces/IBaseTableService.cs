@@ -36,5 +36,8 @@ namespace QtDataTrace.Interfaces
 
         DataSet GetTagConfig();
         DataSet GetProcessQtTableConfigFile();
+
+        DataSet GetSPCProsessNoConfigFile(); //获取不同工序下不同参数SPC判定的数值设定
+        void ModifySPCProsessNoConfigFile(DataSet data);//修改SPC判定的不同工序参数的设定值
     }
 }

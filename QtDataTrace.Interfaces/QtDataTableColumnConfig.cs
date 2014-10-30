@@ -21,5 +21,4 @@ namespace QtDataTrace.Interfaces
             set { columnName = value; }
         }
     }
-
 }

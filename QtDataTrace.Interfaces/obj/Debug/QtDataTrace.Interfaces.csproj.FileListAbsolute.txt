@@ -4,10 +4,10 @@ C:\Users\Tcat\Desktop\WorkSpace\Others\质量项目数据库查询\QtDataTrace\Q
 C:\Users\Tcat\Desktop\WorkSpace\Others\质量项目数据库查询\QtDataTrace\QtDataTrace.Interfaces\bin\Debug\GenuineChannels.dll
 C:\Users\Tcat\Desktop\WorkSpace\Others\质量项目数据库查询\QtDataTrace\QtDataTrace.Interfaces\obj\Debug\QtDataTrace.Interfaces.dll
 C:\Users\Tcat\Desktop\WorkSpace\Others\质量项目数据库查询\QtDataTrace\QtDataTrace.Interfaces\obj\Debug\QtDataTrace.Interfaces.pdb
+C:\Users\Tcat\Desktop\WorkSpace\Others\质量项目数据库查询\QtDataTrace\QtDataTrace.Interfaces\obj\Debug\QtDataTrace.Interfaces.csprojResolveAssemblyReference.cache
 C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\QtDataTrace.Interfaces\bin\Debug\QtDataTrace.Interfaces.dll
 C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\QtDataTrace.Interfaces\bin\Debug\QtDataTrace.Interfaces.pdb
 C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\QtDataTrace.Interfaces\bin\Debug\Expression.dll
 C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\QtDataTrace.Interfaces\bin\Debug\GenuineChannels.dll
 C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\QtDataTrace.Interfaces\obj\Debug\QtDataTrace.Interfaces.dll
 C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\QtDataTrace.Interfaces\obj\Debug\QtDataTrace.Interfaces.pdb
-C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\QtDataTrace.Interfaces\obj\Debug\QtDataTrace.Interfaces.csprojResolveAssemblyReference.cache

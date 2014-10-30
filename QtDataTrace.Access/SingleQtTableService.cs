@@ -6,7 +6,7 @@ using System.Data;
 using System.Data.OleDb;
 using EAS.Services;
 using QtDataTrace.Interfaces;
-using QtDataTrace.Access;
+using QtDataTrace.IService;
 
 namespace QtDataTrace.Access
 {
@@ -26,6 +26,13 @@ namespace QtDataTrace.Access
             SingleQtTableLY210 qt = new SingleQtTableLY210();
 
             return qt.GetBOFKeyEvents(HeatID);
+        }
+
+        public List<BOF_HisDB> GetBOF_WasteGas_HisDB(string bof_campaign, string StartDateTime, string EndDateTime)
+        {
+            SingleQtTableLY210 qt = new SingleQtTableLY210();
+
+            return qt.GetBOF_WasteGas_HisDB(bof_campaign, StartDateTime, EndDateTime);
         }
 
         public List<HisDB_HF> GetHisDB_HF(string CoilID)
@@ -179,6 +186,48 @@ namespace QtDataTrace.Access
             return result;
         }
 
+        public List<LFHeatInfo> GetLFHeatInfo(string HeatID)
+        {
+            SingleQtTableLY210 qt = new SingleQtTableLY210();
+
+            return qt.GetLFHeatInfo(HeatID);
+        }
+
+        public List<LFKeyEvents> GetLF_KeyEvents(string HeatID)
+        {
+            SingleQtTableLY210 qt = new SingleQtTableLY210();
+
+            return qt.GetLF_KeyEvents(HeatID);
+        }
+
+        public List<LF_HisDB> GetLF_HisDB(string LF_Station, string TrolleyNo, string StartDateTime, string EndDateTime)
+        {
+            SingleQtTableLY210 qt = new SingleQtTableLY210();
+
+            return qt.GetLF_HisDB(LF_Station, TrolleyNo, StartDateTime, EndDateTime);
+        }
+
+        public List<RHHeatInfo> GetRHHeatInfo(string HeatID)
+        {
+            SingleQtTableLY210 qt = new SingleQtTableLY210();
+
+            return qt.GetRHHeatInfo(HeatID);
+        }
+
+        public List<RH_KeyEvens> GetRHKeyEvents(string HeatID)
+        {
+            SingleQtTableLY210 qt = new SingleQtTableLY210();
+
+            return qt.GetRHKeyEvents(HeatID);
+        }
+
+        public List<RH_HisDB> GetRH_HisDB(string RH_Station, string StartDateTime, string EndDateTime)
+        {
+            SingleQtTableLY210 qt = new SingleQtTableLY210();
+
+            return qt.GetRH_HisDB(RH_Station, StartDateTime, EndDateTime);
+        }
+
         public List<EquipmentAreaInfo> GetDeviceAreaInfo(string device)
         {
             List<EquipmentAreaInfo> result = new List<EquipmentAreaInfo>();
@@ -227,5 +276,23 @@ namespace QtDataTrace.Access
 
             return result;
         }
+
+        public IList<PLTCM_CoilInfo> GetPLTCM_CoilInfo(string matId)
+        {
+            List<PLTCM_CoilInfo> result;
+
+            PersistentService<PLTCM_CoilInfo> setup = new PersistentService<PLTCM_CoilInfo>();
+
+            using (OleDbConnection connection = new OleDbConnection(ConnectionString.LYQ_OLEDB))
+            {
+                connection.Open();
+
+                string sql = string.Format("select * from CRM_PLTCM_REPORT where OUT_MAT_NO = '{0}'", matId);
+                result = setup.Load(sql, connection);
+            }
+
+            return result;
+        }
+
     }
 }

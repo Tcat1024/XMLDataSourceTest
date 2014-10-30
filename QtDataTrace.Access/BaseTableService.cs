@@ -8,8 +8,8 @@ using EAS.Services;
 using System.Data;
 using System.Data.OleDb;
 using System.Data.SqlClient;
-using QtDataTrace.Access;
 using QtDataTrace.Interfaces;
+using QtDataTrace.IService;
 using log4net;
 
 namespace QtDataTrace.Access
@@ -521,6 +521,7 @@ namespace QtDataTrace.Access
         {
             DataSet xmlDataSet = new DataSet();
 
+            xmlDataSet.DataSetName = "Configuration";
             string path = System.Windows.Forms.Application.StartupPath;
 
             xmlDataSet.ReadXmlSchema(string.Format("{0}\\..\\Config\\PointConfigure.xsd", path));
