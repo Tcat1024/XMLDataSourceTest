@@ -1,0 +1,6 @@
+2014-11-07 16:07:45==>INFO :组件定义:
+	Key=EAS.Services.TimeService,Type=EAS.Services.TimeService,EAS.MicroKernel
+	Key=EAS.Data.DataService,Type=EAS.Data.DataService,EAS.Data
+	Key=EAS.Data.ORM.OrmAccessor,Type=EAS.Data.ORM.OrmAccessor,EAS.Data
+	Key=EAS.Data.Caching.CacheService,Type=EAS.Data.Caching.CacheService,EAS.Data
+

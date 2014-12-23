@@ -55,11 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IBaseTableService.cs" />
-    <Compile Include="IHistorainDataTrace.cs" />
-    <Compile Include="IIoDataProvider.cs" />
-    <Compile Include="IIoManager.cs" />
-    <Compile Include="IQtDataTraceServer.cs" />
-    <Compile Include="IQtDataTraceServerManager.cs" />
+    <Compile Include="IHistorainDataService.cs" />
     <Compile Include="IQtDataTraceService.cs" />
     <Compile Include="ISingleQtTableService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

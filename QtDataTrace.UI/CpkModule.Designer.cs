@@ -28,25 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.cpKtoolControl1 = new SPC.CPKtool.CPKtoolControl();
+            this.cpKtoolControl = new SPC.CPKtool.CPKtoolControl();
             this.SuspendLayout();
             // 
-            // cpKtoolControl1
+            // cpKtoolControl
             // 
-            this.cpKtoolControl1.DataMember = null;
-            this.cpKtoolControl1.DataSource = null;
-            this.cpKtoolControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cpKtoolControl1.Location = new System.Drawing.Point(0, 0);
-            this.cpKtoolControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.cpKtoolControl1.Name = "cpKtoolControl1";
-            this.cpKtoolControl1.Size = new System.Drawing.Size(1176, 465);
-            this.cpKtoolControl1.TabIndex = 0;
+            this.cpKtoolControl.DataMember = null;
+            this.cpKtoolControl.DataSource = null;
+            this.cpKtoolControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cpKtoolControl.Location = new System.Drawing.Point(0, 0);
+            this.cpKtoolControl.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.cpKtoolControl.Name = "cpKtoolControl";
+            this.cpKtoolControl.Size = new System.Drawing.Size(1176, 465);
+            this.cpKtoolControl.TabIndex = 0;
             // 
             // CpkModule
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.cpKtoolControl1);
+            this.Controls.Add(this.cpKtoolControl);
             this.Name = "CpkModule";
             this.Size = new System.Drawing.Size(1176, 465);
             this.Load += new System.EventHandler(this.CpkModule_Load);
@@ -56,7 +56,7 @@
 
         #endregion
 
-        public SPC.CPKtool.CPKtoolControl cpKtoolControl1;
+        public SPC.CPKtool.CPKtoolControl cpKtoolControl;
 
     }
 }

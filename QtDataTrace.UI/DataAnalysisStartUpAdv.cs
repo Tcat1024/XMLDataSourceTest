@@ -25,7 +25,8 @@ namespace QtDataTrace.UI
         private BindingSource materialBindingSource = new BindingSource();
         private QueryArgs queryArg;
         private string _processNo;
-        private Guid currentTraceFactoryId;
+        private Guid currentTraceFactoryId = Guid.Empty;
+        private bool currentTraceDir;
         private string loginId;
         public string ProcessNo
         {
@@ -53,18 +54,6 @@ namespace QtDataTrace.UI
                 }
             }
         }
-        private string _processName;
-        public string ProcessName
-        {
-            get
-            {
-                return this._processName;
-            }
-            private set
-            {
-                this._processName = value;
-            }
-        }
         public string ProcessSEQ { get; set; }
         public DataAnalysisStartUpAdv()
         {
@@ -87,25 +76,7 @@ namespace QtDataTrace.UI
             configFileView = configFile.Tables["Table"].DefaultView;
 
             this.gridControl2.DataSource = materialBindingSource;
-            if (EAS.Application.Instance!= null)
-                this.loginId = (EAS.Application.Instance.Session.Client as EAS.Explorer.IAccount).LoginID;
-            else
-                this.loginId = "TestAccount";
-        }
-
-        private void toolStripCpk_Click(object sender, EventArgs e)
-        {
-            if (processData == null)
-            {
-                MessageBox.Show("请选择数据源");
-                return;
-            }
-
-            CpkModule module = new CpkModule();
-
-            module.DataSource = processData.Tables[0];
-
-            EAS.Application.Instance.OpenModule(module);
+            this.loginId = (EAS.Application.Instance.Session.Client as EAS.Explorer.IAccount).LoginID;
         }
         private void InitTreeList()
         {
@@ -207,10 +178,6 @@ namespace QtDataTrace.UI
                 this.xtraTabPage2.PageEnabled = true;
                 setGraphEnable(false);
             }
-
-            this.ProcessName = lookUpEdit1.GetColumnValue("PROC_COMMENTS").ToString();
-            if (this.ProcessName == null || this.ProcessName.Trim() == "")
-                this.ProcessName = temp.ProcessCode;
             this.ProcessNo = temp.ProcessCode;
             this.queryArg = temp;
 
@@ -306,27 +273,6 @@ namespace QtDataTrace.UI
                 qA.MaxWidth = Convert.ToDouble(textMaxWidth.Text);
             return qA;
         }
-        private void toolStripSpc_Click(object sender, EventArgs e)
-        {
-            if (processData == null)
-            {
-                MessageBox.Show("请选择数据源");
-                return;
-            }
-
-            SpcModule module = new SpcModule();
-
-            module.DataSource = processData.Tables[0];
-
-            EAS.Application.Instance.OpenModule(module);
-        }
-
-        private void toolStripLabel1_Click(object sender, EventArgs e)
-        {
-            //SpcModule module = new SpcModule();
-            //EAS.Application.Instance.OpenModule(module);
-
-        }
         /*
         private void btnQuickQuery_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
@@ -390,9 +336,8 @@ namespace QtDataTrace.UI
             }
 
             CpkModule module = new CpkModule();
-
             module.DataSource = data.Tables[0];
-
+            (module.DataView as SPC.Base.Control.CanChooseDataGridView).Synchronize(this.gridView1, DevExpress.XtraGrid.Views.Base.SynchronizationMode.Full);
             EAS.Application.Instance.OpenModule(module);
         }
 
@@ -407,8 +352,9 @@ namespace QtDataTrace.UI
             SpcModule module = new SpcModule();
 
             module.DataSource = data.Tables[0];
+            (module.DataView as SPC.Base.Control.CanChooseDataGridView).Synchronize(this.gridView1, DevExpress.XtraGrid.Views.Base.SynchronizationMode.Full);
             module.SelectTabPageIndex = 0;
-            module.AccessibleDescription = "样本运行图";
+            module.AccessibleDescription = "样本散点图";
             EAS.Application.Instance.OpenModule(module);
         }
 
@@ -423,8 +369,9 @@ namespace QtDataTrace.UI
             SpcModule module = new SpcModule();
 
             module.DataSource = data.Tables[0];
+            (module.DataView as SPC.Base.Control.CanChooseDataGridView).Synchronize(this.gridView1, DevExpress.XtraGrid.Views.Base.SynchronizationMode.Full);
             module.SelectTabPageIndex = 1;
-            module.AccessibleDescription = "控制图";
+            module.AccessibleDescription = "样本控制图";
             EAS.Application.Instance.OpenModule(module);
         }
 
@@ -439,6 +386,7 @@ namespace QtDataTrace.UI
             SpcModule module = new SpcModule();
 
             module.DataSource = data.Tables[0];
+            (module.DataView as SPC.Base.Control.CanChooseDataGridView).Synchronize(this.gridView1, DevExpress.XtraGrid.Views.Base.SynchronizationMode.Full);
             module.SelectTabPageIndex = 2;
             module.AccessibleDescription = "均值运行图";
             EAS.Application.Instance.OpenModule(module);
@@ -455,6 +403,7 @@ namespace QtDataTrace.UI
             SpcModule module = new SpcModule();
 
             module.DataSource = data.Tables[0];
+            (module.DataView as SPC.Base.Control.CanChooseDataGridView).Synchronize(this.gridView1, DevExpress.XtraGrid.Views.Base.SynchronizationMode.Full);
             module.SelectTabPageIndex = 3;
             module.AccessibleDescription = "正态校验";
             EAS.Application.Instance.OpenModule(module);
@@ -470,6 +419,7 @@ namespace QtDataTrace.UI
             SpcModule module = new SpcModule();
 
             module.DataSource = data.Tables[0];
+            (module.DataView as SPC.Base.Control.CanChooseDataGridView).Synchronize(this.gridView1, DevExpress.XtraGrid.Views.Base.SynchronizationMode.Full);
             module.SelectTabPageIndex = 4;
             module.AccessibleDescription = "频度分布";
             EAS.Application.Instance.OpenModule(module);
@@ -489,7 +439,7 @@ namespace QtDataTrace.UI
             }
             this.gridControl1.Enabled = t;
         }
-        private void btnBackQrace_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private void btnQtrace_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             if (this.ProcessSEQ == null || this.ProcessSEQ.Trim() == "")
             {
@@ -498,9 +448,21 @@ namespace QtDataTrace.UI
             }
             List<QtDataProcessConfig> processes = new List<QtDataProcessConfig>();
             bool hasdata = false;
+            int targetseq = int.Parse(this.ProcessSEQ);
+            Func<int, bool> check;
+            if(sender == this.btnPreQtrace)
+            {
+                check = (a) => { return a <= targetseq; };
+                currentTraceDir = false;
+            }
+            else
+            {
+                check = (a) => { return a >= targetseq; };
+                currentTraceDir = true;
+            }
             foreach (TreeNode processnode in this.triStateTreeView1.Nodes)
             {
-                if (int.Parse(processnode.Name) >= int.Parse(this.ProcessSEQ) && processnode.Checked != false)
+                if (check(int.Parse(processnode.Name)) && processnode.Checked != false)
                 {
                     var process = new QtDataProcessConfig() { ChineseName = processnode.Text };
                     processes.Add(process);
@@ -531,8 +493,7 @@ namespace QtDataTrace.UI
                 MessageBox.Show("没有选择数据");
                 return;
             }
-
-            currentTraceFactoryId = ServiceContainer.GetService<IQtDataTraceService>().NewDataTrace(this.ProcessNo, idlist, processes, true, loginId);
+            currentTraceFactoryId = ServiceContainer.GetService<IQtDataTraceService>().NewDataTrace(this.ProcessNo, idlist, processes, currentTraceDir, loginId);
             if (currentTraceFactoryId == Guid.Empty)
             {
                 MessageBox.Show("用户任务过多，无法新建追溯");
@@ -540,8 +501,8 @@ namespace QtDataTrace.UI
             }
             setGraphEnable(false);
             setTraceEnable(false);
-            this.panel1.Visible = true;
-            this.progressBarControl1.Position = 0;
+            this.waitPanel1.Visible = true;
+            this.waitPanel1.Position = 0;
             Thread timertask = new Thread(traceTimerThreadMethod) { IsBackground = true };
             timertask.Start();
         }
@@ -557,11 +518,11 @@ namespace QtDataTrace.UI
                 {
                     this.data = new DataSet();
                     this.data.Tables.Add(result.Item2);
-                    this.Invoke(new Action(() => { this.progressBarControl1.Position = result.Item1; traceCallBack(); }));
+                    this.Invoke(new Action(() => { this.waitPanel1.Position = result.Item1; traceCallBack(); }));
                     break;
                 }
                 else
-                    this.Invoke(new Action(() => { this.progressBarControl1.Position = result.Item1; }));
+                    this.Invoke(new Action(() => { this.waitPanel1.Position = result.Item1; }));
                 Thread.Sleep(1000);
             }
             DateTime end = DateTime.Now;
@@ -571,9 +532,23 @@ namespace QtDataTrace.UI
         {
             this.gridView1.Columns.Clear();
             gridControl1.DataSource = data.Tables[0];
+            AddTraceHis(currentTraceFactoryId, DateTime.Now, currentTraceDir, ProcessNo);
             setGraphEnable(true);
             setTraceEnable(true);
-            this.panel1.Visible = false;
+            this.waitPanel1.Visible = false;
+        }
+        private void AddTraceHis(Guid id,DateTime time,bool back,string process)
+        {
+            stHisNone.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            var btn = new DevExpress.XtraBars.BarButtonItem(this.barManager1, string.Format("{0}_{1}_{2}",time.ToString("hh:mm:ss"),ProcessNo,back?"后追":"前追"));
+            btn.Tag = id;
+            this.menuTraceHis.LinksPersistInfo.Add(new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, btn, DevExpress.XtraBars.BarItemPaintStyle.Standard));
+        }
+        private void RemoveTraceHis(int Index)
+        {
+            this.menuTraceHis.LinksPersistInfo.RemoveAt(Index);
+            if (this.menuTraceHis.LinksPersistInfo.Count == 1 && this.menuTraceHis.LinksPersistInfo[0].Item.Visibility == DevExpress.XtraBars.BarItemVisibility.Never)
+                this.menuTraceHis.LinksPersistInfo[0].Item.Visibility = DevExpress.XtraBars.BarItemVisibility.Always;
         }
         private class TraceThreadDataType
         {
@@ -598,67 +573,9 @@ namespace QtDataTrace.UI
             }
             return result;
         }
-
-        private void btnPreQtrace_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-
-            if (this.ProcessSEQ == null || this.ProcessSEQ.Trim() == "")
-            {
-                MessageBox.Show("所选工序不符合追溯条件");
-                return;
-            }
-            List<QtDataProcessConfig> processes = new List<QtDataProcessConfig>();
-            bool hasdata = false;
-            foreach (TreeNode processnode in this.triStateTreeView1.Nodes)
-            {
-                if (int.Parse(processnode.Name) <= int.Parse(this.ProcessSEQ) && processnode.Checked != false)
-                {
-                    var process = new QtDataProcessConfig() { ChineseName = processnode.Text };
-                    processes.Add(process);
-                    for (int i = 0; i < processnode.Nodes.Count; i++)
-                    {
-                        var tablenode = processnode.Nodes[i];
-                        if (tablenode.Checked)
-                        {
-                            var table = new QtDataTableConfig() { ChineseName = tablenode.Text };
-                            process.Tables.Add(table);
-                            for (int j = 0; j < tablenode.Nodes.Count; j++)
-                            {
-                                var columnnode = tablenode.Nodes[j];
-                                if (columnnode.Checked)
-                                {
-                                    table.Columns.Add(new QtDataTableColumnConfig() { ChineseName = columnnode.Text });
-                                    if (!hasdata)
-                                        hasdata = true;
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-            var idlist = this.getIdList();
-            if (!hasdata || idlist.Count <= 0)
-            {
-                MessageBox.Show("没有选择数据");
-                return;
-            }
-            currentTraceFactoryId = ServiceContainer.GetService<IQtDataTraceService>().NewDataTrace(this.ProcessNo, idlist, processes, false, loginId);
-            if (currentTraceFactoryId == Guid.Empty)
-            {
-                MessageBox.Show("用户任务过多，无法新建追溯");
-                return;
-            }
-            setGraphEnable(false);
-            setTraceEnable(false);
-            this.panel1.Visible = true;
-            this.progressBarControl1.Position = 0;
-            Thread timertask = new Thread(traceTimerThreadMethod) { IsBackground = true };
-            timertask.Start();
-        }
-
         private void gridControl1_ClientSizeChanged(object sender, EventArgs e)
         {
-            this.panel1.Location = new Point(gridControl1.Location.X + gridControl1.Width / 2 - this.panel1.Width / 2, gridControl1.Location.Y + gridControl1.Height / 2 - this.panel1.Height / 2);
+            this.waitPanel1.Location = new Point(gridControl1.Location.X + gridControl1.Width / 2 - this.waitPanel1.Width / 2, gridControl1.Location.Y + gridControl1.Height / 2 - this.waitPanel1.Height / 2);
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -667,11 +584,69 @@ namespace QtDataTrace.UI
             {
                 setGraphEnable(true);
                 setTraceEnable(true);
-                this.panel1.Visible = false;
+                currentTraceFactoryId = Guid.Empty;
+                this.waitPanel1.Visible = false;
             }
         }
 
+        private void barButtonItem2_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (data == null)
+            {
+                MessageBox.Show("请选择数据源");
+                return;
+            }
 
+            RelationMonitorControl module = new RelationMonitorControl();
 
+            module.DataSource = data.Tables[0];
+            (module.DataView as SPC.Base.Control.CanChooseDataGridView).Synchronize(this.gridView1, DevExpress.XtraGrid.Views.Base.SynchronizationMode.Full);
+            module.AccessibleDescription = "相关性散点图";
+            EAS.Application.Instance.OpenModule(module);
+        }
+
+        private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (data == null)
+            {
+                MessageBox.Show("请选择数据源");
+                return;
+            }
+
+            SpcModule module = new SpcModule();
+
+            module.DataSource = data.Tables[0];
+            (module.DataView as SPC.Base.Control.CanChooseDataGridView).Synchronize(this.gridView1, DevExpress.XtraGrid.Views.Base.SynchronizationMode.Full);
+            module.SelectTabPageIndex = 5;
+            module.AccessibleDescription = "箱型图";
+            EAS.Application.Instance.OpenModule(module);
+        }
+
+        private void btnSPCdm_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (data == null)
+            {
+                MessageBox.Show("请选择数据源");
+                return;
+            }
+
+            SPCDetermineControl module = new SPCDetermineControl();
+
+            module.DataSource = data.Tables[0];
+            (module.DataView as SPC.Base.Control.CanChooseDataGridView).Synchronize(this.gridView1, DevExpress.XtraGrid.Views.Base.SynchronizationMode.Full);
+
+            module.AccessibleDescription = "SPC判定";
+            EAS.Application.Instance.OpenModule(module);
+        }
+
+        private void btnRelationAnalyze_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+
+        }
+
+        private void btnQuickCluster_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+
+        }
     }
 }

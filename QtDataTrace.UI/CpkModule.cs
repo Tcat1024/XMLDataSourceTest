@@ -12,7 +12,7 @@ using QtDataTrace.Interfaces;
 
 namespace QtDataTrace.UI
 {
-    [Module("521F1A32-A771-431A-A1FC-2BA726F6CF6A", "CPK计算", "CPK计算模块")]
+    [Module("521F1A32-A771-431A-A1FC-2BA726F6CF6A", "CPK分析", "CPK分析模块")]
     public partial class CpkModule : UserControl
     {
         public CpkModule()
@@ -22,9 +22,15 @@ namespace QtDataTrace.UI
 
         public Object DataSource
         {
-            set { cpKtoolControl1.DataSource = value; }
+            set { cpKtoolControl.DataSource = value; }
         }
-
+        public Object DataView
+        {
+            get
+            {
+                return cpKtoolControl.DataView;
+            }
+        }
         private void CpkModule_Load(object sender, EventArgs e)
         {
         }

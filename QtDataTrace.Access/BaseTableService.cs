@@ -11,6 +11,7 @@ using System.Data.SqlClient;
 using QtDataTrace.Interfaces;
 using QtDataTrace.IService;
 using log4net;
+using System.Xml;
 
 namespace QtDataTrace.Access
 {
@@ -537,54 +538,174 @@ namespace QtDataTrace.Access
             data.WriteXml(string.Format("{0}\\..\\Config\\PointConfigure.xml", path));
         }
 
-        public DataSet GetTagConfig()
+        //public DataSet GetTagConfig()
+        //{
+        //    DataSet data = new DataSet();
+
+        //    SqlConnection connection = new SqlConnection(ConnectionString.LYQ_HISTORAIN);
+
+        //    connection.Open();
+
+        //    string sql = "SELECT NULL PARENT, substring(Tag.TagName, 1, PATINDEX ( '%.%', Tag.TagName)-1) ID, substring(Tag.TagName, 1, PATINDEX ( '%.%', Tag.TagName)-1) TagName, Description = NULL, MinRaw = NULL, MaxRaw = NULL, Unit = NULL,MinEU=NULL, MaxEU=null " +
+        //                 " FROM runtime.dbo.AnalogTag, runtime.dbo.EngineeringUnit, runtime.dbo.Tag " +
+        //                 " WHERE runtime.dbo.Tag.TagName = runtime.dbo.AnalogTag.TagName " +
+        //                 " AND runtime.dbo.AnalogTag.EUKey = runtime.dbo.EngineeringUnit.EUKey " +
+        //                 " and runtime.dbo.Tag.TagName not like 'sys%'  " +
+        //                 " union " +
+        //                 " SELECT distinct substring(TagName, 1, PATINDEX ( '%.%', TagName)-1) PARENT, substring(parent, 1, patindex('%.%', parent)-1) ID, substring(parent, 1, patindex('%.%', parent)-1) TagName, Description = NULL, MinRaw = NULL, MaxRaw = NULL, Unit = NULL,MinEU=NULL, MaxEU=null " +
+        //                 " from " +
+        //                 " (SELECT substring(Tag.TagName, PATINDEX ( '%.%', Tag.TagName)+1, LEN(Tag.TagName)) PARENT, ID = Tag.TagName, TagName = Tag.TagName, Description = Tag.Description, MinRaw, MaxRaw, Unit,MinEU, MaxEU  " +
+        //                 " FROM runtime.dbo.AnalogTag, runtime.dbo.EngineeringUnit, runtime.dbo.Tag  " +
+        //                 " WHERE runtime.dbo.Tag.TagName = runtime.dbo.AnalogTag.TagName " +
+        //                 " AND runtime.dbo.AnalogTag.EUKey = runtime.dbo.EngineeringUnit.EUKey " +
+        //                 " and runtime.dbo.Tag.TagName not like 'sys%' ) t " +
+        //                 " union " +
+        //                 " select substring(PARENT, 1, PATINDEX ( '%.%', PARENT)-1) PARENT, TagName ID, TagName, Description, MinRaw, MaxRaw, Unit,MinEU, MaxEU  " +
+        //                 " from " +
+        //                 " (SELECT substring(Tag.TagName, PATINDEX ( '%.%', Tag.TagName)+1, len(Tag.TagName)) PARENT, ID = Tag.TagName, TagName = Tag.TagName, Description = Tag.Description, MinRaw, MaxRaw, Unit,MinEU, MaxEU  " +
+        //                 " FROM runtime.dbo.AnalogTag, runtime.dbo.EngineeringUnit, runtime.dbo.Tag  " +
+        //                 " WHERE runtime.dbo.Tag.TagName = runtime.dbo.AnalogTag.TagName " +
+        //                 " AND runtime.dbo.AnalogTag.EUKey = runtime.dbo.EngineeringUnit.EUKey " +
+        //                 " and runtime.dbo.Tag.TagName not like 'sys%' ) a" +
+        //                 " union " +
+        //                 " SELECT distinct substring(TagName, 1, PATINDEX ( '%.%', TagName)-1) PARENT, substring(parent, 1, patindex('%.%', parent)-1) ID, substring(parent, 1, patindex('%.%', parent)-1) TagName, Description = NULL, MinRaw = NULL, MaxRaw = NULL, Unit = NULL,MinEU=NULL, MaxEU=null " +
+        //                 " from " +
+        //                 " (SELECT substring(Tag.TagName, PATINDEX ( '%.%', Tag.TagName)+1, len(Tag.TagName)) PARENT, ID = Tag.TagName, TagName = Tag.TagName, Description = Tag.Description, null MinRaw, null MaxRaw, null Unit, null MinEU, null MaxEU  " +
+        //                 " FROM runtime.dbo.DiscreteTag, runtime.dbo.EngineeringUnit, runtime.dbo.Tag " +
+        //                 " WHERE runtime.dbo.Tag.TagName = runtime.dbo.DiscreteTag.TagName " +
+        //                 " and runtime.dbo.Tag.TagName not like 'sys%' ) b" +
+        //                 " union " +
+        //                 " select substring(PARENT, 1, PATINDEX ( '%.%', PARENT)-1) PARENT, TagName ID, TagName, Description, MinRaw, MaxRaw, Unit,MinEU, MaxEU  " +
+        //                 " from " +
+        //                 " (SELECT substring(Tag.TagName, PATINDEX ( '%.%', Tag.TagName)+1, len(Tag.TagName)) PARENT, ID = Tag.TagName, TagName = Tag.TagName, Description = Tag.Description, null MinRaw, null MaxRaw, null Unit, null MinEU, null MaxEU  " +
+        //                 " FROM runtime.dbo.DiscreteTag, runtime.dbo.EngineeringUnit, runtime.dbo.Tag " +
+        //                 " WHERE runtime.dbo.Tag.TagName = runtime.dbo.DiscreteTag.TagName " +
+        //                 " and runtime.dbo.Tag.TagName not like 'sys%' ) c";
+
+        //    SqlDataAdapter adapter = new SqlDataAdapter(sql, connection);
+        //    adapter.Fill(data, "TAG_DEFINE");
+
+        //    return data;
+        //}
+
+
+        public String GetSpcConfig()
+        {
+            XmlDocument doc = new XmlDocument();
+            string path = System.Windows.Forms.Application.StartupPath;
+
+            try
+            {
+                doc.Load(string.Format("{0}\\..\\Config\\SpcConfig.xml", path));
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return doc.OuterXml;
+        }
+        public void SaveSpcConfig(String doc2)
+        {
+            XmlDocument DOC = new XmlDocument();
+            DOC.LoadXml(doc2);
+            string path = System.Windows.Forms.Application.StartupPath;
+
+            try
+            {
+                DOC.Save(string.Format("{0}\\..\\Config\\SpcConfig.xml", path));
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public DataSet GetTablenameAndColume()
         {
             DataSet data = new DataSet();
+            OleDbConnection connection = new OleDbConnection(ConnectionString.LYQ_OLEDB);
+            try
+            {
+                connection.Open();
 
-            SqlConnection connection = new SqlConnection(ConnectionString.LYQ_HISTORAIN);
+                string sql;
+                OleDbDataAdapter adapter;
 
-            connection.Open();
 
-            string sql = "SELECT NULL PARENT, substring(Tag.TagName, 1, PATINDEX ( '%.%', Tag.TagName)-1) ID, substring(Tag.TagName, 1, PATINDEX ( '%.%', Tag.TagName)-1) TagName, Description = NULL, MinRaw = NULL, MaxRaw = NULL, Unit = NULL,MinEU=NULL, MaxEU=null " +
-                         " FROM runtime.dbo.AnalogTag, runtime.dbo.EngineeringUnit, runtime.dbo.Tag " +
-                         " WHERE runtime.dbo.Tag.TagName = runtime.dbo.AnalogTag.TagName " +
-                         " AND runtime.dbo.AnalogTag.EUKey = runtime.dbo.EngineeringUnit.EUKey " +
-                         " and runtime.dbo.Tag.TagName not like 'sys%'  " +
-                         " union " +
-                         " SELECT distinct substring(TagName, 1, PATINDEX ( '%.%', TagName)-1) PARENT, substring(parent, 1, patindex('%.%', parent)-1) ID, substring(parent, 1, patindex('%.%', parent)-1) TagName, Description = NULL, MinRaw = NULL, MaxRaw = NULL, Unit = NULL,MinEU=NULL, MaxEU=null " +
-                         " from " +
-                         " (SELECT substring(Tag.TagName, PATINDEX ( '%.%', Tag.TagName)+1, LEN(Tag.TagName)) PARENT, ID = Tag.TagName, TagName = Tag.TagName, Description = Tag.Description, MinRaw, MaxRaw, Unit,MinEU, MaxEU  " +
-                         " FROM runtime.dbo.AnalogTag, runtime.dbo.EngineeringUnit, runtime.dbo.Tag  " +
-                         " WHERE runtime.dbo.Tag.TagName = runtime.dbo.AnalogTag.TagName " +
-                         " AND runtime.dbo.AnalogTag.EUKey = runtime.dbo.EngineeringUnit.EUKey " +
-                         " and runtime.dbo.Tag.TagName not like 'sys%' ) t " +
-                         " union " +
-                         " select substring(PARENT, 1, PATINDEX ( '%.%', PARENT)-1) PARENT, TagName ID, TagName, Description, MinRaw, MaxRaw, Unit,MinEU, MaxEU  " +
-                         " from " +
-                         " (SELECT substring(Tag.TagName, PATINDEX ( '%.%', Tag.TagName)+1, len(Tag.TagName)) PARENT, ID = Tag.TagName, TagName = Tag.TagName, Description = Tag.Description, MinRaw, MaxRaw, Unit,MinEU, MaxEU  " +
-                         " FROM runtime.dbo.AnalogTag, runtime.dbo.EngineeringUnit, runtime.dbo.Tag  " +
-                         " WHERE runtime.dbo.Tag.TagName = runtime.dbo.AnalogTag.TagName " +
-                         " AND runtime.dbo.AnalogTag.EUKey = runtime.dbo.EngineeringUnit.EUKey " +
-                         " and runtime.dbo.Tag.TagName not like 'sys%' ) a" +
-                         " union " +
-                         " SELECT distinct substring(TagName, 1, PATINDEX ( '%.%', TagName)-1) PARENT, substring(parent, 1, patindex('%.%', parent)-1) ID, substring(parent, 1, patindex('%.%', parent)-1) TagName, Description = NULL, MinRaw = NULL, MaxRaw = NULL, Unit = NULL,MinEU=NULL, MaxEU=null " +
-                         " from " +
-                         " (SELECT substring(Tag.TagName, PATINDEX ( '%.%', Tag.TagName)+1, len(Tag.TagName)) PARENT, ID = Tag.TagName, TagName = Tag.TagName, Description = Tag.Description, null MinRaw, null MaxRaw, null Unit, null MinEU, null MaxEU  " +
-                         " FROM runtime.dbo.DiscreteTag, runtime.dbo.EngineeringUnit, runtime.dbo.Tag " +
-                         " WHERE runtime.dbo.Tag.TagName = runtime.dbo.DiscreteTag.TagName " +
-                         " and runtime.dbo.Tag.TagName not like 'sys%' ) b" +
-                         " union " +
-                         " select substring(PARENT, 1, PATINDEX ( '%.%', PARENT)-1) PARENT, TagName ID, TagName, Description, MinRaw, MaxRaw, Unit,MinEU, MaxEU  " +
-                         " from " +
-                         " (SELECT substring(Tag.TagName, PATINDEX ( '%.%', Tag.TagName)+1, len(Tag.TagName)) PARENT, ID = Tag.TagName, TagName = Tag.TagName, Description = Tag.Description, null MinRaw, null MaxRaw, null Unit, null MinEU, null MaxEU  " +
-                         " FROM runtime.dbo.DiscreteTag, runtime.dbo.EngineeringUnit, runtime.dbo.Tag " +
-                         " WHERE runtime.dbo.Tag.TagName = runtime.dbo.DiscreteTag.TagName " +
-                         " and runtime.dbo.Tag.TagName not like 'sys%' ) c";
-
-            SqlDataAdapter adapter = new SqlDataAdapter(sql, connection);
-            adapter.Fill(data, "TAG_DEFINE");
+                sql = "select TABLE_NAME from user_tables order by table_name";
+                adapter = new OleDbDataAdapter(sql, connection);
+                adapter.Fill(data, "USER_TABLES");
+                sql = "select TABLE_NAME,COLUMN_NAME from user_tab_columns";
+                adapter = new OleDbDataAdapter(sql, connection);
+                adapter.Fill(data, "USER_COLUMNS");
+                sql = "select col.column_name,col.table_name from user_constraints con,  user_cons_columns col where con.constraint_name = col.constraint_name and con.constraint_type='P'";
+                adapter = new OleDbDataAdapter(sql, connection);
+                adapter.Fill(data, "PRIMARY_KEY");
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+            }
 
             return data;
         }
+        public DataSet QuerySpcLog(string sql)
+        {
+            DataSet data = new DataSet();
+            OleDbConnection connection = new OleDbConnection(ConnectionString.LYQ_OLEDB);
+            try
+            {
+                connection.Open();
+                OleDbDataAdapter adapter;
+                adapter = new OleDbDataAdapter(sql, connection);
+                adapter.Fill(data, "SPC_LOG");
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return data;
+        }
+
+        public String Get_HRMQDS_Config()
+        {
+            XmlDocument doc = new XmlDocument();
+            string path = System.Windows.Forms.Application.StartupPath;
+
+            try
+            {
+                doc.Load(string.Format("{0}\\..\\Config\\HRM_QualityDecision.xml", path));
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return doc.OuterXml;
+        }
+        public void Save_HRMQDS_Config(String doc2)
+        {
+            XmlDocument DOC = new XmlDocument();
+            DOC.LoadXml(doc2);
+            string path = System.Windows.Forms.Application.StartupPath;
+
+            try
+            {
+                DOC.Save(string.Format("{0}\\..\\Config\\HRM_QualityDecision.xml", path));
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
     }
 }

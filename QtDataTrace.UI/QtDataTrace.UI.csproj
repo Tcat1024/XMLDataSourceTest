@@ -156,6 +156,18 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="RelationMonitorControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RelationMonitorControl.designer.cs">
+      <DependentUpon>RelationMonitorControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SPCDetermineControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SPCDetermineControl.designer.cs">
+      <DependentUpon>SPCDetermineControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="SpcModule.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -184,6 +196,12 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RelationMonitorControl.resx">
+      <DependentUpon>RelationMonitorControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SPCDetermineControl.resx">
+      <DependentUpon>SPCDetermineControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SpcModule.resx">
       <DependentUpon>SpcModule.cs</DependentUpon>

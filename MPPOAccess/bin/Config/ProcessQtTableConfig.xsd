@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+	<xs:element name="NewDataSet">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Table" maxOccurs="unbounded" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Column" maxOccurs="unbounded" minOccurs="0">
+								<xs:complexType>
+									<xs:attribute name="COLUMN_CHINESE" use="optional" type="xs:NCName"/>
+									<xs:attribute name="COLUMN_NAME" use="required" type="xs:NCName"/>
+									<xs:attribute name="KEY">
+										<xs:simpleType>
+											<xs:restriction base="xs:NCName">
+												<xs:enumeration value="IN_MAT_ID"/>
+												<xs:enumeration value="OUT_MAT_ID"/>
+												<xs:enumeration value="PROCESS_CODE"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:attribute>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+						<xs:attribute name="PROCESS_CHINESE" use="optional" type="xs:NCName"/>
+						<xs:attribute name="PROCESS_CODE" use="required" type="xs:NCName"/>
+						<xs:attribute name="PROCESS_SEQ" use="optional" type="xs:integer"/>
+						<xs:attribute name="TABLE_CHINESE" use="optional" type="xs:NCName"/>
+						<xs:attribute name="TABLE_NAME" use="required" type="xs:NCName"/>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+		<xs:unique name="TableUnique">
+			<xs:selector xpath="Table"/>
+			<xs:field xpath="@TABLE_NAME"/>
+			<xs:field xpath="@PROCESS_CODE"/>
+		</xs:unique>
+	</xs:element>
+</xs:schema>

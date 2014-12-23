@@ -1,0 +1,471 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table PROCESS_CHINESE="热轧" PROCESS_CODE="HRM" TABLE_CHINESE="热轧质量报告" TABLE_NAME="HRM_L2_COILREPORTS">
+    <Column COLUMN_CHINESE="钢卷号" COLUMN_NAME="COIL_ID" KEY = "OUT_MAT_ID"/>
+    <Column COLUMN_CHINESE="板坯号" COLUMN_NAME="SLAB_ID" KEY = "INT_MAT_ID"/>
+    <Column COLUMN_CHINESE="钢种" COLUMN_NAME="STEELGRADE" />
+    <Column COLUMN_CHINESE="轧制时间" COLUMN_NAME="ROLLED_TIME" />
+    <Column COLUMN_CHINESE="厚度平均值" COLUMN_NAME="THK_MEAN" />
+    <Column COLUMN_CHINESE="厚度最大值" COLUMN_NAME="THK_MAX" />
+    <Column COLUMN_CHINESE="厚度最小值" COLUMN_NAME="THK_MIN" />
+    <Column COLUMN_CHINESE="厚度命中率" COLUMN_NAME="THK_PCNT_ON" />
+    <Column COLUMN_CHINESE="厚度超上限" COLUMN_NAME="THK_PCNT_OVER" />
+    <Column COLUMN_CHINESE="厚度超下限" COLUMN_NAME="THK_PCNT_UNDER" />
+    <Column COLUMN_CHINESE="厚度标准差" COLUMN_NAME="THK_STD" />
+    <Column COLUMN_CHINESE="宽度平均值" COLUMN_NAME="WID_MEAN" />
+    <Column COLUMN_CHINESE="宽度最大值" COLUMN_NAME="WID_MAX" />
+    <Column COLUMN_CHINESE="宽度最小值" COLUMN_NAME="WID_MIN" />
+    <Column COLUMN_CHINESE="宽度命中率" COLUMN_NAME="WID_PCNT_ON" />
+    <Column COLUMN_CHINESE="宽度超上限" COLUMN_NAME="WID_PCNT_OVER" />
+    <Column COLUMN_CHINESE="宽度超下限" COLUMN_NAME="WID_PCNT_UNDER" />
+    <Column COLUMN_CHINESE="宽度标准差" COLUMN_NAME="WID_STD" />
+    <Column COLUMN_CHINESE="终轧温度平均值" COLUMN_NAME="FDT_MEAN" />
+    <Column COLUMN_CHINESE="终轧温度最大值" COLUMN_NAME="FDT_MAX" />
+    <Column COLUMN_CHINESE="终轧温度最小值" COLUMN_NAME="FDT_MIN" />
+    <Column COLUMN_CHINESE="终轧温度命中率" COLUMN_NAME="FDT_PCNT_ON" />
+    <Column COLUMN_CHINESE="终轧温度超上限" COLUMN_NAME="FDT_PCNT_OVER" />
+    <Column COLUMN_CHINESE="终轧温度超下限" COLUMN_NAME="FDT_PCNT_UNDER" />
+    <Column COLUMN_CHINESE="终轧温度标准差" COLUMN_NAME="FDT_STD" />
+    <Column COLUMN_CHINESE="卷取温度平均值" COLUMN_NAME="CT_MEAN" />
+    <Column COLUMN_CHINESE="卷取温度最大值" COLUMN_NAME="CT_MAX" />
+    <Column COLUMN_CHINESE="卷取温度最小值" COLUMN_NAME="CT_MIN" />
+    <Column COLUMN_CHINESE="卷取温度命中率" COLUMN_NAME="CT_PCNT_ON" />
+    <Column COLUMN_CHINESE="卷取温度超上限" COLUMN_NAME="CT_PCNT_OVER" />
+    <Column COLUMN_CHINESE="卷取温度超下限" COLUMN_NAME="CT_PCNT_UNDER" />
+    <Column COLUMN_CHINESE="卷取温度标准差" COLUMN_NAME="CT_STD" />
+    <Column COLUMN_CHINESE="凸度平均值" COLUMN_NAME="PROF_MEAN" />
+    <Column COLUMN_CHINESE="凸度最大值" COLUMN_NAME="PROF_MAX" />
+    <Column COLUMN_CHINESE="凸度最小值" COLUMN_NAME="PROF_MIN" />
+    <Column COLUMN_CHINESE="凸度命中率" COLUMN_NAME="PROF_PCNT_ON" />
+    <Column COLUMN_CHINESE="凸度超上限" COLUMN_NAME="PROF_PCNT_OVER" />
+    <Column COLUMN_CHINESE="凸度超下限" COLUMN_NAME="PROF_PCNT_UNDER" />
+    <Column COLUMN_CHINESE="凸度标准差" COLUMN_NAME="PROF_STD" />
+    <Column COLUMN_CHINESE="楔形平均值" COLUMN_NAME="WDG_MEAN" />
+    <Column COLUMN_CHINESE="楔形最大值" COLUMN_NAME="WDG_MAX" />
+    <Column COLUMN_CHINESE="楔形最小值" COLUMN_NAME="WDG_MIN" />
+    <Column COLUMN_CHINESE="楔形命中率" COLUMN_NAME="WDG_PCNT_ON" />
+    <Column COLUMN_CHINESE="楔形超上限" COLUMN_NAME="WDG_PCNT_OVER" />
+    <Column COLUMN_CHINESE="楔形超下限" COLUMN_NAME="WDG_PCNT_UNDER" />
+    <Column COLUMN_CHINESE="楔形标准差" COLUMN_NAME="WDG_STD" />
+    <Column COLUMN_CHINESE="钢卷长度" COLUMN_NAME="COIL_LEN" />
+    <Column COLUMN_CHINESE="平直度平均值" COLUMN_NAME="FLAT_MEAN" />
+    <Column COLUMN_CHINESE="平直度最大值" COLUMN_NAME="FLAT_MAX" />
+    <Column COLUMN_CHINESE="平直度最小值" COLUMN_NAME="FLAT_MIN" />
+    <Column COLUMN_CHINESE="平直度命中率" COLUMN_NAME="FLAT_PCT_ON" />
+    <Column COLUMN_CHINESE="平直度超上限" COLUMN_NAME="FLAT_PCT_OVER" />
+    <Column COLUMN_NAME="FLAT_PCT_UNDER" />
+  </Table>
+  <Table PROCESS_CHINESE="BOF" PROCESS_CODE="BOF" TABLE_CHINESE="转炉元素含量" TABLE_NAME="SM_ELEM_ANA">
+    <Column COLUMN_NAME="DEVICE_NO" />
+    <Column COLUMN_NAME="STATION" />
+    <Column COLUMN_NAME="HEAT_ID" />
+    <Column COLUMN_NAME="IRON_ID" />
+    <Column COLUMN_NAME="SAMPLETIME" />
+    <Column COLUMN_NAME="SAMPLE_NUMBER" />
+    <Column COLUMN_NAME="SAMPLE_ID" />
+    <Column COLUMN_NAME="ELE_ALS" />
+    <Column COLUMN_NAME="ELE_ALT" />
+    <Column COLUMN_NAME="ELE_AS" />
+    <Column COLUMN_NAME="ELE_B" />
+    <Column COLUMN_NAME="ELE_BI" />
+    <Column COLUMN_NAME="ELE_C" />
+    <Column COLUMN_NAME="ELE_CA" />
+    <Column COLUMN_NAME="ELE_CE" />
+    <Column COLUMN_NAME="ELE_CEQ" />
+    <Column COLUMN_NAME="ELE_CO" />
+    <Column COLUMN_NAME="ELE_CR" />
+    <Column COLUMN_NAME="ELE_CU" />
+    <Column COLUMN_NAME="ELE_H" />
+    <Column COLUMN_NAME="ELE_MG" />
+    <Column COLUMN_NAME="ELE_MN" />
+    <Column COLUMN_NAME="ELE_MO" />
+    <Column COLUMN_NAME="ELE_N" />
+    <Column COLUMN_NAME="ELE_NB" />
+    <Column COLUMN_NAME="ELE_NI" />
+    <Column COLUMN_NAME="ELE_O" />
+    <Column COLUMN_NAME="ELE_P" />
+    <Column COLUMN_NAME="ELE_PB" />
+    <Column COLUMN_NAME="ELE_RE" />
+    <Column COLUMN_NAME="ELE_S" />
+    <Column COLUMN_NAME="ELE_SB" />
+    <Column COLUMN_NAME="ELE_SE" />
+    <Column COLUMN_NAME="ELE_SI" />
+    <Column COLUMN_NAME="ELE_SN" />
+    <Column COLUMN_NAME="ELE_TA" />
+    <Column COLUMN_NAME="ELE_TE" />
+    <Column COLUMN_NAME="ELE_TI" />
+    <Column COLUMN_NAME="ELE_V" />
+    <Column COLUMN_NAME="ELE_W" />
+    <Column COLUMN_NAME="ELE_ZN" />
+    <Column COLUMN_NAME="ELE_ZR" />
+  </Table>
+  <Table PROCESS_CHINESE="LF" PROCESS_CODE="LF" TABLE_CHINESE="LF炉元素含量" TABLE_NAME="SM_ELEM_ANA">
+    <Column COLUMN_NAME="DEVICE_NO" />
+    <Column COLUMN_NAME="STATION" />
+    <Column COLUMN_NAME="HEAT_ID" />
+    <Column COLUMN_NAME="IRON_ID" />
+    <Column COLUMN_NAME="SAMPLETIME" />
+    <Column COLUMN_NAME="SAMPLE_NUMBER" />
+    <Column COLUMN_NAME="SAMPLE_ID" />
+    <Column COLUMN_NAME="ELE_ALS" />
+    <Column COLUMN_NAME="ELE_ALT" />
+    <Column COLUMN_NAME="ELE_AS" />
+    <Column COLUMN_NAME="ELE_B" />
+    <Column COLUMN_NAME="ELE_BI" />
+    <Column COLUMN_NAME="ELE_C" />
+    <Column COLUMN_NAME="ELE_CA" />
+    <Column COLUMN_NAME="ELE_CE" />
+    <Column COLUMN_NAME="ELE_CEQ" />
+    <Column COLUMN_NAME="ELE_CO" />
+    <Column COLUMN_NAME="ELE_CR" />
+    <Column COLUMN_NAME="ELE_CU" />
+    <Column COLUMN_NAME="ELE_H" />
+    <Column COLUMN_NAME="ELE_MG" />
+    <Column COLUMN_NAME="ELE_MN" />
+    <Column COLUMN_NAME="ELE_MO" />
+    <Column COLUMN_NAME="ELE_N" />
+    <Column COLUMN_NAME="ELE_NB" />
+    <Column COLUMN_NAME="ELE_NI" />
+    <Column COLUMN_NAME="ELE_O" />
+    <Column COLUMN_NAME="ELE_P" />
+    <Column COLUMN_NAME="ELE_PB" />
+    <Column COLUMN_NAME="ELE_RE" />
+    <Column COLUMN_NAME="ELE_S" />
+    <Column COLUMN_NAME="ELE_SB" />
+    <Column COLUMN_NAME="ELE_SE" />
+    <Column COLUMN_NAME="ELE_SI" />
+    <Column COLUMN_NAME="ELE_SN" />
+    <Column COLUMN_NAME="ELE_TA" />
+    <Column COLUMN_NAME="ELE_TE" />
+    <Column COLUMN_NAME="ELE_TI" />
+    <Column COLUMN_NAME="ELE_V" />
+    <Column COLUMN_NAME="ELE_W" />
+    <Column COLUMN_NAME="ELE_ZN" />
+    <Column COLUMN_NAME="ELE_ZR" />
+  </Table>
+  <Table PROCESS_CHINESE="RH" PROCESS_CODE="RH" TABLE_CHINESE="RH炉元素含量" TABLE_NAME="SM_ELEM_ANA">
+    <Column COLUMN_NAME="DEVICE_NO" />
+    <Column COLUMN_NAME="STATION" />
+    <Column COLUMN_NAME="HEAT_ID" />
+    <Column COLUMN_NAME="IRON_ID" />
+    <Column COLUMN_NAME="SAMPLETIME" />
+    <Column COLUMN_NAME="SAMPLE_NUMBER" />
+    <Column COLUMN_NAME="SAMPLE_ID" />
+    <Column COLUMN_NAME="ELE_ALS" />
+    <Column COLUMN_NAME="ELE_ALT" />
+    <Column COLUMN_NAME="ELE_AS" />
+    <Column COLUMN_NAME="ELE_B" />
+    <Column COLUMN_NAME="ELE_BI" />
+    <Column COLUMN_NAME="ELE_C" />
+    <Column COLUMN_NAME="ELE_CA" />
+    <Column COLUMN_NAME="ELE_CE" />
+    <Column COLUMN_NAME="ELE_CEQ" />
+    <Column COLUMN_NAME="ELE_CO" />
+    <Column COLUMN_NAME="ELE_CR" />
+    <Column COLUMN_NAME="ELE_CU" />
+    <Column COLUMN_NAME="ELE_H" />
+    <Column COLUMN_NAME="ELE_MG" />
+    <Column COLUMN_NAME="ELE_MN" />
+    <Column COLUMN_NAME="ELE_MO" />
+    <Column COLUMN_NAME="ELE_N" />
+    <Column COLUMN_NAME="ELE_NB" />
+    <Column COLUMN_NAME="ELE_NI" />
+    <Column COLUMN_NAME="ELE_O" />
+    <Column COLUMN_NAME="ELE_P" />
+    <Column COLUMN_NAME="ELE_PB" />
+    <Column COLUMN_NAME="ELE_RE" />
+    <Column COLUMN_NAME="ELE_S" />
+    <Column COLUMN_NAME="ELE_SB" />
+    <Column COLUMN_NAME="ELE_SE" />
+    <Column COLUMN_NAME="ELE_SI" />
+    <Column COLUMN_NAME="ELE_SN" />
+    <Column COLUMN_NAME="ELE_TA" />
+    <Column COLUMN_NAME="ELE_TE" />
+    <Column COLUMN_NAME="ELE_TI" />
+    <Column COLUMN_NAME="ELE_V" />
+    <Column COLUMN_NAME="ELE_W" />
+    <Column COLUMN_NAME="ELE_ZN" />
+    <Column COLUMN_NAME="ELE_ZR" />
+  </Table>
+  <Table PROCESS_CHINESE="CCM" PROCESS_CODE="CCM" TABLE_CHINESE="CCM元素含量" TABLE_NAME="SM_ELEM_ANA">
+    <Column COLUMN_NAME="DEVICE_NO" />
+    <Column COLUMN_NAME="STATION" />
+    <Column COLUMN_NAME="HEAT_ID" />
+    <Column COLUMN_NAME="IRON_ID" />
+    <Column COLUMN_NAME="SAMPLETIME" />
+    <Column COLUMN_NAME="SAMPLE_NUMBER" />
+    <Column COLUMN_NAME="SAMPLE_ID" />
+    <Column COLUMN_NAME="ELE_ALS" />
+    <Column COLUMN_NAME="ELE_ALT" />
+    <Column COLUMN_NAME="ELE_AS" />
+    <Column COLUMN_NAME="ELE_B" />
+    <Column COLUMN_NAME="ELE_BI" />
+    <Column COLUMN_NAME="ELE_C" />
+    <Column COLUMN_NAME="ELE_CA" />
+    <Column COLUMN_NAME="ELE_CE" />
+    <Column COLUMN_NAME="ELE_CEQ" />
+    <Column COLUMN_NAME="ELE_CO" />
+    <Column COLUMN_NAME="ELE_CR" />
+    <Column COLUMN_NAME="ELE_CU" />
+    <Column COLUMN_NAME="ELE_H" />
+    <Column COLUMN_NAME="ELE_MG" />
+    <Column COLUMN_NAME="ELE_MN" />
+    <Column COLUMN_NAME="ELE_MO" />
+    <Column COLUMN_NAME="ELE_N" />
+    <Column COLUMN_NAME="ELE_NB" />
+    <Column COLUMN_NAME="ELE_NI" />
+    <Column COLUMN_NAME="ELE_O" />
+    <Column COLUMN_NAME="ELE_P" />
+    <Column COLUMN_NAME="ELE_PB" />
+    <Column COLUMN_NAME="ELE_RE" />
+    <Column COLUMN_NAME="ELE_S" />
+    <Column COLUMN_NAME="ELE_SB" />
+    <Column COLUMN_NAME="ELE_SE" />
+    <Column COLUMN_NAME="ELE_SI" />
+    <Column COLUMN_NAME="ELE_SN" />
+    <Column COLUMN_NAME="ELE_TA" />
+    <Column COLUMN_NAME="ELE_TE" />
+    <Column COLUMN_NAME="ELE_TI" />
+    <Column COLUMN_NAME="ELE_V" />
+    <Column COLUMN_NAME="ELE_W" />
+    <Column COLUMN_NAME="ELE_ZN" />
+    <Column COLUMN_NAME="ELE_ZR" />
+  </Table>
+  <Table PROCESS_CHINESE="BOF" PROCESS_CODE="BOF" TABLE_CHINESE="转炉质量报告" TABLE_NAME="SM_BOF_HEAT">
+    <Column COLUMN_NAME="DEVICE_NO" />
+    <Column COLUMN_NAME="HEAT_ID" />
+    <Column COLUMN_NAME="STATION" />
+    <Column COLUMN_NAME="PLAN_NO" />
+    <Column COLUMN_NAME="PONO" />
+    <Column COLUMN_NAME="STEEL_GRADE" />
+    <Column COLUMN_NAME="PROMODECODE" />
+    <Column COLUMN_NAME="SHIFT_ID" />
+    <Column COLUMN_NAME="CREW_ID" />
+    <Column COLUMN_NAME="BOF_CAMPAIGN" />
+    <Column COLUMN_NAME="BOF_LIFE" />
+    <Column COLUMN_NAME="TAPPINGHOLE" />
+    <Column COLUMN_NAME="TAP_HOLE_CAMPAIGN" />
+    <Column COLUMN_NAME="TAP_HOLE_LIFE" />
+    <Column COLUMN_NAME="TAPPING_STARTTIME" />
+    <Column COLUMN_NAME="TAPPING_ENDTIME" />
+    <Column COLUMN_NAME="TAPPING_DURATION" />
+    <Column COLUMN_NAME="READY_TIME" />
+    <Column COLUMN_NAME="PRODUCT_DAY" />
+    <Column COLUMN_NAME="CHARGING_STARTTIME" />
+    <Column COLUMN_NAME="CHARGING_ENDTIME" />
+    <Column COLUMN_NAME="MAINLANCE_ID" />
+    <Column COLUMN_NAME="MAINLANCE_LIFE" />
+    <Column COLUMN_NAME="SUBLANCE_ID" />
+    <Column COLUMN_NAME="SUBLANCE_LIFE" />
+    <Column COLUMN_NAME="BATH_LEVEL" />
+    <Column COLUMN_NAME="STEEL_LADLE_ID" />
+    <Column COLUMN_NAME="SLAG_NET_WEIGHT" />
+    <Column COLUMN_NAME="WEIGHT_ACT" />
+    <Column COLUMN_NAME="WEIGHTING_TIME" />
+    <Column COLUMN_NAME="CAO_WEIGHT" />
+    <Column COLUMN_NAME="DOLO_WEIGHT" />
+    <Column COLUMN_NAME="RDOLO_WEIGHT" />
+    <Column COLUMN_NAME="MGO_WEIGHT" />
+    <Column COLUMN_NAME="CAF2_WEIGHT" />
+    <Column COLUMN_NAME="IRON_WEIGHT" />
+    <Column COLUMN_NAME="O2_PRESS" />
+    <Column COLUMN_NAME="O2_FLUX" />
+    <Column COLUMN_NAME="O2_DURATION" />
+    <Column COLUMN_NAME="O2_CONSUM_VOLUME" />
+    <Column COLUMN_NAME="N2_PRESS" />
+    <Column COLUMN_NAME="N2_FLUX" />
+    <Column COLUMN_NAME="N2_DURATION" />
+    <Column COLUMN_NAME="N2_ACT" />
+    <Column COLUMN_NAME="AR_ACT" />
+    <Column COLUMN_NAME="AR_DURATION" />
+    <Column COLUMN_NAME="TSC_STARTTIME" />
+    <Column COLUMN_NAME="TSC_ENDTIME" />
+    <Column COLUMN_NAME="TSC_TEM" />
+    <Column COLUMN_NAME="TSC_C" />
+    <Column COLUMN_NAME="TSO_STARTTIME" />
+    <Column COLUMN_NAME="TSO_ENDTIME" />
+    <Column COLUMN_NAME="TSO_TEM" />
+    <Column COLUMN_NAME="TSO_C" />
+    <Column COLUMN_NAME="TSO_O2PPM" />
+    <Column COLUMN_NAME="AFTER_STIRING_DURATION" />
+    <Column COLUMN_NAME="REBLOW_NUM" />
+    <Column COLUMN_NAME="REBLOW1_TEM" />
+    <Column COLUMN_NAME="REBLOW2_TEM" />
+    <Column COLUMN_NAME="DESLAG_NUM" />
+    <Column COLUMN_NAME="BLOW_STARTTIME" />
+    <Column COLUMN_NAME="BLOW_ENDTIME" />
+    <Column COLUMN_NAME="REBLOW1_STARTTIME" />
+    <Column COLUMN_NAME="REBLOW1_ENDTIME" />
+    <Column COLUMN_NAME="REBLOW1_DURATION" />
+    <Column COLUMN_NAME="REBLOW2_STARTTIME" />
+    <Column COLUMN_NAME="REBLOW2_ENDTIME" />
+    <Column COLUMN_NAME="REBLOW2_DURATION" />
+    <Column COLUMN_NAME="SLAG_NR" />
+    <Column COLUMN_NAME="SLAG_STARTTIME" />
+    <Column COLUMN_NAME="SLAG_ENDTIME" />
+    <Column COLUMN_NAME="SLAG_DURATION" />
+    <Column COLUMN_NAME="SLAG_SPLASH_N2" />
+    <Column COLUMN_NAME="GE_NO" />
+    <Column COLUMN_NAME="SPLASH_STARTTIME" />
+    <Column COLUMN_NAME="SPLASH_ENDTIME" />
+    <Column COLUMN_NAME="SPLASH_DURATION" />
+    <Column COLUMN_NAME="SHEETIRON_WGT" />
+    <Column COLUMN_NAME="RESTRIN_WGT" />
+    <Column COLUMN_NAME="ALLOYCAO_WGT" />
+    <Column COLUMN_NAME="CADD_WGT" />
+    <Column COLUMN_NAME="FESI_WGT" />
+    <Column COLUMN_NAME="AL_WGT" />
+    <Column COLUMN_NAME="MNSI_WGT" />
+    <Column COLUMN_NAME="FEMN_WGT" />
+    <Column COLUMN_NAME="FENB_WGT" />
+    <Column COLUMN_NAME="HSCRW_WGT" />
+    <Column COLUMN_NAME="LSCRW_WGT" />
+    <Column COLUMN_NAME="SSCRW_WGT" />
+    <Column COLUMN_NAME="MFEMN_WGT" />
+    <Column COLUMN_NAME="LFEMN_WGT" />
+    <Column COLUMN_NAME="LFSLAG_WGT" />
+    <Column COLUMN_NAME="SICABEI_WGT" />
+    <Column COLUMN_NAME="SIALFE_WGT" />
+    <Column COLUMN_NAME="MN_WGT" />
+    <Column COLUMN_NAME="DUSTSTEAM_VOL" />
+    <Column COLUMN_NAME="DUSTWATER_VOL" />
+    <Column COLUMN_NAME="RECYCLESTEAM_VOL" />
+    <Column COLUMN_NAME="OUTSTEAM_VOL" />
+    <Column COLUMN_NAME="LADLEAR_ACT" />
+    <Column COLUMN_NAME="RDOLO_WGT" />
+    <Column COLUMN_NAME="CHANGE_WGT" />
+    <Column COLUMN_NAME="BURNSLAG_WGT" />
+    <Column COLUMN_NAME="IRON_LADLE_ID" />
+    <Column COLUMN_NAME="IRON_ID" />
+    <Column COLUMN_NAME="HM_WEIGHT" />
+    <Column COLUMN_NAME="HM_TRPMTURE" />
+    <Column COLUMN_NAME="HM_TIME" />
+    <Column COLUMN_NAME="HM_SOUREC" />
+    <Column COLUMN_NAME="SCRAP_BUCKET_ID" />
+    <Column COLUMN_NAME="SCRAP_ID" />
+    <Column COLUMN_NAME="SCRAP_WEIGHT" />
+    <Column COLUMN_NAME="HSCRW_WEIGHT" />
+    <Column COLUMN_NAME="LSCRW_WEIGHT" />
+    <Column COLUMN_NAME="SSCRW_WEIGHT" />
+  </Table>
+  <Table PROCESS_CHINESE="LF"  PROCESS_CODE="LF" TABLE_CHINESE="LF炉质量报告" TABLE_NAME="SM_LF_HEAT">
+    <Column COLUMN_NAME="STATION" />
+    <Column COLUMN_NAME="TREATPOS" />
+    <Column COLUMN_NAME="PON" />
+    <Column COLUMN_NAME="HEAT_ID" />
+    <Column COLUMN_NAME="STRTTIME" />
+    <Column COLUMN_NAME="ENDTIME" />
+    <Column COLUMN_NAME="ROUTE" />
+    <Column COLUMN_NAME="STRTGRADE" />
+    <Column COLUMN_NAME="STRTSTEELTEMP" />
+    <Column COLUMN_NAME="STRTSTEELWEI" />
+    <Column COLUMN_NAME="STRTSLAGWEI" />
+    <Column COLUMN_NAME="ENDGRADE" />
+    <Column COLUMN_NAME="ENDSTEELTEMP" />
+    <Column COLUMN_NAME="ENDSTEELWEI" />
+    <Column COLUMN_NAME="ENDSLAGWEI" />
+    <Column COLUMN_NAME="LADLENO" />
+    <Column COLUMN_NAME="LADLEWEI" />
+    <Column COLUMN_NAME="LADLESTATUS" />
+    <Column COLUMN_NAME="LADLELIFE" />
+    <Column COLUMN_NAME="SLIDGATELIFE" />
+    <Column COLUMN_NAME="SLIDGATEBRNAME" />
+    <Column COLUMN_NAME="POROZLIFE" />
+    <Column COLUMN_NAME="POROZBRNAME" />
+    <Column COLUMN_NAME="EMPTYDUR" />
+    <Column COLUMN_NAME="PREVHEATNO" />
+    <Column COLUMN_NAME="ELETRDHOLDTM" />
+    <Column COLUMN_NAME="TOTPRIENG" />
+    <Column COLUMN_NAME="TOTSECENG" />
+    <Column COLUMN_NAME="GASTYPE" />
+    <Column COLUMN_NAME="TOTGAS" />
+    <Column COLUMN_NAME="SHIFTNR" />
+    <Column COLUMN_NAME="SHIFTTEAM" />
+    <Column COLUMN_NAME="MONITOR" />
+    <Column COLUMN_NAME="MAINOPTR1" />
+    <Column COLUMN_NAME="MAINOPTR2" />
+    <Column COLUMN_NAME="RETURNFLAG" />
+    <Column COLUMN_NAME="REGRADEFLAG" />
+    <Column COLUMN_NAME="RETURNCODE" />
+    <Column COLUMN_NAME="REGRADECODE" />
+    <Column COLUMN_NAME="LOG" />
+    <Column COLUMN_NAME="TOTELETRDCON" />
+  </Table>
+  <Table PROCESS_CHINESE="RH"  PROCESS_CODE="RH" TABLE_CHINESE="RH炉质量报告" TABLE_NAME="SM_RH_HEAT">
+    <Column COLUMN_NAME="STATION" />
+    <Column COLUMN_NAME="READ_TIME" />
+    <Column COLUMN_NAME="PONO" />
+    <Column COLUMN_NAME="RH_TREATMENT_ID" />
+    <Column COLUMN_NAME="HEAT_ID" />
+    <Column COLUMN_NAME="PLAN_NO" />
+    <Column COLUMN_NAME="CREW_ID" />
+    <Column COLUMN_NAME="SHIFT_ID" />
+    <Column COLUMN_NAME="STEEL_GRADE" />
+    <Column COLUMN_NAME="SRP_COUNT" />
+    <Column COLUMN_NAME="DIV_FLAG" />
+    <Column COLUMN_NAME="ARRIVE_MAINPOS_TIME" />
+    <Column COLUMN_NAME="HOOK_ARR_LADLE_TIME" />
+    <Column COLUMN_NAME="LADLE_UP_TIME" />
+    <Column COLUMN_NAME="HEAT_START" />
+    <Column COLUMN_NAME="HEAT_END" />
+    <Column COLUMN_NAME="LADLE_DOWN_TIME" />
+    <Column COLUMN_NAME="HOOK_LEAVE_LADLE_TIME" />
+    <Column COLUMN_NAME="ARR_BWZ_TIME" />
+    <Column COLUMN_NAME="ARR_DEPARTPOS_TIME" />
+    <Column COLUMN_NAME="DEPART_TIME" />
+    <Column COLUMN_NAME="DATI_TEMP_1" />
+    <Column COLUMN_NAME="STEEL_TEMP_1" />
+    <Column COLUMN_NAME="O2_ACTIVITY_1" />
+    <Column COLUMN_NAME="DATI_TEMP_2" />
+    <Column COLUMN_NAME="STEEL_TEMP_2" />
+    <Column COLUMN_NAME="O2_ACTIVITY_2" />
+    <Column COLUMN_NAME="DATI_TEMP_3" />
+    <Column COLUMN_NAME="STEEL_TEMP_3" />
+    <Column COLUMN_NAME="O2_ACTIVITY_3" />
+    <Column COLUMN_NAME="DATI_TEMP_4" />
+    <Column COLUMN_NAME="STEEL_TEMP_4" />
+    <Column COLUMN_NAME="O2_ACTIVITY_4" />
+    <Column COLUMN_NAME="DATI_TEMP_5" />
+    <Column COLUMN_NAME="STEEL_TEMP_5" />
+    <Column COLUMN_NAME="O2_ACTIVITY_5" />
+    <Column COLUMN_NAME="DATI_SAMPLE_1" />
+    <Column COLUMN_NAME="DATI_SAMPLE_2" />
+    <Column COLUMN_NAME="DATI_SAMPLE_3" />
+    <Column COLUMN_NAME="DATI_SAMPLE_4" />
+    <Column COLUMN_NAME="DATI_SAMPLE_5" />
+    <Column COLUMN_NAME="DATI_O2_START" />
+    <Column COLUMN_NAME="DATI_O2_END" />
+    <Column COLUMN_NAME="O2_DUR" />
+    <Column COLUMN_NAME="O2_CONS" />
+    <Column COLUMN_NAME="DATI_DES_START" />
+    <Column COLUMN_NAME="DATI_DES_END" />
+    <Column COLUMN_NAME="DES_DUR" />
+    <Column COLUMN_NAME="DES_GAS_CONS" />
+    <Column COLUMN_NAME="AR_LIFT_CONS" />
+    <Column COLUMN_NAME="N2_LIFT_CONS" />
+    <Column COLUMN_NAME="STEAM_CONS" />
+    <Column COLUMN_NAME="STIR_AR_START" />
+    <Column COLUMN_NAME="STIR_AR_END" />
+    <Column COLUMN_NAME="STIR_AR_DUR" />
+    <Column COLUMN_NAME="SOFT_STIR_AR_DUR" />
+    <Column COLUMN_NAME="AR_BB_CONS" />
+    <Column COLUMN_NAME="LADLE_ID" />
+    <Column COLUMN_NAME="BEGIN_SLAG_HEIGHT" />
+    <Column COLUMN_NAME="BEGIN_SLAG_WEIGHT" />
+    <Column COLUMN_NAME="BEGIN_NET_WEIGHT" />
+    <Column COLUMN_NAME="END_NET_WEIGHT" />
+    <Column COLUMN_NAME="VAC_DUR" />
+    <Column COLUMN_NAME="TREAT_TIME" />
+    <Column COLUMN_NAME="MIN_VACUUM" />
+    <Column COLUMN_NAME="MACHINE_COOLING_WATER_CONS" />
+    <Column COLUMN_NAME="CONDENSOR_COOLING_WATER_CONS" />
+    <Column COLUMN_NAME="LANCE_NO" />
+    <Column COLUMN_NAME="LANCE_AGE" />
+    <Column COLUMN_NAME="HOT_BEND_TUBE_NO" />
+    <Column COLUMN_NAME="HOT_BEND_TUBE_NUM" />
+    <Column COLUMN_NAME="VACUUM_SLOT_NO" />
+    <Column COLUMN_NAME="VACUUM_SLOT_NUM" />
+    <Column COLUMN_NAME="UPDOWN_NUM" />
+    <Column COLUMN_NAME="LADLE_TARE_WT" />
+  </Table>
+</NewDataSet>

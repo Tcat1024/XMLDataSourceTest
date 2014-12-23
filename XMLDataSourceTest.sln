@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QtDataTrace.Interfaces", "Q
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QtDataTrace.IService", "QtDataTrace.IService\QtDataTrace.IService.csproj", "{74E2E529-8309-4E7D-81EB-F134CF29195F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MPPOAccess", "MPPOAccess\MPPOAccess.csproj", "{3F992AD7-5A86-4522-A34D-D6551BB8A262}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{74E2E529-8309-4E7D-81EB-F134CF29195F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{74E2E529-8309-4E7D-81EB-F134CF29195F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{74E2E529-8309-4E7D-81EB-F134CF29195F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F992AD7-5A86-4522-A34D-D6551BB8A262}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F992AD7-5A86-4522-A34D-D6551BB8A262}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F992AD7-5A86-4522-A34D-D6551BB8A262}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F992AD7-5A86-4522-A34D-D6551BB8A262}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

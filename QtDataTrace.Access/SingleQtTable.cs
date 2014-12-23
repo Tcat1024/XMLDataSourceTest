@@ -153,6 +153,9 @@ namespace QtDataTrace.Access
        {
             List<HotCoilInfo> coils = new List<HotCoilInfo>();
 
+            where = where.Replace("&lt;", "<");
+            where = where.Replace("&gt;", ">");
+
             string sql = "SELECT TRIM(COIL_ID), TRIM(SLAB_ID), ROLLED_TIME, STEELGRADE, THK_MEAN, WID_MEAN, COIL_LEN, THK_PCNT_ON, WID_PCNT_ON,FDT_PCNT_ON, CT_PCNT_ON, PROF_PCNT_ON, WDG_PCNT_ON FROM HRM_L2_COILREPORTS " + where;
 
             OleDbConnection connection = new OleDbConnection(ConnectionString.LYQ_DB);

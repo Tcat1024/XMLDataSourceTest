@@ -64,6 +64,8 @@
     <Compile Include="CPoint.cs" />
     <Compile Include="CRMCoilInfo.cs" />
     <Compile Include="EquipmentInfo.cs" />
+    <Compile Include="HistorainDataSessionHandle.cs" />
+    <Compile Include="HistorainDataTraceHandle.cs" />
     <Compile Include="HotCoilInfo.cs" />
     <Compile Include="HotCoilInfoVama.cs" />
     <Compile Include="HotCoilInfoVamaCal.cs" />

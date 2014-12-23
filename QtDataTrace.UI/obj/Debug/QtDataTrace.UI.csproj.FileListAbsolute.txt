@@ -131,3 +131,6 @@ C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\QtDataTrace.UI\obj\Deb
 C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\QtDataTrace.UI\obj\Debug\QtDataTrace.UI.dll.licenses
 C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\QtDataTrace.UI\obj\Debug\QtDataTrace.UI.dll
 C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\QtDataTrace.UI\obj\Debug\QtDataTrace.UI.pdb
+C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\QtDataTrace.UI\obj\Debug\QtDataTrace.UI.RelationMonitorControl.resources
+C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\QtDataTrace.UI\obj\Debug\QtDataTrace.UI.SPCDetermineControl.resources
+C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\QtDataTrace.UI\obj\Debug\QtDataTrace.UI.WaitPanel.resources

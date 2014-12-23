@@ -24,6 +24,13 @@ namespace QtDataTrace.UI
         {
             set { spcMonitorControl.DataSource = value; }
         }
+        public Object DataView
+        {
+            get
+            {
+                return spcMonitorControl.DataView;
+            }
+        }
         public int SelectTabPageIndex
         {
             set

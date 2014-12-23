@@ -2740,14 +2740,14 @@ namespace QtDataTrace.Access
                  lst = new BOFKeyEvents(); BOFKeyEvents_Ini(ref lst);
                  lst.Decription = "加料";
                  lst.Datetime = dt.Rows[RowIndex]["add_time"].ToString();
-                 lst.Mat_Name = dt.Rows[RowIndex]["mat_Name"].ToString();
+                 lst.Mat_Name = dt.Rows[RowIndex]["mat_ID"].ToString();
                  lst.Weight = dt.Rows[RowIndex]["weight"].ToString();
 
                  LST.Add(lst);
             }
 
             //化验值
-            strSQL = "SELECT * FROM  sm_elem_ana WHERE heat_id='" + HeatID + "' AND device_no='LY210_BOF'"; 
+            strSQL = "SELECT * FROM  sm_bof_element WHERE heat_id='" + HeatID + "'"; 
             dt= sqt.ReadDatatable_OraDB (strSQL );
              
             for  (int RowIndex=0;RowIndex <dt.Rows.Count;RowIndex++)
@@ -2921,7 +2921,7 @@ namespace QtDataTrace.Access
 
 
             //** 化验值 **//
-            strSQL = "SELECT * FROM sm_elem_ana WHERE heat_id='" + HeatID + "' AND device_no='LY210_LF'";
+            strSQL = "SELECT * FROM sm_lf_element WHERE heat_id='" + HeatID + "'";
             dt =sqt.ReadDatatable_OraDB(strSQL);
             for (int RowIndex = 0; RowIndex < dt.Rows.Count; RowIndex++)
             {
@@ -3325,7 +3325,7 @@ namespace QtDataTrace.Access
 
 
             //化验成分
-            strSQL = "SELECT * FROM  sm_elem_ana  WHERE heat_id='" + HeatID + "' and device_no='LY210_RH'";
+            strSQL = "SELECT * FROM  sm_rh_element  WHERE heat_id='" + HeatID + "'";
             dt =sqt.ReadDatatable_OraDB(strSQL);
 
             for (int I = 0; I < dt.Rows.Count; I++)
@@ -3761,7 +3761,7 @@ namespace QtDataTrace.Access
             DateTime  StartTime  =Convert.ToDateTime ( dt.Rows[0][1]);
             DateTime  StopTime = Convert.ToDateTime (dt.Rows[0][2]);
 
-            strSQL = "SELECT slab_no FROM SLAB_L2_REPORTS"
+            strSQL = "SELECT slab_no FROM SLAB_L2_REPORTS_VIEW"
                     + " WHERE ccm='"+CCM +"'"
                     + " AND ( "
                     + "    ( start_time <=to_date('" + StartTime.ToString() + "', 'yyyy-mm-dd hh24:mi:ss') AND stop_time >=to_date('" + StartTime.ToString() + "', 'yyyy-mm-dd hh24:mi:ss') )"
@@ -4543,7 +4543,7 @@ namespace QtDataTrace.Access
             Object Obj = new object();
             string str = "";
 
-            string strSQL = "SELECT * FROM  SLAB_L2_REPORTS WHERE slab_no='" + SlabNo + "'";
+            string strSQL = "SELECT * FROM  sm_slab_info WHERE slab_no='" + SlabNo + "'";
             DataTable dt = sqt.ReadDatatable_OraDB(strSQL);
             for (int RowIndex = 0; RowIndex < dt.Rows.Count; RowIndex++)
             {
@@ -4568,8 +4568,8 @@ namespace QtDataTrace.Access
                 str = dt.Rows[RowIndex]["LENGTH"].ToString(); lst.Length = str.Split(new char[] { '.' })[0];
                 str = dt.Rows[RowIndex]["WEIGHT"].ToString(); lst.Weight = str.Split(new char[] { '.' })[0];
 
-                lst.Start_time = dt.Rows[RowIndex]["START_TIME"].ToString();
-                lst.Stop_time = dt.Rows[RowIndex]["STOP_TIME"].ToString();
+                //lst.Start_time = dt.Rows[RowIndex]["START_TIME"].ToString();
+                //lst.Stop_time = dt.Rows[RowIndex]["STOP_TIME"].ToString();
 
                 str = dt.Rows[RowIndex]["START_CAST_POS"].ToString(); lst.Start_cast_pos = str.Split(new char[] { '.' })[0];
                 str = dt.Rows[RowIndex]["STOP_CAST_POS"].ToString(); lst.Stop_cast_pos = str.Split(new char[] { '.' })[0];

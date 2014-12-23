@@ -35,7 +35,12 @@ namespace QtDataTrace.IService
 
         QtDataSourceConfig GetQtDataSourceConfig(string process);
 
-        DataSet GetTagConfig();
+        IoConfig GetTagConfig();
         DataSet GetProcessQtTableConfigFile();
+
+        String GetSpcConfig();
+        void SaveSpcConfig(String doc2);
+        DataSet GetSpcConfigItemList_Dataset();
+        String GetSpcConfigItemList_String();
     }
 }

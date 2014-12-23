@@ -1,0 +1,13 @@
+[类型]:Error
+[线程]:9
+[内存]:5.64M
+[时间]:2014-11-07 16:07:45
+[内容]:容器中没有类型为QtDataTrace.IService.IBaseTableService的组件
+[来源]:EAS.MicroKernel
+[目标]:System.Object GetComponentInstance(System.Type)
+[堆栈]:   在 icJPIuSfxPYCv6ewm3l.y3jrtmSQ6TLVDhMwI7w.GetComponentInstance(Type )
+   在 RMSZ8qoG3otdpfpm3i3.fu7x2HoCBUDe4cEADpr.FwXWUaiywO(Type )
+   在 EAS.Services.DirectServiceBridger.fx6gmA46k6XiHKkRX7P(Type )
+   在 EAS.Services.DirectServiceBridger.InvokeMethod(Type serviceType, MethodBase method, Object[] args)
+
+

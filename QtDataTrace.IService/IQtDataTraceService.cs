@@ -19,6 +19,5 @@ namespace QtDataTrace.IService
         Tuple<int, DataTable> TryGetTraceData(string username, Guid id);
 
         bool Stop(string username, Guid id);
-
     }
 }

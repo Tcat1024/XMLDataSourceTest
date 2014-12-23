@@ -346,20 +346,20 @@ namespace QtDataTrace.Interfaces
     [System.SerializableAttribute]
     public class CC_HisData0
     {
-        public DateTime datetime;
-        public float Duration;
-        public float CastingLength;
-        public float CastingSpeed;
-        public float CastingSupperHeatValue;
-        public float CastingTempture;
-        public float LD_WEIGHT;
-        public float MD_LEVAL;
-        public float MD_LEVAL_DEV;
-        public float MD_SEN_Immersion;
-        public float MEMS_Current;
-        public float MEMS_Frequency;
-        public float NOZZLE_AR_FLUX;
-        public float TD_WEIGHT;
+        public DateTime datetime {get; set;}
+        public float Duration { get; set; }
+        public float CastingLength { get; set; }
+        public float CastingSpeed { get; set; }
+        public float CastingSupperHeatValue { get; set; }
+        public float CastingTempture { get; set; }
+        public float LD_WEIGHT { get; set; }
+        public float MD_LEVAL { get; set; }
+        public float MD_LEVAL_DEV { get; set; }
+        public float MD_SEN_Immersion { get; set; }
+        public float MEMS_Current { get; set; }
+        public float MEMS_Frequency { get; set; }
+        public float NOZZLE_AR_FLUX { get; set; }
+        public float TD_WEIGHT { get; set; }
     }
 
     public class CC_MDCoolHisDB
