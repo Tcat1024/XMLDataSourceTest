@@ -27,3 +27,7 @@ C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\XMLDataSourceTest\obj\
 C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\XMLDataSourceTest\obj\Debug\XMLDataSourceTest.exe.licenses
 C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\XMLDataSourceTest\obj\Debug\XMLDataSourceTest.exe
 C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\XMLDataSourceTest\obj\Debug\XMLDataSourceTest.pdb
+C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\XMLDataSourceTest\bin\Debug\SPC.Algorithm.dll
+C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\XMLDataSourceTest\bin\Debug\SPC.Analysis.dll
+C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\XMLDataSourceTest\bin\Debug\EAS.MicroKernel.xml
+C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\XMLDataSourceTest\bin\Debug\EAS.Explorer.xml

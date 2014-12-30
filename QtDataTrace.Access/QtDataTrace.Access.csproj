@@ -65,6 +65,14 @@
     <Reference Include="log4net">
       <HintPath>..\..\自定义Dll\log4net.dll</HintPath>
     </Reference>
+    <Reference Include="SPC.Algorithm, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Library\SPC.Algorithm.dll</HintPath>
+    </Reference>
+    <Reference Include="SPC.Base, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Library\SPC.Base.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
@@ -78,8 +86,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseTableService.cs" />
+    <Compile Include="DataAnalyzeService.cs" />
     <Compile Include="HiResTimer.cs" />
     <Compile Include="PersistentService.cs" />
+    <Compile Include="DataAnalyzeBLL.cs" />
     <Compile Include="QtDataTraceBLL.cs" />
     <Compile Include="QtDataTraceService.cs" />
     <Compile Include="SingleQtTable.cs" />

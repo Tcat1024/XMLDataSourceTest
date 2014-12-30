@@ -1,0 +1,13 @@
+[类型]:Error
+[线程]:1
+[内存]:10.35M
+[时间]:2014-12-30 09:38:00
+[内容]:容器中没有类型为QtDataTrace.IService.IDataAnalyzeService的组件
+[来源]:EAS.MicroKernel
+[目标]:System.Object GetComponentInstance(System.Type)
+[堆栈]:   在 icJPIuSfxPYCv6ewm3l.y3jrtmSQ6TLVDhMwI7w.GetComponentInstance(Type )
+   在 RMSZ8qoG3otdpfpm3i3.fu7x2HoCBUDe4cEADpr.FwXWUaiywO(Type )
+   在 EAS.Services.DirectServiceBridger.fx6gmA46k6XiHKkRX7P(Type )
+   在 EAS.Services.DirectServiceBridger.InvokeMethod(Type serviceType, MethodBase method, Object[] args)
+
+

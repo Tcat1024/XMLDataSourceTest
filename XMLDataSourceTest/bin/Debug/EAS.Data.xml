@@ -130,10 +130,177 @@
             时间比对函数，应用于二级缓存查询。
             </summary>
         </member>
+        <member name="T:EAS.Data.ORM.Column">
+            <summary>
+            数据库实体列定义。
+            </summary>
+        </member>
+        <member name="F:EAS.Data.ORM.Column.n_RowVersion">
+            <summary>
+            行版本列。
+            </summary>
+        </member>
+        <member name="F:EAS.Data.ORM.Column.n_CacheUpdated">
+            <summary>
+            缓存更新。
+            </summary>
+        </member>
+        <member name="M:EAS.Data.ORM.Column.SetValue(EAS.Data.ORM.IBaseDataEntity,System.Object)">
+            <summary>
+            为数据实体设置属性值。
+            </summary>
+            <param name="dataEntity">数据实体。</param>
+            <param name="value">属性值。</param>
+        </member>
+        <member name="M:EAS.Data.ORM.Column.GetValue(EAS.Data.ORM.IBaseDataEntity)">
+            <summary>
+            获取数据实体属性值。
+            </summary>
+            <param name="dataEntity">数据实体。</param>
+            <returns>属性值。</returns>
+        </member>
+        <member name="M:EAS.Data.ORM.Column.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            使用将目标对象序列化所需的数据填充 SerializationInfo。
+            </summary>
+            <param name="info">要填充数据的 SerializationInfo。</param>
+            <param name="context">此序列化的目标。</param>
+        </member>
+        <member name="M:EAS.Data.ORM.Column.Clone">
+            <summary>
+            创建作为当前实例副本的新对象。
+            </summary>
+            <returns>作为此实例副本的新对象。</returns>
+        </member>
+        <member name="M:EAS.Data.ORM.Column.CreateSetAction">
+            <summary>
+            生成赋值表达式。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EAS.Data.ORM.Column.CreateGetFunc">
+            <summary>
+            生成取值表达式。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:EAS.Data.ORM.Column.Caption">
+            <summary>
+            获取列的标题。
+            </summary>
+            <remarks>该标题用来对用户显示友好的名称。</remarks>
+        </member>
+        <member name="P:EAS.Data.ORM.Column.Name">
+            <summary>
+            获取列的名称。
+            </summary>
+            <remarks>该名称对应 Entity 在数据库中的相应字段的名称，或者是对聚合列等的名称。</remarks>
+        </member>
+        <member name="P:EAS.Data.ORM.Column.DataType">
+            <summary>
+            获取列数据的数据类型。
+            </summary>
+            <remarks>该值由 System.Data.DbType 定义，并映射到相应的数据库数据类型和 .NET 公共类型。</remarks>
+        </member>
+        <member name="P:EAS.Data.ORM.Column.SequenceNo">
+            <summary>
+            列顺序号。
+            </summary>
+        </member>
+        <member name="P:EAS.Data.ORM.Column.DefaultValue">
+            <summary>
+            获取列的默认值。
+            </summary>
+            <remarks>该值不会是空引用，空值被映射为 System.DBNull.Value。</remarks>
+        </member>
+        <member name="P:EAS.Data.ORM.Column.PrimaryKey">
+            <summary>
+            获取列是否为否数据库主键。
+            </summary>
+            <remarks>该值不会是空引用，空值被映射为true。</remarks>
+        </member>
+        <member name="P:EAS.Data.ORM.Column.Identity">
+            <summary>
+            获取列是否为自动增加列。
+            </summary>
+        </member>
+        <member name="P:EAS.Data.ORM.Column.Virtual">
+            <summary>
+            是否为虚拟列。
+            </summary>
+        </member>
+        <member name="P:EAS.Data.ORM.Column.RefEntity">
+            <summary>
+            关联实体。
+            </summary>
+        </member>
+        <member name="P:EAS.Data.ORM.Column.RefProperty">
+            <summary>
+            引用属性。
+            </summary>
+        </member>
+        <member name="P:EAS.Data.ORM.Column.Timestamp">
+            <summary>
+            是否为时间戳列。
+            </summary>
+        </member>
+        <member name="P:EAS.Data.ORM.Column.CacheUpdated">
+            <summary>
+            是否为缓存更新字段。
+            </summary>
+        </member>
+        <member name="P:EAS.Data.ORM.Column.Size">
+            <summary>
+            数据长度。
+            </summary>
+        </member>
+        <member name="P:EAS.Data.ORM.Column.Scale">
+            <summary>
+            小数位置。
+            </summary>
+        </member>
+        <member name="P:EAS.Data.ORM.Column.Tag">
+            <summary>
+            获取或设置包含有特定数据的对象。
+            </summary>
+        </member>
+        <member name="P:EAS.Data.ORM.Column.Property">
+            <summary>
+            映射属性。
+            </summary>
+        </member>
+        <member name="P:EAS.Data.ORM.Column.TData">
+            <summary>
+            获取或设置实体类型。
+            </summary>
+        </member>
+        <member name="P:EAS.Data.ORM.Column.GetFunc">
+            <summary>
+            读数据方法。
+            </summary>
+        </member>
+        <member name="P:EAS.Data.ORM.Column.SetAction">
+            <summary>
+            写数据方法。
+            </summary>
+        </member>
+        <member name="P:EAS.Data.ORM.Column.PropertyName">
+            <summary>
+            属性名。
+            </summary>
+        </member>
         <member name="T:EAS.Data.ORM.DataEntityExtensions">
             <summary>
             DataEntity(数据实体扩展方法)。
             </summary>
+        </member>
+        <member name="M:EAS.Data.ORM.DataEntityExtensions.CopyTo``1(EAS.Data.ORM.DataEntity{``0},EAS.Data.ORM.DataEntity{``0})">
+            <summary>
+            实体值复制、连同子对象和引用对象一并复制。
+            </summary>
+            <typeparam name="T">实体类型。</typeparam>
+            <param name="dataEntity">源实体。</param>
+            <param name="target">目标实体。</param>
         </member>
         <member name="M:EAS.Data.ORM.DataEntityExtensions.Read``1(EAS.Data.ORM.DataEntity{``0})">
             <summary>
@@ -145,6 +312,13 @@
         <member name="M:EAS.Data.ORM.DataEntityExtensions.Refresh``1(EAS.Data.ORM.DataEntity{``0})">
             <summary>
             从数据库读取/同步数据对象的值。
+            </summary>
+            <typeparam name="T">数据实体类型。</typeparam>
+            <param name="dataEntity">数据实体。</param>
+        </member>
+        <member name="M:EAS.Data.ORM.DataEntityExtensions.ReadAll``1(EAS.Data.ORM.DataEntity{``0})">
+            <summary>
+            从数据库读取/同步数据对象的值、包括相关联的子对象。
             </summary>
             <typeparam name="T">数据实体类型。</typeparam>
             <param name="dataEntity">数据实体。</param>
@@ -406,6 +580,62 @@
             消息总线。
             </summary>
         </member>
+        <member name="T:EAS.Data.ORM.ChildEntity">
+            <summary>
+            子实体定义。
+            </summary>
+        </member>
+        <member name="M:EAS.Data.ORM.ChildEntity.#ctor">
+            <summary>
+            初始化ChildEntity对象实例。
+            </summary>
+        </member>
+        <member name="M:EAS.Data.ORM.ChildEntity.#ctor(EAS.Data.ORM.ChildEntityAttribute)">
+            <summary>
+            初始化ChildEntity对象实例。
+            </summary>
+            <param name="childEntity">ChildEntityAttribute对象。</param>
+        </member>
+        <member name="M:EAS.Data.ORM.ChildEntity.#ctor(System.String,System.String,System.Type,System.String)">
+            <summary>
+            初始化ChildEntity对象实例。
+            </summary>
+            <param name="parentKey">父实体主键。</param>
+            <param name="caption">标题。</param>
+            <param name="childType">子实体类型。</param>
+            <param name="childProperty">子实体属性。</param>
+        </member>
+        <member name="M:EAS.Data.ORM.ChildEntity.Clone">
+            <summary>
+            创建作为当前实例副本的新对象。
+            </summary>
+            <returns>作为此实例副本的新对象。</returns>
+        </member>
+        <member name="P:EAS.Data.ORM.ChildEntity.ParentKey">
+            <summary>
+            父实体属性。
+            </summary>
+        </member>
+        <member name="P:EAS.Data.ORM.ChildEntity.Caption">
+            <summary>
+            标题。
+            </summary>
+        </member>
+        <member name="P:EAS.Data.ORM.ChildEntity.ChildType">
+            <summary>
+            子实体类型。
+            </summary>
+        </member>
+        <member name="P:EAS.Data.ORM.ChildEntity.ChildProperty">
+            <summary>
+            子实体属性。
+            </summary>
+        </member>
+        <member name="P:EAS.Data.ORM.ChildEntity.Property">
+            <summary>
+            属性对象。
+            </summary>
+        </member>
         <member name="T:EAS.Data.Linq.TSqlFormatter">
             <summary>
             TSQL language 语法分析器。
@@ -644,7 +874,7 @@
             <summary>
             执行给定的数据库查询命令。
             </summary>
-            <param name="commandString">要执行的命令语句，可能是select语句，也可能是存储过程名称。</param>
+            <param name="commandText">要执行的命令语句，可能是select语句，也可能是存储过程名称。</param>
             <param name="parameters">命令执行需要的参数。</param>
             <returns>查询结果的 System.Data.IDataReader对象。</returns>
         </member>
@@ -652,7 +882,7 @@
             <summary>
             执行给定的数据库查询命令。
             </summary>
-            <param name="commandString">要执行的命令语句，可能是select语句，也可能是存储过程名称。</param>
+            <param name="commandText">要执行的命令语句，可能是select语句，也可能是存储过程名称。</param>
             <param name="commandType">要执行的命令的类型。</param>
             <param name="parameters">命令执行需要的参数。</param>
             <returns>查询结果的 System.Data.IDataReader对象。</returns>
@@ -776,7 +1006,7 @@
             <summary>
             执行给定的数据库查询命令。
             </summary>
-            <param name="commandString">要执行的命令语句，可能是select语句，也可能是存储过程名称。</param>
+            <param name="commandText">要执行的命令语句，可能是select语句，也可能是存储过程名称。</param>
             <param name="parameters">命令执行需要的参数。</param>
             <returns>返回第一行的Key-Value。</returns>
         </member>
@@ -1976,6 +2206,20 @@
             <param name="resultType">数据库查询返回结果类型。</param>
             <param name="value">数据库查询的返回结果。</param>
         </member>
+        <member name="M:EAS.Data.Access.DbResult.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            反序列化对象。
+            </summary>
+            <param name="info">数据。</param>
+            <param name="context">序列化上下文。</param>
+        </member>
+        <member name="M:EAS.Data.Access.DbResult.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            使用将目标对象序列化所需的数据填充 SerializationInfo。
+            </summary>
+            <param name="info">要填充数据的 SerializationInfo。</param>
+            <param name="context">此序列化的目标。</param>
+        </member>
         <member name="M:EAS.Data.Access.DbResult.ConvertToDataSet">
             <summary>
             转换数据查询结果为DataSet。
@@ -2144,6 +2388,271 @@
             </summary>
             <param name="dataEntity"></param>
             <returns></returns>
+        </member>
+        <member name="T:EAS.Data.ORM.ColumnAttribute">
+            <summary>
+            数据列映射属性。
+            </summary>
+        </member>
+        <member name="M:EAS.Data.ORM.ColumnAttribute.#ctor(System.String)">
+            <summary>
+            使用列名初始化ColumnAttribute属性。
+            </summary>
+            <param name="name">表名。</param>
+        </member>
+        <member name="M:EAS.Data.ORM.ColumnAttribute.#ctor(System.String,System.String)">
+            <summary>
+            使用列名和标题初始化ColumnAttribute属性。
+            </summary>
+            <param name="name">表名。</param>
+            <param name="caption">标题。</param>
+        </member>
+        <member name="M:EAS.Data.ORM.ColumnAttribute.#ctor(System.String,System.Data.DbType)">
+            <summary>
+            初始化ColumnAttribute属性。
+            </summary>
+            <param name="name">列名。</param>
+            <param name="dataType">数据类型。</param>
+        </member>
+        <member name="M:EAS.Data.ORM.ColumnAttribute.#ctor(System.String,System.String,System.Data.DbType)">
+            <summary>
+            初始化ColumnAttribute属性。
+            </summary>
+            <param name="name">列名。</param>
+            <param name="caption">标题。</param>
+            <param name="dataType">数据类型。</param>
+        </member>
+        <member name="M:EAS.Data.ORM.ColumnAttribute.#ctor(System.String,System.String,System.UInt16)">
+            <summary>
+            初始化ColumnAttribute属性。
+            </summary>
+            <param name="name">列名。</param>
+            <param name="caption">标题。</param>
+            <param name="sequenceNo">顺序号。</param>
+        </member>
+        <member name="M:EAS.Data.ORM.ColumnAttribute.#ctor(System.String,System.String,System.Data.DbType,System.UInt16)">
+            <summary>
+            初始化ColumnAttribute属性。
+            </summary>
+            <param name="name">列名。</param>
+            <param name="caption">标题。</param>
+            <param name="dataType">数据类型。</param>
+            <param name="sequenceNo">顺序号。</param>
+        </member>
+        <member name="P:EAS.Data.ORM.ColumnAttribute.Name">
+            <summary>
+            列名。
+            </summary>
+        </member>
+        <member name="P:EAS.Data.ORM.ColumnAttribute.Caption">
+            <summary>
+            标题。
+            </summary>
+        </member>
+        <member name="P:EAS.Data.ORM.ColumnAttribute.DataType">
+            <summary>
+            数据类型。
+            </summary>
+        </member>
+        <member name="P:EAS.Data.ORM.ColumnAttribute.SequenceNo">
+            <summary>
+            列顺序号。
+            </summary>
+        </member>
+        <member name="T:EAS.Data.ORM.PrimaryKeyAttribute">
+            <summary>
+            主键属性。
+            </summary>
+        </member>
+        <member name="T:EAS.Data.ORM.NotNullAttribute">
+            <summary>
+            值不可能为空。
+            </summary>
+        </member>
+        <member name="T:EAS.Data.ORM.IdentityAttribute">
+            <summary>
+            自增属性。
+            </summary>
+        </member>
+        <member name="T:EAS.Data.ORM.VirtualAttribute">
+            <summary>
+            虚拟属性。
+            </summary>
+        </member>
+        <member name="M:EAS.Data.ORM.VirtualAttribute.#ctor">
+            <summary>
+            初始化VirtualAttribute对象实例。
+            </summary>
+        </member>
+        <member name="M:EAS.Data.ORM.VirtualAttribute.#ctor(System.String,System.String)">
+            <summary>
+            初始化VirtualAttribute对象实例。
+            </summary>
+            <param name="refEntity">依赖实体。</param>
+            <param name="refProperty">关联属性。</param>
+        </member>
+        <member name="P:EAS.Data.ORM.VirtualAttribute.RefEntity">
+            <summary>
+            关联实体。
+            </summary>
+        </member>
+        <member name="P:EAS.Data.ORM.VirtualAttribute.RefProperty">
+            <summary>
+            引用属性。
+            </summary>
+        </member>
+        <member name="T:EAS.Data.ORM.TimestampAttribute">
+            <summary>
+            行版本列属性。
+            </summary>
+        </member>
+        <member name="T:EAS.Data.ORM.DefaultValueAttribute">
+            <summary>
+            主键属性。
+            </summary>
+        </member>
+        <member name="M:EAS.Data.ORM.DefaultValueAttribute.#ctor(System.Object)">
+            <summary>
+            使用列名初始化ableMapping属性。
+            </summary>
+            <param name="value">默认值。</param>
+        </member>
+        <member name="P:EAS.Data.ORM.DefaultValueAttribute.Value">
+            <summary>
+            默认值。
+            </summary>
+        </member>
+        <member name="T:EAS.Data.ORM.DataSizeAttribute">
+            <summary>
+            数据长度限定。
+            </summary>
+        </member>
+        <member name="M:EAS.Data.ORM.DataSizeAttribute.#ctor(System.Int32)">
+            <summary>
+            使用长度初始化DataSize属性。
+            </summary>
+            <param name="Size">字段长度。</param>
+        </member>
+        <member name="M:EAS.Data.ORM.DataSizeAttribute.#ctor(System.Int32,System.Int32)">
+            <summary>
+            使用长度初始化DataSize属性。
+            </summary>
+            <param name="Size">字段长度。</param>
+            <param name="Scale">小数位数。</param>
+        </member>
+        <member name="P:EAS.Data.ORM.DataSizeAttribute.Size">
+            <summary>
+            数据长度。
+            </summary>
+        </member>
+        <member name="P:EAS.Data.ORM.DataSizeAttribute.Scale">
+            <summary>
+            小数位置。
+            </summary>
+        </member>
+        <member name="T:EAS.Data.ORM.CacheUpdatedAttribute">
+            <summary>
+            缓存更新字段。
+            </summary>
+        </member>
+        <member name="T:EAS.Data.ORM.RefEntityAttribute">
+            <summary>
+            引用实体属性。
+            </summary>
+        </member>
+        <member name="M:EAS.Data.ORM.RefEntityAttribute.#ctor">
+            <summary>
+            初始化RefEntityAttribute对象实例。
+            </summary>
+        </member>
+        <member name="M:EAS.Data.ORM.RefEntityAttribute.#ctor(System.String,System.String,System.Type,System.String)">
+            <summary>
+            初始化RefEntityAttribute对象实例。
+            </summary>
+            <param name="refProperty">引用属性。</param>
+            <param name="caption">标题。</param>
+            <param name="refType">引用实体类型。</param>
+            <param name="refKey">引用实体主键类型。</param>
+        </member>
+        <member name="M:EAS.Data.ORM.RefEntityAttribute.#ctor(System.String,System.String,System.Type,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            初始化RefEntityAttribute对象实例。
+            </summary>
+            <param name="refProperty">引用属性。</param>
+            <param name="caption">标题。</param>
+            <param name="refType">引用实体类型。</param>
+            <param name="refKey">引用实体主键类型。</param>
+            <param name="nullable">是否为可空引用。</param>
+            <param name="cache">使用缓存。</param>
+        </member>
+        <member name="P:EAS.Data.ORM.RefEntityAttribute.RefProperty">
+            <summary>
+            引用属性。
+            </summary>
+        </member>
+        <member name="P:EAS.Data.ORM.RefEntityAttribute.Caption">
+            <summary>
+            标题。
+            </summary>
+        </member>
+        <member name="P:EAS.Data.ORM.RefEntityAttribute.RefType">
+            <summary>
+            引用实体类型。
+            </summary>
+        </member>
+        <member name="P:EAS.Data.ORM.RefEntityAttribute.RefKey">
+            <summary>
+            引用实体主键。
+            </summary>
+        </member>
+        <member name="P:EAS.Data.ORM.RefEntityAttribute.Nullable">
+            <summary>
+            可空引用。
+            </summary>
+        </member>
+        <member name="P:EAS.Data.ORM.RefEntityAttribute.Cache">
+            <summary>
+            是否缓存。
+            </summary>
+        </member>
+        <member name="T:EAS.Data.ORM.ChildEntityAttribute">
+            <summary>
+            子实体属性。
+            </summary>
+        </member>
+        <member name="M:EAS.Data.ORM.ChildEntityAttribute.#ctor">
+            <summary>
+            初始化ChildEntityAttribute对象实例。
+            </summary>
+        </member>
+        <member name="M:EAS.Data.ORM.ChildEntityAttribute.#ctor(System.String,System.String,System.Type,System.String)">
+            <summary>
+            初始化ChildEntityAttribute对象实例。
+            </summary>
+            <param name="parentKey">父实体主键。</param>
+            <param name="caption">标题。</param>
+            <param name="childType">子实体类型。</param>
+            <param name="childProperty">子实体属性。</param>
+        </member>
+        <member name="P:EAS.Data.ORM.ChildEntityAttribute.ParentKey">
+            <summary>
+            父实体属性。
+            </summary>
+        </member>
+        <member name="P:EAS.Data.ORM.ChildEntityAttribute.Caption">
+            <summary>
+            标题。
+            </summary>
+        </member>
+        <member name="P:EAS.Data.ORM.ChildEntityAttribute.ChildType">
+            <summary>
+            子实体类型。
+            </summary>
+        </member>
+        <member name="P:EAS.Data.ORM.ChildEntityAttribute.ChildProperty">
+            <summary>
+            子实体属性。
+            </summary>
         </member>
         <member name="T:EAS.Data.ORM.OrmAccessor">
             <summary>
@@ -2556,155 +3065,6 @@
         <member name="P:EAS.Data.ORM.CacheAccessor.ResourceID">
             <summary>
             获取当前资源的标识ID。
-            </summary>
-        </member>
-        <member name="T:EAS.Data.ORM.Column">
-            <summary>
-            数据库实体列定义。
-            </summary>
-        </member>
-        <member name="M:EAS.Data.ORM.Column.CreateSetAction">
-            <summary>
-            生成赋值表达式。
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:EAS.Data.ORM.Column.CreateGetFunc">
-            <summary>
-            生成取值表达式。
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="F:EAS.Data.ORM.Column.n_RowVersion">
-            <summary>
-            行版本列。
-            </summary>
-        </member>
-        <member name="F:EAS.Data.ORM.Column.n_CacheUpdated">
-            <summary>
-            缓存更新。
-            </summary>
-        </member>
-        <member name="M:EAS.Data.ORM.Column.SetValue(EAS.Data.ORM.IBaseDataEntity,System.Object)">
-            <summary>
-            为数据实体设置属性值。
-            </summary>
-            <param name="dataEntity">数据实体。</param>
-            <param name="value">属性值。</param>
-        </member>
-        <member name="M:EAS.Data.ORM.Column.GetValue(EAS.Data.ORM.IBaseDataEntity)">
-            <summary>
-            获取数据实体属性值。
-            </summary>
-            <param name="dataEntity">数据实体。</param>
-            <returns>属性值。</returns>
-        </member>
-        <member name="M:EAS.Data.ORM.Column.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
-            <summary>
-            使用将目标对象序列化所需的数据填充 SerializationInfo。
-            </summary>
-            <param name="info">要填充数据的 SerializationInfo。</param>
-            <param name="context">此序列化的目标。</param>
-        </member>
-        <member name="M:EAS.Data.ORM.Column.Clone">
-            <summary>
-            创建作为当前实例副本的新对象。
-            </summary>
-            <returns>作为此实例副本的新对象。</returns>
-        </member>
-        <member name="P:EAS.Data.ORM.Column.Caption">
-            <summary>
-            获取列的标题。
-            </summary>
-            <remarks>该标题用来对用户显示友好的名称。</remarks>
-        </member>
-        <member name="P:EAS.Data.ORM.Column.Name">
-            <summary>
-            获取列的名称。
-            </summary>
-            <remarks>该名称对应 Entity 在数据库中的相应字段的名称，或者是对聚合列等的名称。</remarks>
-        </member>
-        <member name="P:EAS.Data.ORM.Column.DataType">
-            <summary>
-            获取列数据的数据类型。
-            </summary>
-            <remarks>该值由 System.Data.DbType 定义，并映射到相应的数据库数据类型和 .NET 公共类型。</remarks>
-        </member>
-        <member name="P:EAS.Data.ORM.Column.SequenceNo">
-            <summary>
-            列顺序号。
-            </summary>
-        </member>
-        <member name="P:EAS.Data.ORM.Column.DefaultValue">
-            <summary>
-            获取列的默认值。
-            </summary>
-            <remarks>该值不会是空引用，空值被映射为 System.DBNull.Value。</remarks>
-        </member>
-        <member name="P:EAS.Data.ORM.Column.PrimaryKey">
-            <summary>
-            获取列是否为否数据库主键。
-            </summary>
-            <remarks>该值不会是空引用，空值被映射为true。</remarks>
-        </member>
-        <member name="P:EAS.Data.ORM.Column.Identity">
-            <summary>
-            获取列是否为自动增加列。
-            </summary>
-        </member>
-        <member name="P:EAS.Data.ORM.Column.Virtual">
-            <summary>
-            是否为虚拟列。
-            </summary>
-        </member>
-        <member name="P:EAS.Data.ORM.Column.Timestamp">
-            <summary>
-            是否为时间戳列。
-            </summary>
-        </member>
-        <member name="P:EAS.Data.ORM.Column.CacheUpdated">
-            <summary>
-            是否为缓存更新字段。
-            </summary>
-        </member>
-        <member name="P:EAS.Data.ORM.Column.Size">
-            <summary>
-            数据长度。
-            </summary>
-        </member>
-        <member name="P:EAS.Data.ORM.Column.Scale">
-            <summary>
-            小数位置。
-            </summary>
-        </member>
-        <member name="P:EAS.Data.ORM.Column.Tag">
-            <summary>
-            获取或设置包含有特定数据的对象。
-            </summary>
-        </member>
-        <member name="P:EAS.Data.ORM.Column.Property">
-            <summary>
-            映射属性。
-            </summary>
-        </member>
-        <member name="P:EAS.Data.ORM.Column.TData">
-            <summary>
-            获取或设置实体类型。
-            </summary>
-        </member>
-        <member name="P:EAS.Data.ORM.Column.GetFunc">
-            <summary>
-            读数据方法。
-            </summary>
-        </member>
-        <member name="P:EAS.Data.ORM.Column.SetAction">
-            <summary>
-            写数据方法。
-            </summary>
-        </member>
-        <member name="P:EAS.Data.ORM.Column.PropertyName">
-            <summary>
-            属性名。
             </summary>
         </member>
         <member name="T:EAS.Data.Linq.ExpressionWriter">
@@ -3451,12 +3811,6 @@
             </summary>
             <param name="TData">实体类型。</param>
         </member>
-        <member name="M:EAS.Data.Caching.Cache.Load(System.Reflection.Assembly)">
-            <summary>
-            预加载/缓存预热。
-            </summary>
-            <param name="assembly">程序集。</param>
-        </member>
         <member name="M:EAS.Data.Caching.Cache.Get``1">
             <summary>
             获取实体缓存。
@@ -3477,6 +3831,12 @@
             </summary>
             <typeparam name="T">实体类型。</typeparam>
         </member>
+        <member name="M:EAS.Data.Caching.Cache.Load(System.Reflection.Assembly)">
+            <summary>
+            预加载/缓存预热。
+            </summary>
+            <param name="assembly">程序集。</param>
+        </member>
         <member name="M:EAS.Data.Caching.Cache.InternalGet``1">
             <summary>
             获取实体缓存。
@@ -3490,6 +3850,13 @@
             </summary>
             <param name="TData">实体类型。</param>
             <returns>实体数据集合。</returns>
+        </member>
+        <member name="M:EAS.Data.Caching.Cache.GetCacheKey(System.Type)">
+            <summary>
+            求缓存Key。
+            </summary>
+            <param name="TData"></param>
+            <returns></returns>
         </member>
         <member name="P:EAS.Data.Caching.Cache.SessionID">
             <summary>
@@ -3574,6 +3941,61 @@
             如果命令执行时数据访问环境还没有打开，则内部会自动打开数据访问环境，当执行完毕后自动关闭访问环境；如果命令执行时数据访问环境已经打开，则命令执行完毕后该方法不会关闭访问环境，而是保持其打开状态。
             如果要求的结果为DataReader，则必须由调用方在外部打开数据访问环境，当DataReader执行完毕后再关闭访问环境；否则该方法将自动打开访问环境，并在DataReader返回前自动关闭访问环境，这样会导致在外部无法使用（因为该DataReader所依赖的数据连接已经关闭）DataReader读取数据。
             </remarks>
+        </member>
+        <member name="M:EAS.Data.Access.IDbProvider.Execute(System.String,System.Data.CommandType,System.Collections.Generic.List{System.Data.IDataParameter})">
+            <summary>
+            执行指定的非查询命令。
+            </summary>
+            <param name="commandText">要执行的命令语句。该语句必须是标准的数据库语句。</param>
+            <param name="commandType">要执行的命令类型。</param>
+            <param name="parameters">要执行的命令的参数集合。</param>
+            <returns>返回命令影响的行数。</returns>
+            <exception cref="T:System.InvalidOperationException">还没有设置数据访问环境。</exception>
+            <exception cref="T:System.ArgumentNullException">commandText 是空引用或者空字符串。</exception>
+        </member>
+        <member name="M:EAS.Data.Access.IDbProvider.QueryScalar(System.String,System.Data.CommandType,System.Collections.Generic.List{System.Data.IDataParameter})">
+            <summary>
+            执行给定的数据库查询命令。
+            </summary>
+            <param name="commandText">要执行的命令语句，可能是select语句，也可能是存储过程名称。</param>
+            <param name="commandType">要执行的命令的类型。</param>
+            <param name="parameters">命令执行需要的参数。</param>
+            <returns>返回查询结果的第一行第一列。</returns>
+            <exception cref="T:System.InvalidOperationException">还没有设置数据访问环境。</exception>
+            <exception cref="T:System.ArgumentNullException">commandString 是空引用或者空字符串。</exception>
+        </member>
+        <member name="M:EAS.Data.Access.IDbProvider.QueryDataReader(System.String,System.Data.CommandType,System.Collections.Generic.List{System.Data.IDataParameter})">
+            <summary>
+            执行给定的数据库查询命令。
+            </summary>
+            <param name="commandString">要执行的命令语句，可能是select语句，也可能是存储过程名称。</param>
+            <param name="commandType">要执行的命令的类型。</param>
+            <param name="parameters">命令执行需要的参数。</param>
+            <returns>查询结果的 System.Data.IDataReader对象。</returns>
+            <exception cref="T:System.InvalidOperationException">还没有设置数据访问环境。</exception>
+            <exception cref="T:System.ArgumentNullException">commandString 是空引用或者空字符串。</exception>
+        </member>
+        <member name="M:EAS.Data.Access.IDbProvider.QueryDataSet(System.String,System.Data.CommandType,System.Collections.Generic.List{System.Data.IDataParameter})">
+            <summary>
+            执行给定的数据库查询命令。
+            </summary>
+            <param name="commandText">要执行的命令语句，可能是select语句，也可能是存储过程名称。</param>
+            <param name="commandType">要执行的命令的类型。</param>
+            <param name="parameters">命令执行需要的参数。</param>
+            <returns>返回查询结果集。</returns>
+            <exception cref="T:System.InvalidOperationException">还没有设置数据访问环境。</exception>
+            <exception cref="T:System.ArgumentNullException">commandString 是空引用或者空字符串。</exception>
+        </member>
+        <member name="M:EAS.Data.Access.IDbProvider.QueryDataTable(System.String,System.Data.CommandType,System.Collections.Generic.List{System.Data.IDataParameter})">
+            <summary>
+            执行给定的数据库查询命令。
+            </summary>
+            <param name="commandText">要执行的命令语句，可能是select语句，也可能是存储过程名称。</param>
+            <param name="commandType">要执行的命令的类型。</param>
+            <param name="parameters">命令执行需要的参数。</param>
+            <returns>返回查询结果集的第一个DataTable。</returns>
+            <exception cref="T:System.InvalidOperationException">还没有设置数据访问环境。</exception>
+            <exception cref="T:System.ArgumentNullException">commandString 是空引用或者空字符串。</exception>
         </member>
         <member name="P:EAS.Data.Access.IDbProvider.IsOpen">
              <summary>
@@ -3710,6 +4132,61 @@
             </summary>
             <returns>哈希码。</returns>
         </member>
+        <member name="M:EAS.Data.Access.AbstractProvider.Execute(System.String,System.Data.CommandType,System.Collections.Generic.List{System.Data.IDataParameter})">
+            <summary>
+            执行指定的非查询命令。
+            </summary>
+            <param name="commandText">要执行的命令语句。该语句必须是标准的数据库语句。</param>
+            <param name="commandType">要执行的命令类型。</param>
+            <param name="parameters">要执行的命令的参数集合。</param>
+            <returns>返回命令影响的行数。</returns>
+            <exception cref="T:System.InvalidOperationException">还没有设置数据访问环境。</exception>
+            <exception cref="T:System.ArgumentNullException">commandText 是空引用或者空字符串。</exception>
+        </member>
+        <member name="M:EAS.Data.Access.AbstractProvider.QueryScalar(System.String,System.Data.CommandType,System.Collections.Generic.List{System.Data.IDataParameter})">
+            <summary>
+            执行给定的数据库查询命令。
+            </summary>
+            <param name="commandText">要执行的命令语句，可能是select语句，也可能是存储过程名称。</param>
+            <param name="commandType">要执行的命令的类型。</param>
+            <param name="parameters">命令执行需要的参数。</param>
+            <returns>返回查询结果的第一行第一列。</returns>
+            <exception cref="T:System.InvalidOperationException">还没有设置数据访问环境。</exception>
+            <exception cref="T:System.ArgumentNullException">commandString 是空引用或者空字符串。</exception>
+        </member>
+        <member name="M:EAS.Data.Access.AbstractProvider.QueryDataReader(System.String,System.Data.CommandType,System.Collections.Generic.List{System.Data.IDataParameter})">
+            <summary>
+            执行给定的数据库查询命令。
+            </summary>
+            <param name="commandText">要执行的命令语句，可能是select语句，也可能是存储过程名称。</param>
+            <param name="commandType">要执行的命令的类型。</param>
+            <param name="parameters">命令执行需要的参数。</param>
+            <returns>查询结果的 System.Data.IDataReader对象。</returns>
+            <exception cref="T:System.InvalidOperationException">还没有设置数据访问环境。</exception>
+            <exception cref="T:System.ArgumentNullException">commandString 是空引用或者空字符串。</exception>
+        </member>
+        <member name="M:EAS.Data.Access.AbstractProvider.QueryDataSet(System.String,System.Data.CommandType,System.Collections.Generic.List{System.Data.IDataParameter})">
+            <summary>
+            执行给定的数据库查询命令。
+            </summary>
+            <param name="commandText">要执行的命令语句，可能是select语句，也可能是存储过程名称。</param>
+            <param name="commandType">要执行的命令的类型。</param>
+            <param name="parameters">命令执行需要的参数。</param>
+            <returns>返回查询结果集。</returns>
+            <exception cref="T:System.InvalidOperationException">还没有设置数据访问环境。</exception>
+            <exception cref="T:System.ArgumentNullException">commandString 是空引用或者空字符串。</exception>
+        </member>
+        <member name="M:EAS.Data.Access.AbstractProvider.QueryDataTable(System.String,System.Data.CommandType,System.Collections.Generic.List{System.Data.IDataParameter})">
+            <summary>
+            执行给定的数据库查询命令。
+            </summary>
+            <param name="commandText">要执行的命令语句，可能是select语句，也可能是存储过程名称。</param>
+            <param name="commandType">要执行的命令的类型。</param>
+            <param name="parameters">命令执行需要的参数。</param>
+            <returns>返回查询结果集的第一个DataTable。</returns>
+            <exception cref="T:System.InvalidOperationException">还没有设置数据访问环境。</exception>
+            <exception cref="T:System.ArgumentNullException">commandString 是空引用或者空字符串。</exception>
+        </member>
         <member name="P:EAS.Data.Access.AbstractProvider.Connection">
             <summary>
             获取或设置 AbstractDbProvider 对象的 IDbConnection 实例。
@@ -3743,6 +4220,16 @@
         <member name="P:EAS.Data.Access.AbstractProvider.DbConnection">
             <summary>
             获取原始数据库连接。
+            </summary>
+        </member>
+        <member name="P:EAS.Data.Access.AbstractProvider.DbCommandDispatchers">
+            <summary>
+            命令分配器清单。
+            </summary>
+        </member>
+        <member name="P:EAS.Data.Access.AbstractProvider.DbCommandDispatcher">
+            <summary>
+            命命分配器对象。
             </summary>
         </member>
         <member name="P:EAS.Data.Access.AbstractProvider.CanAllot">
@@ -4039,6 +4526,11 @@
             获取一个值，指示数据构造过程的所用到条件参数集合。
             </summary>
         </member>
+        <member name="T:EAS.Data.ORM.Property">
+            <summary>
+            实体属性，表示实体的某一个列定义及列值。
+            </summary>
+        </member>
         <member name="T:EAS.Data.Linq.SingletonProjectionRewriter">
             <summary>
             Rewrites nested singleton projection into server-side joins
@@ -4190,810 +4682,19 @@
             获取当前行中的列数。
             </summary>
         </member>
-        <member name="T:EAS.Data.Access.DbCommandLogDispatcher">
+        <member name="T:EAS.Data.Caching.CacheDeleted">
             <summary>
-            数据命令日志分配器。
+            实体对象 CacheDeleted(缓存删除记录)。
             </summary>
-        </member>
-        <member name="T:EAS.Data.Access.IDbCommandDispatcher">
-            <summary>
-            命令调度接口
-            </summary>
-            <remarks>
-            定义一些方法，通过这些方法，可以在数据库访问器执行数据库查询之前对查询命令进行自定义检查或修改。
-            </remarks>
-        </member>
-        <member name="M:EAS.Data.Access.IDbCommandDispatcher.BeforeQuery(EAS.Data.Access.DbCommand@)">
-            <summary>
-            在执行数据库查询之前处理数据库查询命令。
-            </summary>
-            <param name="command">数据查询命令对象。</param>
-        </member>
-        <member name="M:EAS.Data.Access.IDbCommandDispatcher.BeforeExecute(EAS.Data.Access.DbCommand@)">
-            <summary>
-            在执行数据库查询之前处理数据库查询命令。
-            </summary>
-            <param name="command">数据查询命令对象。</param>
-        </member>
-        <member name="M:EAS.Data.Access.DbCommandLogDispatcher.BeforeQuery(EAS.Data.Access.DbCommand@)">
-            <summary>
-            查询执行之前。
-            </summary>
-            <param name="command">查询命令对象。</param>
-        </member>
-        <member name="M:EAS.Data.Access.DbCommandLogDispatcher.BeforeExecute(EAS.Data.Access.DbCommand@)">
-            <summary>
-            修改执行之前。
-            </summary>
-            <param name="command">查询命令对象。</param>
-        </member>
-        <member name="T:EAS.Data.ORM.MappingMetaData">
-            <summary>
-            映射元数据定义。
-            </summary>
-        </member>
-        <member name="F:EAS.Data.ORM.MappingMetaData.m_Db2Name">
-            <summary>
-            列名==》属性名。
-            </summary>
-        </member>
-        <member name="F:EAS.Data.ORM.MappingMetaData.m_Name2Db">
-            <summary>
-            属性名==》列名。
-            </summary>
-        </member>
-        <member name="F:EAS.Data.ORM.MappingMetaData.m_Db2Property">
-            <summary>
-            列名==>属性。
-            </summary>
-        </member>
-        <member name="F:EAS.Data.ORM.MappingMetaData.m_KeyValues">
-            <summary>
-            列名==>列。
-            </summary>
-        </member>
-        <member name="F:EAS.Data.ORM.MappingMetaData.m_SNValues">
-            <summary>
-            序号==>列。
-            </summary>
-        </member>
-        <member name="F:EAS.Data.ORM.MappingMetaData.n_RowVersionColumn">
-            <summary>
-            行版本列。
-            </summary>
-        </member>
-        <member name="F:EAS.Data.ORM.MappingMetaData.m_PrimaryKeys">
-            <summary>
-            主键。
-            </summary>
-        </member>
-        <member name="F:EAS.Data.ORM.MappingMetaData.m_SerializeColumns">
-            <summary>
-            序列化列集合。
-            </summary>
-        </member>
-        <member name="F:EAS.Data.ORM.MappingMetaData.m_SerializeFileds">
-            <summary>
-            序列化字段集合。
-            </summary>
-        </member>
-        <member name="M:EAS.Data.ORM.MappingMetaData.#ctor">
-            <summary>
-            初始化MappingMetaData对象实例。
-            </summary>
-        </member>
-        <member name="M:EAS.Data.ORM.MappingMetaData.#ctor(System.String)">
-            <summary>
-            使用表名初始化MappingMetaData对象实例。
-            </summary>
-            <param name="dbTableName">表名。</param>
-        </member>
-        <member name="M:EAS.Data.ORM.MappingMetaData.Create``1">
-            <summary>
-            创建元数据映射。
-            </summary>
-            <typeparam name="T">实体类型。</typeparam>
-            <returns>元数据映射定义。</returns>
-        </member>
-        <member name="M:EAS.Data.ORM.MappingMetaData.Create(System.Type)">
-            <summary>
-            创建元数据映射。
-            </summary>
-            <param name="type">实体类型。</param>
-            <returns>元数据映射定义。</returns>
-        </member>
-        <member name="M:EAS.Data.ORM.MappingMetaData.GetPrimaryKeys">
-            <summary>
-            取主键定义。
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:EAS.Data.ORM.MappingMetaData.GetPrimaryKeyNames">
-            <summary>
-            取得主键名称列表。
-            </summary>
-            <returns>主键名称字符串。</returns>
-        </member>
-        <member name="M:EAS.Data.ORM.MappingMetaData.GetPrimaryKeyNames(EAS.Data.ORM.MappingMetaData)">
-            <summary>
-            取得主键名称列表。
-            </summary>
-            <param name="metaData">映射元数据。</param>
-            <returns>主键名称字符串。</returns>
-        </member>
-        <member name="M:EAS.Data.ORM.MappingMetaData.GetColumnName(System.String)">
-            <summary>
-            根据属性名称获取列名。
-            </summary>
-            <param name="propertyName">属性名。</param>
-            <returns>列名称。</returns>
-        </member>
-        <member name="M:EAS.Data.ORM.MappingMetaData.GetColumn(System.Int32)">
-            <summary>
-            根据列序号获取列定义。
-            </summary>
-            <param name="sequenceNo">列序号。</param>
-            <returns>列对象。</returns>
-        </member>
-        <member name="M:EAS.Data.ORM.MappingMetaData.GetColumn(System.String)">
-            <summary>
-            根据列名获取列定义。
-            </summary>
-            <param name="name">列名。</param>
-            <returns>列对象。</returns>
-        </member>
-        <member name="M:EAS.Data.ORM.MappingMetaData.GetProperty(System.String)">
-            <summary>
-            根据列名获取属性定义。
-            </summary>
-            <param name="name">列名。</param>
-            <returns>属性定义。</returns>
-        </member>
-        <member name="P:EAS.Data.ORM.MappingMetaData.InsertCommandText">
-            <summary>
-            实例插入命令。
-            </summary>
-        </member>
-        <member name="P:EAS.Data.ORM.MappingMetaData.UpdateCommandText">
-            <summary>
-            实例更新命令。
-            </summary>
-        </member>
-        <member name="P:EAS.Data.ORM.MappingMetaData.DeleteCommandText">
-            <summary>
-            实例删除命令。
-            </summary>
-        </member>
-        <member name="P:EAS.Data.ORM.MappingMetaData.DynamicCreateEntity">
-            <summary>
-            创建实体代理。
-            </summary>
-        </member>
-        <member name="P:EAS.Data.ORM.MappingMetaData.DynamicSerialize">
-            <summary>
-            动态序列化。
-            </summary>
-        </member>
-        <member name="P:EAS.Data.ORM.MappingMetaData.DynamicDeserialize">
-            <summary>
-            动态反序列化。
-            </summary>
-        </member>
-        <member name="P:EAS.Data.ORM.MappingMetaData.DbTableName">
-            <summary>
-            数据库表名。
-            </summary>
-        </member>
-        <member name="P:EAS.Data.ORM.MappingMetaData.RowVersionColumn">
-            <summary>
-            行版本列。
-            </summary>
-        </member>
-        <member name="P:EAS.Data.ORM.MappingMetaData.Index">
-            <summary>
-            是否索引模式。
-            </summary>
-        </member>
-        <member name="P:EAS.Data.ORM.MappingMetaData.TData">
-            <summary>
-            获取或设置实体类型。
-            </summary>
-        </member>
-        <member name="P:EAS.Data.ORM.MappingMetaData.Columns">
-            <summary>
-            数据列定义。
-            </summary>
-        </member>
-        <member name="P:EAS.Data.ORM.MappingMetaData.SerializeColumns">
-            <summary>
-            序列化列集合。
-            </summary>
-        </member>
-        <member name="P:EAS.Data.ORM.MappingMetaData.SerializeFileds">
-            <summary>
-            序列化字段集合。
-            </summary>
-        </member>
-        <member name="T:EAS.Data.ORM.ColumnCollection">
-            <summary>
-            定义数据表列集合。
-            </summary>
-            <remarks>
-            可以通过该类表达一个数据库表、视图的列结构。
-            </remarks>
-        </member>
-        <member name="F:EAS.Data.ORM.ColumnCollection.table">
-            <summary>
-            内部私有变量，指示列所属于的数据表。
-            </summary>
-        </member>
-        <member name="M:EAS.Data.ORM.ColumnCollection.#ctor">
-            <summary>
-            初始化列集合新实例。
-            </summary>
-        </member>
-        <member name="M:EAS.Data.ORM.ColumnCollection.#ctor(EAS.Data.ORM.ITable)">
-            <summary>
-            使用ITable接口初始化列集合新实例。
-            </summary>
-        </member>
-        <member name="M:EAS.Data.ORM.ColumnCollection.#ctor(System.Int32)">
-            <summary>
-            使用集合的初始容量初始化列集合新实例。
-            </summary>
-            <param name="capacity">集合的初始容量。</param>
-        </member>
-        <member name="M:EAS.Data.ORM.ColumnCollection.GetMaxSequenceNo">
-            <summary>
-            获取最大列序列号。
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:EAS.Data.ORM.ColumnCollection.Add(EAS.Data.ORM.Column)">
-            <summary>
-            向集合中添加一个列。
-            </summary>
-            <param name="column">要添加的数据列。</param>
-        </member>
-        <member name="M:EAS.Data.ORM.ColumnCollection.Remove(System.String)">
-            <summary>
-            删除集合中的一个数据列。
-            </summary>
-            <param name="name">要删除的数据列。</param>
-        </member>
-        <member name="M:EAS.Data.ORM.ColumnCollection.ContainsColumn(System.String)">
-            <summary>
-            获取一个值，该值指示对象是否存在指定名称的列。
-            </summary>
-            <param name="name">要确定的列的名称。名称比较不区分大小写。</param>
-            <returns>返回列是否存在的指示。</returns>
-            <exception cref="T:System.ArgumentNullException">name为空引用或者空字符串。</exception>
-        </member>
-        <member name="M:EAS.Data.ORM.ColumnCollection.ContainsColumn2(System.String)">
-            <summary>
-            获取一个值，该值指示对象是否存在指定标题的列。
-            </summary>
-            <param name="caption">要确定的列的标题。标题比较不区分大小写。</param>
-            <returns>返回列是否存在的指示。</returns>
-            <exception cref="T:System.ArgumentNullException">caption 为空引用或者空字符串。</exception>
-        </member>
-        <member name="M:EAS.Data.ORM.ColumnCollection.ColunmIndexOf(System.String)">
-            <summary>
-            获取指定名称的列在集合的索引位置。
-            </summary>
-            <param name="name">要确定位置的列的名称。名称比较不区分大小写。</param>
-            <returns>返回属列在集合中的从 0 开始的索引位置，如果不存在相应的列，则返回 -1。</returns>
-            <exception cref="T:System.ArgumentNullException">name 为空引用或者空字符串。</exception>
-        </member>
-        <member name="M:EAS.Data.ORM.ColumnCollection.ColumnIndexOf2(System.String)">
-            <summary>
-            获取指定标题的列在列集合中的索引位置。
-            </summary>
-            <param name="caption">要确定位置的列的标题。名称比较不区分大小写。</param>
-            <returns>返回列在列列表中的从 0 开始的索引位置，如果不存在相应的列，则返回 -1。</returns>
-            <exception cref="T:System.ArgumentNullException">caption 为空引用或者空字符串。</exception>
-        </member>
-        <member name="M:EAS.Data.ORM.ColumnCollection.GetColumn(System.Int32)">
-            <summary>
-            获取指定索引位置处的列对象。
-            </summary>
-            <param name="index">列索引。</param>
-            <returns>返回在对象列列表中指定位置处的列对象。</returns>
-        </member>
-        <member name="M:EAS.Data.ORM.ColumnCollection.GetColumn(System.String)">
-            <summary>
-            获取指定名称的列。
-            </summary>
-            <param name="name">列名称。名称比较不区分大小写。</param>
-            <returns>返回具有指定名称的列对象。</returns>
-            <exception cref="T:System.ArgumentNullException">name 为空引用或者空字符串。</exception>
-        </member>
-        <member name="M:EAS.Data.ORM.ColumnCollection.GetColumn2(System.String)">
-            <summary>
-            获取指定标题的列对象。
-            </summary>
-            <param name="caption">标题。比较不区分大小写。</param>
-            <returns>返回具有指定标题的列对象。</returns>
-            <exception cref="T:System.ArgumentNullException">caption 为空引用或者空字符串。</exception>
-        </member>
-        <member name="M:EAS.Data.ORM.ColumnCollection.AddColumn(System.String,System.String,System.Data.DbType)">
-            <summary>
-            添加一个新的列。
-            </summary>
-            <param name="caption">列的显示标题。如果该值为空引用或者空字符串，则使用 name 作为标题。</param>
-            <param name="name">列名称。名称比较不区分大小写。</param>
-            <param name="type">列数据类型。</param>
-            <returns>返回已经创建并且已经添加到对象列列表中的列对象引用。</returns>
-            <exception cref="T:System.ArgumentNullException">name 为空引用或者空字符串。</exception>
-            <exception cref="T:System.ArgumentException">对象已经存在相应名称的列。</exception>
-            <remarks>如果 Caption 为空引用或者空字符串，则使用 name 设置该值。列的 Expression 设置为 name 值。</remarks>
-        </member>
-        <member name="M:EAS.Data.ORM.ColumnCollection.AddColumn(System.String,System.String,System.Data.DbType,System.Object)">
-            <summary>
-            添加一个新的列。
-            </summary>
-            <param name="caption">列的显示标题。如果该值为空引用或者空字符串，则使用 name 作为标题。</param>
-            <param name="name">列名称。名称比较不区分大小写。</param>
-            <param name="type">列数据类型。</param>
-            <param name="defaultValue">列的默认值。可以是空引用，在内部自动转换为 System.DBNull.Value。</param>
-            <returns>返回已经创建并且已经添加到对象列列表中的列对象引用。</returns>
-            <exception cref="T:System.ArgumentNullException">name 为空引用或者空字符串。</exception>
-            <exception cref="T:System.ArgumentException">对象已经存在相应名称的列。</exception>
-            <remarks>如果 Caption 为空引用或者空字符串，则使用 name 设置该值。列的 Expression 设置为 name 值。</remarks>
-        </member>
-        <member name="M:EAS.Data.ORM.ColumnCollection.AddColumn(System.String,System.Data.DbType)">
-            <summary>
-            添加一个新的列。
-            </summary>
-            <param name="name">列名称。名称比较不区分大小写。</param>
-            <param name="type">列数据类型。</param>
-            <returns>返回已经创建并且已经添加到对象列列表中的列对象引用。</returns>
-            <exception cref="T:System.ArgumentNullException">name 为空引用或者空字符串。</exception>
-            <exception cref="T:System.ArgumentException">对象已经存在相应名称的列。</exception>
-            <remarks>列的 Caption、Expression 设置为 name 值。</remarks>
-        </member>
-        <member name="M:EAS.Data.ORM.ColumnCollection.AddColumn(System.String,System.Data.DbType,System.Object)">
-            <summary>
-            添加一个新的列。
-            </summary>
-            <param name="name">列名称。名称比较不区分大小写。</param>
-            <param name="type">列数据类型。</param>
-            <param name="defaultValue">列的默认值。可以是空引用，在内部自动转换为 System.DBNull.Value。</param>
-            <returns>返回已经创建并且已经添加到对象列列表中的列对象引用。</returns>
-            <exception cref="T:System.ArgumentNullException">name 为空引用或者空字符串。</exception>
-            <exception cref="T:System.ArgumentException">对象已经存在相应名称的列。</exception>
-            <remarks>列的 Caption、Expression 设置为 name 值。</remarks>
-        </member>
-        <member name="M:EAS.Data.ORM.ColumnCollection.RemoveColumn(System.String)">
-            <summary>
-            移除一个列。
-            </summary>
-            <param name="name">要移除的列名称。</param>
-            <returns>成功被移除的列。</returns>
-        </member>
-        <member name="M:EAS.Data.ORM.ColumnCollection.RemoveColumn(System.Int32)">
-            <summary>
-            移除一个列。
-            </summary>
-            <param name="index">要移除的列索引。</param>
-            <returns>成功被移除的列。</returns>
-        </member>
-        <member name="M:EAS.Data.ORM.ColumnCollection.RemoveColumn(EAS.Data.ORM.Column)">
-            <summary>
-            移除一个列。
-            </summary>
-            <param name="column">要移除的列。</param>
-            <returns>成功被移除的列。</returns>
-        </member>
-        <member name="M:EAS.Data.ORM.ColumnCollection.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
-            <summary>
-            反序列化对象。
-            </summary>
-            <param name="info">数据。</param>
-            <param name="context">序列化上下文。</param>
-        </member>
-        <member name="M:EAS.Data.ORM.ColumnCollection.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
-            <summary>
-            使用将目标对象序列化所需的数据填充 SerializationInfo。
-            </summary>
-            <param name="info">要填充数据的 SerializationInfo。</param>
-            <param name="context">此序列化的目标。</param>
-        </member>
-        <member name="P:EAS.Data.ORM.ColumnCollection.Item(System.String)">
             <summary>
-            根据列名获取 Colunm 对象。
+            实体对象 CacheDeleted(缓存删除记录)。
             </summary>
         </member>
-        <member name="P:EAS.Data.ORM.ColumnCollection.Item(EAS.Data.ORM.Column)">
-            <summary>
-            获取 Colunm 对象。
-            </summary>
-        </member>
-        <member name="P:EAS.Data.ORM.ColumnCollection.Table">
-            <summary>
-            获取或设置实体集合所在的表
-            </summary>
-        </member>
-        <member name="T:EAS.Data.Linq.IQueryText">
-            <summary>
-            IQueryText接口。 
-            </summary>
-            <remarks>
-            实现GetQueryText处理。
-            </remarks>
-        </member>
-        <member name="M:EAS.Data.Linq.IQueryText.GetQueryText(System.Linq.Expressions.Expression)">
-            <summary>
-            获取查询文本。
-            </summary>
-            <param name="expression">表达式。</param>
-            <returns>表达式对应的查询文本。</returns>
-        </member>
-        <member name="T:EAS.Data.Linq.Query`1">
-            <summary>
-            用于QueryProvider的默认IQueryable实现。
-            </summary>
-        </member>
-        <member name="M:EAS.Data.Linq.Query`1.#ctor">
-            <summary>
-            初始化Query对象实例。
-            </summary>
-        </member>
-        <member name="M:EAS.Data.Linq.Query`1.#ctor(System.Linq.Expressions.Expression)">
-            <summary>
-            初始化Query对象实例。
-            </summary>
-            <param name="expression">表达式。</param>
-        </member>
-        <member name="M:EAS.Data.Linq.Query`1.#ctor(EAS.Data.Access.IDataAccessor,EAS.Data.ORM.IOrmAccessor)">
-            <summary>
-            初始化Query对象实例。
-            </summary>
-            <param name="dataAccessor">数据访问器。</param>
-            <param name="ormAccessor">ORM访问器。</param>
-        </member>
-        <member name="M:EAS.Data.Linq.Query`1.#ctor(System.Linq.IQueryProvider)">
-            <summary>
-            初始化Query对象实例。
-            </summary>
-            <param name="provider">查询提供者。</param>
-        </member>
-        <member name="M:EAS.Data.Linq.Query`1.#ctor(System.Linq.IQueryProvider,System.Linq.Expressions.Expression)">
-            <summary>
-            初始化Query对象实例。
-            </summary>
-            <param name="provider">查询提供者。</param>
-            <param name="expression">表达式。</param>
-        </member>
-        <member name="M:EAS.Data.Linq.Query`1.Create">
-            <summary>
-            创建一个数据查询对象。
-            </summary>
-            <returns>数据查询对象。</returns>
-        </member>
-        <member name="M:EAS.Data.Linq.Query`1.Create(System.Linq.Expressions.Expression)">
-            <summary>
-            创建一个数据查询对象。
-            </summary>
-            <param name="expression">表达式。</param>
-            <returns>数据查询对象。</returns>
-        </member>
-        <member name="M:EAS.Data.Linq.Query`1.Create(EAS.Data.Access.IDataAccessor,EAS.Data.ORM.IOrmAccessor)">
-            <summary>
-            创建一个数据查询对象。
-            </summary>
-            <param name="dataAccessor">数据访问器。</param>
-            <param name="ormAccessor">ORM访问器。</param>
-            <returns>数据查询对象。</returns>
-        </member>
-        <!-- 对于成员“M:EAS.Data.Linq.Query`1.GetEnumerator”忽略有格式错误的 XML 注释 -->
-        <member name="M:EAS.Data.Linq.Query`1.System#Collections#IEnumerable#GetEnumerator">
-            <summary>
-            返回一个循环访问集合的枚举器。
-            </summary>
-            <returns>可用于循环访问集合的 IEnumerator。</returns>
-        </member>
-        <member name="M:EAS.Data.Linq.Query`1.ToString">
-            <summary>
-            返回 Query 的文本化表示形式。
-            </summary>
-            <returns>Query 的文本化表示形式。</returns>
-        </member>
-        <member name="P:EAS.Data.Linq.Query`1.System#Linq#IQueryable#Expression">
-            <summary>
-            获取与 System.Linq.IQueryable 的实例关联的表达式树。
-            </summary>
-        </member>
-        <member name="P:EAS.Data.Linq.Query`1.System#Linq#IQueryable#ElementType">
-            <summary>
-            获取在执行与System.Linq.IQueryable的此实例关联的表达式树时返回的元素的类型。
-            </summary>
-        </member>
-        <member name="P:EAS.Data.Linq.Query`1.System#Linq#IQueryable#Provider">
-            <summary>
-            获取与此数据源关联的查询提供程序。
-            </summary>
-        </member>
-        <member name="P:EAS.Data.Linq.Query`1.OrmAccessor">
-            <summary>
-            数据访问器对象。
-            </summary>
-        </member>
-        <member name="P:EAS.Data.Linq.Query`1.DataAccessor">
-            <summary>
-            获取进行数据操作的数据访问对象。
-            </summary>
-        </member>
-        <member name="T:EAS.Data.Linq.ColumnMapper">
-            <summary>
-            Rewrite all column references to one or more aliases to a new single alias
-            </summary>
-        </member>
-        <member name="T:EAS.Data.Linq.AggregateRewriter">
-            <summary>
-            Rewrite aggregate expressions, moving them into same select expression that has the group-by clause
-            </summary>
-        </member>
-        <member name="T:EAS.Data.Linq.DataEntityQuery`1">
-            <summary>
-            数据实体查询。
-            </summary>
-            <typeparam name="T">数据实体对象类型。</typeparam>
-        </member>
-        <member name="M:EAS.Data.Linq.DataEntityQuery`1.#ctor">
-            <summary>
-            初始化DataEntityQuery对象实例。
-            </summary>
-        </member>
-        <member name="M:EAS.Data.Linq.DataEntityQuery`1.#ctor(System.Linq.Expressions.Expression)">
-            <summary>
-            初始化DataEntityQuery对象实例。
-            </summary>
-            <param name="expression">表达式。</param>
-        </member>
-        <member name="M:EAS.Data.Linq.DataEntityQuery`1.#ctor(EAS.Data.Access.IDataAccessor,EAS.Data.ORM.IOrmAccessor)">
-            <summary>
-            初始化DataEntityQuery对象实例。
-            </summary>
-            <param name="dataAccessor">数据访问器。</param>
-            <param name="ormAccessor">ORM访问器。</param>
-        </member>
-        <member name="M:EAS.Data.Linq.DataEntityQuery`1.#ctor(System.Linq.IQueryProvider)">
-            <summary>
-            初始化DataEntityQuery对象实例。
-            </summary>
-            <param name="provider">查询提供者。</param>
-        </member>
-        <member name="M:EAS.Data.Linq.DataEntityQuery`1.#ctor(System.Linq.IQueryProvider,System.Linq.Expressions.Expression)">
-            <summary>
-            初始化Query对象实例。
-            </summary>
-            <param name="provider">查询提供者。</param>
-            <param name="expression">表达式。</param>
-        </member>
-        <member name="M:EAS.Data.Linq.DataEntityQuery`1.Create">
-            <summary>
-            创建一个数据查询对象。
-            </summary>
-            <returns>数据查询对象。</returns>
-        </member>
-        <member name="M:EAS.Data.Linq.DataEntityQuery`1.Create(System.Linq.Expressions.Expression)">
-            <summary>
-            创建一个数据查询对象。
-            </summary>
-            <param name="expression">表达式。</param>
-            <returns>数据查询对象。</returns>
-        </member>
-        <member name="M:EAS.Data.Linq.DataEntityQuery`1.Create(EAS.Data.Access.IDataAccessor,EAS.Data.ORM.IOrmAccessor)">
-            <summary>
-            创建一个数据查询对象。
-            </summary>
-            <param name="dataAccessor">数据访问器。</param>
-            <param name="ormAccessor">ORM访问器。</param>
-            <returns>数据查询对象。</returns>
-        </member>
-        <member name="T:EAS.Data.ORM.OrderElement">
-            <summary>
-            数据查询的排序无素，即表示数据处理中的单体排序。
-            </summary>
-        </member>
-        <member name="M:EAS.Data.ORM.OrderElement.#ctor(EAS.Data.ORM.MappingMetaData)">
-            <summary>
-            利用 Table 对象初始化 OrderElement 类实例。
-            </summary>
-            <param name="table"> TableMetaData 对象。</param>
-        </member>
-        <member name="M:EAS.Data.ORM.OrderElement.#ctor(EAS.Data.ORM.MappingMetaData,System.String,System.Boolean)">
-            <summary>
-            初始化 Order 类实例。
-            </summary>
-            <param name="table">Table 对象。</param>
-            <param name="name">列名称。</param>
-            <param name="isDesc">是否为降序排序。</param>
-            <exception cref="T:System.ArgumentNullException">排序元素名称为空引用。</exception>
-            <exception cref="T:System.ArgumentNullException">排序元素名称为空字符串。</exception>
-            <exception cref="T:System.ArgumentNullException">实体对象不包含名称“name”的列。</exception>
-        </member>
-        <member name="M:EAS.Data.ORM.OrderElement.#ctor(EAS.Data.ORM.MappingMetaData,System.String)">
-            <summary>
-            初始化 Order 类实例。
-            </summary>
-            <param name="table">Table 对象。</param>
-            <param name="name">列名称。</param>
-        </member>
-        <member name="P:EAS.Data.ORM.OrderElement.MetaData">
-            <summary>
-            元数据对象。
-            </summary>
-        </member>
-        <member name="P:EAS.Data.ORM.OrderElement.FieldName">
-            <summary>
-            获取或设置一个值，批示排序列的名称（列名称）。
-            </summary>
-            <exception cref="T:System.ArgumentNullException">排序元素名称为空引用。</exception>
-            <exception cref="T:System.ArgumentNullException">排序元素名称为空字符串。</exception>
-            <exception cref="T:System.ArgumentNullException">排序对象不包含名称“name”的列。</exception>
-        </member>
-        <member name="P:EAS.Data.ORM.OrderElement.IsDescend">
-            <summary>
-            获取或设置一个值，指示排序是否以升序序列。
-            </summary>
-        </member>
-        <member name="P:EAS.Data.ORM.OrderElement.Expression">
-            <summary>
-            获取一个值，批示条件元素分析后的条件字符串。
-            </summary>
-            <exception cref="T:System.ArgumentNullException">排序元素名称为空引用。</exception>
-            <exception cref="T:System.ArgumentNullException">排序元素名称为空字符串。</exception>
-            <exception cref="T:System.ArgumentNullException">排序对象不包含名称“name”的列。</exception>
-        </member>
-        <member name="T:EAS.Data.ORM.ColumnAttribute">
-            <summary>
-            数据列映射属性。
-            </summary>
-        </member>
-        <member name="M:EAS.Data.ORM.ColumnAttribute.#ctor(System.String)">
-            <summary>
-            使用列名初始化ColumnAttribute属性。
-            </summary>
-            <param name="name">表名。</param>
-        </member>
-        <member name="M:EAS.Data.ORM.ColumnAttribute.#ctor(System.String,System.String)">
-            <summary>
-            使用列名和标题初始化ColumnAttribute属性。
-            </summary>
-            <param name="name">表名。</param>
-            <param name="caption">标题。</param>
-        </member>
-        <member name="M:EAS.Data.ORM.ColumnAttribute.#ctor(System.String,System.Data.DbType)">
-            <summary>
-            初始化ColumnAttribute属性。
-            </summary>
-            <param name="name">列名。</param>
-            <param name="dataType">数据类型。</param>
-        </member>
-        <member name="M:EAS.Data.ORM.ColumnAttribute.#ctor(System.String,System.String,System.Data.DbType)">
-            <summary>
-            初始化ColumnAttribute属性。
-            </summary>
-            <param name="name">列名。</param>
-            <param name="caption">标题。</param>
-            <param name="dataType">数据类型。</param>
-        </member>
-        <member name="M:EAS.Data.ORM.ColumnAttribute.#ctor(System.String,System.String,System.UInt16)">
-            <summary>
-            初始化ColumnAttribute属性。
-            </summary>
-            <param name="name">列名。</param>
-            <param name="caption">标题。</param>
-            <param name="sequenceNo">顺序号。</param>
-        </member>
-        <member name="M:EAS.Data.ORM.ColumnAttribute.#ctor(System.String,System.String,System.Data.DbType,System.UInt16)">
-            <summary>
-            初始化ColumnAttribute属性。
-            </summary>
-            <param name="name">列名。</param>
-            <param name="caption">标题。</param>
-            <param name="dataType">数据类型。</param>
-            <param name="sequenceNo">顺序号。</param>
-        </member>
-        <member name="P:EAS.Data.ORM.ColumnAttribute.Name">
-            <summary>
-            列名。
-            </summary>
-        </member>
-        <member name="P:EAS.Data.ORM.ColumnAttribute.Caption">
-            <summary>
-            标题。
-            </summary>
-        </member>
-        <member name="P:EAS.Data.ORM.ColumnAttribute.DataType">
-            <summary>
-            数据类型。
-            </summary>
-        </member>
-        <member name="P:EAS.Data.ORM.ColumnAttribute.SequenceNo">
-            <summary>
-            列顺序号。
-            </summary>
-        </member>
-        <member name="T:EAS.Data.ORM.PrimaryKeyAttribute">
-            <summary>
-            主键属性。
-            </summary>
-        </member>
-        <member name="T:EAS.Data.ORM.IdentityAttribute">
-            <summary>
-            自增属性。
-            </summary>
-        </member>
-        <member name="T:EAS.Data.ORM.VirtualAttribute">
-            <summary>
-            虚拟属性。
-            </summary>
-        </member>
-        <member name="T:EAS.Data.ORM.TimestampAttribute">
-            <summary>
-            行版本列属性。
-            </summary>
-        </member>
-        <member name="T:EAS.Data.ORM.DefaultValueAttribute">
-            <summary>
-            主键属性。
-            </summary>
-        </member>
-        <member name="M:EAS.Data.ORM.DefaultValueAttribute.#ctor(System.Object)">
-            <summary>
-            使用列名初始化ableMapping属性。
-            </summary>
-            <param name="value">默认值。</param>
-        </member>
-        <member name="P:EAS.Data.ORM.DefaultValueAttribute.Value">
-            <summary>
-            默认值。
-            </summary>
-        </member>
-        <member name="T:EAS.Data.ORM.DataSizeAttribute">
-            <summary>
-            数据长度限定。
-            </summary>
-        </member>
-        <member name="M:EAS.Data.ORM.DataSizeAttribute.#ctor(System.Int32)">
-            <summary>
-            使用长度初始化DataSize属性。
-            </summary>
-            <param name="Size">字段长度。</param>
-        </member>
-        <member name="M:EAS.Data.ORM.DataSizeAttribute.#ctor(System.Int32,System.Int32)">
-            <summary>
-            使用长度初始化DataSize属性。
-            </summary>
-            <param name="Size">字段长度。</param>
-            <param name="Scale">小数位数。</param>
-        </member>
-        <member name="P:EAS.Data.ORM.DataSizeAttribute.Size">
-            <summary>
-            数据长度。
-            </summary>
-        </member>
-        <member name="P:EAS.Data.ORM.DataSizeAttribute.Scale">
-            <summary>
-            小数位置。
-            </summary>
-        </member>
-        <member name="T:EAS.Data.ORM.CacheUpdatedAttribute">
-            <summary>
-            缓存更新字段。
-            </summary>
-        </member>
-        <member name="T:EAS.Data.ORM.Entity">
-            <summary>
-            实体分部类，定义保护方法。
-            </summary>
+        <member name="T:EAS.Data.ORM.DataEntity`1">
             <summary>
-            定义数据库记录的映射对象。
+            数据实体对象定义。
             </summary>
-            <remarks>可以通过该类的继承类的对象表达一个数据库记录，并通过该对象对相应的数据库记录进行各种操作。</remarks>
+            <typeparam name="T">类型信息。</typeparam>
         </member>
         <member name="T:EAS.Data.ORM.BaseDataEntity">
             <summary>
@@ -5202,12 +4903,12 @@
             时否选中。
             </summary>
         </member>
-        <member name="F:EAS.Data.ORM.BaseDataEntity.changed">
+        <member name="F:EAS.Data.ORM.BaseDataEntity.m_Changed">
             <summary>
             受保护的内部数据变量，指示数据是否发生了变更。
             </summary>
         </member>
-        <member name="F:EAS.Data.ORM.BaseDataEntity.exists">
+        <member name="F:EAS.Data.ORM.BaseDataEntity.m_Exists">
             <summary>
             受保护的内部数据变量，指示数据是否发生了变更。
             </summary>
@@ -5455,6 +5156,869 @@
             <summary>
             获取进行数据操作的数据访问对象。
             </summary>
+        </member>
+        <member name="T:EAS.Data.ORM.IDataEntity`1">
+            <summary>
+            数据实体接口。
+            </summary>
+            <remarks>
+            该接口为对旬关系映射提供支持，实现本接口的对象映谢为一条数据库记录
+            </remarks>
+        </member>
+        <member name="T:EAS.Data.ORM.IDataEntity">
+            <summary>
+            数据实体接口。
+            </summary>
+            <remarks>
+            该接口为对旬关系映射提供支持，实现本接口的对象映谢为一条数据库记录
+            </remarks>
+        </member>
+        <member name="M:EAS.Data.ORM.IDataEntity.CreateCondition">
+            <summary>
+            创建一个查询条件。
+            </summary>
+            <returns>条件表达式。</returns>
+        </member>
+        <member name="F:EAS.Data.ORM.DataEntity`1.Empty">
+            <summary>
+            默认的空实体对象。
+            </summary>
+        </member>
+        <member name="M:EAS.Data.ORM.DataEntity`1.#ctor">
+            <summary>
+            初始化 Entity 类的新实例。
+            </summary>
+        </member>
+        <member name="M:EAS.Data.ORM.DataEntity`1.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            反序列化对象。
+            </summary>
+            <param name="info">数据。</param>
+            <param name="context">序列化上下文。</param>
+        </member>
+        <member name="M:EAS.Data.ORM.DataEntity`1.Clone">
+            <summary>
+            克隆一个新的数据实体对象。
+            </summary>
+            <returns> 新的数据实体对象。</returns>
+        </member>
+        <member name="M:EAS.Data.ORM.DataEntity`1.GetColumns">
+            <summary>
+            获取数据实体对象中的列集合（Column集合）。
+            </summary>
+        </member>
+        <member name="M:EAS.Data.ORM.DataEntity`1.Create">
+            <summary>
+            创建一个数据实体对象。
+            </summary>
+            <returns>数据实体对象。</returns>
+        </member>
+        <member name="M:EAS.Data.ORM.DataEntity`1.Lazy(System.Object[])">
+            <summary>
+            延迟加载。
+            </summary>
+            <param name="primaryKeyValues">对象主键值。</param>
+            <returns>延迟加载对象。</returns>
+        </member>
+        <member name="M:EAS.Data.ORM.DataEntity`1.Lazy(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            延迟加载。
+            </summary>
+            <param name="predicate">延迟加载条件。</param>
+            <returns>延迟加载对象。</returns>
+        </member>
+        <member name="M:EAS.Data.ORM.DataEntity`1.LazyCache(System.Object[])">
+            <summary>
+            延迟加载。
+            </summary>
+            <param name="primaryKeyValues">对象主键值。</param>
+            <returns>延迟加载对象。</returns>
+        </member>
+        <member name="M:EAS.Data.ORM.DataEntity`1.LazyCache(System.Func{`0,System.Boolean})">
+            <summary>
+            延迟加载。
+            </summary>
+            <param name="predicate">延迟加载条件。</param>
+            <returns>延迟加载对象。</returns>
+        </member>
+        <member name="M:EAS.Data.ORM.DataEntity`1.Select">
+            <summary>
+            查询。
+            </summary>
+            <returns>符合条件的数据对象。</returns>
+        </member>
+        <member name="M:EAS.Data.ORM.DataEntity`1.Select(EAS.Data.ORM.Condition)">
+            <summary>
+            查询。
+            </summary>
+            <param name="condition">数据查询条件。</param>
+            <returns>符合条件的数据对象。</returns>
+        </member>
+        <member name="M:EAS.Data.ORM.DataEntity`1.Select(System.Int32,System.Int32)">
+            <summary>
+            查询。
+            </summary>
+            <param name="skip">跳过开始的N条记录,小于等于0则忽略。</param>
+            <param name="count">要返回的记录总数,小于等于0则忽略。</param>
+            <returns>查询结果。</returns>
+        </member>
+        <member name="M:EAS.Data.ORM.DataEntity`1.Select(EAS.Data.ORM.Condition,System.Int32,System.Int32)">
+            <summary>
+            查询。
+            </summary>
+            <param name="condition">数据查询条件。</param>
+            <param name="skip">跳过开始的N条记录,小于等于0则忽略。</param>
+            <param name="count">要返回的记录总数,小于等于0则忽略。</param>
+            <returns>查询结果。</returns>
+        </member>
+        <member name="M:EAS.Data.ORM.DataEntity`1.Select(EAS.Data.ORM.Condition,System.Collections.Generic.List{System.String})">
+            <summary>
+            查询。
+            </summary>
+            <param name="condition">数据查询条件。</param>
+            <param name="propertys">要选择的属性集合，为空则取所有与数据库映射的属性。</param>
+            <returns>查询结果。</returns>
+        </member>
+        <member name="M:EAS.Data.ORM.DataEntity`1.Select(EAS.Data.ORM.Condition,System.Collections.Generic.List{System.String},System.Int32,System.Int32)">
+            <summary>
+            查询。
+            </summary>
+            <param name="condition">数据查询条件。</param>
+            <param name="propertys">要选择的属性集合，为空则取所有与数据库映射的属性。</param>
+            <param name="skip">跳过开始的N条记录,小于等于0则忽略。</param>
+            <param name="count">要返回的记录总数,小于等于0则忽略。</param>
+            <returns>查询结果。</returns>
+        </member>
+        <member name="M:EAS.Data.ORM.DataEntity`1.Update(EAS.Data.ORM.ColumnCollection,EAS.Data.ORM.Condition)">
+            <summary>
+            根据条件更新数据库表中的指定列的值。
+            </summary>
+            <param name="colValues">要更新的列及指定的值。</param>
+            <param name="condition">数据查询条件，为空引用则更新全部表。</param>
+        </member>
+        <member name="M:EAS.Data.ORM.DataEntity`1.Update(System.Collections.Generic.Dictionary{System.String,System.Object},EAS.Data.ORM.Condition)">
+            <summary>
+            根据条件更新数据库表中的指定列的值。
+            </summary>
+            <param name="colValues">要更新的列及指定的值。</param>
+            <param name="condition">数据查询条件，为空引用则更新全部表。</param>
+        </member>
+        <member name="M:EAS.Data.ORM.DataEntity`1.Delete(EAS.Data.ORM.Condition)">
+            <summary>
+            从数据库中删除数据表记录。
+            </summary>
+            <param name="condition">数据查询条件，为空引用则返回整个数据库实体（表、视图、表值存储过程）。</param>
+        </member>
+        <member name="M:EAS.Data.ORM.DataEntity`1.GetValue``1(System.UInt16)">
+            <summary>
+            返回指定字段的值。
+            </summary>
+            <typeparam name="TValue">类型信息。</typeparam>
+            <param name="sequenceNo">列序号。</param>
+            <returns>列的值。</returns>
+        </member>
+        <member name="M:EAS.Data.ORM.DataEntity`1.GetValue``1(System.String)">
+            <summary>
+            返回指定字段的值。
+            </summary>
+            <typeparam name="TValue">类型信息。</typeparam>
+            <param name="name">列名称。</param>
+            <returns>列的值。</returns>
+        </member>
+        <member name="M:EAS.Data.ORM.DataEntity`1.CreateSelectCondition">
+            <summary>
+            创建一个查询条件。
+            </summary>
+            <returns>条件表达式。</returns>
+        </member>
+        <member name="M:EAS.Data.ORM.DataEntity`1.CreateCondition">
+            <summary>
+            创建一个查询条件。
+            </summary>
+            <returns>条件表达式。</returns>
+        </member>
+        <member name="M:EAS.Data.ORM.DataEntity`1.NotifyPropertyChanged(System.String)">
+            <summary>
+            写成PropertyChanged事件通知。
+            </summary>
+            <param name="propertyName">属性名称。</param>
+        </member>
+        <member name="M:EAS.Data.ORM.DataEntity`1.Eval(System.String)">
+            <summary>
+            对表达式进行计算/求值。
+            </summary>
+            <param name="expression">要计算的表达式,如"1+2+3+4"。</param>
+            <returns>返回计算结果,如果带有逻辑运算符则返回true/false,否则返回数。</returns>
+        </member>
+        <member name="M:EAS.Data.ORM.DataEntity`1.Eval``1(System.String)">
+            <summary>
+            对表达式进行计算。
+            </summary>
+            <typeparam name="TValue">返回值类型。</typeparam>
+            <param name="expression">字符表达式。</param>
+            <returns>表达式结果。</returns>
+        </member>
+        <member name="M:EAS.Data.ORM.DataEntity`1.EAS#Workflow#IWorkflowDataEntity#SetValue(System.String,System.Object)">
+            <summary>
+            设置指定属性的值。
+            </summary>
+            <param name="name">名称名称。</param>
+            <param name="value">属性值。</param>
+            <returns>对表表达式或者属性值。</returns>
+        </member>
+        <member name="M:EAS.Data.ORM.DataEntity`1.EAS#Workflow#IWorkflowDataEntity#GetValue(System.String)">
+            <summary>
+            获取指定表达式或者属性的值。
+            </summary>
+            <param name="expression">表达式或者属性名称。</param>
+            <returns>对表表达式或者属性值。</returns>
+        </member>
+        <member name="M:EAS.Data.ORM.DataEntity`1.EAS#Workflow#IWorkflowDataEntity#GetValue``1(System.String)">
+            <summary>
+            取指定名称的属性值。
+            </summary>
+            <typeparam name="TValue">返回值类型。</typeparam>
+            <param name="expression">表达式。</param>
+            <returns>对应表达式的值。</returns>
+        </member>
+        <member name="M:EAS.Data.ORM.DataEntity`1.EAS#Workflow#IWorkflowDataEntity#GetBoolean(System.String)">
+            <summary>
+            计算表达式值，可以为数学表达式，也可以为单一属性值。
+            </summary>
+            <param name="expression">表达式。</param>
+            <returns>表达式值。</returns>
+        </member>
+        <member name="M:EAS.Data.ORM.DataEntity`1.EAS#Workflow#IWorkflowDataEntity#GetDateTime(System.String)">
+            <summary>
+            计算表达式值，可以为数学表达式，也可以为单一属性值。
+            </summary>
+            <param name="expression">表达式。</param>
+            <returns>表达式值。</returns>
+        </member>
+        <member name="M:EAS.Data.ORM.DataEntity`1.EAS#Workflow#IWorkflowDataEntity#GetGuid(System.String)">
+            <summary>
+            计算表达式值，可以为数学表达式，也可以为单一属性值。
+            </summary>
+            <param name="expression">表达式。</param>
+            <returns>表达式值。</returns>
+        </member>
+        <member name="M:EAS.Data.ORM.DataEntity`1.EAS#Workflow#IWorkflowDataEntity#GetByte(System.String)">
+            <summary>
+            计算表达式值，可以为数学表达式，也可以为单一属性值。
+            </summary>
+            <param name="expression">表达式。</param>
+            <returns>表达式值。</returns>
+        </member>
+        <member name="M:EAS.Data.ORM.DataEntity`1.EAS#Workflow#IWorkflowDataEntity#GetInt16(System.String)">
+            <summary>
+            计算表达式值，可以为数学表达式，也可以为单一属性值。
+            </summary>
+            <param name="expression">表达式。</param>
+            <returns>表达式值。</returns>
+        </member>
+        <member name="M:EAS.Data.ORM.DataEntity`1.EAS#Workflow#IWorkflowDataEntity#GetInt32(System.String)">
+            <summary>
+            计算表达式值，可以为数学表达式，也可以为单一属性值。
+            </summary>
+            <param name="expression">表达式。</param>
+            <returns>表达式值。</returns>
+        </member>
+        <member name="M:EAS.Data.ORM.DataEntity`1.EAS#Workflow#IWorkflowDataEntity#GetInt64(System.String)">
+            <summary>
+            计算表达式值，可以为数学表达式，也可以为单一属性值。
+            </summary>
+            <param name="expression">表达式。</param>
+            <returns>表达式值。</returns>
+        </member>
+        <member name="M:EAS.Data.ORM.DataEntity`1.EAS#Workflow#IWorkflowDataEntity#GetDecimal(System.String)">
+            <summary>
+            计算表达式值，可以为数学表达式，也可以为单一属性值。
+            </summary>
+            <param name="expression">表达式。</param>
+            <returns>表达式值。</returns>
+        </member>
+        <member name="M:EAS.Data.ORM.DataEntity`1.EAS#Workflow#IWorkflowDataEntity#GetDouble(System.String)">
+            <summary>
+            计算表达式值，可以为数学表达式，也可以为单一属性值。
+            </summary>
+            <param name="expression">表达式。</param>
+            <returns>表达式值。</returns>
+        </member>
+        <member name="M:EAS.Data.ORM.DataEntity`1.EAS#Workflow#IWorkflowDataEntity#GetSingle(System.String)">
+            <summary>
+            计算表达式值，可以为数学表达式，也可以为单一属性值。
+            </summary>
+            <param name="expression">表达式。</param>
+            <returns>表达式值。</returns>
+        </member>
+        <member name="M:EAS.Data.ORM.DataEntity`1.EAS#Workflow#IWorkflowDataEntity#GetString(System.String)">
+            <summary>
+            计算表达式值，可以为数学表达式，也可以为单一属性值。
+            </summary>
+            <param name="expression">表达式。</param>
+            <returns>表达式值。</returns>
+        </member>
+        <member name="P:EAS.Data.ORM.DataEntity`1.DbTableName">
+            <summary>
+            获取数据表的名称。
+            </summary>
+        </member>
+        <member name="E:EAS.Data.ORM.DataEntity`1.PropertyChanged">
+            <summary>
+            在更改属性值时发生。
+            </summary>
+        </member>
+        <member name="P:EAS.Data.Caching.CacheDeleted.ID">
+            <summary>
+            ID 。
+            </summary>
+        </member>
+        <member name="P:EAS.Data.Caching.CacheDeleted.Type">
+            <summary>
+            类型 。
+            </summary>
+        </member>
+        <member name="P:EAS.Data.Caching.CacheDeleted.LMTime">
+            <summary>
+            最后更新时间 。
+            </summary>
+        </member>
+        <member name="P:EAS.Data.Caching.CacheDeleted.LDTime">
+            <summary>
+            最后删除时间 。
+            </summary>
+        </member>
+        <member name="T:EAS.Data.Linq.IQueryText">
+            <summary>
+            IQueryText接口。 
+            </summary>
+            <remarks>
+            实现GetQueryText处理。
+            </remarks>
+        </member>
+        <member name="M:EAS.Data.Linq.IQueryText.GetQueryText(System.Linq.Expressions.Expression)">
+            <summary>
+            获取查询文本。
+            </summary>
+            <param name="expression">表达式。</param>
+            <returns>表达式对应的查询文本。</returns>
+        </member>
+        <member name="T:EAS.Data.Linq.Query`1">
+            <summary>
+            用于QueryProvider的默认IQueryable实现。
+            </summary>
+        </member>
+        <member name="M:EAS.Data.Linq.Query`1.#ctor">
+            <summary>
+            初始化Query对象实例。
+            </summary>
+        </member>
+        <member name="M:EAS.Data.Linq.Query`1.#ctor(System.Linq.Expressions.Expression)">
+            <summary>
+            初始化Query对象实例。
+            </summary>
+            <param name="expression">表达式。</param>
+        </member>
+        <member name="M:EAS.Data.Linq.Query`1.#ctor(EAS.Data.Access.IDataAccessor,EAS.Data.ORM.IOrmAccessor)">
+            <summary>
+            初始化Query对象实例。
+            </summary>
+            <param name="dataAccessor">数据访问器。</param>
+            <param name="ormAccessor">ORM访问器。</param>
+        </member>
+        <member name="M:EAS.Data.Linq.Query`1.#ctor(System.Linq.IQueryProvider)">
+            <summary>
+            初始化Query对象实例。
+            </summary>
+            <param name="provider">查询提供者。</param>
+        </member>
+        <member name="M:EAS.Data.Linq.Query`1.#ctor(System.Linq.IQueryProvider,System.Linq.Expressions.Expression)">
+            <summary>
+            初始化Query对象实例。
+            </summary>
+            <param name="provider">查询提供者。</param>
+            <param name="expression">表达式。</param>
+        </member>
+        <member name="M:EAS.Data.Linq.Query`1.Create">
+            <summary>
+            创建一个数据查询对象。
+            </summary>
+            <returns>数据查询对象。</returns>
+        </member>
+        <member name="M:EAS.Data.Linq.Query`1.Create(System.Linq.Expressions.Expression)">
+            <summary>
+            创建一个数据查询对象。
+            </summary>
+            <param name="expression">表达式。</param>
+            <returns>数据查询对象。</returns>
+        </member>
+        <member name="M:EAS.Data.Linq.Query`1.Create(EAS.Data.Access.IDataAccessor,EAS.Data.ORM.IOrmAccessor)">
+            <summary>
+            创建一个数据查询对象。
+            </summary>
+            <param name="dataAccessor">数据访问器。</param>
+            <param name="ormAccessor">ORM访问器。</param>
+            <returns>数据查询对象。</returns>
+        </member>
+        <!-- 对于成员“M:EAS.Data.Linq.Query`1.GetEnumerator”忽略有格式错误的 XML 注释 -->
+        <member name="M:EAS.Data.Linq.Query`1.System#Collections#IEnumerable#GetEnumerator">
+            <summary>
+            返回一个循环访问集合的枚举器。
+            </summary>
+            <returns>可用于循环访问集合的 IEnumerator。</returns>
+        </member>
+        <member name="M:EAS.Data.Linq.Query`1.ToString">
+            <summary>
+            返回 Query 的文本化表示形式。
+            </summary>
+            <returns>Query 的文本化表示形式。</returns>
+        </member>
+        <member name="P:EAS.Data.Linq.Query`1.System#Linq#IQueryable#Expression">
+            <summary>
+            获取与 System.Linq.IQueryable 的实例关联的表达式树。
+            </summary>
+        </member>
+        <member name="P:EAS.Data.Linq.Query`1.System#Linq#IQueryable#ElementType">
+            <summary>
+            获取在执行与System.Linq.IQueryable的此实例关联的表达式树时返回的元素的类型。
+            </summary>
+        </member>
+        <member name="P:EAS.Data.Linq.Query`1.System#Linq#IQueryable#Provider">
+            <summary>
+            获取与此数据源关联的查询提供程序。
+            </summary>
+        </member>
+        <member name="P:EAS.Data.Linq.Query`1.OrmAccessor">
+            <summary>
+            数据访问器对象。
+            </summary>
+        </member>
+        <member name="P:EAS.Data.Linq.Query`1.DataAccessor">
+            <summary>
+            获取进行数据操作的数据访问对象。
+            </summary>
+        </member>
+        <member name="T:EAS.Data.Linq.ColumnMapper">
+            <summary>
+            Rewrite all column references to one or more aliases to a new single alias
+            </summary>
+        </member>
+        <member name="T:EAS.Data.Linq.AggregateRewriter">
+            <summary>
+            Rewrite aggregate expressions, moving them into same select expression that has the group-by clause
+            </summary>
+        </member>
+        <member name="T:EAS.Data.Linq.DataEntityQuery`1">
+            <summary>
+            数据实体查询。
+            </summary>
+            <typeparam name="T">数据实体对象类型。</typeparam>
+        </member>
+        <member name="M:EAS.Data.Linq.DataEntityQuery`1.#ctor">
+            <summary>
+            初始化DataEntityQuery对象实例。
+            </summary>
+        </member>
+        <member name="M:EAS.Data.Linq.DataEntityQuery`1.#ctor(System.Linq.Expressions.Expression)">
+            <summary>
+            初始化DataEntityQuery对象实例。
+            </summary>
+            <param name="expression">表达式。</param>
+        </member>
+        <member name="M:EAS.Data.Linq.DataEntityQuery`1.#ctor(EAS.Data.Access.IDataAccessor,EAS.Data.ORM.IOrmAccessor)">
+            <summary>
+            初始化DataEntityQuery对象实例。
+            </summary>
+            <param name="dataAccessor">数据访问器。</param>
+            <param name="ormAccessor">ORM访问器。</param>
+        </member>
+        <member name="M:EAS.Data.Linq.DataEntityQuery`1.#ctor(System.Linq.IQueryProvider)">
+            <summary>
+            初始化DataEntityQuery对象实例。
+            </summary>
+            <param name="provider">查询提供者。</param>
+        </member>
+        <member name="M:EAS.Data.Linq.DataEntityQuery`1.#ctor(System.Linq.IQueryProvider,System.Linq.Expressions.Expression)">
+            <summary>
+            初始化Query对象实例。
+            </summary>
+            <param name="provider">查询提供者。</param>
+            <param name="expression">表达式。</param>
+        </member>
+        <member name="M:EAS.Data.Linq.DataEntityQuery`1.Create">
+            <summary>
+            创建一个数据查询对象。
+            </summary>
+            <returns>数据查询对象。</returns>
+        </member>
+        <member name="M:EAS.Data.Linq.DataEntityQuery`1.Create(System.Linq.Expressions.Expression)">
+            <summary>
+            创建一个数据查询对象。
+            </summary>
+            <param name="expression">表达式。</param>
+            <returns>数据查询对象。</returns>
+        </member>
+        <member name="M:EAS.Data.Linq.DataEntityQuery`1.Create(EAS.Data.Access.IDataAccessor,EAS.Data.ORM.IOrmAccessor)">
+            <summary>
+            创建一个数据查询对象。
+            </summary>
+            <param name="dataAccessor">数据访问器。</param>
+            <param name="ormAccessor">ORM访问器。</param>
+            <returns>数据查询对象。</returns>
+        </member>
+        <member name="T:EAS.Data.ORM.OrderElement">
+            <summary>
+            数据查询的排序无素，即表示数据处理中的单体排序。
+            </summary>
+        </member>
+        <member name="M:EAS.Data.ORM.OrderElement.#ctor(EAS.Data.ORM.MappingMetaData)">
+            <summary>
+            利用 Table 对象初始化 OrderElement 类实例。
+            </summary>
+            <param name="table"> TableMetaData 对象。</param>
+        </member>
+        <member name="M:EAS.Data.ORM.OrderElement.#ctor(EAS.Data.ORM.MappingMetaData,System.String,System.Boolean)">
+            <summary>
+            初始化 Order 类实例。
+            </summary>
+            <param name="table">Table 对象。</param>
+            <param name="name">列名称。</param>
+            <param name="isDesc">是否为降序排序。</param>
+            <exception cref="T:System.ArgumentNullException">排序元素名称为空引用。</exception>
+            <exception cref="T:System.ArgumentNullException">排序元素名称为空字符串。</exception>
+            <exception cref="T:System.ArgumentNullException">实体对象不包含名称“name”的列。</exception>
+        </member>
+        <member name="M:EAS.Data.ORM.OrderElement.#ctor(EAS.Data.ORM.MappingMetaData,System.String)">
+            <summary>
+            初始化 Order 类实例。
+            </summary>
+            <param name="table">Table 对象。</param>
+            <param name="name">列名称。</param>
+        </member>
+        <member name="P:EAS.Data.ORM.OrderElement.MetaData">
+            <summary>
+            元数据对象。
+            </summary>
+        </member>
+        <member name="P:EAS.Data.ORM.OrderElement.FieldName">
+            <summary>
+            获取或设置一个值，批示排序列的名称（列名称）。
+            </summary>
+            <exception cref="T:System.ArgumentNullException">排序元素名称为空引用。</exception>
+            <exception cref="T:System.ArgumentNullException">排序元素名称为空字符串。</exception>
+            <exception cref="T:System.ArgumentNullException">排序对象不包含名称“name”的列。</exception>
+        </member>
+        <member name="P:EAS.Data.ORM.OrderElement.IsDescend">
+            <summary>
+            获取或设置一个值，指示排序是否以升序序列。
+            </summary>
+        </member>
+        <member name="P:EAS.Data.ORM.OrderElement.Expression">
+            <summary>
+            获取一个值，批示条件元素分析后的条件字符串。
+            </summary>
+            <exception cref="T:System.ArgumentNullException">排序元素名称为空引用。</exception>
+            <exception cref="T:System.ArgumentNullException">排序元素名称为空字符串。</exception>
+            <exception cref="T:System.ArgumentNullException">排序对象不包含名称“name”的列。</exception>
+        </member>
+        <member name="T:EAS.Data.ORM.RefEntity">
+            <summary>
+            引用实体定义。
+            </summary>
+        </member>
+        <member name="M:EAS.Data.ORM.RefEntity.#ctor">
+            <summary>
+            初始化RefEntity对象实例。
+            </summary>
+        </member>
+        <member name="M:EAS.Data.ORM.RefEntity.#ctor(EAS.Data.ORM.RefEntityAttribute)">
+            <summary>
+            初始化RefEntity对象实例。
+            </summary>
+            <param name="refEntity">RefEntityAttribute对象。</param>
+        </member>
+        <member name="M:EAS.Data.ORM.RefEntity.#ctor(System.String,System.String,System.Type,System.String)">
+            <summary>
+            初始化RefEntity对象实例。
+            </summary>
+            <param name="refProperty">父实体主键。</param>
+            <param name="caption">标题。</param>
+            <param name="refType">引用实体类型。</param>
+            <param name="refKey">引用实体主键类型。</param>
+        </member>
+        <member name="M:EAS.Data.ORM.RefEntity.#ctor(System.String,System.String,System.Type,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            初始化RefEntity对象实例。
+            </summary>
+            <param name="refProperty">父实体主键。</param>
+            <param name="caption">标题。</param>
+            <param name="refType">引用实体类型。</param>
+            <param name="refKey">引用实体主键类型。</param>
+            <param name="cache">使用缓存。</param>        
+            <param name="nullable">是否为可空引用。</param>
+        </member>
+        <member name="M:EAS.Data.ORM.RefEntity.Clone">
+            <summary>
+            创建作为当前实例副本的新对象。
+            </summary>
+            <returns>作为此实例副本的新对象。</returns>
+        </member>
+        <member name="P:EAS.Data.ORM.RefEntity.RefProperty">
+            <summary>
+            引用属性。
+            </summary>
+        </member>
+        <member name="P:EAS.Data.ORM.RefEntity.Caption">
+            <summary>
+            标题。
+            </summary>
+        </member>
+        <member name="P:EAS.Data.ORM.RefEntity.RefType">
+            <summary>
+            引用实体类型。
+            </summary>
+        </member>
+        <member name="P:EAS.Data.ORM.RefEntity.RefKey">
+            <summary>
+            引用实体主键。
+            </summary>
+        </member>
+        <member name="P:EAS.Data.ORM.RefEntity.Nullable">
+            <summary>
+            可空引用。
+            </summary>
+        </member>
+        <member name="P:EAS.Data.ORM.RefEntity.Cache">
+            <summary>
+            是否缓存。
+            </summary>
+        </member>
+        <member name="P:EAS.Data.ORM.RefEntity.Property">
+            <summary>
+            属性对象。
+            </summary>
+        </member>
+        <member name="T:EAS.Data.ORM.MappingMetaData">
+            <summary>
+            映射元数据定义。
+            </summary>
+        </member>
+        <member name="F:EAS.Data.ORM.MappingMetaData.m_Db2Name">
+            <summary>
+            列名==》属性名。
+            </summary>
+        </member>
+        <member name="F:EAS.Data.ORM.MappingMetaData.m_Name2Db">
+            <summary>
+            属性名==》列名。
+            </summary>
+        </member>
+        <member name="F:EAS.Data.ORM.MappingMetaData.m_Db2Property">
+            <summary>
+            列名==>属性。
+            </summary>
+        </member>
+        <member name="F:EAS.Data.ORM.MappingMetaData.m_KeyValues">
+            <summary>
+            列名==>列。
+            </summary>
+        </member>
+        <member name="F:EAS.Data.ORM.MappingMetaData.m_SNValues">
+            <summary>
+            序号==>列。
+            </summary>
+        </member>
+        <member name="F:EAS.Data.ORM.MappingMetaData.n_RowVersionColumn">
+            <summary>
+            行版本列。
+            </summary>
+        </member>
+        <member name="F:EAS.Data.ORM.MappingMetaData.m_PrimaryKeys">
+            <summary>
+            主键。
+            </summary>
+        </member>
+        <member name="F:EAS.Data.ORM.MappingMetaData.m_PrimaryKeys2">
+            <summary>
+            主键2。
+            </summary>
+        </member>
+        <member name="F:EAS.Data.ORM.MappingMetaData.m_SerializeColumns">
+            <summary>
+            序列化列集合。
+            </summary>
+        </member>
+        <member name="F:EAS.Data.ORM.MappingMetaData.m_SerializeFileds">
+            <summary>
+            序列化字段集合。
+            </summary>
+        </member>
+        <member name="M:EAS.Data.ORM.MappingMetaData.#ctor">
+            <summary>
+            初始化MappingMetaData对象实例。
+            </summary>
+        </member>
+        <member name="M:EAS.Data.ORM.MappingMetaData.#ctor(System.String)">
+            <summary>
+            使用表名初始化MappingMetaData对象实例。
+            </summary>
+            <param name="dbTableName">表名。</param>
+        </member>
+        <member name="M:EAS.Data.ORM.MappingMetaData.Create``1">
+            <summary>
+            创建元数据映射。
+            </summary>
+            <typeparam name="T">实体类型。</typeparam>
+            <returns>元数据映射定义。</returns>
+        </member>
+        <member name="M:EAS.Data.ORM.MappingMetaData.Create(System.Type)">
+            <summary>
+            创建元数据映射。
+            </summary>
+            <param name="type">实体类型。</param>
+            <returns>元数据映射定义。</returns>
+        </member>
+        <member name="M:EAS.Data.ORM.MappingMetaData.GetPrimaryKeys">
+            <summary>
+            取主键定义。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EAS.Data.ORM.MappingMetaData.GetPrimaryKeys2">
+            <summary>
+            取主键定义，包括RowVersionColumn。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EAS.Data.ORM.MappingMetaData.GetPrimaryKeyNames">
+            <summary>
+            取得主键名称列表。
+            </summary>
+            <returns>主键名称字符串。</returns>
+        </member>
+        <member name="M:EAS.Data.ORM.MappingMetaData.GetPrimaryKeyNames(EAS.Data.ORM.MappingMetaData)">
+            <summary>
+            取得主键名称列表。
+            </summary>
+            <param name="metaData">映射元数据。</param>
+            <returns>主键名称字符串。</returns>
+        </member>
+        <member name="M:EAS.Data.ORM.MappingMetaData.GetColumnName(System.String)">
+            <summary>
+            根据属性名称获取列名。
+            </summary>
+            <param name="propertyName">属性名。</param>
+            <returns>列名称。</returns>
+        </member>
+        <member name="M:EAS.Data.ORM.MappingMetaData.GetColumn(System.Int32)">
+            <summary>
+            根据列序号获取列定义。
+            </summary>
+            <param name="sequenceNo">列序号。</param>
+            <returns>列对象。</returns>
+        </member>
+        <member name="M:EAS.Data.ORM.MappingMetaData.GetColumn(System.String)">
+            <summary>
+            根据列名获取列定义。
+            </summary>
+            <param name="name">列名。</param>
+            <returns>列对象。</returns>
+        </member>
+        <member name="M:EAS.Data.ORM.MappingMetaData.GetProperty(System.String)">
+            <summary>
+            根据列名获取属性定义。
+            </summary>
+            <param name="name">列名。</param>
+            <returns>属性定义。</returns>
+        </member>
+        <member name="P:EAS.Data.ORM.MappingMetaData.SelectCommand">
+            <summary>
+            实体读取命令。
+            </summary>
+        </member>
+        <member name="P:EAS.Data.ORM.MappingMetaData.InsertCommand">
+            <summary>
+            实体插入命令。
+            </summary>
+        </member>
+        <member name="P:EAS.Data.ORM.MappingMetaData.UpdateCommand">
+            <summary>
+            实体更新命令。
+            </summary>
+        </member>
+        <member name="P:EAS.Data.ORM.MappingMetaData.DeleteCommand">
+            <summary>
+            实体删除命令。
+            </summary>
+        </member>
+        <member name="P:EAS.Data.ORM.MappingMetaData.DynamicCreateEntity">
+            <summary>
+            创建实体代理。
+            </summary>
+        </member>
+        <member name="P:EAS.Data.ORM.MappingMetaData.DynamicSerialize">
+            <summary>
+            动态序列化。
+            </summary>
+        </member>
+        <member name="P:EAS.Data.ORM.MappingMetaData.DynamicDeserialize">
+            <summary>
+            动态反序列化。
+            </summary>
+        </member>
+        <member name="P:EAS.Data.ORM.MappingMetaData.DbTableName">
+            <summary>
+            数据库表名。
+            </summary>
+        </member>
+        <member name="P:EAS.Data.ORM.MappingMetaData.RowVersionColumn">
+            <summary>
+            行版本列。
+            </summary>
+        </member>
+        <member name="P:EAS.Data.ORM.MappingMetaData.Index">
+            <summary>
+            是否索引模式。
+            </summary>
+        </member>
+        <member name="P:EAS.Data.ORM.MappingMetaData.TData">
+            <summary>
+            获取或设置实体类型。
+            </summary>
+        </member>
+        <member name="P:EAS.Data.ORM.MappingMetaData.Columns">
+            <summary>
+            数据列定义。
+            </summary>
+        </member>
+        <member name="P:EAS.Data.ORM.MappingMetaData.RefEntities">
+            <summary>
+            引用实体集合。
+            </summary>
+        </member>
+        <member name="P:EAS.Data.ORM.MappingMetaData.ChildEntities">
+            <summary>
+            子实体集合。
+            </summary>
+        </member>
+        <member name="P:EAS.Data.ORM.MappingMetaData.SerializeColumns">
+            <summary>
+            序列化列集合。
+            </summary>
+        </member>
+        <member name="P:EAS.Data.ORM.MappingMetaData.SerializeFileds">
+            <summary>
+            序列化字段集合。
+            </summary>
+        </member>
+        <member name="T:EAS.Data.ORM.Entity">
+            <summary>
+            实体分部类，定义保护方法。
+            </summary>
+            <summary>
+            定义数据库记录的映射对象。
+            </summary>
+            <remarks>可以通过该类的继承类的对象表达一个数据库记录，并通过该对象对相应的数据库记录进行各种操作。</remarks>
         </member>
         <member name="T:EAS.Data.ORM.IEntity">
             <summary>
@@ -6248,6 +6812,16 @@
             <param name="count">记录数。</param>
             <returns>符合条件的数据。</returns>
         </member>
+        <member name="M:EAS.Data.Caching.CacheService.GetData(System.String,System.String,System.DateTime,System.Guid)">
+            <summary>
+            更新记录。
+            </summary>
+            <param name="dataType"></param>
+            <param name="updateProperty"></param>
+            <param name="updateTime"></param>
+            <param name="sessionID"></param>
+            <returns></returns>
+        </member>
         <member name="M:EAS.Data.Caching.CacheWorkerThread.AddAction(System.Action)">
             <summary>
             向工作者线程注册写回方法。
@@ -6266,6 +6840,58 @@
             </summary>
             <param name="TData"></param>
             <returns></returns>
+        </member>
+        <member name="M:EAS.Data.Caching.CacheWorkerThread.GetLastDeleteTime(System.Type)">
+            <summary>
+            求删除记录时间。
+            </summary>
+            <param name="T"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EAS.Data.Caching.CacheWorkerThread.AddLastDeleteTime(System.Type,System.DateTime)">
+            <summary>
+            求删除记录时间。
+            </summary>
+            <param name="T"></param>
+            <param name="nowTme"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EAS.Data.Access.CommandLogDispatcher">
+            <summary>
+            数据命令日志分配器。
+            </summary>
+        </member>
+        <member name="T:EAS.Data.Access.ICommandDispatcher">
+            <summary>
+            命令调度接口
+            </summary>
+            <remarks>
+            定义一些方法，通过这些方法，可以在数据库访问器执行数据库查询之前对查询命令进行自定义检查或修改。
+            </remarks>
+        </member>
+        <member name="M:EAS.Data.Access.ICommandDispatcher.BeforeQuery(EAS.Data.Access.DbCommand@)">
+            <summary>
+            在执行数据库查询之前处理数据库查询命令。
+            </summary>
+            <param name="command">数据查询命令对象。</param>
+        </member>
+        <member name="M:EAS.Data.Access.ICommandDispatcher.BeforeExecute(EAS.Data.Access.DbCommand@)">
+            <summary>
+            在执行数据库查询之前处理数据库查询命令。
+            </summary>
+            <param name="command">数据查询命令对象。</param>
+        </member>
+        <member name="M:EAS.Data.Access.CommandLogDispatcher.BeforeQuery(EAS.Data.Access.DbCommand@)">
+            <summary>
+            查询执行之前。
+            </summary>
+            <param name="command">查询命令对象。</param>
+        </member>
+        <member name="M:EAS.Data.Access.CommandLogDispatcher.BeforeExecute(EAS.Data.Access.DbCommand@)">
+            <summary>
+            修改执行之前。
+            </summary>
+            <param name="command">查询命令对象。</param>
         </member>
         <member name="T:EAS.Data.MatrixExtensions">
             <summary>
@@ -6302,6 +6928,23 @@
             rewrites nested projections into client-side joins
             </summary>
         </member>
+        <member name="T:EAS.Data.Caching.ICacheSerializable">
+            <summary>
+            缓存读写接口、自定义序列化机制。
+            </summary>
+        </member>
+        <member name="M:EAS.Data.Caching.ICacheSerializable.Load(EAS.IO.BufferReader)">
+            <summary>
+            从指定的 BufferReader加载消息对象。
+            </summary>
+            <param name="reader">读取器。</param>
+        </member>
+        <member name="M:EAS.Data.Caching.ICacheSerializable.WriteTo(EAS.IO.BufferWriter)">
+            <summary>
+            将消息对象保存到指定的BufferWriter。
+            </summary>
+            <param name="writer">编写器。</param>
+        </member>
         <member name="T:EAS.Data.Caching.CacheRoot`1">
             <summary>
             缓存存储根对象。
@@ -6319,6 +6962,16 @@
         <member name="P:EAS.Data.Caching.CacheRoot`1.Items">
             <summary>
             缓存项目。
+            </summary>
+        </member>
+        <member name="P:EAS.Data.Caching.CacheRoot`1.AWriter">
+            <summary>
+            写回方法、序列化方法。
+            </summary>
+        </member>
+        <member name="P:EAS.Data.Caching.CacheRoot`1.AReader">
+            <summary>
+            读取方法、反序列化方法。
             </summary>
         </member>
         <member name="T:EAS.Data.Access.OleDbProvider">
@@ -6361,13 +7014,30 @@
             <summary>
             初始化 DbResultCollection 对象的实例。
             </summary>
-            <remarks>默认初始容量为4。</remarks>
         </member>
         <member name="M:EAS.Data.Access.DbResultCollection.#ctor(System.Int32)">
             <summary>
-            使用给定的初始容量初始化 DbResultCollection 对象的实例。
+            使用给定的初始容量初始化 ParameterCollection 对象的实例。
             </summary>
-            <param name="capacity">集合的初始容量。如果该值小于等于0则使用默认的初始容量（4）初始化类的实例。</param>
+        </member>
+        <member name="M:EAS.Data.Access.DbResultCollection.#ctor(System.Collections.Generic.IEnumerable{EAS.Data.Access.DbResult})">
+            <summary>
+            使用给定的参数集合初始化 DbResultCollection 对象的实例。
+            </summary>
+        </member>
+        <member name="M:EAS.Data.Access.DbResultCollection.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            反序列化对象。
+            </summary>
+            <param name="info">数据。</param>
+            <param name="context">序列化上下文。</param>
+        </member>
+        <member name="M:EAS.Data.Access.DbResultCollection.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            使用将目标对象序列化所需的数据填充 SerializationInfo。
+            </summary>
+            <param name="info">要填充数据的 SerializationInfo。</param>
+            <param name="context">此序列化的目标。</param>
         </member>
         <member name="M:EAS.Data.Access.DbResultCollection.Add(EAS.Data.Access.ResultType,System.Object)">
             <summary>
@@ -6378,28 +7048,6 @@
             <returns>返回已经创建并已经添加到集合中的 EAS.Data.Access.DbResult 对象引用。</returns>
             <remarks>如果集合中已经存在同名的结果对象，则返回已经存在的结果对象的索引，而不是将新的对象添加到集合中。</remarks>
         </member>
-        <member name="M:EAS.Data.Access.DbResultCollection.Add(EAS.Data.Access.DbResult)">
-            <summary>
-            向集合中添加一个新的 EAS.Data.Access.DbResult 对象。
-            </summary>
-            <param name="result">要添加到集合中的 EAS.Data.Access.DbResult 对象。</param>
-            <returns>返回新添加的 EAS.Data.Access.DbResult 对象的索引位置。</returns>
-            <remarks>如果集合中已经存在同名的参数对象，则返回已经存在的参数对象的索引，而不是将新的对象添加到集合中。</remarks>
-        </member>
-        <member name="M:EAS.Data.Access.DbResultCollection.Contains(EAS.Data.Access.DbResult)">
-            <summary>
-            判断参数集合中释放已经存在给定名称的参数对象。
-            </summary>
-            <param name="result">要判断的参数的命令。</param>
-            <returns>如果集合中已经存在指定的命令，则返回true；否则返回false。</returns>
-        </member>
-        <member name="M:EAS.Data.Access.DbResultCollection.IndexOf(EAS.Data.Access.DbResult)">
-            <summary>
-            获取给定参数的在集合中的索引位置。
-            </summary>
-            <param name="result">要确定位置的参数引用。</param>
-            <returns>返回参数在集合中的索引位置。如果集合中不存在相应的参数，则返回－1。</returns>
-        </member>
         <member name="M:EAS.Data.Access.DbResultCollection.Insert(System.Int32,EAS.Data.Access.ResultType,System.Object)">
             <summary>
             向集合中插入一个新的 EAS.Data.Access.DbResult 对象。
@@ -6409,26 +7057,6 @@
             <param name="value">数据库查询的返回结果。</param>
             <returns>返回已经创建并已经添加到集合中的 EAS.Data.Access.DbResult 对象引用。</returns>
             <remarks>如果集合中已经存在同名的参数对象，则返回已经存在的参数对象的索引，而不是将新的对象添加到集合中。</remarks>
-        </member>
-        <member name="M:EAS.Data.Access.DbResultCollection.Insert(System.Int32,EAS.Data.Access.DbResult)">
-            <summary>
-            在集合的指定的位置处插入一个新的 EAS.Data.Access.DbResult 对象。
-            </summary>
-            <param name="index">在该位置插入 EAS.Data.Access.DbResult 对象。</param>
-            <param name="result">要添加到集合中的 EAS.Data.Access.DbResult 对象。</param>
-            <remarks>如果集合中已经存在同名的参数对象，则返回已经存在的参数对象的索引，而不是将新的对象添加到集合中。</remarks>
-        </member>
-        <member name="M:EAS.Data.Access.DbResultCollection.Remove(EAS.Data.Access.DbResult)">
-            <summary>
-            从集合中删除指定的命令对象。
-            </summary>
-            <param name="result">要删除的命令的引用。</param>
-        </member>
-        <member name="M:EAS.Data.Access.DbResultCollection.RemoveAt(System.Int32)">
-            <summary>
-            从集合中删除指定索引处的参数对象。
-            </summary>
-            <param name="index">要删除的参数在集合中的索引位置。</param>
         </member>
         <member name="M:EAS.Data.Access.DbResultCollection.ToArray">
             <summary>
@@ -6441,94 +7069,6 @@
             将 DbResultCollection 中的元素加到DbResultCollection的末尾。
             </summary>
             <param name="results">要附加的DbResultCollection对象。</param>
-        </member>
-        <member name="M:EAS.Data.Access.DbResultCollection.Clear">
-            <summary>
-            清空集合元素。
-            </summary>
-        </member>
-        <member name="M:EAS.Data.Access.DbResultCollection.System#Collections#IList#Insert(System.Int32,System.Object)">
-            <summary>
-            在 IList 的指定位置处插入一项。
-            </summary>
-            <param name="index">IList 中的有效索引。</param>
-            <param name="value">该位置插入 value。</param>
-        </member>
-        <member name="M:EAS.Data.Access.DbResultCollection.System#Collections#IList#Remove(System.Object)">
-            <summary>
-            从 IList 移除特定对象的第一个匹配项。
-            </summary>
-            <param name="value">要移除的对象。</param>
-        </member>
-        <member name="M:EAS.Data.Access.DbResultCollection.System#Collections#IList#Contains(System.Object)">
-            <summary>
-            确定 IList 是否包含特定的值。
-            </summary>
-            <param name="value">要判断的的对象。</param>
-            <returns>返回集合中是否存在某对象。</returns>
-        </member>
-        <member name="M:EAS.Data.Access.DbResultCollection.System#Collections#IList#IndexOf(System.Object)">
-            <summary>
-            确定 IList 中特定项的索引
-            </summary>
-            <param name="value">要确定索引的对象。</param>
-            <returns>对象在集合中的索引。</returns>
-        </member>
-        <member name="M:EAS.Data.Access.DbResultCollection.System#Collections#IList#Add(System.Object)">
-            <summary>
-            将一项添加到 IList。
-            </summary>
-            <param name="value">要加入到集合的对象。</param>
-            <returns>成功加入到集合中的索引。</returns>
-        </member>
-        <member name="M:EAS.Data.Access.DbResultCollection.CopyTo(System.Array,System.Int32)">
-            <summary>
-            从特定 Array 索引处开始将 ICollection 的元素复制到 Array 中。
-            </summary>
-            <param name="array">要复制到的目标数组。</param>
-            <param name="index">要复制位置的开始索引。</param>
-        </member>
-        <member name="M:EAS.Data.Access.DbResultCollection.GetEnumerator">
-            <summary>
-            返回可循环访问集合的枚举数。
-            </summary>
-            <returns>枚举数。</returns>
-        </member>
-        <member name="P:EAS.Data.Access.DbResultCollection.Count">
-            <summary>
-            获取参数集合中当前已经添加的参数的个数。
-            </summary>
-        </member>
-        <member name="P:EAS.Data.Access.DbResultCollection.Item(System.Int32)">
-            <summary>
-            获取集合中给定索引处的参数对象。
-            该属性是 DbResultCollection 集合的索引器。
-            </summary>
-        </member>
-        <member name="P:EAS.Data.Access.DbResultCollection.IsReadOnly">
-            <summary>
-            获取一个指示 IList 是否为只读的值
-            </summary>
-        </member>
-        <member name="P:EAS.Data.Access.DbResultCollection.System#Collections#IList#Item(System.Int32)">
-            <summary>
-            获取或设置在指定的索引处的元素。
-            </summary>
-        </member>
-        <member name="P:EAS.Data.Access.DbResultCollection.IsFixedSize">
-            <summary>
-            获取一个值，该值指示 IList 是否具有固定大小。
-            </summary>
-        </member>
-        <member name="P:EAS.Data.Access.DbResultCollection.IsSynchronized">
-            <summary>
-            获取一个值，指示对 ICollection 的访问是否同步（线程安全）。
-            </summary>
-        </member>
-        <member name="P:EAS.Data.Access.DbResultCollection.SyncRoot">
-            <summary>
-            获取可用于同步对 ICollection 的访问的对象。
-            </summary>
         </member>
         <member name="P:EAS.SAAS.TenantItem.DataSet">
             <summary>
@@ -6570,6 +7110,14 @@
             内部类，数据库命令构造器。
             </summary>
         </member>
+        <member name="M:EAS.Data.ORM.DbCommandMaker.CreateSelectCmd(EAS.Data.ORM.MappingMetaData,EAS.Data.ORM.IBaseDataEntity)">
+            <summary>
+            生成实体的选择语句。
+            </summary>
+            <param name="metaData">元数据。</param>
+            <param name="dataEntity">数据实体。</param>
+            <returns>命令对象。</returns>
+        </member>
         <member name="M:EAS.Data.ORM.DbCommandMaker.CreateInsertCmd(EAS.Data.ORM.MappingMetaData,EAS.Data.ORM.IBaseDataEntity)">
             <summary>
             生成实体的插入语句。
@@ -6589,14 +7137,6 @@
         <member name="M:EAS.Data.ORM.DbCommandMaker.CreateUpdateCmd(EAS.Data.ORM.MappingMetaData,EAS.Data.ORM.IBaseDataEntity)">
             <summary>
             生成实体的更新语句。
-            </summary>
-            <param name="metaData">元数据。</param>
-            <param name="dataEntity">数据实体。</param>
-            <returns>命令对象。</returns>
-        </member>
-        <member name="M:EAS.Data.ORM.DbCommandMaker.CreateSelectCmd(EAS.Data.ORM.MappingMetaData,EAS.Data.ORM.IBaseDataEntity)">
-            <summary>
-            生成实体的选择语句。
             </summary>
             <param name="metaData">元数据。</param>
             <param name="dataEntity">数据实体。</param>
@@ -6876,6 +7416,14 @@
             <param name="lastTime"></param>
             <returns></returns>
         </member>
+        <member name="M:EAS.Data.Caching.DbCacheProvider.NeedReload(System.String,System.DateTime)">
+            <summary>
+            是否需要重新加载。
+            </summary>
+            <param name="dataType"></param>
+            <param name="updateTime"></param>
+            <returns></returns>
+        </member>
         <member name="T:EAS.Data.Access.DbCommandCollection">
             <summary>
             数据库访问方法数据库命令参数。
@@ -6891,6 +7439,20 @@
             <summary>
             使用给定的初始容量初始化 DbCommandCollection 对象的实例。
             </summary>
+        </member>
+        <member name="M:EAS.Data.Access.DbCommandCollection.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            反序列化对象。
+            </summary>
+            <param name="info">数据。</param>
+            <param name="context">序列化上下文。</param>
+        </member>
+        <member name="M:EAS.Data.Access.DbCommandCollection.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            使用将目标对象序列化所需的数据填充 SerializationInfo。
+            </summary>
+            <param name="info">要填充数据的 SerializationInfo。</param>
+            <param name="context">此序列化的目标。</param>
         </member>
         <member name="M:EAS.Data.Access.DbCommandCollection.Add(System.String,System.Data.CommandType,EAS.Data.Access.ParameterCollection,EAS.Data.Access.ResultType)">
             <summary>
@@ -7470,23 +8032,11 @@
             </summary>
             <returns>查询语言类型。</returns>
         </member>
-        <member name="M:EAS.Data.Access.DataAccessor.DispatchQueryDbCommand(EAS.Data.Access.DbCommand@)">
-            <summary>
-            处理数据库查询命令。
-            </summary>
-            <param name="command">查询命令。</param>
-        </member>
         <member name="M:EAS.Data.Access.DataAccessor.ChangedDbProvider(EAS.Data.Access.IDbProvider)">
             <summary>
             改变DbProvider。
             </summary>
             <param name="dbProvider"></param>
-        </member>
-        <member name="M:EAS.Data.Access.DataAccessor.DispatchExecuteDbCommand(EAS.Data.Access.DbCommand@)">
-            <summary>
-            处理数据库查询命令。
-            </summary>
-            <param name="command">查询命令。</param>
         </member>
         <member name="M:EAS.Data.Access.DataAccessor.Dispose">
             <summary>
@@ -7522,16 +8072,6 @@
             多租户上下文切换对象。
             </summary>
         </member>
-        <member name="P:EAS.Data.Access.DataAccessor.DbCommandDispatchers">
-            <summary>
-            命令分配器清单。
-            </summary>
-        </member>
-        <member name="P:EAS.Data.Access.DataAccessor.DbCommandDispatcher">
-            <summary>
-            命命分配器对象。
-            </summary>
-        </member>
         <member name="P:EAS.Data.Access.DataAccessor.Language">
             <summary>
             查询语言/用于Linq解析。
@@ -7540,11 +8080,6 @@
         <member name="P:EAS.Data.Access.DataAccessor.DbProviderPool.DbProvider">
             <summary>
             数据库提供者程序。
-            </summary>
-        </member>
-        <member name="T:EAS.Data.ORM.Property">
-            <summary>
-            实体属性，表示实体的某一个列定义及列值。
             </summary>
         </member>
         <!-- 对于成员“T:EAS.Data.Linq.Grouping`2”忽略有格式错误的 XML 注释 -->
@@ -7974,323 +8509,6 @@
             获取或设置包含有特定数据的对象。
             </summary>
         </member>
-        <member name="T:EAS.Data.ORM.DataEntity`1">
-            <summary>
-            数据实体对象定义。
-            </summary>
-            <typeparam name="T">类型信息。</typeparam>
-        </member>
-        <member name="T:EAS.Data.ORM.IDataEntity`1">
-            <summary>
-            数据实体接口。
-            </summary>
-            <remarks>
-            该接口为对旬关系映射提供支持，实现本接口的对象映谢为一条数据库记录
-            </remarks>
-        </member>
-        <member name="T:EAS.Data.ORM.IDataEntity">
-            <summary>
-            数据实体接口。
-            </summary>
-            <remarks>
-            该接口为对旬关系映射提供支持，实现本接口的对象映谢为一条数据库记录
-            </remarks>
-        </member>
-        <member name="M:EAS.Data.ORM.IDataEntity.CreateCondition">
-            <summary>
-            创建一个查询条件。
-            </summary>
-            <returns>条件表达式。</returns>
-        </member>
-        <member name="F:EAS.Data.ORM.DataEntity`1.Empty">
-            <summary>
-            默认的空实体对象。
-            </summary>
-        </member>
-        <member name="M:EAS.Data.ORM.DataEntity`1.#ctor">
-            <summary>
-            初始化 Entity 类的新实例。
-            </summary>
-        </member>
-        <member name="M:EAS.Data.ORM.DataEntity`1.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
-            <summary>
-            反序列化对象。
-            </summary>
-            <param name="info">数据。</param>
-            <param name="context">序列化上下文。</param>
-        </member>
-        <member name="M:EAS.Data.ORM.DataEntity`1.Clone">
-            <summary>
-            克隆一个新的数据实体对象。
-            </summary>
-            <returns> 新的数据实体对象。</returns>
-        </member>
-        <member name="M:EAS.Data.ORM.DataEntity`1.GetColumns">
-            <summary>
-            获取数据实体对象中的列集合（Column集合）。
-            </summary>
-        </member>
-        <member name="M:EAS.Data.ORM.DataEntity`1.Create">
-            <summary>
-            创建一个数据实体对象。
-            </summary>
-            <returns>数据实体对象。</returns>
-        </member>
-        <member name="M:EAS.Data.ORM.DataEntity`1.Lazy(System.Object[])">
-            <summary>
-            延迟加载。
-            </summary>
-            <param name="primaryKeyValues">对象主键值。</param>
-            <returns>延迟加载对象。</returns>
-        </member>
-        <member name="M:EAS.Data.ORM.DataEntity`1.Lazy(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
-            <summary>
-            延迟加载。
-            </summary>
-            <param name="predicate">延迟加载条件。</param>
-            <returns>延迟加载对象。</returns>
-        </member>
-        <member name="M:EAS.Data.ORM.DataEntity`1.LazyCache(System.Object[])">
-            <summary>
-            延迟加载。
-            </summary>
-            <param name="primaryKeyValues">对象主键值。</param>
-            <returns>延迟加载对象。</returns>
-        </member>
-        <member name="M:EAS.Data.ORM.DataEntity`1.LazyCache(System.Func{`0,System.Boolean})">
-            <summary>
-            延迟加载。
-            </summary>
-            <param name="predicate">延迟加载条件。</param>
-            <returns>延迟加载对象。</returns>
-        </member>
-        <member name="M:EAS.Data.ORM.DataEntity`1.Select">
-            <summary>
-            查询。
-            </summary>
-            <returns>符合条件的数据对象。</returns>
-        </member>
-        <member name="M:EAS.Data.ORM.DataEntity`1.Select(EAS.Data.ORM.Condition)">
-            <summary>
-            查询。
-            </summary>
-            <param name="condition">数据查询条件。</param>
-            <returns>符合条件的数据对象。</returns>
-        </member>
-        <member name="M:EAS.Data.ORM.DataEntity`1.Select(System.Int32,System.Int32)">
-            <summary>
-            查询。
-            </summary>
-            <param name="skip">跳过开始的N条记录,小于等于0则忽略。</param>
-            <param name="count">要返回的记录总数,小于等于0则忽略。</param>
-            <returns>查询结果。</returns>
-        </member>
-        <member name="M:EAS.Data.ORM.DataEntity`1.Select(EAS.Data.ORM.Condition,System.Int32,System.Int32)">
-            <summary>
-            查询。
-            </summary>
-            <param name="condition">数据查询条件。</param>
-            <param name="skip">跳过开始的N条记录,小于等于0则忽略。</param>
-            <param name="count">要返回的记录总数,小于等于0则忽略。</param>
-            <returns>查询结果。</returns>
-        </member>
-        <member name="M:EAS.Data.ORM.DataEntity`1.Select(EAS.Data.ORM.Condition,System.Collections.Generic.List{System.String})">
-            <summary>
-            查询。
-            </summary>
-            <param name="condition">数据查询条件。</param>
-            <param name="propertys">要选择的属性集合，为空则取所有与数据库映射的属性。</param>
-            <returns>查询结果。</returns>
-        </member>
-        <member name="M:EAS.Data.ORM.DataEntity`1.Select(EAS.Data.ORM.Condition,System.Collections.Generic.List{System.String},System.Int32,System.Int32)">
-            <summary>
-            查询。
-            </summary>
-            <param name="condition">数据查询条件。</param>
-            <param name="propertys">要选择的属性集合，为空则取所有与数据库映射的属性。</param>
-            <param name="skip">跳过开始的N条记录,小于等于0则忽略。</param>
-            <param name="count">要返回的记录总数,小于等于0则忽略。</param>
-            <returns>查询结果。</returns>
-        </member>
-        <member name="M:EAS.Data.ORM.DataEntity`1.Update(EAS.Data.ORM.ColumnCollection,EAS.Data.ORM.Condition)">
-            <summary>
-            根据条件更新数据库表中的指定列的值。
-            </summary>
-            <param name="colValues">要更新的列及指定的值。</param>
-            <param name="condition">数据查询条件，为空引用则更新全部表。</param>
-        </member>
-        <member name="M:EAS.Data.ORM.DataEntity`1.Update(System.Collections.Generic.Dictionary{System.String,System.Object},EAS.Data.ORM.Condition)">
-            <summary>
-            根据条件更新数据库表中的指定列的值。
-            </summary>
-            <param name="colValues">要更新的列及指定的值。</param>
-            <param name="condition">数据查询条件，为空引用则更新全部表。</param>
-        </member>
-        <member name="M:EAS.Data.ORM.DataEntity`1.Delete(EAS.Data.ORM.Condition)">
-            <summary>
-            从数据库中删除数据表记录。
-            </summary>
-            <param name="condition">数据查询条件，为空引用则返回整个数据库实体（表、视图、表值存储过程）。</param>
-        </member>
-        <member name="M:EAS.Data.ORM.DataEntity`1.GetValue``1(System.UInt16)">
-            <summary>
-            返回指定字段的值。
-            </summary>
-            <typeparam name="TValue">类型信息。</typeparam>
-            <param name="sequenceNo">列序号。</param>
-            <returns>列的值。</returns>
-        </member>
-        <member name="M:EAS.Data.ORM.DataEntity`1.GetValue``1(System.String)">
-            <summary>
-            返回指定字段的值。
-            </summary>
-            <typeparam name="TValue">类型信息。</typeparam>
-            <param name="name">列名称。</param>
-            <returns>列的值。</returns>
-        </member>
-        <member name="M:EAS.Data.ORM.DataEntity`1.CreateSelectCondition">
-            <summary>
-            创建一个查询条件。
-            </summary>
-            <returns>条件表达式。</returns>
-        </member>
-        <member name="M:EAS.Data.ORM.DataEntity`1.CreateCondition">
-            <summary>
-            创建一个查询条件。
-            </summary>
-            <returns>条件表达式。</returns>
-        </member>
-        <member name="M:EAS.Data.ORM.DataEntity`1.NotifyPropertyChanged(System.String)">
-            <summary>
-            写成PropertyChanged事件通知。
-            </summary>
-            <param name="propertyName">属性名称。</param>
-        </member>
-        <member name="M:EAS.Data.ORM.DataEntity`1.Eval(System.String)">
-            <summary>
-            对表达式进行计算/求值。
-            </summary>
-            <param name="expression">要计算的表达式,如"1+2+3+4"。</param>
-            <returns>返回计算结果,如果带有逻辑运算符则返回true/false,否则返回数。</returns>
-        </member>
-        <member name="M:EAS.Data.ORM.DataEntity`1.Eval``1(System.String)">
-            <summary>
-            对表达式进行计算。
-            </summary>
-            <typeparam name="TValue">返回值类型。</typeparam>
-            <param name="expression">字符表达式。</param>
-            <returns>表达式结果。</returns>
-        </member>
-        <member name="M:EAS.Data.ORM.DataEntity`1.EAS#Workflow#IWorkflowDataEntity#SetValue(System.String,System.Object)">
-            <summary>
-            设置指定属性的值。
-            </summary>
-            <param name="name">名称名称。</param>
-            <param name="value">属性值。</param>
-            <returns>对表表达式或者属性值。</returns>
-        </member>
-        <member name="M:EAS.Data.ORM.DataEntity`1.EAS#Workflow#IWorkflowDataEntity#GetValue(System.String)">
-            <summary>
-            获取指定表达式或者属性的值。
-            </summary>
-            <param name="expression">表达式或者属性名称。</param>
-            <returns>对表表达式或者属性值。</returns>
-        </member>
-        <member name="M:EAS.Data.ORM.DataEntity`1.EAS#Workflow#IWorkflowDataEntity#GetValue``1(System.String)">
-            <summary>
-            取指定名称的属性值。
-            </summary>
-            <typeparam name="TValue">返回值类型。</typeparam>
-            <param name="expression">表达式。</param>
-            <returns>对应表达式的值。</returns>
-        </member>
-        <member name="M:EAS.Data.ORM.DataEntity`1.EAS#Workflow#IWorkflowDataEntity#GetBoolean(System.String)">
-            <summary>
-            计算表达式值，可以为数学表达式，也可以为单一属性值。
-            </summary>
-            <param name="expression">表达式。</param>
-            <returns>表达式值。</returns>
-        </member>
-        <member name="M:EAS.Data.ORM.DataEntity`1.EAS#Workflow#IWorkflowDataEntity#GetDateTime(System.String)">
-            <summary>
-            计算表达式值，可以为数学表达式，也可以为单一属性值。
-            </summary>
-            <param name="expression">表达式。</param>
-            <returns>表达式值。</returns>
-        </member>
-        <member name="M:EAS.Data.ORM.DataEntity`1.EAS#Workflow#IWorkflowDataEntity#GetGuid(System.String)">
-            <summary>
-            计算表达式值，可以为数学表达式，也可以为单一属性值。
-            </summary>
-            <param name="expression">表达式。</param>
-            <returns>表达式值。</returns>
-        </member>
-        <member name="M:EAS.Data.ORM.DataEntity`1.EAS#Workflow#IWorkflowDataEntity#GetByte(System.String)">
-            <summary>
-            计算表达式值，可以为数学表达式，也可以为单一属性值。
-            </summary>
-            <param name="expression">表达式。</param>
-            <returns>表达式值。</returns>
-        </member>
-        <member name="M:EAS.Data.ORM.DataEntity`1.EAS#Workflow#IWorkflowDataEntity#GetInt16(System.String)">
-            <summary>
-            计算表达式值，可以为数学表达式，也可以为单一属性值。
-            </summary>
-            <param name="expression">表达式。</param>
-            <returns>表达式值。</returns>
-        </member>
-        <member name="M:EAS.Data.ORM.DataEntity`1.EAS#Workflow#IWorkflowDataEntity#GetInt32(System.String)">
-            <summary>
-            计算表达式值，可以为数学表达式，也可以为单一属性值。
-            </summary>
-            <param name="expression">表达式。</param>
-            <returns>表达式值。</returns>
-        </member>
-        <member name="M:EAS.Data.ORM.DataEntity`1.EAS#Workflow#IWorkflowDataEntity#GetInt64(System.String)">
-            <summary>
-            计算表达式值，可以为数学表达式，也可以为单一属性值。
-            </summary>
-            <param name="expression">表达式。</param>
-            <returns>表达式值。</returns>
-        </member>
-        <member name="M:EAS.Data.ORM.DataEntity`1.EAS#Workflow#IWorkflowDataEntity#GetDecimal(System.String)">
-            <summary>
-            计算表达式值，可以为数学表达式，也可以为单一属性值。
-            </summary>
-            <param name="expression">表达式。</param>
-            <returns>表达式值。</returns>
-        </member>
-        <member name="M:EAS.Data.ORM.DataEntity`1.EAS#Workflow#IWorkflowDataEntity#GetDouble(System.String)">
-            <summary>
-            计算表达式值，可以为数学表达式，也可以为单一属性值。
-            </summary>
-            <param name="expression">表达式。</param>
-            <returns>表达式值。</returns>
-        </member>
-        <member name="M:EAS.Data.ORM.DataEntity`1.EAS#Workflow#IWorkflowDataEntity#GetSingle(System.String)">
-            <summary>
-            计算表达式值，可以为数学表达式，也可以为单一属性值。
-            </summary>
-            <param name="expression">表达式。</param>
-            <returns>表达式值。</returns>
-        </member>
-        <member name="M:EAS.Data.ORM.DataEntity`1.EAS#Workflow#IWorkflowDataEntity#GetString(System.String)">
-            <summary>
-            计算表达式值，可以为数学表达式，也可以为单一属性值。
-            </summary>
-            <param name="expression">表达式。</param>
-            <returns>表达式值。</returns>
-        </member>
-        <member name="P:EAS.Data.ORM.DataEntity`1.DbTableName">
-            <summary>
-            获取数据表的名称。
-            </summary>
-        </member>
-        <member name="E:EAS.Data.ORM.DataEntity`1.PropertyChanged">
-            <summary>
-            在更改属性值时发生。
-            </summary>
-        </member>
         <member name="T:EAS.Data.Linq.SubqueryRemover">
             <summary>
             Removes one or more SelectExpression's by rewriting the expression tree to not include them, promoting
@@ -8423,6 +8641,26 @@
             变量
             </summary>
         </member>
+        <member name="T:EAS.Data.Caching.CacheResult">
+            <summary>
+            缓存结果。
+            </summary>
+        </member>
+        <member name="P:EAS.Data.Caching.CacheResult.Data">
+            <summary>
+            结果。
+            </summary>
+        </member>
+        <member name="P:EAS.Data.Caching.CacheResult.Reload">
+            <summary>
+            是否重新读取全部。
+            </summary>
+        </member>
+        <member name="P:EAS.Data.Caching.CacheResult.LMTime">
+            <summary>
+            最后更新时间。
+            </summary>
+        </member>
         <member name="T:EAS.Data.Caching.CacheReader">
             <summary>
             缓存读写器。
@@ -8449,6 +8687,11 @@
             读空缓存。
             </summary>
             <returns></returns>
+        </member>
+        <member name="M:EAS.Data.Caching.CacheReader.CreateCacheRoot">
+            <summary>
+            创建缓存根对象。
+            </summary>
         </member>
         <member name="M:EAS.Data.Caching.CacheReader.MergeCache(System.Object,System.Object)">
             <summary>
@@ -8602,6 +8845,32 @@
             <param name="parameters">命令执行需要的参数。</param>
             <param name="resultType">调用方要求的返回结果的类型</param>
         </member>
+        <member name="M:EAS.Data.Access.DbCommand.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            反序列化对象。
+            </summary>
+            <param name="info">数据。</param>
+            <param name="context">序列化上下文。</param>
+        </member>
+        <member name="M:EAS.Data.Access.DbCommand.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            使用将目标对象序列化所需的数据填充 SerializationInfo。
+            </summary>
+            <param name="info">要填充数据的 SerializationInfo。</param>
+            <param name="context">此序列化的目标。</param>
+        </member>
+        <member name="M:EAS.Data.Access.DbCommand.Clone">
+            <summary>
+            克隆一个新的DbCommand对象。
+            </summary>
+            <returns> 新的DbCommand对象。</returns>
+        </member>
+        <member name="M:EAS.Data.Access.DbCommand.System#ICloneable#Clone">
+            <summary>
+            克隆一个 DbCommand 对象。
+            </summary>
+            <returns></returns>
+        </member>
         <member name="P:EAS.Data.Access.DbCommand.CommandText">
             <summary>
             获取或设置数据库访问命令的命令语句。
@@ -8704,6 +8973,211 @@
             <typeparam name="TValue">类型信息。</typeparam>
             <param name="name">列名称。</param>
             <returns>列的值。</returns>
+        </member>
+        <member name="T:EAS.Data.ORM.ColumnCollection">
+            <summary>
+            定义数据表列集合。
+            </summary>
+            <remarks>
+            可以通过该类表达一个数据库表、视图的列结构。
+            </remarks>
+        </member>
+        <member name="F:EAS.Data.ORM.ColumnCollection.table">
+            <summary>
+            内部私有变量，指示列所属于的数据表。
+            </summary>
+        </member>
+        <member name="M:EAS.Data.ORM.ColumnCollection.#ctor">
+            <summary>
+            初始化列集合新实例。
+            </summary>
+        </member>
+        <member name="M:EAS.Data.ORM.ColumnCollection.#ctor(EAS.Data.ORM.ITable)">
+            <summary>
+            使用ITable接口初始化列集合新实例。
+            </summary>
+        </member>
+        <member name="M:EAS.Data.ORM.ColumnCollection.#ctor(EAS.Data.ORM.ITable,System.Collections.Generic.IEnumerable{EAS.Data.ORM.Column})">
+            <summary>
+            使用ITable接口初始化列集合新实例。
+            </summary>
+        </member>
+        <member name="M:EAS.Data.ORM.ColumnCollection.#ctor(System.Int32)">
+            <summary>
+            使用集合的初始容量初始化列集合新实例。
+            </summary>
+            <param name="capacity">集合的初始容量。</param>
+        </member>
+        <member name="M:EAS.Data.ORM.ColumnCollection.GetMaxSequenceNo">
+            <summary>
+            获取最大列序列号。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EAS.Data.ORM.ColumnCollection.Add(EAS.Data.ORM.Column)">
+            <summary>
+            向集合中添加一个列。
+            </summary>
+            <param name="column">要添加的数据列。</param>
+        </member>
+        <member name="M:EAS.Data.ORM.ColumnCollection.Remove(System.String)">
+            <summary>
+            删除集合中的一个数据列。
+            </summary>
+            <param name="name">要删除的数据列。</param>
+        </member>
+        <member name="M:EAS.Data.ORM.ColumnCollection.ContainsColumn(System.String)">
+            <summary>
+            获取一个值，该值指示对象是否存在指定名称的列。
+            </summary>
+            <param name="name">要确定的列的名称。名称比较不区分大小写。</param>
+            <returns>返回列是否存在的指示。</returns>
+            <exception cref="T:System.ArgumentNullException">name为空引用或者空字符串。</exception>
+        </member>
+        <member name="M:EAS.Data.ORM.ColumnCollection.ContainsColumn2(System.String)">
+            <summary>
+            获取一个值，该值指示对象是否存在指定标题的列。
+            </summary>
+            <param name="caption">要确定的列的标题。标题比较不区分大小写。</param>
+            <returns>返回列是否存在的指示。</returns>
+            <exception cref="T:System.ArgumentNullException">caption 为空引用或者空字符串。</exception>
+        </member>
+        <member name="M:EAS.Data.ORM.ColumnCollection.ColunmIndexOf(System.String)">
+            <summary>
+            获取指定名称的列在集合的索引位置。
+            </summary>
+            <param name="name">要确定位置的列的名称。名称比较不区分大小写。</param>
+            <returns>返回属列在集合中的从 0 开始的索引位置，如果不存在相应的列，则返回 -1。</returns>
+            <exception cref="T:System.ArgumentNullException">name 为空引用或者空字符串。</exception>
+        </member>
+        <member name="M:EAS.Data.ORM.ColumnCollection.ColumnIndexOf2(System.String)">
+            <summary>
+            获取指定标题的列在列集合中的索引位置。
+            </summary>
+            <param name="caption">要确定位置的列的标题。名称比较不区分大小写。</param>
+            <returns>返回列在列列表中的从 0 开始的索引位置，如果不存在相应的列，则返回 -1。</returns>
+            <exception cref="T:System.ArgumentNullException">caption 为空引用或者空字符串。</exception>
+        </member>
+        <member name="M:EAS.Data.ORM.ColumnCollection.GetColumn(System.Int32)">
+            <summary>
+            获取指定索引位置处的列对象。
+            </summary>
+            <param name="index">列索引。</param>
+            <returns>返回在对象列列表中指定位置处的列对象。</returns>
+        </member>
+        <member name="M:EAS.Data.ORM.ColumnCollection.GetColumn(System.String)">
+            <summary>
+            获取指定名称的列。
+            </summary>
+            <param name="name">列名称。名称比较不区分大小写。</param>
+            <returns>返回具有指定名称的列对象。</returns>
+            <exception cref="T:System.ArgumentNullException">name 为空引用或者空字符串。</exception>
+        </member>
+        <member name="M:EAS.Data.ORM.ColumnCollection.GetColumn2(System.String)">
+            <summary>
+            获取指定标题的列对象。
+            </summary>
+            <param name="caption">标题。比较不区分大小写。</param>
+            <returns>返回具有指定标题的列对象。</returns>
+            <exception cref="T:System.ArgumentNullException">caption 为空引用或者空字符串。</exception>
+        </member>
+        <member name="M:EAS.Data.ORM.ColumnCollection.AddColumn(System.String,System.String,System.Data.DbType)">
+            <summary>
+            添加一个新的列。
+            </summary>
+            <param name="caption">列的显示标题。如果该值为空引用或者空字符串，则使用 name 作为标题。</param>
+            <param name="name">列名称。名称比较不区分大小写。</param>
+            <param name="type">列数据类型。</param>
+            <returns>返回已经创建并且已经添加到对象列列表中的列对象引用。</returns>
+            <exception cref="T:System.ArgumentNullException">name 为空引用或者空字符串。</exception>
+            <exception cref="T:System.ArgumentException">对象已经存在相应名称的列。</exception>
+            <remarks>如果 Caption 为空引用或者空字符串，则使用 name 设置该值。列的 Expression 设置为 name 值。</remarks>
+        </member>
+        <member name="M:EAS.Data.ORM.ColumnCollection.AddColumn(System.String,System.String,System.Data.DbType,System.Object)">
+            <summary>
+            添加一个新的列。
+            </summary>
+            <param name="caption">列的显示标题。如果该值为空引用或者空字符串，则使用 name 作为标题。</param>
+            <param name="name">列名称。名称比较不区分大小写。</param>
+            <param name="type">列数据类型。</param>
+            <param name="defaultValue">列的默认值。可以是空引用，在内部自动转换为 System.DBNull.Value。</param>
+            <returns>返回已经创建并且已经添加到对象列列表中的列对象引用。</returns>
+            <exception cref="T:System.ArgumentNullException">name 为空引用或者空字符串。</exception>
+            <exception cref="T:System.ArgumentException">对象已经存在相应名称的列。</exception>
+            <remarks>如果 Caption 为空引用或者空字符串，则使用 name 设置该值。列的 Expression 设置为 name 值。</remarks>
+        </member>
+        <member name="M:EAS.Data.ORM.ColumnCollection.AddColumn(System.String,System.Data.DbType)">
+            <summary>
+            添加一个新的列。
+            </summary>
+            <param name="name">列名称。名称比较不区分大小写。</param>
+            <param name="type">列数据类型。</param>
+            <returns>返回已经创建并且已经添加到对象列列表中的列对象引用。</returns>
+            <exception cref="T:System.ArgumentNullException">name 为空引用或者空字符串。</exception>
+            <exception cref="T:System.ArgumentException">对象已经存在相应名称的列。</exception>
+            <remarks>列的 Caption、Expression 设置为 name 值。</remarks>
+        </member>
+        <member name="M:EAS.Data.ORM.ColumnCollection.AddColumn(System.String,System.Data.DbType,System.Object)">
+            <summary>
+            添加一个新的列。
+            </summary>
+            <param name="name">列名称。名称比较不区分大小写。</param>
+            <param name="type">列数据类型。</param>
+            <param name="defaultValue">列的默认值。可以是空引用，在内部自动转换为 System.DBNull.Value。</param>
+            <returns>返回已经创建并且已经添加到对象列列表中的列对象引用。</returns>
+            <exception cref="T:System.ArgumentNullException">name 为空引用或者空字符串。</exception>
+            <exception cref="T:System.ArgumentException">对象已经存在相应名称的列。</exception>
+            <remarks>列的 Caption、Expression 设置为 name 值。</remarks>
+        </member>
+        <member name="M:EAS.Data.ORM.ColumnCollection.RemoveColumn(System.String)">
+            <summary>
+            移除一个列。
+            </summary>
+            <param name="name">要移除的列名称。</param>
+            <returns>成功被移除的列。</returns>
+        </member>
+        <member name="M:EAS.Data.ORM.ColumnCollection.RemoveColumn(System.Int32)">
+            <summary>
+            移除一个列。
+            </summary>
+            <param name="index">要移除的列索引。</param>
+            <returns>成功被移除的列。</returns>
+        </member>
+        <member name="M:EAS.Data.ORM.ColumnCollection.RemoveColumn(EAS.Data.ORM.Column)">
+            <summary>
+            移除一个列。
+            </summary>
+            <param name="column">要移除的列。</param>
+            <returns>成功被移除的列。</returns>
+        </member>
+        <member name="M:EAS.Data.ORM.ColumnCollection.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            反序列化对象。
+            </summary>
+            <param name="info">数据。</param>
+            <param name="context">序列化上下文。</param>
+        </member>
+        <member name="M:EAS.Data.ORM.ColumnCollection.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            使用将目标对象序列化所需的数据填充 SerializationInfo。
+            </summary>
+            <param name="info">要填充数据的 SerializationInfo。</param>
+            <param name="context">此序列化的目标。</param>
+        </member>
+        <member name="P:EAS.Data.ORM.ColumnCollection.Item(System.String)">
+            <summary>
+            根据列名获取 Colunm 对象。
+            </summary>
+        </member>
+        <member name="P:EAS.Data.ORM.ColumnCollection.Item(EAS.Data.ORM.Column)">
+            <summary>
+            获取 Colunm 对象。
+            </summary>
+        </member>
+        <member name="P:EAS.Data.ORM.ColumnCollection.Table">
+            <summary>
+            获取或设置实体集合所在的表
+            </summary>
         </member>
         <member name="T:EAS.Data.Linq.TypeHelper">
             <summary>
@@ -9091,6 +9565,20 @@
             <param name="SourceVersion">加载 Value 时使用的 DataRowVersion。</param>
             <param name="Value">参数的值。</param>
         </member>
+        <member name="M:EAS.Data.Access.Parameter.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            反序列化对象。
+            </summary>
+            <param name="info">数据。</param>
+            <param name="context">序列化上下文。</param>
+        </member>
+        <member name="M:EAS.Data.Access.Parameter.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            使用将目标对象序列化所需的数据填充 SerializationInfo。
+            </summary>
+            <param name="info">要填充数据的 SerializationInfo。</param>
+            <param name="context">此序列化的目标。</param>
+        </member>
         <member name="M:EAS.Data.Access.Parameter.ToIDbDataParameter(System.Data.IDbCommand)">
             <summary>
             转换为特定的数据库访问接口参数。
@@ -9099,6 +9587,12 @@
             <returns>与特定数据库访问接口相关的数据库访问参数。</returns>
         </member>
         <member name="M:EAS.Data.Access.Parameter.Clone">
+            <summary>
+            克隆一个 Parameter 对象。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EAS.Data.Access.Parameter.System#ICloneable#Clone">
             <summary>
             克隆一个 Parameter 对象。
             </summary>
@@ -9173,6 +9667,11 @@
         <member name="P:EAS.Data.Access.Parameter.Rewriter">
             <summary>
             IDbProvider执行命令之前是否重写命。
+            </summary>
+        </member>
+        <member name="P:EAS.Data.Access.Parameter.IsTable">
+            <summary>
+            是否为表值参数，应对OracleType.Cursor。
             </summary>
         </member>
         <member name="T:EAS.Data.Access.DbColumn">
@@ -9263,6 +9762,25 @@
             <summary>
             使用给定的初始容量初始化 ParameterCollection 对象的实例。
             </summary>
+        </member>
+        <member name="M:EAS.Data.Access.ParameterCollection.#ctor(System.Collections.Generic.IEnumerable{EAS.Data.Access.Parameter})">
+            <summary>
+            使用给定的参数集合初始化 ParameterCollection 对象的实例。
+            </summary>
+        </member>
+        <member name="M:EAS.Data.Access.ParameterCollection.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            反序列化对象。
+            </summary>
+            <param name="info">数据。</param>
+            <param name="context">序列化上下文。</param>
+        </member>
+        <member name="M:EAS.Data.Access.ParameterCollection.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            使用将目标对象序列化所需的数据填充 SerializationInfo。
+            </summary>
+            <param name="info">要填充数据的 SerializationInfo。</param>
+            <param name="context">此序列化的目标。</param>
         </member>
         <member name="M:EAS.Data.Access.ParameterCollection.Add(System.String,System.Data.DbType,System.Int32,System.Object)">
             <summary>
@@ -9398,11 +9916,6 @@
         <member name="F:EAS.Data.ORM.EntityState.Ready">
             <summary>
             实现已加载数据。
-            </summary>
-        </member>
-        <member name="F:EAS.Data.ORM.EntityState.Update">
-            <summary>
-             当前记录已被修改。
             </summary>
         </member>
         <member name="F:EAS.Data.ORM.EntityState.Delete">
@@ -10394,9 +10907,14 @@
             如果要求的结果为DataReader，则必须由调用方在外部打开数据访问环境，当DataReader执行完毕后再关闭访问环境；否则该方法将自动打开访问环境，并在DataReader返回前自动关闭访问环境，这样会导致在外部无法使用（因为该DataReader所依赖的数据连接已经关闭）DataReader读取数据。
             </remarks>
         </member>
-        <member name="F:EAS.Data.Access.SqlClientDbProvider.cmdCache">
+        <member name="F:EAS.Data.Access.SqlClientDbProvider.m_Caches">
             <summary>
             Sql语句纠正缓冲。
+            </summary>
+        </member>
+        <member name="P:EAS.Data.Access.SqlClientDbProvider.CommandCache">
+            <summary>
+            是否使用命令缓存，默认不使用。
             </summary>
         </member>
         <member name="M:EAS.Data.Access.SqlClientProvider.#ctor">

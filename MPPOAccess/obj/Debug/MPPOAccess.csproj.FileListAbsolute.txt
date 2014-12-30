@@ -23,3 +23,8 @@ C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\MPPOAccess\obj\Debug\M
 C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\MPPOAccess\bin\Debug\MPPOAccess.exe
 C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\MPPOAccess\obj\Debug\MPPOAccess.exe
 C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\MPPOAccess\bin\Debug\EAS.Distributed.dll
+C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\MPPOAccess\bin\Debug\SPC.Analysis.dll
+C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\MPPOAccess\bin\Debug\EAS.Data.xml
+C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\MPPOAccess\bin\Debug\EAS.Distributed.xml
+C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\MPPOAccess\bin\Debug\EAS.Explorer.xml
+C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\MPPOAccess\bin\Debug\EAS.MicroKernel.xml

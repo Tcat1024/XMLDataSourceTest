@@ -54,8 +54,8 @@
             this.menuFile = new DevExpress.XtraBars.BarSubItem();
             this.menuTraceHis = new DevExpress.XtraBars.BarSubItem();
             this.stHisNone = new DevExpress.XtraBars.BarStaticItem();
-            this.btnLoad = new DevExpress.XtraBars.BarButtonItem();
             this.btnSave = new DevExpress.XtraBars.BarButtonItem();
+            this.btnLoad = new DevExpress.XtraBars.BarButtonItem();
             this.barSubItem3 = new DevExpress.XtraBars.BarSubItem();
             this.menuAnalyze = new DevExpress.XtraBars.BarSubItem();
             this.btnRelationAnalyze = new DevExpress.XtraBars.BarButtonItem();
@@ -154,7 +154,7 @@
             this.splitContainer1.Panel2.Controls.Add(this.waitPanel1);
             this.splitContainer1.Panel2.Controls.Add(this.gridControl1);
             this.splitContainer1.Panel2.Controls.Add(this.standaloneBarDockControl1);
-            this.splitContainer1.Size = new System.Drawing.Size(1457, 459);
+            this.splitContainer1.Size = new System.Drawing.Size(1461, 460);
             this.splitContainer1.SplitterDistance = 301;
             this.splitContainer1.SplitterWidth = 5;
             this.splitContainer1.TabIndex = 22;
@@ -163,9 +163,9 @@
             // 
             this.triStateTreeView1.CheckBoxes = true;
             this.triStateTreeView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.triStateTreeView1.Location = new System.Drawing.Point(0, 34);
+            this.triStateTreeView1.Location = new System.Drawing.Point(0, 31);
             this.triStateTreeView1.Name = "triStateTreeView1";
-            this.triStateTreeView1.Size = new System.Drawing.Size(301, 425);
+            this.triStateTreeView1.Size = new System.Drawing.Size(301, 429);
             this.triStateTreeView1.TabIndex = 0;
             // 
             // standaloneBarDockControl2
@@ -176,7 +176,7 @@
             this.standaloneBarDockControl2.Location = new System.Drawing.Point(0, 0);
             this.standaloneBarDockControl2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.standaloneBarDockControl2.Name = "standaloneBarDockControl2";
-            this.standaloneBarDockControl2.Size = new System.Drawing.Size(301, 34);
+            this.standaloneBarDockControl2.Size = new System.Drawing.Size(301, 31);
             this.standaloneBarDockControl2.Text = "standaloneBarDockControl2";
             // 
             // waitPanel1
@@ -187,6 +187,7 @@
             this.waitPanel1.Position = 0;
             this.waitPanel1.Size = new System.Drawing.Size(343, 130);
             this.waitPanel1.TabIndex = 11;
+            this.waitPanel1.Visible = false;
             this.waitPanel1.CancelButtonClick += new System.EventHandler(this.btnCancel_Click);
             // 
             // gridControl1
@@ -207,10 +208,10 @@
             this.gridControl1.EmbeddedNavigator.Buttons.PrevPage.ImageIndex = 1;
             this.gridControl1.EmbeddedNavigator.Buttons.Remove.Visible = false;
             this.gridControl1.EmbeddedNavigator.TextStringFormat = "{0} / {1}";
-            this.gridControl1.Location = new System.Drawing.Point(0, 34);
+            this.gridControl1.Location = new System.Drawing.Point(0, 31);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(1151, 425);
+            this.gridControl1.Size = new System.Drawing.Size(1155, 429);
             this.gridControl1.TabIndex = 1;
             this.gridControl1.UseEmbeddedNavigator = true;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -257,7 +258,7 @@
             this.standaloneBarDockControl1.Location = new System.Drawing.Point(0, 0);
             this.standaloneBarDockControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.standaloneBarDockControl1.Name = "standaloneBarDockControl1";
-            this.standaloneBarDockControl1.Size = new System.Drawing.Size(1151, 34);
+            this.standaloneBarDockControl1.Size = new System.Drawing.Size(1155, 31);
             this.standaloneBarDockControl1.Text = "standaloneBarDockControl1";
             // 
             // barManager1
@@ -296,7 +297,7 @@
             this.btnLoad,
             this.menuTraceHis,
             this.stHisNone});
-            this.barManager1.MaxItemId = 36;
+            this.barManager1.MaxItemId = 37;
             this.barManager1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemTextEdit1});
             // 
@@ -434,17 +435,17 @@
             this.stHisNone.Name = "stHisNone";
             this.stHisNone.TextAlignment = System.Drawing.StringAlignment.Near;
             // 
-            // btnLoad
-            // 
-            this.btnLoad.Caption = "归档数据读取";
-            this.btnLoad.Id = 32;
-            this.btnLoad.Name = "btnLoad";
-            // 
             // btnSave
             // 
             this.btnSave.Caption = "追溯结果归档";
             this.btnSave.Id = 31;
             this.btnSave.Name = "btnSave";
+            // 
+            // btnLoad
+            // 
+            this.btnLoad.Caption = "归档数据读取";
+            this.btnLoad.Id = 32;
+            this.btnLoad.Name = "btnLoad";
             // 
             // barSubItem3
             // 
@@ -595,9 +596,9 @@
             this.dockPanel1_Container.Controls.Add(this.textMaxWidth);
             this.dockPanel1_Container.Controls.Add(this.comboxGrade);
             this.dockPanel1_Container.Controls.Add(this.checkGrade);
-            this.dockPanel1_Container.Location = new System.Drawing.Point(4, 24);
+            this.dockPanel1_Container.Location = new System.Drawing.Point(3, 25);
             this.dockPanel1_Container.Name = "dockPanel1_Container";
-            this.dockPanel1_Container.Size = new System.Drawing.Size(1455, 70);
+            this.dockPanel1_Container.Size = new System.Drawing.Size(1457, 70);
             this.dockPanel1_Container.TabIndex = 0;
             // 
             // btnQuery
@@ -785,7 +786,7 @@
             // 
             this.xtraTabPage1.Controls.Add(this.gridControl2);
             this.xtraTabPage1.Name = "xtraTabPage1";
-            this.xtraTabPage1.Size = new System.Drawing.Size(1457, 459);
+            this.xtraTabPage1.Size = new System.Drawing.Size(1461, 460);
             this.xtraTabPage1.TabPageWidth = 100;
             this.xtraTabPage1.Text = "数据选择";
             // 
@@ -795,7 +796,7 @@
             this.gridControl2.Location = new System.Drawing.Point(0, 0);
             this.gridControl2.MainView = this.gridView2;
             this.gridControl2.Name = "gridControl2";
-            this.gridControl2.Size = new System.Drawing.Size(1457, 459);
+            this.gridControl2.Size = new System.Drawing.Size(1461, 460);
             this.gridControl2.TabIndex = 1;
             this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
@@ -890,7 +891,7 @@
             this.xtraTabPage2.Controls.Add(this.splitContainer1);
             this.xtraTabPage2.Name = "xtraTabPage2";
             this.xtraTabPage2.PageEnabled = false;
-            this.xtraTabPage2.Size = new System.Drawing.Size(1457, 459);
+            this.xtraTabPage2.Size = new System.Drawing.Size(1461, 460);
             this.xtraTabPage2.Text = "数据追溯";
             // 
             // DataAnalysisStartUpAdv

@@ -39,7 +39,7 @@ namespace QtDataTrace.Access
                     foreach (var k in factories.Keys)
                     {
                         var f = factories[k];
-                        if (!f.OnWork)
+                        if (!f.Writing&&!f.Reading)
                         {
                             factories.Remove(k);
                             temp = true;
@@ -81,22 +81,75 @@ namespace QtDataTrace.Access
                 DataTraceFactory factory;
                 if (factories.TryGetValue(id, out factory))
                 {
-                    if (factory.OnWork)
+                    if (factory.Writing)
                         result = new Tuple<int, DataTable>(factory.GetProgress(), null);
                     else
+                    {
                         result = new Tuple<int, DataTable>(factory.GetProgress(), factory.GetResultTable());
+                        lock(factories)
+                        {
+                            factories.Remove(id);
+                            factories.Add(id, factory);
+                        }
+                    }
                     return result;
                 }
             }
             return new Tuple<int, DataTable>(-1, null);
         }
+        public static DataTable BeginAnalyzeData(string username, Guid id)
+        {
+            DataTable result;
+            Dictionary<Guid, DataTraceFactory> factories;
+            if (DataTraceFactoryContainer.TryGetValue(username, out factories))
+            {
+                DataTraceFactory factory;
+                if (factories.TryGetValue(id, out factory))
+                {
+                    if (factory.Writing)
+                        result = null;
+                    else
+                    {
+                        result = factory.GetResultTable();
+                        factory.AddReader();
+                        lock (factories)
+                        {
+                            factories.Remove(id);
+                            factories.Add(id, factory);
+                        }
+                    }
+                    return result;
+                }
+            }
+            return null;
+        }
+        public static bool EndAnalyzeData(string username, Guid id)
+        {
+            Dictionary<Guid, DataTraceFactory> factories;
+            if (DataTraceFactoryContainer.TryGetValue(username, out factories))
+            {
+                DataTraceFactory factory;
+                if (factories.TryGetValue(id, out factory))
+                {
+                    return factory.RemoveReader();
+                }
+            }
+            return false;
+        }
         private class DataTraceFactory
         {
             public DateTime CreateDate{get;set;}
             public string Name{get;set;}
-            public bool OnWork { get; private set; }
-
-
+            public bool Writing { get; private set; }
+            private object readObj = new object();
+            private int reader = 0;
+            public bool Reading
+            {
+                get
+                {
+                    return reader!=0;
+                }
+            }
             int threadcount = 15;
             int rowcount = 0;
             string RootProcessNo;
@@ -122,7 +175,7 @@ namespace QtDataTrace.Access
                 this.ConfigFile = new BaseTableService().GetProcessQtTableConfigFile();
                 this.rowcount = iDList.Count;
                 this.Name = DateTime.Now.ToShortTimeString() + "_" + processNo + "_" + rowcount + "Rows";
-                this.OnWork = false;
+                this.Writing = false;
 
                 int rcount = ConfigFile.Tables["Table"].Rows.Count;
                 for (int i = 0; i < rcount; i++)
@@ -140,11 +193,28 @@ namespace QtDataTrace.Access
                 this.RootProcessSeq = processseqs[RootProcessNo];
                 this.RootSql = getProcessString(RootProcessNo);
             }
+            public void AddReader()
+            {
+                lock (readObj)
+                {
+                    reader++;
+                }
+            }
+            public bool RemoveReader()
+            {
+                lock (readObj)
+                {
+                    if (reader == 0)
+                        return false;
+                    reader--;
+                }
+                return true;
+            }
             public bool Start()
             {
                 if (!processseqs.ContainsKey(RootProcessNo))
                     return false;
-                this.OnWork = true;
+                this.Writing = true;
                 progress = 0;
                 processdic.Add(RootProcessNo, getProcessString(RootProcessNo));
                 int listcount = IDList.Count;
@@ -185,7 +255,7 @@ namespace QtDataTrace.Access
             public bool Stop()
             {
                 cancel.Cancel();
-                this.OnWork = false;
+                this.Writing = false;
                 return true;
             }
             public int GetProgress()
@@ -235,7 +305,7 @@ namespace QtDataTrace.Access
                     progress ++;
                 }
                 this.ResultData = mainTable;
-                this.OnWork = false;
+                this.Writing = false;
             }
             private void threadMethod_Single(object input)
             {

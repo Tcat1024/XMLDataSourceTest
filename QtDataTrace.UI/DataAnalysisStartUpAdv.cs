@@ -11,6 +11,7 @@ using EAS.Modularization;
 using QtDataTrace.Interfaces;
 using QtDataTrace.IService;
 using System.Threading;
+using System.Management;
 using System.Threading.Tasks;
 
 namespace QtDataTrace.UI
@@ -26,6 +27,7 @@ namespace QtDataTrace.UI
         private QueryArgs queryArg;
         private string _processNo;
         private Guid currentTraceFactoryId = Guid.Empty;
+        private Guid currentAnalyzeFactoryId = Guid.Empty;
         private bool currentTraceDir;
         private string loginId;
         public string ProcessNo
@@ -39,18 +41,7 @@ namespace QtDataTrace.UI
                 if (this._processNo != value)
                 {
                     this._processNo = value;
-                    //try
-                    //{
                     InitTreeList();
-                    //}
-                    //catch (Exception ex)
-                    //{
-                    //    MessageBox.Show(ex.Message);
-                    //}
-                    //finally
-                    //{
-                    //    this.triStateTreeView1.EndUpdate();
-                    //}
                 }
             }
         }
@@ -64,7 +55,6 @@ namespace QtDataTrace.UI
         {
             checkTime.Checked = true;
             dateTimeStart.Value = DateTime.Now.AddDays(-1);
-
             processData = ServiceContainer.GetService<IBaseTableService>().GetProcessCode();
             this.lookUpEdit1.Properties.DataSource = processData.Tables[0];
             lookUpEdit1.Properties.DisplayMember = "PROC_COMMENTS";
@@ -76,7 +66,20 @@ namespace QtDataTrace.UI
             configFileView = configFile.Tables["Table"].DefaultView;
 
             this.gridControl2.DataSource = materialBindingSource;
-            this.loginId = (EAS.Application.Instance.Session.Client as EAS.Explorer.IAccount).LoginID;
+            if (EAS.Application.Instance != null)
+                this.loginId = (EAS.Application.Instance.Session.Client as EAS.Explorer.IAccount).LoginID;
+            else
+                this.loginId = "Debug";
+            ManagementClass mc = new ManagementClass("Win32_NetworkAdapterConfiguration");
+            ManagementObjectCollection moc = mc.GetInstances();
+            foreach (ManagementObject mo in moc)
+            {
+                if (mo["IPEnabled"].ToString() == "True")
+                {
+                    this.loginId += mo["MacAddress"].ToString();
+                    break;
+                }
+            }
         }
         private void InitTreeList()
         {
@@ -117,43 +120,6 @@ namespace QtDataTrace.UI
                     }
                 }
             }
-            //this.triStateTreeView1.Nodes.Add(rootNode);
-            //var temptable = this.processData.Tables[0];
-            //for (int i = 0; i < temptable.Rows.Count; i++)
-            //{
-            //    TreeNode processNode;
-            //    string tempno;
-            //    string tempname;
-            //    if (temptable.Rows[i]["PROCESS_NO"].ToString() != this.ProcessNo)
-            //    {
-            //        tempno = temptable.Rows[i]["PROCESS_NO"].ToString();
-            //        tempname = temptable.Rows[i]["PROC_COMMENTS"].ToString();
-            //        processNode = this.triStateTreeView1.Nodes.Add(tempno, tempname);
-            //    }
-            //    else
-            //    {
-            //        tempno = this.ProcessNo;
-            //        tempname = this.ProcessName;
-            //        processNode = rootNode;
-            //    }
-            //    configFileView.RowFilter = "PROCESS_CODE = '" + tempno + "'";
-            //    for (int j = 0; j < configFileView.Count; j++)
-            //    {
-            //        string e = configFileView[j]["TABLE_NAME"].ToString();
-            //        string c = configFileView[j]["TABLE_CHINESE"].ToString();
-            //        if (c == null || c.Trim() == "")
-            //            c = e;
-            //        var tablenode = processNode.Nodes.Add(e, c);
-            //        foreach (var column in configFileView[j].Row.GetChildRows("Table_Column"))
-            //        {
-            //            string ee = column["COLUMN_NAME"].ToString();
-            //            string cc = column["COLUMN_CHINESE"].ToString();
-            //            if (cc.Trim() == "")
-            //                cc = ee;
-            //            tablenode.Nodes.Add(ee, cc);
-            //        }
-            //    }
-            //}
             this.triStateTreeView1.EndUpdate();
             this.triStateTreeView1.Refresh();
             if (rootNode != null)
@@ -180,68 +146,6 @@ namespace QtDataTrace.UI
             }
             this.ProcessNo = temp.ProcessCode;
             this.queryArg = temp;
-
-            //Object obj = lookUpEdit1.GetColumnValue("PROCESS_NO");
-            //if (obj == null)
-            //{
-            //    MessageBox.Show("请选择工序");
-            //    return;
-            //}
-
-            //QueryArgs arg = new QueryArgs();
-
-            //arg.ProcessCode = obj.ToString();
-            //arg.TimeFlag = checkTime.Checked;
-            //arg.SteelGradeFlag = checkGrade.Checked;
-            //arg.ThickFlag = checkThick.Checked;
-            //arg.WidthFlag = checkWidth.Checked;
-
-            //arg.StartTime = dateTimeStart.Value;
-            //arg.StopTime = dateTimeStop.Value;
-            //arg.SteelGrade = comboxGrade.Text;
-
-            //if (textMinThick.Text != "")
-            //    arg.MinThick = Convert.ToDouble(textMinThick.Text);
-
-            //if (textMaxThick.Text != "")
-            //    arg.MaxThick = Convert.ToDouble(textMaxThick.Text);
-
-            //if (textMinWidth.Text != "")
-            //    arg.MinWidth = Convert.ToDouble(textMinWidth.Text);
-
-            //if (textMaxWidth.Text != "")
-            //    arg.MaxWidth = Convert.ToDouble(textMaxWidth.Text);
-
-            //QtDataTableConfig table = new QtDataTableConfig();
-            //bool hasdata = false;
-            //for (int i = 0; i < this.triStateTreeView1.Nodes.Count; i++)
-            //{
-            //    var tablenode = this.triStateTreeView1.Nodes[i];
-            //    if (tablenode.Checked)
-            //    {
-            //        table.TableName = tablenode.Name;
-            //        table.ChineseName = tablenode.Text;
-            //        for (int j = 0; j < tablenode.Nodes.Count; j++)
-            //        {
-            //            var columnnode = tablenode.Nodes[j];
-            //            if (columnnode.Checked)
-            //            {
-            //                table.Columns.Add(new QtDataTableColumnConfig() { ChineseName = columnnode.Text, ColumnName = columnnode.Name });
-            //                if (!hasdata)
-            //                    hasdata = true;
-            //            }
-            //        }
-            //        break;
-            //    }
-            //}
-            //if (!hasdata)
-            //{
-            //    MessageBox.Show("没有选择数据");
-            //    return;
-            //}
-            //data = ServiceContainer.GetService<IQtDataTraceService>().GetQtData(arg, table);
-            //this.gridView1.Columns.Clear();
-            //gridControl1.DataSource = data.Tables[0];
         }
         private QueryArgs getQueryArg()
         {
@@ -273,60 +177,6 @@ namespace QtDataTrace.UI
                 qA.MaxWidth = Convert.ToDouble(textMaxWidth.Text);
             return qA;
         }
-        /*
-        private void btnQuickQuery_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            //Object obj = lookUpEdit1.GetColumnValue("PROCESS_NO");
-            QtDataTableConfig table = new QtDataTableConfig();
-            bool hasdata = false;
-            TreeNode rootnode = null;
-            for (int i = 0; i < this.triStateTreeView1.Nodes.Count; i++)
-            {
-                if (this.triStateTreeView1.Nodes[i].Checked)
-                {
-                    rootnode = this.triStateTreeView1.Nodes[i];
-                    break;
-                }
-            }
-            if (rootnode == null)
-            {
-                MessageBox.Show("未选择任何表");
-                return;
-            }
-            for (int i = 0; i < rootnode.Nodes.Count; i++)
-            {
-                var tablenode = rootnode.Nodes[i];
-                if (tablenode.Checked)
-                {
-                    table.TableName = tablenode.Name;
-                    table.ChineseName = tablenode.Text;
-                    for (int j = 0; j < tablenode.Nodes.Count; j++)
-                    {
-                        var columnnode = tablenode.Nodes[j];
-                        if (columnnode.Checked)
-                        {
-                            table.Columns.Add(new QtDataTableColumnConfig() { ChineseName = columnnode.Text, ColumnName = columnnode.Name });
-                            if (!hasdata)
-                                hasdata = true;
-                        }
-                    }
-                    break;
-                }
-            }
-            if (!hasdata)
-            {
-                MessageBox.Show("没有选择数据");
-                return;
-            }
-            string tempcode = queryArg.ProcessCode;
-            queryArg.ProcessCode = rootnode.Name;
-            data = ServiceContainer.GetService<IQtDataTraceService>().GetQtData(queryArg, table);
-            queryArg.ProcessCode = tempcode;
-            this.gridView1.Columns.Clear();
-            gridControl1.DataSource = data.Tables[0];
-            setGraphEnable(true);
-        }
-        */
         private void btnCPK_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             if (data == null)
@@ -499,10 +349,7 @@ namespace QtDataTrace.UI
                 MessageBox.Show("用户任务过多，无法新建追溯");
                 return;
             }
-            setGraphEnable(false);
-            setTraceEnable(false);
-            this.waitPanel1.Visible = true;
-            this.waitPanel1.Position = 0;
+            BeginWait();
             Thread timertask = new Thread(traceTimerThreadMethod) { IsBackground = true };
             timertask.Start();
         }
@@ -533,16 +380,43 @@ namespace QtDataTrace.UI
             this.gridView1.Columns.Clear();
             gridControl1.DataSource = data.Tables[0];
             AddTraceHis(currentTraceFactoryId, DateTime.Now, currentTraceDir, ProcessNo);
-            setGraphEnable(true);
-            setTraceEnable(true);
-            this.waitPanel1.Visible = false;
+            EndWait();
         }
         private void AddTraceHis(Guid id,DateTime time,bool back,string process)
         {
             stHisNone.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             var btn = new DevExpress.XtraBars.BarButtonItem(this.barManager1, string.Format("{0}_{1}_{2}",time.ToString("hh:mm:ss"),ProcessNo,back?"后追":"前追"));
             btn.Tag = id;
-            this.menuTraceHis.LinksPersistInfo.Add(new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, btn, DevExpress.XtraBars.BarItemPaintStyle.Standard));
+            btn.ItemClick += btnHis_ItemClick;
+            btn.Name = this.menuTraceHis.ItemLinks.IndexOf(this.menuTraceHis.AddItem(btn)).ToString();
+            
+        }
+
+        void btnHis_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            try
+            {
+                var con = e.Item;
+                var result = ServiceContainer.GetService<IQtDataTraceService>().TryGetTraceData(loginId, (Guid)con.Tag);
+                if (result.Item2 == null)
+                {
+                    RemoveTraceHis(int.Parse(con.Name));
+                    this.barManager1.Items.Remove(con);
+                    MessageBox.Show("数据已丢失");
+                }
+                else
+                {
+                    this.data = new DataSet();
+                    this.data.Tables.Add(result.Item2);
+                    this.gridView1.Columns.Clear();
+                    gridControl1.DataSource = data.Tables[0];
+                }
+
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
         private void RemoveTraceHis(int Index)
         {
@@ -582,10 +456,8 @@ namespace QtDataTrace.UI
         {
             if (ServiceContainer.GetService<IQtDataTraceService>().Stop(loginId, currentTraceFactoryId))
             {
-                setGraphEnable(true);
-                setTraceEnable(true);
                 currentTraceFactoryId = Guid.Empty;
-                this.waitPanel1.Visible = false;
+                EndWait();
             }
         }
 
@@ -638,10 +510,66 @@ namespace QtDataTrace.UI
             module.AccessibleDescription = "SPC判定";
             EAS.Application.Instance.OpenModule(module);
         }
-
+        private void BeginWait()
+        {
+            setGraphEnable(false);
+            setTraceEnable(false);
+            this.waitPanel1.Visible = true;
+            this.waitPanel1.Position = 0;
+        }
+        private void EndWait()
+        {
+            if (this.gridView1.RowCount > 0)
+                setGraphEnable(true);
+            setTraceEnable(true);
+            this.waitPanel1.Visible = false;
+        }
         private void btnRelationAnalyze_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-
+            SPC.Analysis.ConfigControls.CCTConfigControl configcontrol = new SPC.Analysis.ConfigControls.CCTConfigControl();
+            AnalyzeConfigForm configForm = new AnalyzeConfigForm();
+            configForm.AddConfigControl(configcontrol);
+            configcontrol.Init(this.gridView1.GetVisibleColumnNames(false,typeof(string),typeof(DateTime),typeof(bool)));
+            if (configForm.ShowDialog() == DialogResult.OK)
+            {
+                currentAnalyzeFactoryId = ServiceContainer.GetService<IDataAnalyzeService>().CCTStart(loginId, currentTraceFactoryId, this.gridView1.GetChoosedRowIndexs(), configcontrol.TargetColumn, configcontrol.Columns);
+                if (currentTraceFactoryId == Guid.Empty)
+                {
+                    MessageBox.Show("当前服务器端数据已丢失，请不要同时进行过多数据查询");
+                    return;
+                }
+                BeginWait();
+                Thread timertask = new Thread(() =>
+                {
+                    DateTime start = DateTime.Now;
+                    Tuple<int,double[]> result;
+                    while (true)
+                    {
+                        result = ServiceContainer.GetService<IDataAnalyzeService>().CCTget(loginId, currentAnalyzeFactoryId);
+                        if (result.Item1 < 0)
+                            break;
+                        if (result.Item2 != null)
+                        {
+                            break;
+                        }
+                        else
+                            this.Invoke(new Action(() => { this.waitPanel1.Position = result.Item1; }));
+                        Thread.Sleep(1000);
+                    }
+                    DateTime end = DateTime.Now;
+                    Console.WriteLine("Cost:" + (end - start));
+                    this.Invoke(new Action(() =>
+                    {
+                        EndWait();
+                        SPC.Analysis.ResultControls.CCTResultControl resultcontrol = new SPC.Analysis.ResultControls.CCTResultControl();
+                        AnalyzeResultControl resultForm = new AnalyzeResultControl();
+                        resultForm.AddResultControl(resultcontrol);
+                        resultcontrol.Init(configcontrol.Columns, result.Item2);
+                        EAS.Application.Instance.OpenModule(resultcontrol);
+                    }));
+                }) { IsBackground = true };
+                timertask.Start();
+            }
         }
 
         private void btnQuickCluster_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

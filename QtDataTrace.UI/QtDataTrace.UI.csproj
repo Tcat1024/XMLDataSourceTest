@@ -93,6 +93,10 @@
     <Reference Include="QtDataTrace.Data">
       <HintPath>..\QtDataTrace.Data\obj\Debug\QtDataTrace.Data.dll</HintPath>
     </Reference>
+    <Reference Include="SPC.Analysis, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Library\SPC.Analysis.dll</HintPath>
+    </Reference>
     <Reference Include="SPC.Base, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\Library\SPC.Base.dll</HintPath>
@@ -114,6 +118,7 @@
     <Reference Include="System.Design" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Management" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Windows.Forms" />
@@ -127,6 +132,12 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AnalyzeResultControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AnalyzeResultControl.Designer.cs">
+      <DependentUpon>AnalyzeResultControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="CpkModule.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -156,6 +167,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="AnalyzeConfigForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AnalyzeConfigForm.Designer.cs">
+      <DependentUpon>AnalyzeConfigForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="RelationMonitorControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -182,6 +199,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="AnalyzeResultControl.resx">
+      <DependentUpon>AnalyzeResultControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CpkModule.resx">
       <DependentUpon>CpkModule.cs</DependentUpon>
     </EmbeddedResource>
@@ -196,6 +216,9 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AnalyzeConfigForm.resx">
+      <DependentUpon>AnalyzeConfigForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RelationMonitorControl.resx">
       <DependentUpon>RelationMonitorControl.cs</DependentUpon>

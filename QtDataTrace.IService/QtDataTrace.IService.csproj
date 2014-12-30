@@ -55,6 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IBaseTableService.cs" />
+    <Compile Include="IDataAnalyzeService.cs" />
     <Compile Include="IHistorainDataService.cs" />
     <Compile Include="IQtDataTraceService.cs" />
     <Compile Include="ISingleQtTableService.cs" />

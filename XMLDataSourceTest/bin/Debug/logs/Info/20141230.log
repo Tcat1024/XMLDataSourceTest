@@ -1,0 +1,9 @@
+2014-12-30 09:38:00==>INFO :组件定义:
+	Key=EAS.Services.TimeService,Type=EAS.Services.TimeService,EAS.MicroKernel
+	Key=EAS.Data.DataService,Type=EAS.Data.DataService,EAS.Data
+	Key=EAS.Data.ORM.OrmAccessor,Type=EAS.Data.ORM.OrmAccessor,EAS.Data
+	Key=EAS.Data.Caching.CacheService,Type=EAS.Data.Caching.CacheService,EAS.Data
+	Key=QtDataTrace.Access.BaseTableService,Type=QtDataTrace.Access.BaseTableService,QtDataTrace.Access
+	Key=QtDataTrace.Access.QtDataTraceService,Type=QtDataTrace.Access.QtDataTraceService,QtDataTrace.Access
+	Key=QtDataTrace.Access.SingleQtTableService,Type=QtDataTrace.Access.SingleQtTableService,QtDataTrace.Access
+

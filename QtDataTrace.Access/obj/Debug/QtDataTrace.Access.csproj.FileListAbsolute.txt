@@ -30,3 +30,6 @@ C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\QtDataTrace.Access\bin
 C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\QtDataTrace.Access\obj\Debug\QtDataTrace.Access.csprojResolveAssemblyReference.cache
 C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\QtDataTrace.Access\obj\Debug\QtDataTrace.Access.dll
 C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\QtDataTrace.Access\obj\Debug\QtDataTrace.Access.pdb
+C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\QtDataTrace.Access\bin\Debug\SPC.Algorithm.dll
+C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\QtDataTrace.Access\bin\Debug\SPC.Base.dll
+C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\QtDataTrace.Access\bin\Debug\EAS.MicroKernel.xml
