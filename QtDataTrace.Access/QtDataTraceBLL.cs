@@ -154,11 +154,11 @@ namespace QtDataTrace.Access
             int rowcount = 0;
             string RootProcessNo;
             int RootProcessSeq;
-            string RootSql;
+            List<string> RootSql;
             IList<string> IDList;
             IList<QtDataProcessConfig> Processes;
             DataSet ConfigFile;
-            Dictionary<string, string> processdic = new Dictionary<string, string>();
+            Dictionary<string, List<string>> processdic = new Dictionary<string, List<string>>();
             Dictionary<string, int> processseqs = new Dictionary<string, int>();
             int back;
             object progressobject = new object();
@@ -334,9 +334,15 @@ namespace QtDataTrace.Access
                     {
                         root.InId = pros.Item1;
                     }
-                    command.CommandText = string.Format(root.Sql, IDList[i], RootProcessNo,root.InId);
                     OleDbDataAdapter adp = new OleDbDataAdapter(command);
-                    adp.Fill(root.data);
+                    DataTable temp;
+                    foreach (string sql in root.Sql)
+                    {
+                        command.CommandText = string.Format(sql, IDList[i], RootProcessNo, root.InId);
+                        temp = new DataTable();
+                        adp.Fill(temp);
+                        externtable(temp, root.data, false);
+                    }
                     inputtype.data.Merge(root.data);
                     lock(progressobject)
                     {
@@ -453,6 +459,7 @@ namespace QtDataTrace.Access
             private DataTable analyzeLeafNode(DataTraceTreeNode leaf, OleDbConnection connection, bool pre)
             {
                 DataTable result = new DataTable();
+                DataTable temp;
                 if (leaf == null)
                     return null;
                 OleDbCommand cmd = new OleDbCommand();
@@ -460,13 +467,18 @@ namespace QtDataTrace.Access
                 OleDbDataAdapter adp = new OleDbDataAdapter(cmd);
                 do
                 {
-                    if (leaf.Sql != "")
+                    if (leaf.Sql != null&&leaf.Sql.Count!=0)
                     {
                         if (leaf.data == null)
                         {
-                            cmd.CommandText = string.Format(leaf.Sql, leaf.OutId, leaf.Process,leaf.InId);
                             leaf.data = new DataTable();
-                            adp.Fill(leaf.data);
+                            foreach(string sql in leaf.Sql)
+                            {
+                                cmd.CommandText = string.Format(sql, leaf.OutId, leaf.Process, leaf.InId);
+                                temp = new DataTable();
+                                adp.Fill(temp);
+                                externtable(temp, leaf.data, false);
+                            }
                         }
                         externtable(leaf.data, result, pre);
                     }
@@ -483,14 +495,18 @@ namespace QtDataTrace.Access
                 if(result.Rows.Count==0)
                     result.Rows.Add(result.NewRow());
                 if (!pre)
-                    for (int i = 0; i < counta; i++)
+                    for (int i = 0,j=0; i < counta; i++)
                     {
+                        if (result.Columns.Contains(a.Columns[i].ColumnName))
+                            continue;
                         result.Columns.Add(a.Columns[i].ColumnName, a.Columns[i].DataType);
-                        result.Rows[0][countr + i] = a.Rows[0][i];
+                        result.Rows[0][countr + j++] = a.Rows[0][i];
                     }
                 else
                     for (int i = counta - 1; i >= 0; i--)
                     {
+                        if (result.Columns.Contains(a.Columns[i].ColumnName))
+                            continue;
                         result.Columns.Add(a.Columns[i].ColumnName, a.Columns[i].DataType).SetOrdinal(0);
                         result.Rows[0][0] = a.Rows[0][i];
                     }
@@ -520,7 +536,7 @@ namespace QtDataTrace.Access
                     {
                         if (pro.Item1 == minseq)
                         {
-                            string sql = "";
+                            List<string> sql;
                             if (!processdic.TryGetValue(pro.Item2, out sql))
                             {
                                 lock (processdic)
@@ -540,7 +556,7 @@ namespace QtDataTrace.Access
                 }
                 if (node.Nodes.Count == 0)
                 {
-                    if (node.Sql == "" && node.Parent != null)
+                    if ((node.Sql == null||node.Sql.Count==0) && node.Parent != null)
                     {
                         node.Parent.Nodes.Remove(node);
                     }
@@ -594,7 +610,7 @@ namespace QtDataTrace.Access
                     }
                     if (node.Nodes.Count == 0)
                     {
-                        if (node.Sql == "")
+                        if ((node.Sql == null || node.Sql.Count == 0)&& node.Parent != null)
                         {
                             node.Parent.Nodes.Remove(node);
                         }
@@ -615,7 +631,7 @@ namespace QtDataTrace.Access
                 public List<DataTraceTreeNode> Nodes = new List<DataTraceTreeNode>();
                 public DataTraceTreeNode Parent;
                 public DataTable data = null;
-                public string Sql = "";
+                public List<string> Sql = null;
                 public DataTraceTreeNode(string inid, string outid, string process, int proseq, DataTraceTreeNode parent)
                 {
                     this.InId = inid;
@@ -638,12 +654,12 @@ namespace QtDataTrace.Access
                     this.ProSeq = proseq;
                 }
             }
-            private string getProcessString(string process)
+            private List<string> getProcessString(string process)
             {
-                string[] sqlparams = new string[] { "", "", "" };
+                List<string> result = new List<string>();
                 var tables = ConfigFile.Tables["Table"].Select(string.Format("PROCESS_CODE = '{0}'", process));
                 if (tables.Count() == 0)
-                    return "";
+                    return result;
                 var processchinese = tables.FirstOrDefault()["PROCESS_CHINESE"].ToString();
                 var processconfig = Processes.FirstOrDefault((d) => { return d.ChineseName == processchinese; });
                 if (processconfig != null)
@@ -654,12 +670,15 @@ namespace QtDataTrace.Access
                     int tc = processconfig.Tables.Count;
                     for (int i = 0; i < tc; i++)
                     {
+                        string[] sqlparams = new string[] { "", "", "" };
                         string tablechinese = processconfig.Tables[i].ChineseName;
                         var table = tables.First((input) => { return input["TABLE_CHINESE"].ToString() == tablechinese; });
                         string tablename = table["TABLE_NAME"].ToString();
 
-                        sqlparams[1] += tablename + ", ";
+                        sqlparams[1] = tablename;
                         int cc = processconfig.Tables[i].Columns.Count;
+                        if(cc==0)
+                            continue;
                         for (int j = 0; j < cc; j++)
                         {
                             string columnchinese = processconfig.Tables[i].Columns[j].ChineseName;
@@ -667,54 +686,24 @@ namespace QtDataTrace.Access
                             if (column == null)
                                 sqlparams[0] += string.Format("null \"{0}\", ", processchinese + "_" + columnchinese);
                             else
-                            {
                                 sqlparams[0] += string.Format("{0}.{1} \"{2}\", ", tablename, column["COLUMN_NAME"], processchinese + "_" + columnchinese);
-                            }
                         }
+                        if (sqlparams[0] != "")
+                            sqlparams[0] = sqlparams[0].Substring(0, sqlparams[0].Length - 2);
                         var keycolumns = from r in ConfigFile.Tables["Column"].AsEnumerable() where r.GetParentRow("Table_Column")["TABLE_NAME"].ToString() == tablename && r.GetParentRow("Table_Column")["PROCESS_CODE"].ToString() == process && r["KEY"] != null && r["KEY"].ToString().Trim() != "" select r;
                         int kcc = keycolumns.Count();
                         for (int j = 0; j < kcc; j++)
                         {
                             switch (keycolumns.ElementAt(j)["KEY"].ToString())
                             {
-                                case "IN_MAT_ID": inids.Add(string.Format("{0}.{1}", tablename, keycolumns.ElementAt(j)["COLUMN_NAME"])); break;
-                                case "OUT_MAT_ID": outids.Add(string.Format("{0}.{1}", tablename, keycolumns.ElementAt(j)["COLUMN_NAME"])); break;
-                                case "PROCESS_CODE": processcodes.Add(string.Format("{0}.{1}", tablename, keycolumns.ElementAt(j)["COLUMN_NAME"])); break;
+                                case "IN_MAT_ID": sqlparams[2] += "and " + keycolumns.ElementAt(j)["COLUMN_NAME"] + "='{2}' "; break;
+                                case "OUT_MAT_ID": sqlparams[2] += "and " + keycolumns.ElementAt(j)["COLUMN_NAME"] + "='{0}' "; break;
+                                case "PROCESS_CODE": sqlparams[2] += "and " + keycolumns.ElementAt(j)["COLUMN_NAME"] + "='{1}' "; break;
                             }
                         }
+                        result.Add("select " + sqlparams[0] + " from " + sqlparams[1] + " where 1=1 " + sqlparams[2]);
                     }
-                    if(inids.Count>0)
-                    {
-                        sqlparams[2] += "and " + inids[0] + "='{2}' ";
-                        for (int i = 0; i < inids.Count - 1; i++)
-                        {
-                            sqlparams[2] += "and " + inids[i] + "=" + inids[i + 1] + " ";
-                        }
-                    }
-                    if (outids.Count > 0)
-                    {
-                        sqlparams[2] += "and " + outids[0] + "='{0}' ";
-                        for (int i = 0; i < outids.Count - 1; i++)
-                        {
-                            sqlparams[2] += "and " + outids[i] + "=" + outids[i + 1] + " ";
-                        }
-                    }
-                    if (processcodes.Count > 0)
-                    {
-                        sqlparams[2] += "and " + processcodes[0] + "='{1}' ";
-                        for (int i = 0; i < processcodes.Count - 1; i++)
-                        {
-                            sqlparams[2] += "and " + processcodes[i] + "=" + processcodes[i + 1] + " ";
-                        }
-                    }
-                    if (sqlparams[0] != "")
-                        sqlparams[0] = sqlparams[0].Substring(0, sqlparams[0].Length - 2);
-                    if (sqlparams[1] != "")
-                        sqlparams[1] = sqlparams[1].Substring(0, sqlparams[1].Length - 2);
                 }
-                else
-                    return "";
-                string result = "select " + sqlparams[0] + " from " + sqlparams[1] + " where 1=1 " + sqlparams[2];
                 return result;
             }
         }

@@ -440,6 +440,7 @@
             this.btnSave.Caption = "追溯结果归档";
             this.btnSave.Id = 31;
             this.btnSave.Name = "btnSave";
+            this.btnSave.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSave_ItemClick);
             // 
             // btnLoad
             // 
@@ -786,7 +787,7 @@
             // 
             this.xtraTabPage1.Controls.Add(this.gridControl2);
             this.xtraTabPage1.Name = "xtraTabPage1";
-            this.xtraTabPage1.Size = new System.Drawing.Size(1461, 460);
+            this.xtraTabPage1.Size = new System.Drawing.Size(1457, 459);
             this.xtraTabPage1.TabPageWidth = 100;
             this.xtraTabPage1.Text = "数据选择";
             // 
@@ -796,7 +797,7 @@
             this.gridControl2.Location = new System.Drawing.Point(0, 0);
             this.gridControl2.MainView = this.gridView2;
             this.gridControl2.Name = "gridControl2";
-            this.gridControl2.Size = new System.Drawing.Size(1461, 460);
+            this.gridControl2.Size = new System.Drawing.Size(1457, 459);
             this.gridControl2.TabIndex = 1;
             this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});

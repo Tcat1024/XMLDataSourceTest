@@ -19,7 +19,7 @@ namespace QtDataTrace.UI
     [Module("33EE9C1F-0AEF-4874-B63B-07C22960F165", "数据分析起始页", "数据分析起始页模块")]
     public partial class DataAnalysisStartUpAdv : UserControl
     {
-        private DataSet data;
+        private DataTable data;
         private DataSet processData;
         private DataSet configFile;
         private DataView configFileView;
@@ -186,7 +186,7 @@ namespace QtDataTrace.UI
             }
 
             CpkModule module = new CpkModule();
-            module.DataSource = data.Tables[0];
+            module.DataSource = data;
             (module.DataView as SPC.Base.Control.CanChooseDataGridView).Synchronize(this.gridView1, DevExpress.XtraGrid.Views.Base.SynchronizationMode.Full);
             EAS.Application.Instance.OpenModule(module);
         }
@@ -201,7 +201,7 @@ namespace QtDataTrace.UI
 
             SpcModule module = new SpcModule();
 
-            module.DataSource = data.Tables[0];
+            module.DataSource = data;
             (module.DataView as SPC.Base.Control.CanChooseDataGridView).Synchronize(this.gridView1, DevExpress.XtraGrid.Views.Base.SynchronizationMode.Full);
             module.SelectTabPageIndex = 0;
             module.AccessibleDescription = "样本散点图";
@@ -218,7 +218,7 @@ namespace QtDataTrace.UI
 
             SpcModule module = new SpcModule();
 
-            module.DataSource = data.Tables[0];
+            module.DataSource = data;
             (module.DataView as SPC.Base.Control.CanChooseDataGridView).Synchronize(this.gridView1, DevExpress.XtraGrid.Views.Base.SynchronizationMode.Full);
             module.SelectTabPageIndex = 1;
             module.AccessibleDescription = "样本控制图";
@@ -235,7 +235,7 @@ namespace QtDataTrace.UI
 
             SpcModule module = new SpcModule();
 
-            module.DataSource = data.Tables[0];
+            module.DataSource = data;
             (module.DataView as SPC.Base.Control.CanChooseDataGridView).Synchronize(this.gridView1, DevExpress.XtraGrid.Views.Base.SynchronizationMode.Full);
             module.SelectTabPageIndex = 2;
             module.AccessibleDescription = "均值运行图";
@@ -252,7 +252,7 @@ namespace QtDataTrace.UI
 
             SpcModule module = new SpcModule();
 
-            module.DataSource = data.Tables[0];
+            module.DataSource = data;
             (module.DataView as SPC.Base.Control.CanChooseDataGridView).Synchronize(this.gridView1, DevExpress.XtraGrid.Views.Base.SynchronizationMode.Full);
             module.SelectTabPageIndex = 3;
             module.AccessibleDescription = "正态校验";
@@ -268,7 +268,7 @@ namespace QtDataTrace.UI
 
             SpcModule module = new SpcModule();
 
-            module.DataSource = data.Tables[0];
+            module.DataSource = data;
             (module.DataView as SPC.Base.Control.CanChooseDataGridView).Synchronize(this.gridView1, DevExpress.XtraGrid.Views.Base.SynchronizationMode.Full);
             module.SelectTabPageIndex = 4;
             module.AccessibleDescription = "频度分布";
@@ -300,7 +300,7 @@ namespace QtDataTrace.UI
             bool hasdata = false;
             int targetseq = int.Parse(this.ProcessSEQ);
             Func<int, bool> check;
-            if(sender == this.btnPreQtrace)
+            if(e.Item == this.btnPreQtrace)
             {
                 check = (a) => { return a <= targetseq; };
                 currentTraceDir = false;
@@ -363,8 +363,7 @@ namespace QtDataTrace.UI
                     break;
                 if (result.Item2 != null)
                 {
-                    this.data = new DataSet();
-                    this.data.Tables.Add(result.Item2);
+                    this.data = result.Item2;
                     this.Invoke(new Action(() => { this.waitPanel1.Position = result.Item1; traceCallBack(); }));
                     break;
                 }
@@ -378,7 +377,7 @@ namespace QtDataTrace.UI
         private void traceCallBack()
         {
             this.gridView1.Columns.Clear();
-            gridControl1.DataSource = data.Tables[0];
+            gridControl1.DataSource = data;
             AddTraceHis(currentTraceFactoryId, DateTime.Now, currentTraceDir, ProcessNo);
             EndWait();
         }
@@ -406,10 +405,9 @@ namespace QtDataTrace.UI
                 }
                 else
                 {
-                    this.data = new DataSet();
-                    this.data.Tables.Add(result.Item2);
+                    this.data = result.Item2;
                     this.gridView1.Columns.Clear();
-                    gridControl1.DataSource = data.Tables[0];
+                    gridControl1.DataSource = data;
                 }
 
             }
@@ -471,7 +469,7 @@ namespace QtDataTrace.UI
 
             RelationMonitorControl module = new RelationMonitorControl();
 
-            module.DataSource = data.Tables[0];
+            module.DataSource = data;
             (module.DataView as SPC.Base.Control.CanChooseDataGridView).Synchronize(this.gridView1, DevExpress.XtraGrid.Views.Base.SynchronizationMode.Full);
             module.AccessibleDescription = "相关性散点图";
             EAS.Application.Instance.OpenModule(module);
@@ -487,7 +485,7 @@ namespace QtDataTrace.UI
 
             SpcModule module = new SpcModule();
 
-            module.DataSource = data.Tables[0];
+            module.DataSource = data;
             (module.DataView as SPC.Base.Control.CanChooseDataGridView).Synchronize(this.gridView1, DevExpress.XtraGrid.Views.Base.SynchronizationMode.Full);
             module.SelectTabPageIndex = 5;
             module.AccessibleDescription = "箱型图";
@@ -504,7 +502,7 @@ namespace QtDataTrace.UI
 
             SPCDetermineControl module = new SPCDetermineControl();
 
-            module.DataSource = data.Tables[0];
+            module.DataSource = data;
             (module.DataView as SPC.Base.Control.CanChooseDataGridView).Synchronize(this.gridView1, DevExpress.XtraGrid.Views.Base.SynchronizationMode.Full);
 
             module.AccessibleDescription = "SPC判定";
@@ -565,7 +563,8 @@ namespace QtDataTrace.UI
                         AnalyzeResultControl resultForm = new AnalyzeResultControl();
                         resultForm.AddResultControl(resultcontrol);
                         resultcontrol.Init(configcontrol.Columns, result.Item2);
-                        EAS.Application.Instance.OpenModule(resultcontrol);
+                        resultForm.AccessibleDescription = "相关系数" + DateTime.Now.ToString("hh:mm:ss");
+                        EAS.Application.Instance.OpenModule(resultForm);
                     }));
                 }) { IsBackground = true };
                 timertask.Start();
@@ -573,6 +572,11 @@ namespace QtDataTrace.UI
         }
 
         private void btnQuickCluster_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+
+        }
+
+        private void btnSave_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
 
         }
