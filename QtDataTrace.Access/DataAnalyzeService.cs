@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Data;
 using QtDataTrace.IService;
 using SPC.Base.Interface;
 using SPC.Algorithm;
@@ -29,6 +30,27 @@ namespace QtDataTrace.Access
                 return new Tuple<int, double[]>(progress, factory.Result);
             }
             return new Tuple<int, double[]>(progress, null);
+        }
+        public Guid KMeansStart(string username, Guid id, int[] selected,string[] properties,int maxcount,int minclustercount,int maxclustercount,double m,double s,int initialmode,int maxthread)
+        {
+            var data = QtDataTraceBLL.BeginAnalyzeData(username, id);
+            if (data == null)
+                return Guid.Empty;
+            return DataAnalyzeBLL.Add(username, new KMeansAnalyzeFactory(new ChoosedData(data, selected),properties,maxcount,minclustercount,maxclustercount,m,s,initialmode,maxthread));
+        }
+        public Tuple<int, DataSet> KMeansget(string username, Guid id)
+        {
+            KMeansAnalyzeFactory factory = DataAnalyzeBLL.GetFactory(username, id) as KMeansAnalyzeFactory;
+            int progress = factory.GetProgress();
+            if (!factory.Working)
+            {
+                return new Tuple<int, DataSet>(progress, factory.Result);
+            }
+            return new Tuple<int, DataSet>(progress, null);
+        }
+        public bool Stop(string username, Guid id)
+        {
+            return DataAnalyzeBLL.GetFactory(username, id).Stop();
         }
     }
 }

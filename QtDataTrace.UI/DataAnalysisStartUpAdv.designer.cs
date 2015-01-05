@@ -154,8 +154,8 @@
             this.splitContainer1.Panel2.Controls.Add(this.waitPanel1);
             this.splitContainer1.Panel2.Controls.Add(this.gridControl1);
             this.splitContainer1.Panel2.Controls.Add(this.standaloneBarDockControl1);
-            this.splitContainer1.Size = new System.Drawing.Size(1461, 460);
-            this.splitContainer1.SplitterDistance = 301;
+            this.splitContainer1.Size = new System.Drawing.Size(1457, 459);
+            this.splitContainer1.SplitterDistance = 300;
             this.splitContainer1.SplitterWidth = 5;
             this.splitContainer1.TabIndex = 22;
             // 
@@ -163,9 +163,9 @@
             // 
             this.triStateTreeView1.CheckBoxes = true;
             this.triStateTreeView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.triStateTreeView1.Location = new System.Drawing.Point(0, 31);
+            this.triStateTreeView1.Location = new System.Drawing.Point(0, 34);
             this.triStateTreeView1.Name = "triStateTreeView1";
-            this.triStateTreeView1.Size = new System.Drawing.Size(301, 429);
+            this.triStateTreeView1.Size = new System.Drawing.Size(300, 425);
             this.triStateTreeView1.TabIndex = 0;
             // 
             // standaloneBarDockControl2
@@ -176,7 +176,7 @@
             this.standaloneBarDockControl2.Location = new System.Drawing.Point(0, 0);
             this.standaloneBarDockControl2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.standaloneBarDockControl2.Name = "standaloneBarDockControl2";
-            this.standaloneBarDockControl2.Size = new System.Drawing.Size(301, 31);
+            this.standaloneBarDockControl2.Size = new System.Drawing.Size(300, 34);
             this.standaloneBarDockControl2.Text = "standaloneBarDockControl2";
             // 
             // waitPanel1
@@ -208,10 +208,10 @@
             this.gridControl1.EmbeddedNavigator.Buttons.PrevPage.ImageIndex = 1;
             this.gridControl1.EmbeddedNavigator.Buttons.Remove.Visible = false;
             this.gridControl1.EmbeddedNavigator.TextStringFormat = "{0} / {1}";
-            this.gridControl1.Location = new System.Drawing.Point(0, 31);
+            this.gridControl1.Location = new System.Drawing.Point(0, 34);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(1155, 429);
+            this.gridControl1.Size = new System.Drawing.Size(1152, 425);
             this.gridControl1.TabIndex = 1;
             this.gridControl1.UseEmbeddedNavigator = true;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -258,7 +258,7 @@
             this.standaloneBarDockControl1.Location = new System.Drawing.Point(0, 0);
             this.standaloneBarDockControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.standaloneBarDockControl1.Name = "standaloneBarDockControl1";
-            this.standaloneBarDockControl1.Size = new System.Drawing.Size(1155, 31);
+            this.standaloneBarDockControl1.Size = new System.Drawing.Size(1152, 34);
             this.standaloneBarDockControl1.Text = "standaloneBarDockControl1";
             // 
             // barManager1
@@ -476,7 +476,7 @@
             // 
             // btnQuickCluster
             // 
-            this.btnQuickCluster.Caption = "快速聚类分析";
+            this.btnQuickCluster.Caption = "快速聚类";
             this.btnQuickCluster.Id = 25;
             this.btnQuickCluster.Name = "btnQuickCluster";
             this.btnQuickCluster.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnQuickCluster_ItemClick);
@@ -597,9 +597,9 @@
             this.dockPanel1_Container.Controls.Add(this.textMaxWidth);
             this.dockPanel1_Container.Controls.Add(this.comboxGrade);
             this.dockPanel1_Container.Controls.Add(this.checkGrade);
-            this.dockPanel1_Container.Location = new System.Drawing.Point(3, 25);
+            this.dockPanel1_Container.Location = new System.Drawing.Point(4, 24);
             this.dockPanel1_Container.Name = "dockPanel1_Container";
-            this.dockPanel1_Container.Size = new System.Drawing.Size(1457, 70);
+            this.dockPanel1_Container.Size = new System.Drawing.Size(1455, 70);
             this.dockPanel1_Container.TabIndex = 0;
             // 
             // btnQuery
@@ -892,7 +892,7 @@
             this.xtraTabPage2.Controls.Add(this.splitContainer1);
             this.xtraTabPage2.Name = "xtraTabPage2";
             this.xtraTabPage2.PageEnabled = false;
-            this.xtraTabPage2.Size = new System.Drawing.Size(1461, 460);
+            this.xtraTabPage2.Size = new System.Drawing.Size(1457, 459);
             this.xtraTabPage2.Text = "数据追溯";
             // 
             // DataAnalysisStartUpAdv

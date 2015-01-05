@@ -30,6 +30,13 @@ namespace QtDataTrace.UI
         private Guid currentAnalyzeFactoryId = Guid.Empty;
         private bool currentTraceDir;
         private string loginId;
+        enum WorkingMode
+        {
+            None,
+            Trace,
+            Analyze
+        }
+        private WorkingMode currentWorkingMode = WorkingMode.None;
         public string ProcessNo
         {
             get
@@ -278,7 +285,9 @@ namespace QtDataTrace.UI
         {
             foreach (var btn in this.bar1.ItemLinks)
             {
-                (btn as DevExpress.XtraBars.BarItemLink).Item.Enabled = t;
+                var item = (btn as DevExpress.XtraBars.BarItemLink).Item;
+                if(item!=menuFile)
+                    item.Enabled = t;
             }
         }
         private void setTraceEnable(bool t)
@@ -349,7 +358,7 @@ namespace QtDataTrace.UI
                 MessageBox.Show("用户任务过多，无法新建追溯");
                 return;
             }
-            BeginWait();
+            BeginWait(WorkingMode.Trace);
             Thread timertask = new Thread(traceTimerThreadMethod) { IsBackground = true };
             timertask.Start();
         }
@@ -452,10 +461,22 @@ namespace QtDataTrace.UI
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            if (ServiceContainer.GetService<IQtDataTraceService>().Stop(loginId, currentTraceFactoryId))
+            switch (currentWorkingMode)
             {
-                currentTraceFactoryId = Guid.Empty;
-                EndWait();
+                case WorkingMode.Trace:
+                    if (ServiceContainer.GetService<IQtDataTraceService>().Stop(loginId, currentTraceFactoryId))
+                    {
+                        currentTraceFactoryId = Guid.Empty;
+                        EndWait();
+                    }
+                    break;
+                case WorkingMode.Analyze:
+                    if (ServiceContainer.GetService<IDataAnalyzeService>().Stop(loginId, currentTraceFactoryId))
+                    {
+                        currentAnalyzeFactoryId = Guid.Empty;
+                        EndWait();
+                    }
+                    break;
             }
         }
 
@@ -504,14 +525,14 @@ namespace QtDataTrace.UI
 
             module.DataSource = data;
             (module.DataView as SPC.Base.Control.CanChooseDataGridView).Synchronize(this.gridView1, DevExpress.XtraGrid.Views.Base.SynchronizationMode.Full);
-
             module.AccessibleDescription = "SPC判定";
             EAS.Application.Instance.OpenModule(module);
         }
-        private void BeginWait()
+        private void BeginWait(WorkingMode mode)
         {
             setGraphEnable(false);
             setTraceEnable(false);
+            currentWorkingMode = mode;
             this.waitPanel1.Visible = true;
             this.waitPanel1.Position = 0;
         }
@@ -521,6 +542,7 @@ namespace QtDataTrace.UI
                 setGraphEnable(true);
             setTraceEnable(true);
             this.waitPanel1.Visible = false;
+            currentWorkingMode = WorkingMode.None;
         }
         private void btnRelationAnalyze_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
@@ -536,7 +558,7 @@ namespace QtDataTrace.UI
                     MessageBox.Show("当前服务器端数据已丢失，请不要同时进行过多数据查询");
                     return;
                 }
-                BeginWait();
+                BeginWait(WorkingMode.Analyze);
                 Thread timertask = new Thread(() =>
                 {
                     DateTime start = DateTime.Now;
@@ -564,7 +586,7 @@ namespace QtDataTrace.UI
                         resultForm.AddResultControl(resultcontrol);
                         resultcontrol.Init(configcontrol.Columns, result.Item2);
                         resultForm.AccessibleDescription = "相关系数" + DateTime.Now.ToString("hh:mm:ss");
-                        EAS.Application.Instance.OpenModule(resultForm);
+                        DebugOpenModule(resultForm);
                     }));
                 }) { IsBackground = true };
                 timertask.Start();
@@ -573,12 +595,70 @@ namespace QtDataTrace.UI
 
         private void btnQuickCluster_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-
+            SPC.Analysis.ConfigControls.KMeansConfigControl configcontrol = new SPC.Analysis.ConfigControls.KMeansConfigControl();
+            AnalyzeConfigForm configForm = new AnalyzeConfigForm();
+            configForm.AddConfigControl(configcontrol);
+            var choosed = this.gridView1.GetChoosedRowIndexs();
+            configcontrol.Init(this.gridView1.GetVisibleColumnNames(false, typeof(string), typeof(DateTime), typeof(bool)),choosed.Length);
+            if (configForm.ShowDialog() == DialogResult.OK)
+            {
+                currentAnalyzeFactoryId = ServiceContainer.GetService<IDataAnalyzeService>().KMeansStart(loginId, currentTraceFactoryId, choosed, configcontrol.SelectedColumns,configcontrol.MaxCount,configcontrol.StartClustNum,configcontrol.EndClustNum,configcontrol.Avg,configcontrol.Stdev,configcontrol.InitialMode,configcontrol.MaxThread);
+                if (currentTraceFactoryId == Guid.Empty)
+                {
+                    MessageBox.Show("当前服务器端数据已丢失，请不要同时进行过多数据查询");
+                    return;
+                }
+                BeginWait(WorkingMode.Analyze);
+                Thread timertask = new Thread(() =>
+                {
+                    DateTime start = DateTime.Now;
+                    Tuple<int, DataSet> result;
+                    while (true)
+                    {
+                        result = ServiceContainer.GetService<IDataAnalyzeService>().KMeansget(loginId, currentAnalyzeFactoryId);
+                        if (result.Item1 < 0)
+                            break;
+                        if (result.Item2 != null)
+                        {
+                            break;
+                        }
+                        else
+                            this.Invoke(new Action(() => { this.waitPanel1.Position = result.Item1; }));
+                        Thread.Sleep(1000);
+                    }
+                    DateTime end = DateTime.Now;
+                    Console.WriteLine("Cost:" + (end - start));
+                    this.Invoke(new Action(() =>
+                    {
+                        EndWait();
+                        SPC.Analysis.ResultControls.KMeansResultControl resultcontrol = new SPC.Analysis.ResultControls.KMeansResultControl();
+                        AnalyzeResultControl resultForm = new AnalyzeResultControl();
+                        resultForm.AddResultControl(resultcontrol);
+                        resultcontrol.Init(result.Item2,new SPC.Base.Interface.ViewChoosedData(this.gridView1,choosed));
+                        resultForm.AccessibleDescription = "快速聚类" + DateTime.Now.ToString("hh:mm:ss");
+                        DebugOpenModule(resultForm);
+                    }));
+                }) { IsBackground = true };
+                timertask.Start();
+            }
         }
 
         private void btnSave_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
 
+        }
+        private void DebugOpenModule(Control target)
+        {
+            if(EAS.Application.Instance!=null)
+                EAS.Application.Instance.OpenModule(target);
+            else
+            {
+                Form debugform = new Form();
+                debugform.Controls.Add(target);
+                debugform.Size = target.Size;
+                target.Dock = DockStyle.Fill;
+                debugform.Show();
+            }
         }
     }
 }

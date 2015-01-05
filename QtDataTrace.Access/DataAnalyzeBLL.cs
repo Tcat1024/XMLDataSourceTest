@@ -100,19 +100,18 @@ namespace QtDataTrace.Access
     }
     public class CCTAnalyzeFactory: DataAnalyzeFactory
     {
-        Thread mainThread;
-        int progress;
+        Task mainThread;
+        CancellationTokenSource cancelToken;
         IDataTable<DataRow> data;
-        int pp;
         string target;
         string[] f;
         public double[] Result;
+        WaitObject waitobj = new WaitObject();
         public CCTAnalyzeFactory(IDataTable<DataRow> data,string target,string[] f):base()
         {
             this.data = data;
             this.target = target;
             this.f = f;
-            this.pp = data.RowCount * f.Length;
         }
         public override bool Start()
         {
@@ -120,8 +119,7 @@ namespace QtDataTrace.Access
             {
                 this.Working = true;
                 Stop();
-                progress = 0;
-                mainThread = new Thread(() => { Result = SPC.Algorithm.Relations.GetCCTs(data, target, f, progress); this.Working = false; });
+                mainThread = new Task(() => { Result = SPC.Algorithm.Relations.GetCCTs(data, target, f, waitobj); this.Working = false; }, (cancelToken = new CancellationTokenSource()).Token);
                 mainThread.Start();
                 return true;
             }
@@ -133,9 +131,9 @@ namespace QtDataTrace.Access
 
         public override bool Stop()
         {
-            if (mainThread != null && mainThread.ThreadState == System.Threading.ThreadState.Running)
+            if (mainThread != null &&mainThread.Status== TaskStatus.Running)
             {
-                mainThread.Abort();
+                cancelToken.Cancel();
                 this.Working = false;
                 return true;
             }
@@ -144,7 +142,68 @@ namespace QtDataTrace.Access
 
         public override int GetProgress()
         {
-            return progress/pp;
+            return waitobj.GetProgress();
+        }
+    }
+    public class KMeansAnalyzeFactory : DataAnalyzeFactory
+    {
+        Task mainThread;
+        CancellationTokenSource cancelToken;
+        IDataTable<DataRow> data;
+        int maxCount;
+        int minClusterCount;
+        int maxClusterCount;
+        double m;
+        double s;
+        int initialMode;
+        int maxThread;
+        string[] Properties;
+        public DataSet Result;
+        WaitObject waitobj = new WaitObject();
+        public KMeansAnalyzeFactory(IDataTable<DataRow> data,string[] properties,int maxcount,int minclustercount,int maxclustercount,double m,double s,int initialmode,int maxthread)
+            : base()
+        {
+            this.data = data;
+            this.Properties = properties;
+            this.maxCount = maxcount;
+            this.minClusterCount = minclustercount;
+            this.maxClusterCount = maxclustercount;
+            this.m = m;
+            this.s = s;
+            this.initialMode = initialmode;
+            this.maxThread = maxthread;
+        }
+        public override bool Start()
+        {
+            try
+            {
+                this.Working = true;
+                Stop();
+                cancelToken = new CancellationTokenSource();
+                mainThread = new Task(() => { Result = SPC.Algorithm.KMeans.StartCluster(cancelToken, data, Properties, maxCount, minClusterCount, maxClusterCount, m, s, waitobj, initialMode, 0, maxThread); this.Working = false; }, cancelToken.Token);
+                mainThread.Start();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public override bool Stop()
+        {
+            if (mainThread != null && mainThread.Status == TaskStatus.Running)
+            {
+                cancelToken.Cancel();
+                this.Working = false;
+                return true;
+            }
+            return false;
+        }
+
+        public override int GetProgress()
+        {
+            return waitobj.GetProgress();
         }
     }
 }
