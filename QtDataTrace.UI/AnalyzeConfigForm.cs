@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace QtDataTrace.UI
 {
-    public partial class AnalyzeConfigForm : Form
+    public partial class AnalyzeConfigForm : DevExpress.XtraEditors.XtraForm
     {
         public AnalyzeConfigForm()
         {
@@ -18,9 +18,9 @@ namespace QtDataTrace.UI
         public void AddConfigControl(SPC.Analysis.ConfigControls.ConfigControlBase con)
         {
             this.Controls.Add(con);
-            if (this.Size.Width < con.MinimumSize.Width||this.Size.Height<con.MinimumSize.Height)
-                this.Size = con.MinimumSize;
             con.Dock = DockStyle.Fill;
+            this.MinimumSize = this.GetConstrainSize(con.MinimumSize);
+            this.Size = this.MinimumSize;
             con.OKEvent += (sender, e) => { this.DialogResult = System.Windows.Forms.DialogResult.OK; };
             con.CancelEvent += (sender, e) => { this.DialogResult = System.Windows.Forms.DialogResult.Cancel; };
         }

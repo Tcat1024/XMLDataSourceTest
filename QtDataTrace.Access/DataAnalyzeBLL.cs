@@ -206,4 +206,55 @@ namespace QtDataTrace.Access
             return waitobj.GetProgress();
         }
     }
+    public class ContourPlotFactory : DataAnalyzeFactory
+    {
+        Task mainThread;
+        CancellationTokenSource cancelToken;
+        IDataTable<DataRow> data;
+        string X;
+        string Y;
+        string Z;
+        public System.Drawing.Image Result;
+        int process = 0;
+        public ContourPlotFactory(IDataTable<DataRow> data, string x,string y,string z)
+            : base()
+        {
+            this.data = data;
+            this.X = x;
+            this.Y = y;
+            this.Z = z;
+        }
+        public override bool Start()
+        {
+            try
+            {
+                this.Working = true;
+                Stop();
+                cancelToken = new CancellationTokenSource();
+                mainThread = new Task(() => { Result = SPC.Rnet.Methods.DrawContourPlot(data, X, Y, Z); this.Working = false; }, cancelToken.Token);
+                mainThread.Start();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public override bool Stop()
+        {
+            if (mainThread != null && mainThread.Status == TaskStatus.Running)
+            {
+                cancelToken.Cancel();
+                this.Working = false;
+                return true;
+            }
+            return false;
+        }
+
+        public override int GetProgress()
+        {
+            return process = (process+10)%100;
+        }
+    }
 }

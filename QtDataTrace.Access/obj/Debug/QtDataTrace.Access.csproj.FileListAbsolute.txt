@@ -33,3 +33,6 @@ C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\QtDataTrace.Access\obj
 C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\QtDataTrace.Access\bin\Debug\SPC.Algorithm.dll
 C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\QtDataTrace.Access\bin\Debug\SPC.Base.dll
 C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\QtDataTrace.Access\bin\Debug\EAS.MicroKernel.xml
+C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\QtDataTrace.Access\bin\Debug\SPC.Rnet.dll
+C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\QtDataTrace.Access\bin\Debug\Interop.STATCONNECTORSRVLib.dll
+C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\QtDataTrace.Access\bin\Debug\Interop.StatConnectorCommonLib.dll

@@ -285,9 +285,7 @@ namespace QtDataTrace.UI
         {
             foreach (var btn in this.bar1.ItemLinks)
             {
-                var item = (btn as DevExpress.XtraBars.BarItemLink).Item;
-                if(item!=menuFile)
-                    item.Enabled = t;
+                (btn as DevExpress.XtraBars.BarItemLink).Item.Enabled = t;
             }
         }
         private void setTraceEnable(bool t)
@@ -416,6 +414,7 @@ namespace QtDataTrace.UI
                 {
                     this.data = result.Item2;
                     this.gridView1.Columns.Clear();
+                    gridControl1.DataSource = null;
                     gridControl1.DataSource = data;
                 }
 
@@ -540,6 +539,8 @@ namespace QtDataTrace.UI
         {
             if (this.gridView1.RowCount > 0)
                 setGraphEnable(true);
+            else
+                menuFile.Enabled = true;
             setTraceEnable(true);
             this.waitPanel1.Visible = false;
             currentWorkingMode = WorkingMode.None;
@@ -615,7 +616,7 @@ namespace QtDataTrace.UI
                     Tuple<int, DataSet> result;
                     while (true)
                     {
-                        result = ServiceContainer.GetService<IDataAnalyzeService>().KMeansget(loginId, currentAnalyzeFactoryId);
+                        result = ServiceContainer.GetService<IDataAnalyzeService>().KMeansGet(loginId, currentAnalyzeFactoryId);
                         if (result.Item1 < 0)
                             break;
                         if (result.Item2 != null)
@@ -658,6 +659,56 @@ namespace QtDataTrace.UI
                 debugform.Size = target.Size;
                 target.Dock = DockStyle.Fill;
                 debugform.Show();
+            }
+        }
+
+        private void btnCPlot_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            SPC.Analysis.ConfigControls.ContourPlotConfigControl configcontrol = new SPC.Analysis.ConfigControls.ContourPlotConfigControl();
+            AnalyzeConfigForm configForm = new AnalyzeConfigForm();
+            configForm.AddConfigControl(configcontrol);
+            var choosed = this.gridView1.GetChoosedRowIndexs();
+            configcontrol.Init(this.gridView1.GetVisibleColumnNames(false, typeof(string), typeof(DateTime), typeof(bool)));
+            if (configForm.ShowDialog() == DialogResult.OK)
+            {
+                currentAnalyzeFactoryId = ServiceContainer.GetService<IDataAnalyzeService>().ContourPlotStart(loginId, currentTraceFactoryId, choosed,configcontrol.X,configcontrol.Y,configcontrol.Z);
+                if (currentTraceFactoryId == Guid.Empty)
+                {
+                    MessageBox.Show("当前服务器端数据已丢失，请不要同时进行过多数据查询");
+                    return;
+                }
+                BeginWait(WorkingMode.Analyze);
+                Thread timertask = new Thread(() =>
+                {
+                    DateTime start = DateTime.Now;
+                    Tuple<int, Image> result;
+                    while (true)
+                    {
+                        result = ServiceContainer.GetService<IDataAnalyzeService>().ContourPlotGet(loginId, currentAnalyzeFactoryId);
+                        if (result.Item1 < 0)
+                            break;
+                        if (result.Item2 != null)
+                        {
+                            break;
+                        }
+                        else
+                            this.Invoke(new Action(() => { this.waitPanel1.Position = result.Item1; }));
+                        Thread.Sleep(1000);
+                    }
+                    DateTime end = DateTime.Now;
+                    Console.WriteLine("Cost:" + (end - start));
+                    this.Invoke(new Action(() =>
+                    {
+                        EndWait();
+                        SPC.Analysis.ResultControls.ContourPlotResultControl resultcontrol = new SPC.Analysis.ResultControls.ContourPlotResultControl();
+                        AnalyzeResultControl resultForm = new AnalyzeResultControl();
+                        resultForm.AddResultControl(resultcontrol);
+                        resultcontrol.Init(result.Item2);
+                        resultForm.AccessibleDescription = "等高线图" + DateTime.Now.ToString("hh:mm:ss");
+                        DebugOpenModule(resultForm);
+                    }));
+                }) { IsBackground = true };
+                timertask.Start();
             }
         }
     }

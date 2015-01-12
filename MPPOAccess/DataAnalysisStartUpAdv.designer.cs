@@ -139,7 +139,7 @@
             this.splitContainer1.Panel2.Controls.Add(this.panel1);
             this.splitContainer1.Panel2.Controls.Add(this.gridControl1);
             this.splitContainer1.Size = new System.Drawing.Size(1457, 459);
-            this.splitContainer1.SplitterDistance = 302;
+            this.splitContainer1.SplitterDistance = 301;
             this.splitContainer1.SplitterWidth = 5;
             this.splitContainer1.TabIndex = 22;
             // 
@@ -149,7 +149,7 @@
             this.triStateTreeView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.triStateTreeView1.Location = new System.Drawing.Point(0, 31);
             this.triStateTreeView1.Name = "triStateTreeView1";
-            this.triStateTreeView1.Size = new System.Drawing.Size(302, 428);
+            this.triStateTreeView1.Size = new System.Drawing.Size(301, 428);
             this.triStateTreeView1.TabIndex = 0;
             // 
             // standaloneBarDockControl2
@@ -160,7 +160,7 @@
             this.standaloneBarDockControl2.Location = new System.Drawing.Point(0, 0);
             this.standaloneBarDockControl2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.standaloneBarDockControl2.Name = "standaloneBarDockControl2";
-            this.standaloneBarDockControl2.Size = new System.Drawing.Size(302, 31);
+            this.standaloneBarDockControl2.Size = new System.Drawing.Size(301, 31);
             this.standaloneBarDockControl2.Text = "standaloneBarDockControl2";
             // 
             // panel1
@@ -535,7 +535,7 @@
             this.gridControl1.Location = new System.Drawing.Point(0, 0);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(1150, 459);
+            this.gridControl1.Size = new System.Drawing.Size(1151, 459);
             this.gridControl1.TabIndex = 1;
             this.gridControl1.UseEmbeddedNavigator = true;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {

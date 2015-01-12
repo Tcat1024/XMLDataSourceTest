@@ -32,10 +32,11 @@
             // 
             // AnalyzeConfigForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(350, 362);
+            this.ClientSize = new System.Drawing.Size(326, 269);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "AnalyzeConfigForm";
             this.ShowInTaskbar = false;
             this.Text = "分析配置";

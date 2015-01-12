@@ -50,6 +50,7 @@
             this.btnNormalCheck = new DevExpress.XtraBars.BarButtonItem();
             this.btnFrequency = new DevExpress.XtraBars.BarButtonItem();
             this.btnBoxPlot = new DevExpress.XtraBars.BarButtonItem();
+            this.btnCPlot = new DevExpress.XtraBars.BarButtonItem();
             this.btnSPCdm = new DevExpress.XtraBars.BarButtonItem();
             this.menuFile = new DevExpress.XtraBars.BarSubItem();
             this.menuTraceHis = new DevExpress.XtraBars.BarSubItem();
@@ -154,8 +155,8 @@
             this.splitContainer1.Panel2.Controls.Add(this.waitPanel1);
             this.splitContainer1.Panel2.Controls.Add(this.gridControl1);
             this.splitContainer1.Panel2.Controls.Add(this.standaloneBarDockControl1);
-            this.splitContainer1.Size = new System.Drawing.Size(1457, 459);
-            this.splitContainer1.SplitterDistance = 300;
+            this.splitContainer1.Size = new System.Drawing.Size(1523, 492);
+            this.splitContainer1.SplitterDistance = 312;
             this.splitContainer1.SplitterWidth = 5;
             this.splitContainer1.TabIndex = 22;
             // 
@@ -163,9 +164,9 @@
             // 
             this.triStateTreeView1.CheckBoxes = true;
             this.triStateTreeView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.triStateTreeView1.Location = new System.Drawing.Point(0, 34);
+            this.triStateTreeView1.Location = new System.Drawing.Point(0, 31);
             this.triStateTreeView1.Name = "triStateTreeView1";
-            this.triStateTreeView1.Size = new System.Drawing.Size(300, 425);
+            this.triStateTreeView1.Size = new System.Drawing.Size(312, 461);
             this.triStateTreeView1.TabIndex = 0;
             // 
             // standaloneBarDockControl2
@@ -176,16 +177,16 @@
             this.standaloneBarDockControl2.Location = new System.Drawing.Point(0, 0);
             this.standaloneBarDockControl2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.standaloneBarDockControl2.Name = "standaloneBarDockControl2";
-            this.standaloneBarDockControl2.Size = new System.Drawing.Size(300, 34);
+            this.standaloneBarDockControl2.Size = new System.Drawing.Size(312, 31);
             this.standaloneBarDockControl2.Text = "standaloneBarDockControl2";
             // 
             // waitPanel1
             // 
             this.waitPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.waitPanel1.Location = new System.Drawing.Point(404, 181);
+            this.waitPanel1.Location = new System.Drawing.Point(410, 181);
             this.waitPanel1.Name = "waitPanel1";
             this.waitPanel1.Position = 0;
-            this.waitPanel1.Size = new System.Drawing.Size(343, 130);
+            this.waitPanel1.Size = new System.Drawing.Size(333, 123);
             this.waitPanel1.TabIndex = 11;
             this.waitPanel1.Visible = false;
             this.waitPanel1.CancelButtonClick += new System.EventHandler(this.btnCancel_Click);
@@ -208,10 +209,10 @@
             this.gridControl1.EmbeddedNavigator.Buttons.PrevPage.ImageIndex = 1;
             this.gridControl1.EmbeddedNavigator.Buttons.Remove.Visible = false;
             this.gridControl1.EmbeddedNavigator.TextStringFormat = "{0} / {1}";
-            this.gridControl1.Location = new System.Drawing.Point(0, 34);
+            this.gridControl1.Location = new System.Drawing.Point(0, 31);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(1152, 425);
+            this.gridControl1.Size = new System.Drawing.Size(1206, 461);
             this.gridControl1.TabIndex = 1;
             this.gridControl1.UseEmbeddedNavigator = true;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -258,7 +259,7 @@
             this.standaloneBarDockControl1.Location = new System.Drawing.Point(0, 0);
             this.standaloneBarDockControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.standaloneBarDockControl1.Name = "standaloneBarDockControl1";
-            this.standaloneBarDockControl1.Size = new System.Drawing.Size(1152, 34);
+            this.standaloneBarDockControl1.Size = new System.Drawing.Size(1206, 31);
             this.standaloneBarDockControl1.Text = "standaloneBarDockControl1";
             // 
             // barManager1
@@ -296,8 +297,9 @@
             this.btnSave,
             this.btnLoad,
             this.menuTraceHis,
-            this.stHisNone});
-            this.barManager1.MaxItemId = 37;
+            this.stHisNone,
+            this.btnCPlot});
+            this.barManager1.MaxItemId = 38;
             this.barManager1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemTextEdit1});
             // 
@@ -316,6 +318,7 @@
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnNormalCheck, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnFrequency, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnBoxPlot, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnCPlot, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnSPCdm, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.menuFile, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barSubItem3, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
@@ -397,6 +400,15 @@
             this.btnBoxPlot.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("btnBoxPlot.LargeGlyph")));
             this.btnBoxPlot.Name = "btnBoxPlot";
             this.btnBoxPlot.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem1_ItemClick);
+            // 
+            // btnCPlot
+            // 
+            this.btnCPlot.Caption = "等高线图";
+            this.btnCPlot.Glyph = ((System.Drawing.Image)(resources.GetObject("btnCPlot.Glyph")));
+            this.btnCPlot.Id = 37;
+            this.btnCPlot.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("btnCPlot.LargeGlyph")));
+            this.btnCPlot.Name = "btnCPlot";
+            this.btnCPlot.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnCPlot_ItemClick);
             // 
             // btnSPCdm
             // 
@@ -519,28 +531,28 @@
             this.barDockControlTop.CausesValidation = false;
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
-            this.barDockControlTop.Size = new System.Drawing.Size(1463, 0);
+            this.barDockControlTop.Size = new System.Drawing.Size(1529, 0);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 589);
-            this.barDockControlBottom.Size = new System.Drawing.Size(1463, 0);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 622);
+            this.barDockControlBottom.Size = new System.Drawing.Size(1529, 0);
             // 
             // barDockControlLeft
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.barDockControlLeft.Location = new System.Drawing.Point(0, 0);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 589);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 622);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(1463, 0);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 589);
+            this.barDockControlRight.Location = new System.Drawing.Point(1529, 0);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 622);
             // 
             // dockManager1
             // 
@@ -574,7 +586,7 @@
             this.dockPanel1.Options.FloatOnDblClick = false;
             this.dockPanel1.Options.ShowCloseButton = false;
             this.dockPanel1.OriginalSize = new System.Drawing.Size(200, 98);
-            this.dockPanel1.Size = new System.Drawing.Size(1463, 98);
+            this.dockPanel1.Size = new System.Drawing.Size(1529, 98);
             this.dockPanel1.Text = "条件筛选";
             // 
             // dockPanel1_Container
@@ -597,9 +609,9 @@
             this.dockPanel1_Container.Controls.Add(this.textMaxWidth);
             this.dockPanel1_Container.Controls.Add(this.comboxGrade);
             this.dockPanel1_Container.Controls.Add(this.checkGrade);
-            this.dockPanel1_Container.Location = new System.Drawing.Point(4, 24);
+            this.dockPanel1_Container.Location = new System.Drawing.Point(3, 25);
             this.dockPanel1_Container.Name = "dockPanel1_Container";
-            this.dockPanel1_Container.Size = new System.Drawing.Size(1455, 70);
+            this.dockPanel1_Container.Size = new System.Drawing.Size(1523, 70);
             this.dockPanel1_Container.TabIndex = 0;
             // 
             // btnQuery
@@ -776,7 +788,7 @@
             this.xtraTabControl1.Location = new System.Drawing.Point(0, 98);
             this.xtraTabControl1.Name = "xtraTabControl1";
             this.xtraTabControl1.SelectedTabPage = this.xtraTabPage1;
-            this.xtraTabControl1.Size = new System.Drawing.Size(1463, 491);
+            this.xtraTabControl1.Size = new System.Drawing.Size(1529, 524);
             this.xtraTabControl1.TabIndex = 25;
             this.xtraTabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.xtraTabPage1,
@@ -787,7 +799,7 @@
             // 
             this.xtraTabPage1.Controls.Add(this.gridControl2);
             this.xtraTabPage1.Name = "xtraTabPage1";
-            this.xtraTabPage1.Size = new System.Drawing.Size(1457, 459);
+            this.xtraTabPage1.Size = new System.Drawing.Size(1527, 493);
             this.xtraTabPage1.TabPageWidth = 100;
             this.xtraTabPage1.Text = "数据选择";
             // 
@@ -797,7 +809,7 @@
             this.gridControl2.Location = new System.Drawing.Point(0, 0);
             this.gridControl2.MainView = this.gridView2;
             this.gridControl2.Name = "gridControl2";
-            this.gridControl2.Size = new System.Drawing.Size(1457, 459);
+            this.gridControl2.Size = new System.Drawing.Size(1527, 493);
             this.gridControl2.TabIndex = 1;
             this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
@@ -892,7 +904,7 @@
             this.xtraTabPage2.Controls.Add(this.splitContainer1);
             this.xtraTabPage2.Name = "xtraTabPage2";
             this.xtraTabPage2.PageEnabled = false;
-            this.xtraTabPage2.Size = new System.Drawing.Size(1457, 459);
+            this.xtraTabPage2.Size = new System.Drawing.Size(1523, 492);
             this.xtraTabPage2.Text = "数据追溯";
             // 
             // DataAnalysisStartUpAdv
@@ -906,7 +918,7 @@
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
             this.Name = "DataAnalysisStartUpAdv";
-            this.Size = new System.Drawing.Size(1463, 589);
+            this.Size = new System.Drawing.Size(1529, 622);
             this.Load += new System.EventHandler(this.DataAnalysisStartUp_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
@@ -1008,5 +1020,6 @@
         private SPC.Base.Control.WaitPanel waitPanel1;
         private DevExpress.XtraBars.BarSubItem menuTraceHis;
         private DevExpress.XtraBars.BarStaticItem stHisNone;
+        private DevExpress.XtraBars.BarButtonItem btnCPlot;
     }
 }
