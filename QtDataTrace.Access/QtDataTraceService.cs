@@ -374,9 +374,16 @@ namespace QtDataTrace.Access
             return data;
         }
         //DataTrace//
-        public Guid NewDataTrace(string processNo, IList<string> iDList, IList<QtDataProcessConfig> processes, bool back, string username)
+        public Tuple<Guid,string> NewDataTrace(string processNo, IList<string> iDList, IList<QtDataProcessConfig> processes, bool back, string username)
         {
-            return QtDataTraceBLL.Add(processNo, iDList, processes, back, username);
+            try
+            {
+                return new Tuple<Guid, string>(QtDataTraceBLL.Add(processNo, iDList, processes, back, username), "");
+            }
+            catch(Exception ex)
+            {
+                return new Tuple<Guid, string>(Guid.Empty, ex.Message);
+            }
         }
         public Tuple<int, DataTable> TryGetTraceData(string username, Guid id)
         {

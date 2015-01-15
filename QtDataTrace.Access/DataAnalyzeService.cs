@@ -14,12 +14,23 @@ namespace QtDataTrace.Access
     [ServiceBind(typeof(IDataAnalyzeService))]
     public class DataAnalyzeService : ServiceObject,IDataAnalyzeService
     {
-        public Guid CCTStart(string username,Guid id,int[] selected,string target,string[] f)
+        public Tuple<Guid, string> CCTStart(string username, Guid id, int[] selected, string target, string[] f)
         {
-            var data = QtDataTraceBLL.BeginAnalyzeData(username, id);
-            if (data == null)
-                return Guid.Empty;
-            return DataAnalyzeBLL.Add(username,new CCTAnalyzeFactory(new ChoosedData(data, selected),target,f));
+            DataAnalyzeFactory factory = null;
+            DataTable data = null;
+            try
+            {
+                data = QtDataTraceBLL.BeginAnalyzeData(username, id);
+                factory = new CCTAnalyzeFactory(new ChoosedData(data, selected),target,f);
+                factory.StopedWorking += (sender, e) => { QtDataTraceBLL.EndAnalyzeData(username, id); };
+                return new Tuple<Guid, string>(DataAnalyzeBLL.Add(username, factory), "");
+            }
+            catch (Exception ex)
+            {
+                if (data != null)
+                    QtDataTraceBLL.EndAnalyzeData(username, id);
+                return new Tuple<Guid, string>(Guid.Empty, ex.Message);
+            }
         }
         public Tuple<int,double[]> CCTget(string username, Guid id)
         {
@@ -31,12 +42,23 @@ namespace QtDataTrace.Access
             }
             return new Tuple<int, double[]>(progress, null);
         }
-        public Guid KMeansStart(string username, Guid id, int[] selected,string[] properties,int maxcount,int minclustercount,int maxclustercount,double m,double s,int initialmode,int maxthread)
+        public Tuple<Guid, string> KMeansStart(string username, Guid id, int[] selected,string[] properties,int maxcount,int minclustercount,int maxclustercount,double m,double s,int initialmode,int maxthread)
         {
-            var data = QtDataTraceBLL.BeginAnalyzeData(username, id);
-            if (data == null)
-                return Guid.Empty;
-            return DataAnalyzeBLL.Add(username, new KMeansAnalyzeFactory(new ChoosedData(data, selected),properties,maxcount,minclustercount,maxclustercount,m,s,initialmode,maxthread));
+            DataAnalyzeFactory factory = null;
+            DataTable data = null;
+            try
+            {
+                data = QtDataTraceBLL.BeginAnalyzeData(username, id);
+                factory = new KMeansAnalyzeFactory(new ChoosedData(data, selected),properties,maxcount,minclustercount,maxclustercount,m,s,initialmode,maxthread);
+                factory.StopedWorking += (sender, e) => { QtDataTraceBLL.EndAnalyzeData(username, id); };
+                return new Tuple<Guid, string>(DataAnalyzeBLL.Add(username, factory), "");
+            }
+            catch (Exception ex)
+            {
+                if (data != null)
+                    QtDataTraceBLL.EndAnalyzeData(username, id);
+                return new Tuple<Guid, string>(Guid.Empty, ex.Message);
+            }
         }
         public Tuple<int, DataSet> KMeansGet(string username, Guid id)
         {
@@ -50,14 +72,28 @@ namespace QtDataTrace.Access
         }
         public bool Stop(string username, Guid id)
         {
-            return DataAnalyzeBLL.GetFactory(username, id).Stop();
+            var temp = DataAnalyzeBLL.GetFactory(username, id);
+            if (temp == null)
+                return false;
+            return temp.Stop();
         }
-        public Guid ContourPlotStart(string username, Guid id, int[] selected, string x,string y,string z)
+        public Tuple<Guid,string> ContourPlotStart(string username, Guid id, int[] selected, string x,string y,string z,int width,int height)
         {
-            var data = QtDataTraceBLL.BeginAnalyzeData(username, id);
-            if (data == null)
-                return Guid.Empty;
-            return DataAnalyzeBLL.Add(username, new ContourPlotFactory(new ChoosedData(data, selected),x,y,z));
+            DataAnalyzeFactory factory = null;
+            DataTable data = null;
+            try
+            {
+                data = QtDataTraceBLL.BeginAnalyzeData(username, id);
+                factory = new ContourPlotFactory(new ChoosedData(data, selected), x, y, z,width,height);
+                factory.StopedWorking += (sender, e) => { QtDataTraceBLL.EndAnalyzeData(username, id); };
+                return new Tuple<Guid, string>(DataAnalyzeBLL.Add(username,factory), "");
+            }
+            catch(Exception ex)
+            {
+                if(data!=null)
+                    QtDataTraceBLL.EndAnalyzeData(username, id);
+                return new Tuple<Guid, string>(Guid.Empty, ex.Message);
+            }
         }
         public Tuple<int, System.Drawing.Image> ContourPlotGet(string username, Guid id)
         {

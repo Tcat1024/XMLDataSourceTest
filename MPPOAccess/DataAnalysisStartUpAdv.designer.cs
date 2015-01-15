@@ -28,18 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DataAnalysisStartUpAdv));
             this.dateTimeStart = new System.Windows.Forms.DateTimePicker();
             this.dateTimeStop = new System.Windows.Forms.DateTimePicker();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.triStateTreeView1 = new QtDataTrace.UI.TriStateTreeView();
             this.standaloneBarDockControl2 = new DevExpress.XtraBars.StandaloneBarDockControl();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.progressPanel1 = new DevExpress.XtraWaitForm.ProgressPanel();
             this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
             this.progressBarControl1 = new DevExpress.XtraEditors.ProgressBarControl();
-            this.barManager1 = new DevExpress.XtraBars.BarManager();
+            this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar2 = new DevExpress.XtraBars.Bar();
             this.btnPreQtrace = new DevExpress.XtraBars.BarButtonItem();
             this.btnBackQrace = new DevExpress.XtraBars.BarButtonItem();
@@ -47,7 +47,7 @@
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
-            this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager();
+            this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
             this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.btnQuery = new DevExpress.XtraEditors.SimpleButton();
@@ -68,7 +68,7 @@
             this.checkGrade = new System.Windows.Forms.CheckBox();
             this.repositoryItemTextEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.imageCollection1 = new DevExpress.Utils.ImageCollection();
+            this.imageCollection1 = new DevExpress.Utils.ImageCollection(this.components);
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
             this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
@@ -128,11 +128,6 @@
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
             this.splitContainer1.Name = "splitContainer1";
             // 
-            // splitContainer1.Panel1
-            // 
-            this.splitContainer1.Panel1.Controls.Add(this.triStateTreeView1);
-            this.splitContainer1.Panel1.Controls.Add(this.standaloneBarDockControl2);
-            // 
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.BackColor = System.Drawing.SystemColors.ControlLight;
@@ -142,15 +137,6 @@
             this.splitContainer1.SplitterDistance = 301;
             this.splitContainer1.SplitterWidth = 5;
             this.splitContainer1.TabIndex = 22;
-            // 
-            // triStateTreeView1
-            // 
-            this.triStateTreeView1.CheckBoxes = true;
-            this.triStateTreeView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.triStateTreeView1.Location = new System.Drawing.Point(0, 31);
-            this.triStateTreeView1.Name = "triStateTreeView1";
-            this.triStateTreeView1.Size = new System.Drawing.Size(301, 428);
-            this.triStateTreeView1.TabIndex = 0;
             // 
             // standaloneBarDockControl2
             // 

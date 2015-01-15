@@ -155,7 +155,7 @@
             this.splitContainer1.Panel2.Controls.Add(this.waitPanel1);
             this.splitContainer1.Panel2.Controls.Add(this.gridControl1);
             this.splitContainer1.Panel2.Controls.Add(this.standaloneBarDockControl1);
-            this.splitContainer1.Size = new System.Drawing.Size(1523, 492);
+            this.splitContainer1.Size = new System.Drawing.Size(1527, 493);
             this.splitContainer1.SplitterDistance = 312;
             this.splitContainer1.SplitterWidth = 5;
             this.splitContainer1.TabIndex = 22;
@@ -166,7 +166,7 @@
             this.triStateTreeView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.triStateTreeView1.Location = new System.Drawing.Point(0, 31);
             this.triStateTreeView1.Name = "triStateTreeView1";
-            this.triStateTreeView1.Size = new System.Drawing.Size(312, 461);
+            this.triStateTreeView1.Size = new System.Drawing.Size(312, 462);
             this.triStateTreeView1.TabIndex = 0;
             // 
             // standaloneBarDockControl2
@@ -212,7 +212,7 @@
             this.gridControl1.Location = new System.Drawing.Point(0, 31);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(1206, 461);
+            this.gridControl1.Size = new System.Drawing.Size(1210, 462);
             this.gridControl1.TabIndex = 1;
             this.gridControl1.UseEmbeddedNavigator = true;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -259,7 +259,7 @@
             this.standaloneBarDockControl1.Location = new System.Drawing.Point(0, 0);
             this.standaloneBarDockControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.standaloneBarDockControl1.Name = "standaloneBarDockControl1";
-            this.standaloneBarDockControl1.Size = new System.Drawing.Size(1206, 31);
+            this.standaloneBarDockControl1.Size = new System.Drawing.Size(1210, 31);
             this.standaloneBarDockControl1.Text = "standaloneBarDockControl1";
             // 
             // barManager1
@@ -904,7 +904,7 @@
             this.xtraTabPage2.Controls.Add(this.splitContainer1);
             this.xtraTabPage2.Name = "xtraTabPage2";
             this.xtraTabPage2.PageEnabled = false;
-            this.xtraTabPage2.Size = new System.Drawing.Size(1523, 492);
+            this.xtraTabPage2.Size = new System.Drawing.Size(1527, 493);
             this.xtraTabPage2.Text = "数据追溯";
             // 
             // DataAnalysisStartUpAdv

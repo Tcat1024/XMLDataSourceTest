@@ -47,7 +47,7 @@ namespace QtDataTrace.Access
                         }
                     }
                     if (!temp)
-                        return Guid.Empty;
+                        throw new Exception("历史追溯数据均在处理，无法新建追溯");
                 }
                 id = Guid.NewGuid();
                 factories.Add(id,factory);
@@ -107,7 +107,7 @@ namespace QtDataTrace.Access
                 if (factories.TryGetValue(id, out factory))
                 {
                     if (factory.Writing)
-                        result = null;
+                        throw new Exception("目标数据正在被写入，无法操作");
                     else
                     {
                         result = factory.GetResultTable();
@@ -121,7 +121,7 @@ namespace QtDataTrace.Access
                     return result;
                 }
             }
-            return null;
+            throw new Exception("无法获取目标数据，可能由于目标数据过早");
         }
         public static bool EndAnalyzeData(string username, Guid id)
         {

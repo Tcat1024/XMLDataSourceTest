@@ -26,10 +26,12 @@ namespace QtDataTrace.UI
         private BindingSource materialBindingSource = new BindingSource();
         private QueryArgs queryArg;
         private string _processNo;
+        private Guid currentDataId = Guid.Empty;
         private Guid currentTraceFactoryId = Guid.Empty;
         private Guid currentAnalyzeFactoryId = Guid.Empty;
         private bool currentTraceDir;
         private string loginId;
+        private Thread timerTask;
         enum WorkingMode
         {
             None,
@@ -350,15 +352,16 @@ namespace QtDataTrace.UI
                 MessageBox.Show("没有选择数据");
                 return;
             }
-            currentTraceFactoryId = ServiceContainer.GetService<IQtDataTraceService>().NewDataTrace(this.ProcessNo, idlist, processes, currentTraceDir, loginId);
+            var re = ServiceContainer.GetService<IQtDataTraceService>().NewDataTrace(this.ProcessNo, idlist, processes, currentTraceDir, loginId);
+            currentTraceFactoryId = re.Item1;
             if (currentTraceFactoryId == Guid.Empty)
             {
-                MessageBox.Show("用户任务过多，无法新建追溯");
+                MessageBox.Show(re.Item2);
                 return;
             }
             BeginWait(WorkingMode.Trace);
-            Thread timertask = new Thread(traceTimerThreadMethod) { IsBackground = true };
-            timertask.Start();
+            timerTask = new Thread(traceTimerThreadMethod) { IsBackground = true };
+            timerTask.Start();
         }
         private void traceTimerThreadMethod()
         {
@@ -385,6 +388,7 @@ namespace QtDataTrace.UI
         {
             this.gridView1.Columns.Clear();
             gridControl1.DataSource = data;
+            currentDataId = currentTraceFactoryId;
             AddTraceHis(currentTraceFactoryId, DateTime.Now, currentTraceDir, ProcessNo);
             EndWait();
         }
@@ -460,21 +464,18 @@ namespace QtDataTrace.UI
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
+            timerTask.Abort();
             switch (currentWorkingMode)
             {
                 case WorkingMode.Trace:
-                    if (ServiceContainer.GetService<IQtDataTraceService>().Stop(loginId, currentTraceFactoryId))
-                    {
-                        currentTraceFactoryId = Guid.Empty;
-                        EndWait();
-                    }
+                    ServiceContainer.GetService<IQtDataTraceService>().Stop(loginId, currentTraceFactoryId);
+                    currentTraceFactoryId = Guid.Empty;
+                    EndWait();
                     break;
                 case WorkingMode.Analyze:
-                    if (ServiceContainer.GetService<IDataAnalyzeService>().Stop(loginId, currentTraceFactoryId))
-                    {
-                        currentAnalyzeFactoryId = Guid.Empty;
-                        EndWait();
-                    }
+                    ServiceContainer.GetService<IDataAnalyzeService>().Stop(loginId, currentAnalyzeFactoryId);
+                    currentAnalyzeFactoryId = Guid.Empty;
+                    EndWait();
                     break;
             }
         }
@@ -529,6 +530,8 @@ namespace QtDataTrace.UI
         }
         private void BeginWait(WorkingMode mode)
         {
+            if (timerTask != null && timerTask.ThreadState == ThreadState.Running)
+                timerTask.Abort();
             setGraphEnable(false);
             setTraceEnable(false);
             currentWorkingMode = mode;
@@ -537,6 +540,8 @@ namespace QtDataTrace.UI
         }
         private void EndWait()
         {
+            if (timerTask != null && timerTask.ThreadState == ThreadState.Running)
+                timerTask.Abort();
             if (this.gridView1.RowCount > 0)
                 setGraphEnable(true);
             else
@@ -553,14 +558,15 @@ namespace QtDataTrace.UI
             configcontrol.Init(this.gridView1.GetVisibleColumnNames(false,typeof(string),typeof(DateTime),typeof(bool)));
             if (configForm.ShowDialog() == DialogResult.OK)
             {
-                currentAnalyzeFactoryId = ServiceContainer.GetService<IDataAnalyzeService>().CCTStart(loginId, currentTraceFactoryId, this.gridView1.GetChoosedRowIndexs(), configcontrol.TargetColumn, configcontrol.Columns);
+                var re = ServiceContainer.GetService<IDataAnalyzeService>().CCTStart(loginId, currentDataId, this.gridView1.GetChoosedRowIndexs(), configcontrol.TargetColumn, configcontrol.Columns);
+                currentAnalyzeFactoryId = re.Item1;
                 if (currentTraceFactoryId == Guid.Empty)
                 {
-                    MessageBox.Show("当前服务器端数据已丢失，请不要同时进行过多数据查询");
+                    MessageBox.Show(re.Item2);
                     return;
                 }
                 BeginWait(WorkingMode.Analyze);
-                Thread timertask = new Thread(() =>
+                timerTask = new Thread(() =>
                 {
                     DateTime start = DateTime.Now;
                     Tuple<int,double[]> result;
@@ -590,7 +596,7 @@ namespace QtDataTrace.UI
                         DebugOpenModule(resultForm);
                     }));
                 }) { IsBackground = true };
-                timertask.Start();
+                timerTask.Start();
             }
         }
 
@@ -603,14 +609,15 @@ namespace QtDataTrace.UI
             configcontrol.Init(this.gridView1.GetVisibleColumnNames(false, typeof(string), typeof(DateTime), typeof(bool)),choosed.Length);
             if (configForm.ShowDialog() == DialogResult.OK)
             {
-                currentAnalyzeFactoryId = ServiceContainer.GetService<IDataAnalyzeService>().KMeansStart(loginId, currentTraceFactoryId, choosed, configcontrol.SelectedColumns,configcontrol.MaxCount,configcontrol.StartClustNum,configcontrol.EndClustNum,configcontrol.Avg,configcontrol.Stdev,configcontrol.InitialMode,configcontrol.MaxThread);
+                var re = ServiceContainer.GetService<IDataAnalyzeService>().KMeansStart(loginId, currentDataId, choosed, configcontrol.SelectedColumns, configcontrol.MaxCount, configcontrol.StartClustNum, configcontrol.EndClustNum, configcontrol.Avg, configcontrol.Stdev, configcontrol.InitialMode, configcontrol.MaxThread);
+                currentAnalyzeFactoryId = re.Item1;
                 if (currentTraceFactoryId == Guid.Empty)
                 {
-                    MessageBox.Show("当前服务器端数据已丢失，请不要同时进行过多数据查询");
+                    MessageBox.Show(re.Item2);
                     return;
                 }
                 BeginWait(WorkingMode.Analyze);
-                Thread timertask = new Thread(() =>
+                timerTask = new Thread(() =>
                 {
                     DateTime start = DateTime.Now;
                     Tuple<int, DataSet> result;
@@ -640,7 +647,7 @@ namespace QtDataTrace.UI
                         DebugOpenModule(resultForm);
                     }));
                 }) { IsBackground = true };
-                timertask.Start();
+                timerTask.Start();
             }
         }
 
@@ -671,14 +678,15 @@ namespace QtDataTrace.UI
             configcontrol.Init(this.gridView1.GetVisibleColumnNames(false, typeof(string), typeof(DateTime), typeof(bool)));
             if (configForm.ShowDialog() == DialogResult.OK)
             {
-                currentAnalyzeFactoryId = ServiceContainer.GetService<IDataAnalyzeService>().ContourPlotStart(loginId, currentTraceFactoryId, choosed,configcontrol.X,configcontrol.Y,configcontrol.Z);
+                var re = ServiceContainer.GetService<IDataAnalyzeService>().ContourPlotStart(loginId, currentDataId, choosed, configcontrol.X, configcontrol.Y, configcontrol.Z, configcontrol.PicWidth, configcontrol.PicHeight);
+                currentAnalyzeFactoryId = re.Item1;
                 if (currentTraceFactoryId == Guid.Empty)
                 {
-                    MessageBox.Show("当前服务器端数据已丢失，请不要同时进行过多数据查询");
+                    MessageBox.Show(re.Item2);
                     return;
                 }
                 BeginWait(WorkingMode.Analyze);
-                Thread timertask = new Thread(() =>
+                timerTask = new Thread(() =>
                 {
                     DateTime start = DateTime.Now;
                     Tuple<int, Image> result;
@@ -703,12 +711,12 @@ namespace QtDataTrace.UI
                         SPC.Analysis.ResultControls.ContourPlotResultControl resultcontrol = new SPC.Analysis.ResultControls.ContourPlotResultControl();
                         AnalyzeResultControl resultForm = new AnalyzeResultControl();
                         resultForm.AddResultControl(resultcontrol);
-                        resultcontrol.Init(result.Item2);
+                        resultcontrol.Init(result.Item2, configcontrol.X, configcontrol.Y, configcontrol.Z);
                         resultForm.AccessibleDescription = "等高线图" + DateTime.Now.ToString("hh:mm:ss");
                         DebugOpenModule(resultForm);
                     }));
                 }) { IsBackground = true };
-                timertask.Start();
+                timerTask.Start();
             }
         }
     }

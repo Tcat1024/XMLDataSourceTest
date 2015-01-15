@@ -47,7 +47,7 @@ namespace QtDataTrace.Access
                         }
                     }
                     if (!temp)
-                        return Guid.Empty;
+                        throw new Exception("该用户建立运算过多，请等待其他运算完成");
                 }
                 id = Guid.NewGuid();
                 factories.Add(id, factory);
@@ -88,12 +88,22 @@ namespace QtDataTrace.Access
     }
     public abstract class DataAnalyzeFactory
     {
-        protected DataAnalyzeFactory()
-        {
-            Working = false;
-        }
         public string Name { get; set; }
-        public bool Working { get; protected set; }
+        public event EventHandler StopedWorking;
+        private bool _Working = false;
+        public bool Working 
+        { 
+            get
+            {
+                return _Working;
+            }
+            protected set
+            {
+                _Working = value;
+                if (!value && StopedWorking != null)
+                    StopedWorking(this, new EventArgs());
+            }
+        }
         public abstract bool Start();
         public abstract bool Stop();
         public abstract int GetProgress();
@@ -214,15 +224,19 @@ namespace QtDataTrace.Access
         string X;
         string Y;
         string Z;
+        int Width;
+        int Height;
         public System.Drawing.Image Result;
         int process = 0;
-        public ContourPlotFactory(IDataTable<DataRow> data, string x,string y,string z)
+        public ContourPlotFactory(IDataTable<DataRow> data, string x, string y, string z, int Width,int Height)
             : base()
         {
             this.data = data;
             this.X = x;
             this.Y = y;
             this.Z = z;
+            this.Width = Width;
+            this.Height = Height;
         }
         public override bool Start()
         {
@@ -231,7 +245,7 @@ namespace QtDataTrace.Access
                 this.Working = true;
                 Stop();
                 cancelToken = new CancellationTokenSource();
-                mainThread = new Task(() => { Result = SPC.Rnet.Methods.DrawContourPlot(data, X, Y, Z); this.Working = false; }, cancelToken.Token);
+                mainThread = new Task(() => { Result = SPC.Rnet.Methods.DrawContourPlot(data, X, Y, Z, Width, Height); this.Working = false; }, cancelToken.Token);
                 mainThread.Start();
                 return true;
             }
