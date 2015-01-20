@@ -139,3 +139,5 @@ C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\QtDataTrace.UI\obj\Deb
 C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\QtDataTrace.UI\bin\Debug\EAS.Data.xml
 C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\QtDataTrace.UI\bin\Debug\EAS.Explorer.xml
 C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\QtDataTrace.UI\bin\Debug\EAS.MicroKernel.xml
+C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\QtDataTrace.UI\obj\Debug\QtDataTrace.UI.TraceDataBackUpForm.resources
+C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\QtDataTrace.UI\obj\Debug\QtDataTrace.UI.TraceDataLoadForm.resources

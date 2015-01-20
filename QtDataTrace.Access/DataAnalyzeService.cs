@@ -10,7 +10,7 @@ using EAS.Services;
 
 namespace QtDataTrace.Access
 {
-    [ServiceObject("质量数据追踪服务")]
+    [ServiceObject("质量数据分析服务")]
     [ServiceBind(typeof(IDataAnalyzeService))]
     public class DataAnalyzeService : ServiceObject,IDataAnalyzeService
     {
@@ -32,15 +32,14 @@ namespace QtDataTrace.Access
                 return new Tuple<Guid, string>(Guid.Empty, ex.Message);
             }
         }
-        public Tuple<int,double[]> CCTget(string username, Guid id)
+        public double[] CCTget(string username, Guid id)
         {
             CCTAnalyzeFactory factory = DataAnalyzeBLL.GetFactory(username,id) as CCTAnalyzeFactory;
-            int progress = factory.GetProgress();
-            if(!factory.Working)
+            if(factory!=null&&!factory.Working)
             {
-                return new Tuple<int, double[]>(progress, factory.Result);
+                return factory.Result;
             }
-            return new Tuple<int, double[]>(progress, null);
+            return null;
         }
         public Tuple<Guid, string> KMeansStart(string username, Guid id, int[] selected,string[] properties,int maxcount,int minclustercount,int maxclustercount,double m,double s,int initialmode,int maxthread)
         {
@@ -60,31 +59,49 @@ namespace QtDataTrace.Access
                 return new Tuple<Guid, string>(Guid.Empty, ex.Message);
             }
         }
-        public Tuple<int, DataSet> KMeansGet(string username, Guid id)
+        public DataSet KMeansGet(string username, Guid id)
         {
             KMeansAnalyzeFactory factory = DataAnalyzeBLL.GetFactory(username, id) as KMeansAnalyzeFactory;
-            int progress = factory.GetProgress();
-            if (!factory.Working)
+            if (factory != null && !factory.Working)
             {
-                return new Tuple<int, DataSet>(progress, factory.Result);
+                return factory.Result;
             }
-            return new Tuple<int, DataSet>(progress, null);
+            return null;
         }
         public bool Stop(string username, Guid id)
         {
+            return DataAnalyzeBLL.Stop(username, id);
+        }
+        public int GetProcess(string username, Guid id)
+        {
             var temp = DataAnalyzeBLL.GetFactory(username, id);
             if (temp == null)
-                return false;
-            return temp.Stop();
+                return -2;
+            if (temp.Working)
+                return temp.GetProgress();
+            if (temp.Error != "")
+                return -1;
+            return 1000;
         }
-        public Tuple<Guid,string> ContourPlotStart(string username, Guid id, int[] selected, string x,string y,string z,int width,int height)
+        public string GetErrorMessage(string username,Guid id)
+        {
+            var factory=DataAnalyzeBLL.GetFactory(username,id);
+            if (factory != null)
+                return factory.Error;
+            return null;
+        }
+        public bool Remove(string username,Guid id)
+        {
+            return DataAnalyzeBLL.Remove(username, id);
+        }
+        public Tuple<Guid,string> ContourPlotStart(string username, Guid id, int[] selected, string x,string y,string z,int width,int height,double[] levels,bool drawline)
         {
             DataAnalyzeFactory factory = null;
             DataTable data = null;
             try
             {
                 data = QtDataTraceBLL.BeginAnalyzeData(username, id);
-                factory = new ContourPlotFactory(new ChoosedData(data, selected), x, y, z,width,height);
+                factory = new ContourPlotFactory(new ChoosedData(data, selected), x, y, z, width, height, levels, drawline);
                 factory.StopedWorking += (sender, e) => { QtDataTraceBLL.EndAnalyzeData(username, id); };
                 return new Tuple<Guid, string>(DataAnalyzeBLL.Add(username,factory), "");
             }
@@ -95,15 +112,14 @@ namespace QtDataTrace.Access
                 return new Tuple<Guid, string>(Guid.Empty, ex.Message);
             }
         }
-        public Tuple<int, System.Drawing.Image> ContourPlotGet(string username, Guid id)
+        public System.Drawing.Image ContourPlotGet(string username, Guid id)
         {
             ContourPlotFactory factory = DataAnalyzeBLL.GetFactory(username, id) as ContourPlotFactory;
-            int progress = factory.GetProgress();
-            if (!factory.Working)
+            if (factory != null && !factory.Working)
             {
-                return new Tuple<int, System.Drawing.Image>(progress, factory.Result);
+                return factory.Result;
             }
-            return new Tuple<int, System.Drawing.Image>(progress, null);
+            return null;
         }
     }
 }

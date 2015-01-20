@@ -191,6 +191,18 @@
     <Compile Include="SpcModule.designer.cs">
       <DependentUpon>SpcModule.cs</DependentUpon>
     </Compile>
+    <Compile Include="TraceDataBackUpForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TraceDataBackUpForm.Designer.cs">
+      <DependentUpon>TraceDataBackUpForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TraceDataLoadForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TraceDataLoadForm.Designer.cs">
+      <DependentUpon>TraceDataLoadForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="TriStateTreeView.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -228,6 +240,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SpcModule.resx">
       <DependentUpon>SpcModule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TraceDataBackUpForm.resx">
+      <DependentUpon>TraceDataBackUpForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TraceDataLoadForm.resx">
+      <DependentUpon>TraceDataLoadForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TriStateTreeView.resx">
       <DependentUpon>TriStateTreeView.cs</DependentUpon>

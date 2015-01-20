@@ -55,6 +55,22 @@ namespace QtDataTrace.Access
             factory.Start();
             return id;
         }
+        public static bool Remove(string username, Guid id)
+        {
+            Dictionary<Guid, DataAnalyzeFactory> factories;
+            if (DataAnalyzeFactoryContainer.TryGetValue(username, out factories))
+            {
+                DataAnalyzeFactory factory;
+                if (factories.TryGetValue(id, out factory))
+                {
+                    if (factory.Working)
+                        factory.Stop();
+                    factories.Remove(id);
+                    return true;
+                }
+            }
+            return false;
+        }
         public static bool Stop(string username, Guid id)
         {
             Dictionary<Guid, DataAnalyzeFactory> factories;
@@ -63,11 +79,8 @@ namespace QtDataTrace.Access
                 DataAnalyzeFactory factory;
                 if (factories.TryGetValue(id, out factory))
                 {
-                    if (factory.Stop())
-                    {
-                        factories.Remove(id);
-                        return true;
-                    }
+                    factory.Stop();
+                    return true;
                 }
             }
             return false;
@@ -88,7 +101,22 @@ namespace QtDataTrace.Access
     }
     public abstract class DataAnalyzeFactory
     {
+        protected Task mainThread;
+        protected CancellationTokenSource cancelToken;
+        protected Action doMethod;
         public string Name { get; set; }
+        private string _Error = "";
+        public string Error 
+        { 
+            get
+            {
+                return this._Error;
+            }
+            private set
+            {
+                this._Error = value;
+            }
+        }
         public event EventHandler StopedWorking;
         private bool _Working = false;
         public bool Working 
@@ -104,14 +132,51 @@ namespace QtDataTrace.Access
                     StopedWorking(this, new EventArgs());
             }
         }
-        public abstract bool Start();
-        public abstract bool Stop();
+        public virtual bool Start()
+        {
+            try
+            {
+                this.Working = true;
+                Stop();
+                cancelToken = new CancellationTokenSource();
+                mainThread = new Task(() => 
+                {
+                    try
+                    {
+                        doMethod();
+                        this.Error = "";
+                    }
+                    catch (Exception ex)
+                    {
+                        this.Error = ex.Message;
+                    }
+                    finally
+                    {
+                        this.Working = false;
+                    }
+                }, (cancelToken = new CancellationTokenSource()).Token);
+                mainThread.Start();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+        public virtual bool Stop()
+        {
+            if (mainThread != null && mainThread.Status == TaskStatus.Running)
+            {
+                cancelToken.Cancel();
+                this.Working = false;
+                return true;
+            }
+            return false;
+        }
         public abstract int GetProgress();
     }
     public class CCTAnalyzeFactory: DataAnalyzeFactory
     {
-        Task mainThread;
-        CancellationTokenSource cancelToken;
         IDataTable<DataRow> data;
         string target;
         string[] f;
@@ -122,34 +187,9 @@ namespace QtDataTrace.Access
             this.data = data;
             this.target = target;
             this.f = f;
+            this.doMethod = () => { this.Result = SPC.Algorithm.Relations.GetCCTs(this.data, this.target, this.f, this.waitobj); };
         }
-        public override bool Start()
-        {
-            try
-            {
-                this.Working = true;
-                Stop();
-                mainThread = new Task(() => { Result = SPC.Algorithm.Relations.GetCCTs(data, target, f, waitobj); this.Working = false; }, (cancelToken = new CancellationTokenSource()).Token);
-                mainThread.Start();
-                return true;
-            }
-            catch
-            {
-                return false;
-            }
-        }
-
-        public override bool Stop()
-        {
-            if (mainThread != null &&mainThread.Status== TaskStatus.Running)
-            {
-                cancelToken.Cancel();
-                this.Working = false;
-                return true;
-            }
-            return false;
-        }
-
+    
         public override int GetProgress()
         {
             return waitobj.GetProgress();
@@ -157,8 +197,6 @@ namespace QtDataTrace.Access
     }
     public class KMeansAnalyzeFactory : DataAnalyzeFactory
     {
-        Task mainThread;
-        CancellationTokenSource cancelToken;
         IDataTable<DataRow> data;
         int maxCount;
         int minClusterCount;
@@ -182,35 +220,9 @@ namespace QtDataTrace.Access
             this.s = s;
             this.initialMode = initialmode;
             this.maxThread = maxthread;
+            this.doMethod = () => { Result = SPC.Algorithm.KMeans.StartCluster(this.cancelToken, this.data, this.Properties, this.maxCount, this.minClusterCount, this.maxClusterCount, this.m, this.s, this.waitobj, this.initialMode, 0, this.maxThread); };
         }
-        public override bool Start()
-        {
-            try
-            {
-                this.Working = true;
-                Stop();
-                cancelToken = new CancellationTokenSource();
-                mainThread = new Task(() => { Result = SPC.Algorithm.KMeans.StartCluster(cancelToken, data, Properties, maxCount, minClusterCount, maxClusterCount, m, s, waitobj, initialMode, 0, maxThread); this.Working = false; }, cancelToken.Token);
-                mainThread.Start();
-                return true;
-            }
-            catch
-            {
-                return false;
-            }
-        }
-
-        public override bool Stop()
-        {
-            if (mainThread != null && mainThread.Status == TaskStatus.Running)
-            {
-                cancelToken.Cancel();
-                this.Working = false;
-                return true;
-            }
-            return false;
-        }
-
+     
         public override int GetProgress()
         {
             return waitobj.GetProgress();
@@ -218,8 +230,6 @@ namespace QtDataTrace.Access
     }
     public class ContourPlotFactory : DataAnalyzeFactory
     {
-        Task mainThread;
-        CancellationTokenSource cancelToken;
         IDataTable<DataRow> data;
         string X;
         string Y;
@@ -228,7 +238,9 @@ namespace QtDataTrace.Access
         int Height;
         public System.Drawing.Image Result;
         int process = 0;
-        public ContourPlotFactory(IDataTable<DataRow> data, string x, string y, string z, int Width,int Height)
+        double[] Levels;
+        bool Drawline;
+        public ContourPlotFactory(IDataTable<DataRow> data, string x, string y, string z, int Width,int Height,double[] levels,bool drawline)
             : base()
         {
             this.data = data;
@@ -237,35 +249,10 @@ namespace QtDataTrace.Access
             this.Z = z;
             this.Width = Width;
             this.Height = Height;
+            this.Levels = levels;
+            this.Drawline = drawline;
+            this.doMethod = () => { Result = SPC.Rnet.Methods.DrawContourPlot(this.data, this.X, this.Y, this.Z, this.Width, this.Height, this.Levels, this.Drawline); };
         }
-        public override bool Start()
-        {
-            try
-            {
-                this.Working = true;
-                Stop();
-                cancelToken = new CancellationTokenSource();
-                mainThread = new Task(() => { Result = SPC.Rnet.Methods.DrawContourPlot(data, X, Y, Z, Width, Height); this.Working = false; }, cancelToken.Token);
-                mainThread.Start();
-                return true;
-            }
-            catch
-            {
-                return false;
-            }
-        }
-
-        public override bool Stop()
-        {
-            if (mainThread != null && mainThread.Status == TaskStatus.Running)
-            {
-                cancelToken.Cancel();
-                this.Working = false;
-                return true;
-            }
-            return false;
-        }
-
         public override int GetProgress()
         {
             return process = (process+10)%100;

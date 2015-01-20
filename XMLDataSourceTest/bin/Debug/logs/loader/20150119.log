@@ -1,0 +1,312 @@
+2015-01-19 12:14:17==>INFO :BaseDirectory:=C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\XMLDataSourceTest\bin\Debug\
+2015-01-19 12:14:17==>INFO :Load C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\XMLDataSourceTest\bin\Debug\itextsharp.dll Fail!
+[类型]:Error
+[线程]:1
+[内存]:2.80M
+[时间]:2015-01-19 12:14:17
+[内容]:未能加载文件或程序集“file:///C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\XMLDataSourceTest\bin\Debug\itextsharp.dll”或它的某一个依赖项。不支持操作。 (异常来自 HRESULT:0x80131515)
+[来源]:mscorlib
+[目标]:System.Reflection.RuntimeAssembly _nLoad(System.Reflection.AssemblyName, System.String, System.Security.Policy.Evidence, System.Reflection.RuntimeAssembly, System.Threading.StackCrawlMark ByRef, IntPtr, Boolean, Boolean, Boolean)
+[堆栈]:   在 System.Reflection.RuntimeAssembly._nLoad(AssemblyName fileName, String codeBase, Evidence assemblySecurity, RuntimeAssembly locationHint, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   在 System.Reflection.RuntimeAssembly.nLoad(AssemblyName fileName, String codeBase, Evidence assemblySecurity, RuntimeAssembly locationHint, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   在 System.Reflection.RuntimeAssembly.InternalLoadAssemblyName(AssemblyName assemblyRef, Evidence assemblySecurity, RuntimeAssembly reqAssembly, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   在 System.Reflection.RuntimeAssembly.InternalLoadFrom(String assemblyFile, Evidence securityEvidence, Byte[] hashValue, AssemblyHashAlgorithm hashAlgorithm, Boolean forIntrospection, Boolean suppressSecurityChecks, StackCrawlMark& stackMark)
+   在 System.Reflection.Assembly.LoadFrom(String assemblyFile)
+   在 KFyhPu2aRXan9ESK1M.gyPtuOUjV0KffjIQuJ.PrDlSW0N1HpGNl500kA(Object )
+   在 KFyhPu2aRXan9ESK1M.gyPtuOUjV0KffjIQuJ.MEMfOcNHPU(String )
+
+[类型]:Error
+[线程]:1
+[内存]:2.84M
+[时间]:2015-01-19 12:14:17
+[内容]:尝试从一个网络位置加载程序集，在早期版本的 .NET Framework 中，这会导致对该程序集进行沙盒处理。此发行版的 .NET Framework 默认情况下不启用 CAS 策略，因此，此加载可能会很危险。如果此加载不是要对程序集进行沙盒处理，请启用 loadFromRemoteSources 开关。有关详细信息，请参见 http://go.microsoft.com/fwlink/?LinkId=155569。
+[来源]:
+[目标]:
+[堆栈]:
+
+2015-01-19 12:22:02==>INFO :BaseDirectory:=C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\XMLDataSourceTest\bin\Debug\
+2015-01-19 12:22:02==>INFO :Load C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\XMLDataSourceTest\bin\Debug\itextsharp.dll Fail!
+[类型]:Error
+[线程]:1
+[内存]:5.27M
+[时间]:2015-01-19 12:22:02
+[内容]:未能加载文件或程序集“file:///C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\XMLDataSourceTest\bin\Debug\itextsharp.dll”或它的某一个依赖项。不支持操作。 (异常来自 HRESULT:0x80131515)
+[来源]:mscorlib
+[目标]:System.Reflection.RuntimeAssembly _nLoad(System.Reflection.AssemblyName, System.String, System.Security.Policy.Evidence, System.Reflection.RuntimeAssembly, System.Threading.StackCrawlMark ByRef, IntPtr, Boolean, Boolean, Boolean)
+[堆栈]:   在 System.Reflection.RuntimeAssembly._nLoad(AssemblyName fileName, String codeBase, Evidence assemblySecurity, RuntimeAssembly locationHint, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   在 System.Reflection.RuntimeAssembly.nLoad(AssemblyName fileName, String codeBase, Evidence assemblySecurity, RuntimeAssembly locationHint, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   在 System.Reflection.RuntimeAssembly.InternalLoadAssemblyName(AssemblyName assemblyRef, Evidence assemblySecurity, RuntimeAssembly reqAssembly, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   在 System.Reflection.RuntimeAssembly.InternalLoadFrom(String assemblyFile, Evidence securityEvidence, Byte[] hashValue, AssemblyHashAlgorithm hashAlgorithm, Boolean forIntrospection, Boolean suppressSecurityChecks, StackCrawlMark& stackMark)
+   在 System.Reflection.Assembly.LoadFrom(String assemblyFile)
+   在 KFyhPu2aRXan9ESK1M.gyPtuOUjV0KffjIQuJ.PrDlSW0N1HpGNl500kA(Object )
+   在 KFyhPu2aRXan9ESK1M.gyPtuOUjV0KffjIQuJ.MEMfOcNHPU(String )
+
+[类型]:Error
+[线程]:1
+[内存]:5.31M
+[时间]:2015-01-19 12:22:02
+[内容]:尝试从一个网络位置加载程序集，在早期版本的 .NET Framework 中，这会导致对该程序集进行沙盒处理。此发行版的 .NET Framework 默认情况下不启用 CAS 策略，因此，此加载可能会很危险。如果此加载不是要对程序集进行沙盒处理，请启用 loadFromRemoteSources 开关。有关详细信息，请参见 http://go.microsoft.com/fwlink/?LinkId=155569。
+[来源]:
+[目标]:
+[堆栈]:
+
+2015-01-19 12:24:40==>INFO :BaseDirectory:=C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\XMLDataSourceTest\bin\Debug\
+2015-01-19 12:24:40==>INFO :Load C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\XMLDataSourceTest\bin\Debug\itextsharp.dll Fail!
+[类型]:Error
+[线程]:1
+[内存]:5.42M
+[时间]:2015-01-19 12:24:40
+[内容]:未能加载文件或程序集“file:///C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\XMLDataSourceTest\bin\Debug\itextsharp.dll”或它的某一个依赖项。不支持操作。 (异常来自 HRESULT:0x80131515)
+[来源]:mscorlib
+[目标]:System.Reflection.RuntimeAssembly _nLoad(System.Reflection.AssemblyName, System.String, System.Security.Policy.Evidence, System.Reflection.RuntimeAssembly, System.Threading.StackCrawlMark ByRef, IntPtr, Boolean, Boolean, Boolean)
+[堆栈]:   在 System.Reflection.RuntimeAssembly._nLoad(AssemblyName fileName, String codeBase, Evidence assemblySecurity, RuntimeAssembly locationHint, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   在 System.Reflection.RuntimeAssembly.nLoad(AssemblyName fileName, String codeBase, Evidence assemblySecurity, RuntimeAssembly locationHint, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   在 System.Reflection.RuntimeAssembly.InternalLoadAssemblyName(AssemblyName assemblyRef, Evidence assemblySecurity, RuntimeAssembly reqAssembly, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   在 System.Reflection.RuntimeAssembly.InternalLoadFrom(String assemblyFile, Evidence securityEvidence, Byte[] hashValue, AssemblyHashAlgorithm hashAlgorithm, Boolean forIntrospection, Boolean suppressSecurityChecks, StackCrawlMark& stackMark)
+   在 System.Reflection.Assembly.LoadFrom(String assemblyFile)
+   在 KFyhPu2aRXan9ESK1M.gyPtuOUjV0KffjIQuJ.PrDlSW0N1HpGNl500kA(Object )
+   在 KFyhPu2aRXan9ESK1M.gyPtuOUjV0KffjIQuJ.MEMfOcNHPU(String )
+
+[类型]:Error
+[线程]:1
+[内存]:5.46M
+[时间]:2015-01-19 12:24:40
+[内容]:尝试从一个网络位置加载程序集，在早期版本的 .NET Framework 中，这会导致对该程序集进行沙盒处理。此发行版的 .NET Framework 默认情况下不启用 CAS 策略，因此，此加载可能会很危险。如果此加载不是要对程序集进行沙盒处理，请启用 loadFromRemoteSources 开关。有关详细信息，请参见 http://go.microsoft.com/fwlink/?LinkId=155569。
+[来源]:
+[目标]:
+[堆栈]:
+
+2015-01-19 12:27:02==>INFO :BaseDirectory:=C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\XMLDataSourceTest\bin\Debug\
+2015-01-19 12:27:02==>INFO :Load C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\XMLDataSourceTest\bin\Debug\itextsharp.dll Fail!
+[类型]:Error
+[线程]:1
+[内存]:3.63M
+[时间]:2015-01-19 12:27:02
+[内容]:未能加载文件或程序集“file:///C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\XMLDataSourceTest\bin\Debug\itextsharp.dll”或它的某一个依赖项。不支持操作。 (异常来自 HRESULT:0x80131515)
+[来源]:mscorlib
+[目标]:System.Reflection.RuntimeAssembly _nLoad(System.Reflection.AssemblyName, System.String, System.Security.Policy.Evidence, System.Reflection.RuntimeAssembly, System.Threading.StackCrawlMark ByRef, IntPtr, Boolean, Boolean, Boolean)
+[堆栈]:   在 System.Reflection.RuntimeAssembly._nLoad(AssemblyName fileName, String codeBase, Evidence assemblySecurity, RuntimeAssembly locationHint, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   在 System.Reflection.RuntimeAssembly.nLoad(AssemblyName fileName, String codeBase, Evidence assemblySecurity, RuntimeAssembly locationHint, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   在 System.Reflection.RuntimeAssembly.InternalLoadAssemblyName(AssemblyName assemblyRef, Evidence assemblySecurity, RuntimeAssembly reqAssembly, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   在 System.Reflection.RuntimeAssembly.InternalLoadFrom(String assemblyFile, Evidence securityEvidence, Byte[] hashValue, AssemblyHashAlgorithm hashAlgorithm, Boolean forIntrospection, Boolean suppressSecurityChecks, StackCrawlMark& stackMark)
+   在 System.Reflection.Assembly.LoadFrom(String assemblyFile)
+   在 KFyhPu2aRXan9ESK1M.gyPtuOUjV0KffjIQuJ.PrDlSW0N1HpGNl500kA(Object )
+   在 KFyhPu2aRXan9ESK1M.gyPtuOUjV0KffjIQuJ.MEMfOcNHPU(String )
+
+[类型]:Error
+[线程]:1
+[内存]:3.67M
+[时间]:2015-01-19 12:27:02
+[内容]:尝试从一个网络位置加载程序集，在早期版本的 .NET Framework 中，这会导致对该程序集进行沙盒处理。此发行版的 .NET Framework 默认情况下不启用 CAS 策略，因此，此加载可能会很危险。如果此加载不是要对程序集进行沙盒处理，请启用 loadFromRemoteSources 开关。有关详细信息，请参见 http://go.microsoft.com/fwlink/?LinkId=155569。
+[来源]:
+[目标]:
+[堆栈]:
+
+2015-01-19 12:30:12==>INFO :BaseDirectory:=C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\XMLDataSourceTest\bin\Debug\
+2015-01-19 12:30:12==>INFO :Load C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\XMLDataSourceTest\bin\Debug\itextsharp.dll Fail!
+[类型]:Error
+[线程]:1
+[内存]:5.28M
+[时间]:2015-01-19 12:30:12
+[内容]:未能加载文件或程序集“file:///C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\XMLDataSourceTest\bin\Debug\itextsharp.dll”或它的某一个依赖项。不支持操作。 (异常来自 HRESULT:0x80131515)
+[来源]:mscorlib
+[目标]:System.Reflection.RuntimeAssembly _nLoad(System.Reflection.AssemblyName, System.String, System.Security.Policy.Evidence, System.Reflection.RuntimeAssembly, System.Threading.StackCrawlMark ByRef, IntPtr, Boolean, Boolean, Boolean)
+[堆栈]:   在 System.Reflection.RuntimeAssembly._nLoad(AssemblyName fileName, String codeBase, Evidence assemblySecurity, RuntimeAssembly locationHint, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   在 System.Reflection.RuntimeAssembly.nLoad(AssemblyName fileName, String codeBase, Evidence assemblySecurity, RuntimeAssembly locationHint, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   在 System.Reflection.RuntimeAssembly.InternalLoadAssemblyName(AssemblyName assemblyRef, Evidence assemblySecurity, RuntimeAssembly reqAssembly, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   在 System.Reflection.RuntimeAssembly.InternalLoadFrom(String assemblyFile, Evidence securityEvidence, Byte[] hashValue, AssemblyHashAlgorithm hashAlgorithm, Boolean forIntrospection, Boolean suppressSecurityChecks, StackCrawlMark& stackMark)
+   在 System.Reflection.Assembly.LoadFrom(String assemblyFile)
+   在 KFyhPu2aRXan9ESK1M.gyPtuOUjV0KffjIQuJ.PrDlSW0N1HpGNl500kA(Object )
+   在 KFyhPu2aRXan9ESK1M.gyPtuOUjV0KffjIQuJ.MEMfOcNHPU(String )
+
+[类型]:Error
+[线程]:1
+[内存]:5.32M
+[时间]:2015-01-19 12:30:12
+[内容]:尝试从一个网络位置加载程序集，在早期版本的 .NET Framework 中，这会导致对该程序集进行沙盒处理。此发行版的 .NET Framework 默认情况下不启用 CAS 策略，因此，此加载可能会很危险。如果此加载不是要对程序集进行沙盒处理，请启用 loadFromRemoteSources 开关。有关详细信息，请参见 http://go.microsoft.com/fwlink/?LinkId=155569。
+[来源]:
+[目标]:
+[堆栈]:
+
+2015-01-19 16:46:45==>INFO :BaseDirectory:=C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\XMLDataSourceTest\bin\Debug\
+2015-01-19 16:46:45==>INFO :Load C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\XMLDataSourceTest\bin\Debug\itextsharp.dll Fail!
+[类型]:Error
+[线程]:1
+[内存]:5.50M
+[时间]:2015-01-19 16:46:45
+[内容]:未能加载文件或程序集“file:///C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\XMLDataSourceTest\bin\Debug\itextsharp.dll”或它的某一个依赖项。不支持操作。 (异常来自 HRESULT:0x80131515)
+[来源]:mscorlib
+[目标]:System.Reflection.RuntimeAssembly _nLoad(System.Reflection.AssemblyName, System.String, System.Security.Policy.Evidence, System.Reflection.RuntimeAssembly, System.Threading.StackCrawlMark ByRef, IntPtr, Boolean, Boolean, Boolean)
+[堆栈]:   在 System.Reflection.RuntimeAssembly._nLoad(AssemblyName fileName, String codeBase, Evidence assemblySecurity, RuntimeAssembly locationHint, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   在 System.Reflection.RuntimeAssembly.nLoad(AssemblyName fileName, String codeBase, Evidence assemblySecurity, RuntimeAssembly locationHint, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   在 System.Reflection.RuntimeAssembly.InternalLoadAssemblyName(AssemblyName assemblyRef, Evidence assemblySecurity, RuntimeAssembly reqAssembly, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   在 System.Reflection.RuntimeAssembly.InternalLoadFrom(String assemblyFile, Evidence securityEvidence, Byte[] hashValue, AssemblyHashAlgorithm hashAlgorithm, Boolean forIntrospection, Boolean suppressSecurityChecks, StackCrawlMark& stackMark)
+   在 System.Reflection.Assembly.LoadFrom(String assemblyFile)
+   在 KFyhPu2aRXan9ESK1M.gyPtuOUjV0KffjIQuJ.PrDlSW0N1HpGNl500kA(Object )
+   在 KFyhPu2aRXan9ESK1M.gyPtuOUjV0KffjIQuJ.MEMfOcNHPU(String )
+
+[类型]:Error
+[线程]:1
+[内存]:5.54M
+[时间]:2015-01-19 16:46:45
+[内容]:尝试从一个网络位置加载程序集，在早期版本的 .NET Framework 中，这会导致对该程序集进行沙盒处理。此发行版的 .NET Framework 默认情况下不启用 CAS 策略，因此，此加载可能会很危险。如果此加载不是要对程序集进行沙盒处理，请启用 loadFromRemoteSources 开关。有关详细信息，请参见 http://go.microsoft.com/fwlink/?LinkId=155569。
+[来源]:
+[目标]:
+[堆栈]:
+
+2015-01-19 16:58:30==>INFO :BaseDirectory:=C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\XMLDataSourceTest\bin\Debug\
+2015-01-19 16:58:30==>INFO :Load C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\XMLDataSourceTest\bin\Debug\itextsharp.dll Fail!
+[类型]:Error
+[线程]:1
+[内存]:2.74M
+[时间]:2015-01-19 16:58:30
+[内容]:未能加载文件或程序集“file:///C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\XMLDataSourceTest\bin\Debug\itextsharp.dll”或它的某一个依赖项。不支持操作。 (异常来自 HRESULT:0x80131515)
+[来源]:mscorlib
+[目标]:System.Reflection.RuntimeAssembly _nLoad(System.Reflection.AssemblyName, System.String, System.Security.Policy.Evidence, System.Reflection.RuntimeAssembly, System.Threading.StackCrawlMark ByRef, IntPtr, Boolean, Boolean, Boolean)
+[堆栈]:   在 System.Reflection.RuntimeAssembly._nLoad(AssemblyName fileName, String codeBase, Evidence assemblySecurity, RuntimeAssembly locationHint, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   在 System.Reflection.RuntimeAssembly.nLoad(AssemblyName fileName, String codeBase, Evidence assemblySecurity, RuntimeAssembly locationHint, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   在 System.Reflection.RuntimeAssembly.InternalLoadAssemblyName(AssemblyName assemblyRef, Evidence assemblySecurity, RuntimeAssembly reqAssembly, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   在 System.Reflection.RuntimeAssembly.InternalLoadFrom(String assemblyFile, Evidence securityEvidence, Byte[] hashValue, AssemblyHashAlgorithm hashAlgorithm, Boolean forIntrospection, Boolean suppressSecurityChecks, StackCrawlMark& stackMark)
+   在 System.Reflection.Assembly.LoadFrom(String assemblyFile)
+   在 KFyhPu2aRXan9ESK1M.gyPtuOUjV0KffjIQuJ.PrDlSW0N1HpGNl500kA(Object )
+   在 KFyhPu2aRXan9ESK1M.gyPtuOUjV0KffjIQuJ.MEMfOcNHPU(String )
+
+[类型]:Error
+[线程]:1
+[内存]:2.78M
+[时间]:2015-01-19 16:58:30
+[内容]:尝试从一个网络位置加载程序集，在早期版本的 .NET Framework 中，这会导致对该程序集进行沙盒处理。此发行版的 .NET Framework 默认情况下不启用 CAS 策略，因此，此加载可能会很危险。如果此加载不是要对程序集进行沙盒处理，请启用 loadFromRemoteSources 开关。有关详细信息，请参见 http://go.microsoft.com/fwlink/?LinkId=155569。
+[来源]:
+[目标]:
+[堆栈]:
+
+2015-01-19 17:05:24==>INFO :BaseDirectory:=C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\XMLDataSourceTest\bin\Debug\
+2015-01-19 17:05:24==>INFO :Load C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\XMLDataSourceTest\bin\Debug\itextsharp.dll Fail!
+[类型]:Error
+[线程]:1
+[内存]:5.34M
+[时间]:2015-01-19 17:05:24
+[内容]:未能加载文件或程序集“file:///C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\XMLDataSourceTest\bin\Debug\itextsharp.dll”或它的某一个依赖项。不支持操作。 (异常来自 HRESULT:0x80131515)
+[来源]:mscorlib
+[目标]:System.Reflection.RuntimeAssembly _nLoad(System.Reflection.AssemblyName, System.String, System.Security.Policy.Evidence, System.Reflection.RuntimeAssembly, System.Threading.StackCrawlMark ByRef, IntPtr, Boolean, Boolean, Boolean)
+[堆栈]:   在 System.Reflection.RuntimeAssembly._nLoad(AssemblyName fileName, String codeBase, Evidence assemblySecurity, RuntimeAssembly locationHint, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   在 System.Reflection.RuntimeAssembly.nLoad(AssemblyName fileName, String codeBase, Evidence assemblySecurity, RuntimeAssembly locationHint, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   在 System.Reflection.RuntimeAssembly.InternalLoadAssemblyName(AssemblyName assemblyRef, Evidence assemblySecurity, RuntimeAssembly reqAssembly, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   在 System.Reflection.RuntimeAssembly.InternalLoadFrom(String assemblyFile, Evidence securityEvidence, Byte[] hashValue, AssemblyHashAlgorithm hashAlgorithm, Boolean forIntrospection, Boolean suppressSecurityChecks, StackCrawlMark& stackMark)
+   在 System.Reflection.Assembly.LoadFrom(String assemblyFile)
+   在 KFyhPu2aRXan9ESK1M.gyPtuOUjV0KffjIQuJ.PrDlSW0N1HpGNl500kA(Object )
+   在 KFyhPu2aRXan9ESK1M.gyPtuOUjV0KffjIQuJ.MEMfOcNHPU(String )
+
+[类型]:Error
+[线程]:1
+[内存]:5.38M
+[时间]:2015-01-19 17:05:24
+[内容]:尝试从一个网络位置加载程序集，在早期版本的 .NET Framework 中，这会导致对该程序集进行沙盒处理。此发行版的 .NET Framework 默认情况下不启用 CAS 策略，因此，此加载可能会很危险。如果此加载不是要对程序集进行沙盒处理，请启用 loadFromRemoteSources 开关。有关详细信息，请参见 http://go.microsoft.com/fwlink/?LinkId=155569。
+[来源]:
+[目标]:
+[堆栈]:
+
+2015-01-19 17:10:40==>INFO :BaseDirectory:=C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\XMLDataSourceTest\bin\Debug\
+2015-01-19 17:10:40==>INFO :Load C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\XMLDataSourceTest\bin\Debug\itextsharp.dll Fail!
+[类型]:Error
+[线程]:1
+[内存]:5.64M
+[时间]:2015-01-19 17:10:40
+[内容]:未能加载文件或程序集“file:///C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\XMLDataSourceTest\bin\Debug\itextsharp.dll”或它的某一个依赖项。不支持操作。 (异常来自 HRESULT:0x80131515)
+[来源]:mscorlib
+[目标]:System.Reflection.RuntimeAssembly _nLoad(System.Reflection.AssemblyName, System.String, System.Security.Policy.Evidence, System.Reflection.RuntimeAssembly, System.Threading.StackCrawlMark ByRef, IntPtr, Boolean, Boolean, Boolean)
+[堆栈]:   在 System.Reflection.RuntimeAssembly._nLoad(AssemblyName fileName, String codeBase, Evidence assemblySecurity, RuntimeAssembly locationHint, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   在 System.Reflection.RuntimeAssembly.nLoad(AssemblyName fileName, String codeBase, Evidence assemblySecurity, RuntimeAssembly locationHint, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   在 System.Reflection.RuntimeAssembly.InternalLoadAssemblyName(AssemblyName assemblyRef, Evidence assemblySecurity, RuntimeAssembly reqAssembly, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   在 System.Reflection.RuntimeAssembly.InternalLoadFrom(String assemblyFile, Evidence securityEvidence, Byte[] hashValue, AssemblyHashAlgorithm hashAlgorithm, Boolean forIntrospection, Boolean suppressSecurityChecks, StackCrawlMark& stackMark)
+   在 System.Reflection.Assembly.LoadFrom(String assemblyFile)
+   在 KFyhPu2aRXan9ESK1M.gyPtuOUjV0KffjIQuJ.PrDlSW0N1HpGNl500kA(Object )
+   在 KFyhPu2aRXan9ESK1M.gyPtuOUjV0KffjIQuJ.MEMfOcNHPU(String )
+
+[类型]:Error
+[线程]:1
+[内存]:5.68M
+[时间]:2015-01-19 17:10:40
+[内容]:尝试从一个网络位置加载程序集，在早期版本的 .NET Framework 中，这会导致对该程序集进行沙盒处理。此发行版的 .NET Framework 默认情况下不启用 CAS 策略，因此，此加载可能会很危险。如果此加载不是要对程序集进行沙盒处理，请启用 loadFromRemoteSources 开关。有关详细信息，请参见 http://go.microsoft.com/fwlink/?LinkId=155569。
+[来源]:
+[目标]:
+[堆栈]:
+
+2015-01-19 17:15:56==>INFO :BaseDirectory:=C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\XMLDataSourceTest\bin\Debug\
+2015-01-19 17:15:56==>INFO :Load C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\XMLDataSourceTest\bin\Debug\itextsharp.dll Fail!
+[类型]:Error
+[线程]:1
+[内存]:2.80M
+[时间]:2015-01-19 17:15:56
+[内容]:未能加载文件或程序集“file:///C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\XMLDataSourceTest\bin\Debug\itextsharp.dll”或它的某一个依赖项。不支持操作。 (异常来自 HRESULT:0x80131515)
+[来源]:mscorlib
+[目标]:System.Reflection.RuntimeAssembly _nLoad(System.Reflection.AssemblyName, System.String, System.Security.Policy.Evidence, System.Reflection.RuntimeAssembly, System.Threading.StackCrawlMark ByRef, IntPtr, Boolean, Boolean, Boolean)
+[堆栈]:   在 System.Reflection.RuntimeAssembly._nLoad(AssemblyName fileName, String codeBase, Evidence assemblySecurity, RuntimeAssembly locationHint, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   在 System.Reflection.RuntimeAssembly.nLoad(AssemblyName fileName, String codeBase, Evidence assemblySecurity, RuntimeAssembly locationHint, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   在 System.Reflection.RuntimeAssembly.InternalLoadAssemblyName(AssemblyName assemblyRef, Evidence assemblySecurity, RuntimeAssembly reqAssembly, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   在 System.Reflection.RuntimeAssembly.InternalLoadFrom(String assemblyFile, Evidence securityEvidence, Byte[] hashValue, AssemblyHashAlgorithm hashAlgorithm, Boolean forIntrospection, Boolean suppressSecurityChecks, StackCrawlMark& stackMark)
+   在 System.Reflection.Assembly.LoadFrom(String assemblyFile)
+   在 KFyhPu2aRXan9ESK1M.gyPtuOUjV0KffjIQuJ.PrDlSW0N1HpGNl500kA(Object )
+   在 KFyhPu2aRXan9ESK1M.gyPtuOUjV0KffjIQuJ.MEMfOcNHPU(String )
+
+[类型]:Error
+[线程]:1
+[内存]:2.84M
+[时间]:2015-01-19 17:15:56
+[内容]:尝试从一个网络位置加载程序集，在早期版本的 .NET Framework 中，这会导致对该程序集进行沙盒处理。此发行版的 .NET Framework 默认情况下不启用 CAS 策略，因此，此加载可能会很危险。如果此加载不是要对程序集进行沙盒处理，请启用 loadFromRemoteSources 开关。有关详细信息，请参见 http://go.microsoft.com/fwlink/?LinkId=155569。
+[来源]:
+[目标]:
+[堆栈]:
+
+2015-01-19 17:29:11==>INFO :BaseDirectory:=C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\XMLDataSourceTest\bin\Debug\
+2015-01-19 17:29:11==>INFO :Load C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\XMLDataSourceTest\bin\Debug\itextsharp.dll Fail!
+[类型]:Error
+[线程]:1
+[内存]:5.26M
+[时间]:2015-01-19 17:29:11
+[内容]:未能加载文件或程序集“file:///C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\XMLDataSourceTest\bin\Debug\itextsharp.dll”或它的某一个依赖项。不支持操作。 (异常来自 HRESULT:0x80131515)
+[来源]:mscorlib
+[目标]:System.Reflection.RuntimeAssembly _nLoad(System.Reflection.AssemblyName, System.String, System.Security.Policy.Evidence, System.Reflection.RuntimeAssembly, System.Threading.StackCrawlMark ByRef, IntPtr, Boolean, Boolean, Boolean)
+[堆栈]:   在 System.Reflection.RuntimeAssembly._nLoad(AssemblyName fileName, String codeBase, Evidence assemblySecurity, RuntimeAssembly locationHint, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   在 System.Reflection.RuntimeAssembly.nLoad(AssemblyName fileName, String codeBase, Evidence assemblySecurity, RuntimeAssembly locationHint, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   在 System.Reflection.RuntimeAssembly.InternalLoadAssemblyName(AssemblyName assemblyRef, Evidence assemblySecurity, RuntimeAssembly reqAssembly, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   在 System.Reflection.RuntimeAssembly.InternalLoadFrom(String assemblyFile, Evidence securityEvidence, Byte[] hashValue, AssemblyHashAlgorithm hashAlgorithm, Boolean forIntrospection, Boolean suppressSecurityChecks, StackCrawlMark& stackMark)
+   在 System.Reflection.Assembly.LoadFrom(String assemblyFile)
+   在 KFyhPu2aRXan9ESK1M.gyPtuOUjV0KffjIQuJ.PrDlSW0N1HpGNl500kA(Object )
+   在 KFyhPu2aRXan9ESK1M.gyPtuOUjV0KffjIQuJ.MEMfOcNHPU(String )
+
+[类型]:Error
+[线程]:1
+[内存]:5.30M
+[时间]:2015-01-19 17:29:11
+[内容]:尝试从一个网络位置加载程序集，在早期版本的 .NET Framework 中，这会导致对该程序集进行沙盒处理。此发行版的 .NET Framework 默认情况下不启用 CAS 策略，因此，此加载可能会很危险。如果此加载不是要对程序集进行沙盒处理，请启用 loadFromRemoteSources 开关。有关详细信息，请参见 http://go.microsoft.com/fwlink/?LinkId=155569。
+[来源]:
+[目标]:
+[堆栈]:
+
+2015-01-19 17:40:53==>INFO :BaseDirectory:=C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\XMLDataSourceTest\bin\Debug\
+2015-01-19 17:40:53==>INFO :Load C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\XMLDataSourceTest\bin\Debug\itextsharp.dll Fail!
+[类型]:Error
+[线程]:1
+[内存]:5.40M
+[时间]:2015-01-19 17:40:53
+[内容]:未能加载文件或程序集“file:///C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\XMLDataSourceTest\bin\Debug\itextsharp.dll”或它的某一个依赖项。不支持操作。 (异常来自 HRESULT:0x80131515)
+[来源]:mscorlib
+[目标]:System.Reflection.RuntimeAssembly _nLoad(System.Reflection.AssemblyName, System.String, System.Security.Policy.Evidence, System.Reflection.RuntimeAssembly, System.Threading.StackCrawlMark ByRef, IntPtr, Boolean, Boolean, Boolean)
+[堆栈]:   在 System.Reflection.RuntimeAssembly._nLoad(AssemblyName fileName, String codeBase, Evidence assemblySecurity, RuntimeAssembly locationHint, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   在 System.Reflection.RuntimeAssembly.nLoad(AssemblyName fileName, String codeBase, Evidence assemblySecurity, RuntimeAssembly locationHint, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   在 System.Reflection.RuntimeAssembly.InternalLoadAssemblyName(AssemblyName assemblyRef, Evidence assemblySecurity, RuntimeAssembly reqAssembly, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   在 System.Reflection.RuntimeAssembly.InternalLoadFrom(String assemblyFile, Evidence securityEvidence, Byte[] hashValue, AssemblyHashAlgorithm hashAlgorithm, Boolean forIntrospection, Boolean suppressSecurityChecks, StackCrawlMark& stackMark)
+   在 System.Reflection.Assembly.LoadFrom(String assemblyFile)
+   在 KFyhPu2aRXan9ESK1M.gyPtuOUjV0KffjIQuJ.PrDlSW0N1HpGNl500kA(Object )
+   在 KFyhPu2aRXan9ESK1M.gyPtuOUjV0KffjIQuJ.MEMfOcNHPU(String )
+
+[类型]:Error
+[线程]:1
+[内存]:5.44M
+[时间]:2015-01-19 17:40:53
+[内容]:尝试从一个网络位置加载程序集，在早期版本的 .NET Framework 中，这会导致对该程序集进行沙盒处理。此发行版的 .NET Framework 默认情况下不启用 CAS 策略，因此，此加载可能会很危险。如果此加载不是要对程序集进行沙盒处理，请启用 loadFromRemoteSources 开关。有关详细信息，请参见 http://go.microsoft.com/fwlink/?LinkId=155569。
+[来源]:
+[目标]:
+[堆栈]:
+

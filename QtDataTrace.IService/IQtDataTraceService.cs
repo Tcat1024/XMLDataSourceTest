@@ -15,8 +15,9 @@ namespace QtDataTrace.IService
         DataSet GetQtData(QueryArgs arg, QtDataTableConfig table);
 
         Tuple<Guid,string> NewDataTrace(string processNo, IList<string> iDList, IList<QtDataProcessConfig> processes, bool back, string username);
-
-        Tuple<int, DataTable> TryGetTraceData(string username, Guid id);
+        DataTable GetData(string username, Guid id);
+        int GetProcess(string username, Guid id);
+        string GetErrorMessage(string username, Guid id);
 
         bool Stop(string username, Guid id);
     }

@@ -30,7 +30,15 @@ namespace QtDataTrace.UI
         private Guid currentTraceFactoryId = Guid.Empty;
         private Guid currentAnalyzeFactoryId = Guid.Empty;
         private bool currentTraceDir;
-        private string loginId;
+        private string loginId = "";
+        private string macId = "";
+        private string userId
+        {
+            get
+            {
+                return loginId + macId;
+            }
+        }
         private Thread timerTask;
         enum WorkingMode
         {
@@ -85,7 +93,7 @@ namespace QtDataTrace.UI
             {
                 if (mo["IPEnabled"].ToString() == "True")
                 {
-                    this.loginId += mo["MacAddress"].ToString();
+                    this.macId += mo["MacAddress"].ToString();
                     break;
                 }
             }
@@ -352,50 +360,71 @@ namespace QtDataTrace.UI
                 MessageBox.Show("没有选择数据");
                 return;
             }
-            var re = ServiceContainer.GetService<IQtDataTraceService>().NewDataTrace(this.ProcessNo, idlist, processes, currentTraceDir, loginId);
+            var re = ServiceContainer.GetService<IQtDataTraceService>().NewDataTrace(this.ProcessNo, idlist, processes, currentTraceDir, userId);
             currentTraceFactoryId = re.Item1;
             if (currentTraceFactoryId == Guid.Empty)
             {
                 MessageBox.Show(re.Item2);
                 return;
             }
-            BeginWait(WorkingMode.Trace);
-            timerTask = new Thread(traceTimerThreadMethod) { IsBackground = true };
-            timerTask.Start();
+            NewTrace();        
         }
-        private void traceTimerThreadMethod()
+        private void NewTrace()
         {
-            DateTime start = DateTime.Now;
-            while (true)
+            BeginWait(WorkingMode.Trace);
+            timerTask = new Thread(() =>
             {
-                var result = ServiceContainer.GetService<IQtDataTraceService>().TryGetTraceData(loginId, this.currentTraceFactoryId);
-                if (result.Item1 < 0)
-                    break;
-                if (result.Item2 != null)
+                DateTime start = DateTime.Now;
+                int process;
+                try
                 {
-                    this.data = result.Item2;
-                    this.Invoke(new Action(() => { this.waitPanel1.Position = result.Item1; traceCallBack(); }));
-                    break;
+                    while (true)
+                    {
+                        process = ServiceContainer.GetService<IQtDataTraceService>().GetProcess(userId, currentTraceFactoryId);
+                        if (process == -2)
+                        {
+                            throw new Exception("无法获取指定追溯过程，可能未成功建立或已被删除");
+                        }
+                        if (process == -1)
+                        {
+                            throw new Exception("发生错误:" + ServiceContainer.GetService<IQtDataTraceService>().GetErrorMessage(userId, currentTraceFactoryId));
+                        }
+                        if (process == 1000)
+                        {
+                            var result = ServiceContainer.GetService<IQtDataTraceService>().GetData(userId, this.currentTraceFactoryId);
+                            this.data = result;
+                            this.Invoke(new Action(() => { traceCallBack(); }));
+                            break;
+                        }
+                        this.Invoke(new Action(() => { this.waitPanel1.Position = process; }));
+                        Thread.Sleep(1000);
+                    }
                 }
-                else
-                    this.Invoke(new Action(() => { this.waitPanel1.Position = result.Item1; }));
-                Thread.Sleep(1000);
-            }
-            DateTime end = DateTime.Now;
-            Console.WriteLine("Cost:" + (end - start));
+                catch (Exception ex)
+                {
+                    if (ex.GetType() != typeof(ThreadAbortException))
+                        MessageBox.Show(ex.Message);
+                }
+                finally
+                {
+                    DateTime end = DateTime.Now;
+                    Console.WriteLine("Cost:" + (end - start));
+                    this.Invoke(new Action(() => { EndWait(); }));
+                }
+            }) { IsBackground = true };
+            timerTask.Start();
         }
         private void traceCallBack()
         {
             this.gridView1.Columns.Clear();
             gridControl1.DataSource = data;
             currentDataId = currentTraceFactoryId;
-            AddTraceHis(currentTraceFactoryId, DateTime.Now, currentTraceDir, ProcessNo);
-            EndWait();
+            AddTraceHis(currentTraceFactoryId, string.Format("{0}_{1}_{2}", DateTime.Now.ToString("hh:mm:ss"), ProcessNo, currentTraceDir ? "后追" : "前追"));
         }
-        private void AddTraceHis(Guid id,DateTime time,bool back,string process)
+        private void AddTraceHis(Guid id,string text)
         {
             stHisNone.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-            var btn = new DevExpress.XtraBars.BarButtonItem(this.barManager1, string.Format("{0}_{1}_{2}",time.ToString("hh:mm:ss"),ProcessNo,back?"后追":"前追"));
+            var btn = new DevExpress.XtraBars.BarButtonItem(this.barManager1, text);
             btn.Tag = id;
             btn.ItemClick += btnHis_ItemClick;
             btn.Name = this.menuTraceHis.ItemLinks.IndexOf(this.menuTraceHis.AddItem(btn)).ToString();
@@ -407,8 +436,8 @@ namespace QtDataTrace.UI
             try
             {
                 var con = e.Item;
-                var result = ServiceContainer.GetService<IQtDataTraceService>().TryGetTraceData(loginId, (Guid)con.Tag);
-                if (result.Item2 == null)
+                var result = ServiceContainer.GetService<IQtDataTraceService>().GetData(userId, (Guid)con.Tag);
+                if (result == null)
                 {
                     RemoveTraceHis(int.Parse(con.Name));
                     this.barManager1.Items.Remove(con);
@@ -416,10 +445,10 @@ namespace QtDataTrace.UI
                 }
                 else
                 {
-                    this.data = result.Item2;
+                    this.data = result;
                     this.gridView1.Columns.Clear();
-                    gridControl1.DataSource = null;
                     gridControl1.DataSource = data;
+                    this.currentDataId = (Guid)con.Tag;
                 }
 
             }
@@ -468,14 +497,12 @@ namespace QtDataTrace.UI
             switch (currentWorkingMode)
             {
                 case WorkingMode.Trace:
-                    ServiceContainer.GetService<IQtDataTraceService>().Stop(loginId, currentTraceFactoryId);
+                    ServiceContainer.GetService<IQtDataTraceService>().Stop(userId, currentTraceFactoryId);
                     currentTraceFactoryId = Guid.Empty;
-                    EndWait();
                     break;
                 case WorkingMode.Analyze:
-                    ServiceContainer.GetService<IDataAnalyzeService>().Stop(loginId, currentAnalyzeFactoryId);
+                    ServiceContainer.GetService<IDataAnalyzeService>().Stop(userId, currentAnalyzeFactoryId);
                     currentAnalyzeFactoryId = Guid.Empty;
-                    EndWait();
                     break;
             }
         }
@@ -489,7 +516,6 @@ namespace QtDataTrace.UI
             }
 
             RelationMonitorControl module = new RelationMonitorControl();
-
             module.DataSource = data;
             (module.DataView as SPC.Base.Control.CanChooseDataGridView).Synchronize(this.gridView1, DevExpress.XtraGrid.Views.Base.SynchronizationMode.Full);
             module.AccessibleDescription = "相关性散点图";
@@ -528,6 +554,103 @@ namespace QtDataTrace.UI
             module.AccessibleDescription = "SPC判定";
             EAS.Application.Instance.OpenModule(module);
         }
+        private void btnSave_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            TraceDataBackUpForm form = new TraceDataBackUpForm(ServiceContainer.GetService<IDataBackUpService>().GetTableList(this.loginId));
+            if(form.ShowDialog()== DialogResult.OK)
+            {
+                if (form.RemoveTables.Count != 0)
+                    MessageBox.Show(ServiceContainer.GetService<IDataBackUpService>().RemoveTable(this.loginId, form.RemoveTables.ToArray()));
+                else if (form.SaveFilter)
+                    MessageBox.Show(ServiceContainer.GetService<IDataBackUpService>().SaveTable(this.loginId, this.userId, this.currentDataId, form.SaveTable.ToUpper(), this.gridView1.GetChoosedRowIndexs()));
+                else
+                    MessageBox.Show(ServiceContainer.GetService<IDataBackUpService>().SaveTable(this.loginId, this.userId, this.currentDataId, form.SaveTable.ToUpper()));
+            }
+        }
+        private void btnLoad_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            TraceDataLoadForm form = new TraceDataLoadForm(ServiceContainer.GetService<IDataBackUpService>().GetTableList(this.loginId));
+            if(form.ShowDialog()==DialogResult.OK)
+            {
+                if(form.TableName!=null)
+                {
+                    var result = ServiceContainer.GetService<IDataBackUpService>().GetTable(this.loginId, this.userId, form.TableName);
+                    if (result.Item1 == Guid.Empty)
+                    {
+                        MessageBox.Show(result.Item2);
+                        return;
+                    }
+                    currentTraceFactoryId = result.Item1;
+                    var resultdata = ServiceContainer.GetService<IQtDataTraceService>().GetData(userId, currentTraceFactoryId);
+                    if (resultdata == null)
+                    {
+                        MessageBox.Show("数据已丢失");
+                        return;
+                    }
+                    this.data = resultdata;
+                    this.gridView1.Columns.Clear();
+                    gridControl1.DataSource = data;
+                    currentDataId = currentTraceFactoryId;
+                    AddTraceHis(currentTraceFactoryId, string.Format("{0}_{1}_{2}", DateTime.Now.ToString("hh:mm:ss"),form.TableName,"归档数据"));
+                }
+            }
+        }
+        private void DebugOpenModule(Control target)
+        {
+            if (EAS.Application.Instance != null)
+                EAS.Application.Instance.OpenModule(target);
+            else
+            {
+                Form debugform = new Form();
+                debugform.Controls.Add(target);
+                debugform.Size = target.Size;
+                target.Dock = DockStyle.Fill;
+                debugform.Show();
+            }
+        }
+        private void NewAnalyze(int time, Action callBack)
+        {
+            BeginWait(WorkingMode.Analyze);
+            timerTask = new Thread(() =>
+            {
+                DateTime start = DateTime.Now;
+                try
+                {
+                    int process;
+                    while (true)
+                    {
+                        process = ServiceContainer.GetService<IDataAnalyzeService>().GetProcess(userId, currentAnalyzeFactoryId);
+                        if (process == -2)
+                        {
+                            throw new Exception("无法获取指定分析过程，可能未成功建立或已被删除");
+                        }
+                        if (process == -1)
+                        {
+                            throw new Exception("发生错误:" + ServiceContainer.GetService<IDataAnalyzeService>().GetErrorMessage(userId, currentAnalyzeFactoryId));
+                        }
+                        if (process == 1000)
+                        {
+                            callBack();
+                            break;
+                        }
+                        this.Invoke(new Action(() => { this.waitPanel1.Position = process; }));
+                        Thread.Sleep(time);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    if (ex.GetType() != typeof(ThreadAbortException))
+                        MessageBox.Show(ex.Message);
+                }
+                finally
+                {
+                    DateTime end = DateTime.Now;
+                    Console.WriteLine("Cost:" + (end - start));
+                    this.Invoke(new Action(() => { EndWait(); }));
+                }
+            }) { IsBackground = true };
+            timerTask.Start();
+        }
         private void BeginWait(WorkingMode mode)
         {
             if (timerTask != null && timerTask.ThreadState == ThreadState.Running)
@@ -558,45 +681,26 @@ namespace QtDataTrace.UI
             configcontrol.Init(this.gridView1.GetVisibleColumnNames(false,typeof(string),typeof(DateTime),typeof(bool)));
             if (configForm.ShowDialog() == DialogResult.OK)
             {
-                var re = ServiceContainer.GetService<IDataAnalyzeService>().CCTStart(loginId, currentDataId, this.gridView1.GetChoosedRowIndexs(), configcontrol.TargetColumn, configcontrol.Columns);
+                var re = ServiceContainer.GetService<IDataAnalyzeService>().CCTStart(userId, currentDataId, this.gridView1.GetChoosedRowIndexs(), configcontrol.TargetColumn, configcontrol.Columns);
                 currentAnalyzeFactoryId = re.Item1;
                 if (currentTraceFactoryId == Guid.Empty)
                 {
                     MessageBox.Show(re.Item2);
                     return;
                 }
-                BeginWait(WorkingMode.Analyze);
-                timerTask = new Thread(() =>
+                NewAnalyze(1000, new Action(() =>
                 {
-                    DateTime start = DateTime.Now;
-                    Tuple<int,double[]> result;
-                    while (true)
-                    {
-                        result = ServiceContainer.GetService<IDataAnalyzeService>().CCTget(loginId, currentAnalyzeFactoryId);
-                        if (result.Item1 < 0)
-                            break;
-                        if (result.Item2 != null)
-                        {
-                            break;
-                        }
-                        else
-                            this.Invoke(new Action(() => { this.waitPanel1.Position = result.Item1; }));
-                        Thread.Sleep(1000);
-                    }
-                    DateTime end = DateTime.Now;
-                    Console.WriteLine("Cost:" + (end - start));
+                    var result = ServiceContainer.GetService<IDataAnalyzeService>().CCTget(userId, currentAnalyzeFactoryId);
                     this.Invoke(new Action(() =>
                     {
-                        EndWait();
                         SPC.Analysis.ResultControls.CCTResultControl resultcontrol = new SPC.Analysis.ResultControls.CCTResultControl();
                         AnalyzeResultControl resultForm = new AnalyzeResultControl();
                         resultForm.AddResultControl(resultcontrol);
-                        resultcontrol.Init(configcontrol.Columns, result.Item2);
+                        resultcontrol.Init(configcontrol.Columns, result);
                         resultForm.AccessibleDescription = "相关系数" + DateTime.Now.ToString("hh:mm:ss");
                         DebugOpenModule(resultForm);
                     }));
-                }) { IsBackground = true };
-                timerTask.Start();
+                }));
             }
         }
 
@@ -609,63 +713,26 @@ namespace QtDataTrace.UI
             configcontrol.Init(this.gridView1.GetVisibleColumnNames(false, typeof(string), typeof(DateTime), typeof(bool)),choosed.Length);
             if (configForm.ShowDialog() == DialogResult.OK)
             {
-                var re = ServiceContainer.GetService<IDataAnalyzeService>().KMeansStart(loginId, currentDataId, choosed, configcontrol.SelectedColumns, configcontrol.MaxCount, configcontrol.StartClustNum, configcontrol.EndClustNum, configcontrol.Avg, configcontrol.Stdev, configcontrol.InitialMode, configcontrol.MaxThread);
+                var re = ServiceContainer.GetService<IDataAnalyzeService>().KMeansStart(userId, currentDataId, choosed, configcontrol.SelectedColumns, configcontrol.MaxCount, configcontrol.StartClustNum, configcontrol.EndClustNum, configcontrol.Avg, configcontrol.Stdev, configcontrol.InitialMode, configcontrol.MaxThread);
                 currentAnalyzeFactoryId = re.Item1;
                 if (currentTraceFactoryId == Guid.Empty)
                 {
                     MessageBox.Show(re.Item2);
                     return;
                 }
-                BeginWait(WorkingMode.Analyze);
-                timerTask = new Thread(() =>
+                NewAnalyze(1000, new Action(() =>
                 {
-                    DateTime start = DateTime.Now;
-                    Tuple<int, DataSet> result;
-                    while (true)
-                    {
-                        result = ServiceContainer.GetService<IDataAnalyzeService>().KMeansGet(loginId, currentAnalyzeFactoryId);
-                        if (result.Item1 < 0)
-                            break;
-                        if (result.Item2 != null)
-                        {
-                            break;
-                        }
-                        else
-                            this.Invoke(new Action(() => { this.waitPanel1.Position = result.Item1; }));
-                        Thread.Sleep(1000);
-                    }
-                    DateTime end = DateTime.Now;
-                    Console.WriteLine("Cost:" + (end - start));
+                    var result = ServiceContainer.GetService<IDataAnalyzeService>().KMeansGet(userId, currentAnalyzeFactoryId);
                     this.Invoke(new Action(() =>
                     {
-                        EndWait();
                         SPC.Analysis.ResultControls.KMeansResultControl resultcontrol = new SPC.Analysis.ResultControls.KMeansResultControl();
                         AnalyzeResultControl resultForm = new AnalyzeResultControl();
                         resultForm.AddResultControl(resultcontrol);
-                        resultcontrol.Init(result.Item2,new SPC.Base.Interface.ViewChoosedData(this.gridView1,choosed));
+                        resultcontrol.Init(result, new SPC.Base.Interface.ViewChoosedData(this.gridView1, choosed));
                         resultForm.AccessibleDescription = "快速聚类" + DateTime.Now.ToString("hh:mm:ss");
                         DebugOpenModule(resultForm);
                     }));
-                }) { IsBackground = true };
-                timerTask.Start();
-            }
-        }
-
-        private void btnSave_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-
-        }
-        private void DebugOpenModule(Control target)
-        {
-            if(EAS.Application.Instance!=null)
-                EAS.Application.Instance.OpenModule(target);
-            else
-            {
-                Form debugform = new Form();
-                debugform.Controls.Add(target);
-                debugform.Size = target.Size;
-                target.Dock = DockStyle.Fill;
-                debugform.Show();
+                }));
             }
         }
 
@@ -678,46 +745,29 @@ namespace QtDataTrace.UI
             configcontrol.Init(this.gridView1.GetVisibleColumnNames(false, typeof(string), typeof(DateTime), typeof(bool)));
             if (configForm.ShowDialog() == DialogResult.OK)
             {
-                var re = ServiceContainer.GetService<IDataAnalyzeService>().ContourPlotStart(loginId, currentDataId, choosed, configcontrol.X, configcontrol.Y, configcontrol.Z, configcontrol.PicWidth, configcontrol.PicHeight);
+                var re = ServiceContainer.GetService<IDataAnalyzeService>().ContourPlotStart(userId, currentDataId, choosed, configcontrol.X, configcontrol.Y, configcontrol.Z, configcontrol.PicWidth, configcontrol.PicHeight, configcontrol.Levels, configcontrol.IsDrawLine);
                 currentAnalyzeFactoryId = re.Item1;
                 if (currentTraceFactoryId == Guid.Empty)
                 {
                     MessageBox.Show(re.Item2);
                     return;
                 }
-                BeginWait(WorkingMode.Analyze);
-                timerTask = new Thread(() =>
+                NewAnalyze(1000, new Action(() =>
                 {
-                    DateTime start = DateTime.Now;
-                    Tuple<int, Image> result;
-                    while (true)
-                    {
-                        result = ServiceContainer.GetService<IDataAnalyzeService>().ContourPlotGet(loginId, currentAnalyzeFactoryId);
-                        if (result.Item1 < 0)
-                            break;
-                        if (result.Item2 != null)
-                        {
-                            break;
-                        }
-                        else
-                            this.Invoke(new Action(() => { this.waitPanel1.Position = result.Item1; }));
-                        Thread.Sleep(1000);
-                    }
-                    DateTime end = DateTime.Now;
-                    Console.WriteLine("Cost:" + (end - start));
+                    var result = ServiceContainer.GetService<IDataAnalyzeService>().ContourPlotGet(userId, currentAnalyzeFactoryId);
                     this.Invoke(new Action(() =>
                     {
-                        EndWait();
                         SPC.Analysis.ResultControls.ContourPlotResultControl resultcontrol = new SPC.Analysis.ResultControls.ContourPlotResultControl();
                         AnalyzeResultControl resultForm = new AnalyzeResultControl();
                         resultForm.AddResultControl(resultcontrol);
-                        resultcontrol.Init(result.Item2, configcontrol.X, configcontrol.Y, configcontrol.Z);
+                        resultcontrol.Init(result, configcontrol.X, configcontrol.Y, configcontrol.Z);
                         resultForm.AccessibleDescription = "等高线图" + DateTime.Now.ToString("hh:mm:ss");
                         DebugOpenModule(resultForm);
                     }));
-                }) { IsBackground = true };
-                timerTask.Start();
+                }));
             }
         }
+
+
     }
 }

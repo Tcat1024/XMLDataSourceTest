@@ -1,0 +1,40 @@
+[类型]:Error
+[线程]:1
+[内存]:9.87M
+[时间]:2015-01-20 11:40:45
+[内容]:混合模式程序集是针对“v2.0.50727”版的运行时生成的，在没有配置其他信息的情况下，无法在 4.0 运行时中加载该程序集。
+[来源]:QtDataTrace.Access
+[目标]:System.String SaveTable(System.String, System.Guid, System.String, Int32[])
+[堆栈]:   在 QtDataTrace.Access.DataBackUpService.SaveTable(String username, Guid id, String tablename, Int32[] selected)
+
+
+[类型]:Error
+[线程]:1
+[内存]:10.44M
+[时间]:2015-01-20 11:50:00
+[内容]:混合模式程序集是针对“v2.0.50727”版的运行时生成的，在没有配置其他信息的情况下，无法在 4.0 运行时中加载该程序集。
+[来源]:QtDataTrace.Access
+[目标]:System.String SaveTable(System.String, System.Guid, System.String, Int32[])
+[堆栈]:   在 QtDataTrace.Access.DataBackUpService.SaveTable(String username, Guid id, String tablename, Int32[] selected)
+
+
+[类型]:Error
+[线程]:1
+[内存]:8.33M
+[时间]:2015-01-20 11:55:48
+[内容]:混合模式程序集是针对“v2.0.50727”版的运行时生成的，在没有配置其他信息的情况下，无法在 4.0 运行时中加载该程序集。
+[来源]:QtDataTrace.Access
+[目标]:System.String SaveTable(System.String, System.Guid, System.String, Int32[])
+[堆栈]:   在 QtDataTrace.Access.DataBackUpService.SaveTable(String username, Guid id, String tablename, Int32[] selected)
+
+
+[类型]:Error
+[线程]:1
+[内存]:13.14M
+[时间]:2015-01-20 12:00:42
+[内容]:混合模式程序集是针对“v2.0.50727”版的运行时生成的，在没有配置其他信息的情况下，无法在 4.0 运行时中加载该程序集。
+[来源]:QtDataTrace.Access
+[目标]:System.String SaveTable(System.String, System.Guid, System.String, Int32[])
+[堆栈]:   在 QtDataTrace.Access.DataBackUpService.SaveTable(String username, Guid id, String tablename, Int32[] selected)
+
+

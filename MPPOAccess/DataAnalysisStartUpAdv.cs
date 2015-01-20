@@ -438,7 +438,7 @@ namespace MPPOAccess
             DateTime start = DateTime.Now;
             while (true)
             {
-                var result = ServiceContainer.GetService<IQtDataTraceService>().TryGetTraceData(loginId, this.currentTraceFactoryId);
+                var result = ServiceContainer.GetService<IQtDataTraceService>().GetData(loginId, this.currentTraceFactoryId);
                 if (result.Item1 < 0)
                     break;
                 if (result.Item2 != null)

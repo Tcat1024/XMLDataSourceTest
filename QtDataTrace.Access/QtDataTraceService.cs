@@ -20,7 +20,7 @@ namespace QtDataTrace.Access
         {
             IList<MaterialInfo> result = new List<MaterialInfo>();
 
-            string table = string.Format("{0}_material_info_view", arg.ProcessCode);
+            //string table = string.Format("{0}_material_info_view", arg.ProcessCode);
             string whereClause = " where out_mat_id IS NOT NULL ";
 
             if (arg.TimeFlag)
@@ -43,20 +43,26 @@ namespace QtDataTrace.Access
                 whereClause += string.Format(" and width >= {0} and width <= {1}", arg.MinWidth, arg.MaxWidth);
             }
 
-            string sql = "select * " +
-                         " from " + table +
-                         whereClause +
-                         " order by product_time";
+            //string sql1 = "select * " +
+            //             " from " + table +
+            //             whereClause +
+            //             " order by product_time";
 
             OleDbConnection connection = new OleDbConnection(ConnectionString.LYQ_DB);
-
+            string sql = string.Format("select sqlstring from DATATRACE_TABLE_CONFIG where processcode ='{0}'", arg.ProcessCode);
             try
             {
                 connection.Open();
-
                 OleDbCommand command = new OleDbCommand(sql, connection);
+                string table = string.Format("({0})", command.ExecuteScalar());
+                if (table == null || table.Trim() == "()")
+                    throw new ConfigException("此工序未配置");
+                sql = "select * " +
+                         " from " + table +
+                         whereClause +
+                         " order by product_time";
+                command.CommandText = sql;
                 OleDbDataReader reader = command.ExecuteReader();
-
                 while (reader.Read())
                 {
                     MaterialInfo mat = new MaterialInfo();
@@ -72,6 +78,10 @@ namespace QtDataTrace.Access
 
                 reader.Close();
             }
+            catch (ConfigException ex)
+            {
+                throw new Exception(ex.Message);
+            }
             catch (Exception ex)
             {
                 throw new Exception(sql, ex);
@@ -83,7 +93,6 @@ namespace QtDataTrace.Access
 
             return result;
         }
-
         //public IList<MaterialInfo> GetMaterialTracking(string matId)
         //{
         //    List<MaterialInfo> track = new List<MaterialInfo>();
@@ -252,8 +261,8 @@ namespace QtDataTrace.Access
                                 {
                                     sql = string.Format("select mat_no, device_no, start_time, stop_time " +
                                         " from {1} " +
-                                        " where mat_no = '{0}' and device_no in " + 
-                                        " (select device_no from equipment_code where process_code = '{2}')", 
+                                        " where mat_no = '{0}' and device_no in " +
+                                        " (select device_no from equipment_code where process_code = '{2}')",
                                         mat.OutId, table, mat.Process);
                                 }
 
@@ -336,12 +345,12 @@ namespace QtDataTrace.Access
                 whereClause += string.Format(" and width_da >= {0} and width_da <= {1}", arg.MinWidth, arg.MaxWidth);
             }
             string sql = "";
-            switch(tablename)
+            switch (tablename)
             {
                 case "SM_ELEM_ANA":
-                    sql = string.Format("select {0} from {1} where rowid in (select rowid from SM_ELEM_ANA_DA where {2} and processcode_da = \'{3}\')", columnname, tablename, whereClause,arg.ProcessCode);
+                    sql = string.Format("select {0} from {1} where rowid in (select rowid from SM_ELEM_ANA_DA where {2} and processcode_da = \'{3}\')", columnname, tablename, whereClause, arg.ProcessCode);
                     break;
-                case "HRM_L2_COILREPORTS": 
+                case "HRM_L2_COILREPORTS":
                     sql = string.Format("select {0} from {1} where slab_id in (select slab_id from HRM_L2_COILREPORTS_DA where {2})", columnname, tablename, whereClause);
                     break;
                 case "SM_LF_HEAT":
@@ -374,24 +383,58 @@ namespace QtDataTrace.Access
             return data;
         }
         //DataTrace//
-        public Tuple<Guid,string> NewDataTrace(string processNo, IList<string> iDList, IList<QtDataProcessConfig> processes, bool back, string username)
+        public Tuple<Guid, string> NewDataTrace(string processNo, IList<string> iDList, IList<QtDataProcessConfig> processes, bool back, string username)
         {
             try
             {
-                return new Tuple<Guid, string>(QtDataTraceBLL.Add(processNo, iDList, processes, back, username), "");
+                var factory = new DataTraceFactory(processNo,iDList,processes,back);
+                var result = new Tuple<Guid, string>(QtDataTraceBLL.Add(username,factory), "");
+                factory.Start();
+                return result;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return new Tuple<Guid, string>(Guid.Empty, ex.Message);
             }
         }
-        public Tuple<int, DataTable> TryGetTraceData(string username, Guid id)
+        public DataTable GetData(string username, Guid id)
         {
-            return QtDataTraceBLL.GetData(username, id);
+            var factory = QtDataTraceBLL.GetFactory(username, id);
+            if (factory != null && !factory.Writing)
+            {
+                return factory.ResultData;
+            }
+            return null;
+        }
+        public int GetProcess(string username, Guid id)
+        {
+            var temp = QtDataTraceBLL.GetFactory(username, id);
+            if (temp == null)
+                return -2;
+            if (temp.Writing)
+                return temp.GetProgress();
+            if (temp.Error != "")
+                return -1;
+            return 1000;
+        }
+        public string GetErrorMessage(string username, Guid id)
+        {
+            var factory = DataAnalyzeBLL.GetFactory(username, id);
+            if (factory != null)
+                return factory.Error;
+            return null;
         }
         public bool Stop(string username, Guid id)
         {
             return QtDataTraceBLL.Stop(username, id);
+        }
+    }
+    public class ConfigException : Exception
+    {
+        public ConfigException(string message)
+            : base(message)
+        {
+
         }
     }
 }
