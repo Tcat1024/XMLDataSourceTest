@@ -48,9 +48,9 @@
             this.btnSave = new DevExpress.XtraBars.BarButtonItem();
             this.btnLoad = new DevExpress.XtraBars.BarButtonItem();
             this.menuCompute = new DevExpress.XtraBars.BarSubItem();
-            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem5 = new DevExpress.XtraBars.BarButtonItem();
+            this.btnCCalCulate = new DevExpress.XtraBars.BarButtonItem();
+            this.btnRCalculate = new DevExpress.XtraBars.BarButtonItem();
+            this.btnSdz = new DevExpress.XtraBars.BarButtonItem();
             this.menuAnalyze = new DevExpress.XtraBars.BarSubItem();
             this.btnRelationAnalyze = new DevExpress.XtraBars.BarButtonItem();
             this.btnQuickCluster = new DevExpress.XtraBars.BarButtonItem();
@@ -93,7 +93,12 @@
             this.checkGrade = new System.Windows.Forms.CheckBox();
             this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
+            this.barSubItem1 = new DevExpress.XtraBars.BarSubItem();
             this.repositoryItemTextEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+            this.repositoryItemProgressBar1 = new DevExpress.XtraEditors.Repository.RepositoryItemProgressBar();
+            this.repositoryItemPopupContainerEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemPopupContainerEdit();
+            this.repositoryItemProgressBar2 = new DevExpress.XtraEditors.Repository.RepositoryItemProgressBar();
+            this.repositoryItemMarqueeProgressBar1 = new DevExpress.XtraEditors.Repository.RepositoryItemMarqueeProgressBar();
             this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
             this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
             this.gridControl2 = new DevExpress.XtraGrid.GridControl();
@@ -107,11 +112,6 @@
             this.colBatch = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colOrderId = new DevExpress.XtraGrid.Columns.GridColumn();
             this.xtraTabPage2 = new DevExpress.XtraTab.XtraTabPage();
-            this.barSubItem1 = new DevExpress.XtraBars.BarSubItem();
-            this.repositoryItemProgressBar1 = new DevExpress.XtraEditors.Repository.RepositoryItemProgressBar();
-            this.repositoryItemPopupContainerEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemPopupContainerEdit();
-            this.repositoryItemProgressBar2 = new DevExpress.XtraEditors.Repository.RepositoryItemProgressBar();
-            this.repositoryItemMarqueeProgressBar1 = new DevExpress.XtraEditors.Repository.RepositoryItemMarqueeProgressBar();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -125,16 +125,16 @@
             this.dockPanel1_Container.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemProgressBar1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPopupContainerEdit1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemProgressBar2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemMarqueeProgressBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.xtraTabControl1.SuspendLayout();
             this.xtraTabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             this.xtraTabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemProgressBar1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPopupContainerEdit1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemProgressBar2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemMarqueeProgressBar1)).BeginInit();
             this.SuspendLayout();
             // 
             // dateTimeStart
@@ -168,8 +168,8 @@
             this.splitContainer1.Panel2.Controls.Add(this.waitPanel1);
             this.splitContainer1.Panel2.Controls.Add(this.gridControl1);
             this.splitContainer1.Panel2.Controls.Add(this.standaloneBarDockControl1);
-            this.splitContainer1.Size = new System.Drawing.Size(1527, 493);
-            this.splitContainer1.SplitterDistance = 310;
+            this.splitContainer1.Size = new System.Drawing.Size(1523, 492);
+            this.splitContainer1.SplitterDistance = 306;
             this.splitContainer1.SplitterWidth = 5;
             this.splitContainer1.TabIndex = 22;
             // 
@@ -177,9 +177,9 @@
             // 
             this.triStateTreeView1.CheckBoxes = true;
             this.triStateTreeView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.triStateTreeView1.Location = new System.Drawing.Point(0, 31);
+            this.triStateTreeView1.Location = new System.Drawing.Point(0, 34);
             this.triStateTreeView1.Name = "triStateTreeView1";
-            this.triStateTreeView1.Size = new System.Drawing.Size(310, 462);
+            this.triStateTreeView1.Size = new System.Drawing.Size(306, 458);
             this.triStateTreeView1.TabIndex = 0;
             // 
             // standaloneBarDockControl2
@@ -190,7 +190,7 @@
             this.standaloneBarDockControl2.Location = new System.Drawing.Point(0, 0);
             this.standaloneBarDockControl2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.standaloneBarDockControl2.Name = "standaloneBarDockControl2";
-            this.standaloneBarDockControl2.Size = new System.Drawing.Size(310, 31);
+            this.standaloneBarDockControl2.Size = new System.Drawing.Size(306, 34);
             this.standaloneBarDockControl2.Text = "standaloneBarDockControl2";
             // 
             // waitPanel1
@@ -222,10 +222,10 @@
             this.gridControl1.EmbeddedNavigator.Buttons.PrevPage.ImageIndex = 1;
             this.gridControl1.EmbeddedNavigator.Buttons.Remove.Visible = false;
             this.gridControl1.EmbeddedNavigator.TextStringFormat = "{0} / {1}";
-            this.gridControl1.Location = new System.Drawing.Point(0, 31);
+            this.gridControl1.Location = new System.Drawing.Point(0, 34);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(1212, 462);
+            this.gridControl1.Size = new System.Drawing.Size(1212, 458);
             this.gridControl1.TabIndex = 1;
             this.gridControl1.UseEmbeddedNavigator = true;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -272,7 +272,7 @@
             this.standaloneBarDockControl1.Location = new System.Drawing.Point(0, 0);
             this.standaloneBarDockControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.standaloneBarDockControl1.Name = "standaloneBarDockControl1";
-            this.standaloneBarDockControl1.Size = new System.Drawing.Size(1212, 31);
+            this.standaloneBarDockControl1.Size = new System.Drawing.Size(1212, 34);
             this.standaloneBarDockControl1.Text = "standaloneBarDockControl1";
             // 
             // barManager1
@@ -312,9 +312,9 @@
             this.menuTraceHis,
             this.stHisNone,
             this.btnCPlot,
-            this.barButtonItem1,
-            this.barButtonItem2,
-            this.barButtonItem5,
+            this.btnCCalCulate,
+            this.btnRCalculate,
+            this.btnSdz,
             this.menuGraphics,
             this.barSubItem1});
             this.barManager1.MaxItemId = 53;
@@ -391,28 +391,31 @@
             this.menuCompute.Id = 29;
             this.menuCompute.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("menuCompute.LargeGlyph")));
             this.menuCompute.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem1),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem2),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem5)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnCCalCulate),
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnRCalculate),
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnSdz)});
             this.menuCompute.Name = "menuCompute";
             // 
-            // barButtonItem1
+            // btnCCalCulate
             // 
-            this.barButtonItem1.Caption = "列统计量";
-            this.barButtonItem1.Id = 38;
-            this.barButtonItem1.Name = "barButtonItem1";
+            this.btnCCalCulate.Caption = "列统计量";
+            this.btnCCalCulate.Id = 38;
+            this.btnCCalCulate.Name = "btnCCalCulate";
+            this.btnCCalCulate.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnCCalCulate_ItemClick);
             // 
-            // barButtonItem2
+            // btnRCalculate
             // 
-            this.barButtonItem2.Caption = "行统计量";
-            this.barButtonItem2.Id = 39;
-            this.barButtonItem2.Name = "barButtonItem2";
+            this.btnRCalculate.Caption = "行统计量";
+            this.btnRCalculate.Id = 39;
+            this.btnRCalculate.Name = "btnRCalculate";
+            this.btnRCalculate.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnRCalculate_ItemClick);
             // 
-            // barButtonItem5
+            // btnSdz
             // 
-            this.barButtonItem5.Caption = "标准化";
-            this.barButtonItem5.Id = 40;
-            this.barButtonItem5.Name = "barButtonItem5";
+            this.btnSdz.Caption = "标准化";
+            this.btnSdz.Id = 40;
+            this.btnSdz.Name = "btnSdz";
+            this.btnSdz.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSdz_ItemClick);
             // 
             // menuAnalyze
             // 
@@ -461,7 +464,7 @@
             // 
             // menuGraphics
             // 
-            this.menuGraphics.Caption = "图像";
+            this.menuGraphics.Caption = "图形";
             this.menuGraphics.Glyph = ((System.Drawing.Image)(resources.GetObject("menuGraphics.Glyph")));
             this.menuGraphics.Id = 42;
             this.menuGraphics.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("menuGraphics.LargeGlyph")));
@@ -664,9 +667,9 @@
             this.dockPanel1_Container.Controls.Add(this.textMaxWidth);
             this.dockPanel1_Container.Controls.Add(this.comboxGrade);
             this.dockPanel1_Container.Controls.Add(this.checkGrade);
-            this.dockPanel1_Container.Location = new System.Drawing.Point(3, 25);
+            this.dockPanel1_Container.Location = new System.Drawing.Point(4, 24);
             this.dockPanel1_Container.Name = "dockPanel1_Container";
-            this.dockPanel1_Container.Size = new System.Drawing.Size(1523, 70);
+            this.dockPanel1_Container.Size = new System.Drawing.Size(1521, 70);
             this.dockPanel1_Container.TabIndex = 0;
             // 
             // btnQuery
@@ -830,10 +833,35 @@
             this.barButtonItem4.Id = 28;
             this.barButtonItem4.Name = "barButtonItem4";
             // 
+            // barSubItem1
+            // 
+            this.barSubItem1.Caption = "barSubItem1";
+            this.barSubItem1.Id = 43;
+            this.barSubItem1.Name = "barSubItem1";
+            // 
             // repositoryItemTextEdit1
             // 
             this.repositoryItemTextEdit1.AutoHeight = false;
             this.repositoryItemTextEdit1.Name = "repositoryItemTextEdit1";
+            // 
+            // repositoryItemProgressBar1
+            // 
+            this.repositoryItemProgressBar1.Name = "repositoryItemProgressBar1";
+            // 
+            // repositoryItemPopupContainerEdit1
+            // 
+            this.repositoryItemPopupContainerEdit1.AutoHeight = false;
+            this.repositoryItemPopupContainerEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemPopupContainerEdit1.Name = "repositoryItemPopupContainerEdit1";
+            // 
+            // repositoryItemProgressBar2
+            // 
+            this.repositoryItemProgressBar2.Name = "repositoryItemProgressBar2";
+            // 
+            // repositoryItemMarqueeProgressBar1
+            // 
+            this.repositoryItemMarqueeProgressBar1.Name = "repositoryItemMarqueeProgressBar1";
             // 
             // xtraTabControl1
             // 
@@ -854,7 +882,7 @@
             // 
             this.xtraTabPage1.Controls.Add(this.gridControl2);
             this.xtraTabPage1.Name = "xtraTabPage1";
-            this.xtraTabPage1.Size = new System.Drawing.Size(1527, 493);
+            this.xtraTabPage1.Size = new System.Drawing.Size(1523, 492);
             this.xtraTabPage1.TabPageWidth = 100;
             this.xtraTabPage1.Text = "数据选择";
             // 
@@ -864,7 +892,7 @@
             this.gridControl2.Location = new System.Drawing.Point(0, 0);
             this.gridControl2.MainView = this.gridView2;
             this.gridControl2.Name = "gridControl2";
-            this.gridControl2.Size = new System.Drawing.Size(1527, 493);
+            this.gridControl2.Size = new System.Drawing.Size(1523, 492);
             this.gridControl2.TabIndex = 1;
             this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
@@ -959,33 +987,8 @@
             this.xtraTabPage2.Controls.Add(this.splitContainer1);
             this.xtraTabPage2.Name = "xtraTabPage2";
             this.xtraTabPage2.PageEnabled = false;
-            this.xtraTabPage2.Size = new System.Drawing.Size(1527, 493);
+            this.xtraTabPage2.Size = new System.Drawing.Size(1523, 492);
             this.xtraTabPage2.Text = "数据追溯";
-            // 
-            // barSubItem1
-            // 
-            this.barSubItem1.Caption = "barSubItem1";
-            this.barSubItem1.Id = 43;
-            this.barSubItem1.Name = "barSubItem1";
-            // 
-            // repositoryItemProgressBar1
-            // 
-            this.repositoryItemProgressBar1.Name = "repositoryItemProgressBar1";
-            // 
-            // repositoryItemPopupContainerEdit1
-            // 
-            this.repositoryItemPopupContainerEdit1.AutoHeight = false;
-            this.repositoryItemPopupContainerEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.repositoryItemPopupContainerEdit1.Name = "repositoryItemPopupContainerEdit1";
-            // 
-            // repositoryItemProgressBar2
-            // 
-            this.repositoryItemProgressBar2.Name = "repositoryItemProgressBar2";
-            // 
-            // repositoryItemMarqueeProgressBar1
-            // 
-            this.repositoryItemMarqueeProgressBar1.Name = "repositoryItemMarqueeProgressBar1";
             // 
             // DataAnalysisStartUpAdv
             // 
@@ -1016,16 +1019,16 @@
             this.dockPanel1_Container.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemProgressBar1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPopupContainerEdit1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemProgressBar2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemMarqueeProgressBar1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).EndInit();
             this.xtraTabControl1.ResumeLayout(false);
             this.xtraTabPage1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
             this.xtraTabPage2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemProgressBar1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPopupContainerEdit1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemProgressBar2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemMarqueeProgressBar1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1105,9 +1108,9 @@
         private DevExpress.XtraBars.BarSubItem menuTraceHis;
         private DevExpress.XtraBars.BarStaticItem stHisNone;
         private DevExpress.XtraBars.BarButtonItem btnCPlot;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem1;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem2;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem5;
+        private DevExpress.XtraBars.BarButtonItem btnCCalCulate;
+        private DevExpress.XtraBars.BarButtonItem btnRCalculate;
+        private DevExpress.XtraBars.BarButtonItem btnSdz;
         private DevExpress.XtraBars.BarSubItem menuGraphics;
         private DevExpress.XtraBars.BarSubItem barSubItem1;
         private DevExpress.XtraEditors.Repository.RepositoryItemProgressBar repositoryItemProgressBar1;

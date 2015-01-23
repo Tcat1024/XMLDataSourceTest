@@ -30,17 +30,24 @@ namespace QtDataTrace.UI
         private void btnSave_Click(object sender, EventArgs e)
         {
             string name = this.textEdit1.Text.Trim();
-            if(name=="")
+            if (name == "")
             {
                 MessageBox.Show("未填写要保存的表名");
                 return;
             }
-            if(!(this.listBoxControl1.Items.Contains(name.ToUpper())&&MessageBox.Show("已存在表"+name+"，是否要覆盖原表？","Warning", MessageBoxButtons.OKCancel)==  System.Windows.Forms.DialogResult.Cancel))
+            if (this.listBoxControl1.Items.Contains(name.ToUpper()) && this.listBoxControl1.Items.Count<=3)
             {
-                this.RemoveTables.Clear();
-                this.SaveTable = name;
-                this.DialogResult = System.Windows.Forms.DialogResult.OK;
+                if (MessageBox.Show("已存在表" + name + "，是否要覆盖原表？", "Warning", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.Cancel)
+                    return;
             }
+            else if (this.listBoxControl1.Items.Count >= 3)
+            {
+                MessageBox.Show("用户数据超出限额，无法新建备份");
+                return;
+            }
+            this.RemoveTables.Clear();
+            this.SaveTable = name;
+            this.DialogResult = System.Windows.Forms.DialogResult.OK;
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

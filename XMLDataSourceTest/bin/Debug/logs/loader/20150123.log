@@ -1,0 +1,337 @@
+2015-01-23 11:31:37==>INFO :BaseDirectory:=C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\XMLDataSourceTest\bin\Debug\
+2015-01-23 11:31:37==>INFO :Load C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\XMLDataSourceTest\bin\Debug\itextsharp.dll Fail!
+[类型]:Error
+[线程]:1
+[内存]:3.22M
+[时间]:2015-01-23 11:31:37
+[内容]:未能加载文件或程序集“file:///C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\XMLDataSourceTest\bin\Debug\itextsharp.dll”或它的某一个依赖项。不支持操作。 (异常来自 HRESULT:0x80131515)
+[来源]:mscorlib
+[目标]:System.Reflection.RuntimeAssembly _nLoad(System.Reflection.AssemblyName, System.String, System.Security.Policy.Evidence, System.Reflection.RuntimeAssembly, System.Threading.StackCrawlMark ByRef, IntPtr, Boolean, Boolean, Boolean)
+[堆栈]:   在 System.Reflection.RuntimeAssembly._nLoad(AssemblyName fileName, String codeBase, Evidence assemblySecurity, RuntimeAssembly locationHint, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   在 System.Reflection.RuntimeAssembly.nLoad(AssemblyName fileName, String codeBase, Evidence assemblySecurity, RuntimeAssembly locationHint, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   在 System.Reflection.RuntimeAssembly.InternalLoadAssemblyName(AssemblyName assemblyRef, Evidence assemblySecurity, RuntimeAssembly reqAssembly, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   在 System.Reflection.RuntimeAssembly.InternalLoadFrom(String assemblyFile, Evidence securityEvidence, Byte[] hashValue, AssemblyHashAlgorithm hashAlgorithm, Boolean forIntrospection, Boolean suppressSecurityChecks, StackCrawlMark& stackMark)
+   在 System.Reflection.Assembly.LoadFrom(String assemblyFile)
+   在 SqB4pxeMvb9w1Nn08A.vBEEZKVST25F2GmbIV.QyOawmj053acvcENvi5(Object )
+   在 SqB4pxeMvb9w1Nn08A.vBEEZKVST25F2GmbIV.p2AWhQvRJa(String )
+
+[类型]:Error
+[线程]:1
+[内存]:3.26M
+[时间]:2015-01-23 11:31:37
+[内容]:尝试从一个网络位置加载程序集，在早期版本的 .NET Framework 中，这会导致对该程序集进行沙盒处理。此发行版的 .NET Framework 默认情况下不启用 CAS 策略，因此，此加载可能会很危险。如果此加载不是要对程序集进行沙盒处理，请启用 loadFromRemoteSources 开关。有关详细信息，请参见 http://go.microsoft.com/fwlink/?LinkId=155569。
+[来源]:
+[目标]:
+[堆栈]:
+
+2015-01-23 11:31:38==>INFO :Load C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\XMLDataSourceTest\bin\Debug\System.Data.SQLite.dll Fail!
+[类型]:Error
+[线程]:1
+[内存]:3.63M
+[时间]:2015-01-23 11:31:38
+[内容]:未能加载文件或程序集“file:///C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\XMLDataSourceTest\bin\Debug\System.Data.SQLite.dll”或它的某一个依赖项。不支持操作。 (异常来自 HRESULT:0x80131515)
+[来源]:mscorlib
+[目标]:System.Reflection.RuntimeAssembly _nLoad(System.Reflection.AssemblyName, System.String, System.Security.Policy.Evidence, System.Reflection.RuntimeAssembly, System.Threading.StackCrawlMark ByRef, IntPtr, Boolean, Boolean, Boolean)
+[堆栈]:   在 System.Reflection.RuntimeAssembly._nLoad(AssemblyName fileName, String codeBase, Evidence assemblySecurity, RuntimeAssembly locationHint, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   在 System.Reflection.RuntimeAssembly.nLoad(AssemblyName fileName, String codeBase, Evidence assemblySecurity, RuntimeAssembly locationHint, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   在 System.Reflection.RuntimeAssembly.InternalLoadAssemblyName(AssemblyName assemblyRef, Evidence assemblySecurity, RuntimeAssembly reqAssembly, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   在 System.Reflection.RuntimeAssembly.InternalLoadFrom(String assemblyFile, Evidence securityEvidence, Byte[] hashValue, AssemblyHashAlgorithm hashAlgorithm, Boolean forIntrospection, Boolean suppressSecurityChecks, StackCrawlMark& stackMark)
+   在 System.Reflection.Assembly.LoadFrom(String assemblyFile)
+   在 SqB4pxeMvb9w1Nn08A.vBEEZKVST25F2GmbIV.QyOawmj053acvcENvi5(Object )
+   在 SqB4pxeMvb9w1Nn08A.vBEEZKVST25F2GmbIV.p2AWhQvRJa(String )
+
+[类型]:Error
+[线程]:1
+[内存]:3.67M
+[时间]:2015-01-23 11:31:38
+[内容]:尝试从一个网络位置加载程序集，在早期版本的 .NET Framework 中，这会导致对该程序集进行沙盒处理。此发行版的 .NET Framework 默认情况下不启用 CAS 策略，因此，此加载可能会很危险。如果此加载不是要对程序集进行沙盒处理，请启用 loadFromRemoteSources 开关。有关详细信息，请参见 http://go.microsoft.com/fwlink/?LinkId=155569。
+[来源]:
+[目标]:
+[堆栈]:
+
+2015-01-23 13:01:47==>INFO :BaseDirectory:=C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\XMLDataSourceTest\bin\Debug\
+2015-01-23 13:01:47==>INFO :Load C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\XMLDataSourceTest\bin\Debug\System.Data.SQLite.dll Fail!
+[类型]:Error
+[线程]:1
+[内存]:3.66M
+[时间]:2015-01-23 13:01:47
+[内容]:未能加载文件或程序集“file:///C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\XMLDataSourceTest\bin\Debug\System.Data.SQLite.dll”或它的某一个依赖项。不支持操作。 (异常来自 HRESULT:0x80131515)
+[来源]:mscorlib
+[目标]:System.Reflection.RuntimeAssembly _nLoad(System.Reflection.AssemblyName, System.String, System.Security.Policy.Evidence, System.Reflection.RuntimeAssembly, System.Threading.StackCrawlMark ByRef, IntPtr, Boolean, Boolean, Boolean)
+[堆栈]:   在 System.Reflection.RuntimeAssembly._nLoad(AssemblyName fileName, String codeBase, Evidence assemblySecurity, RuntimeAssembly locationHint, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   在 System.Reflection.RuntimeAssembly.nLoad(AssemblyName fileName, String codeBase, Evidence assemblySecurity, RuntimeAssembly locationHint, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   在 System.Reflection.RuntimeAssembly.InternalLoadAssemblyName(AssemblyName assemblyRef, Evidence assemblySecurity, RuntimeAssembly reqAssembly, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   在 System.Reflection.RuntimeAssembly.InternalLoadFrom(String assemblyFile, Evidence securityEvidence, Byte[] hashValue, AssemblyHashAlgorithm hashAlgorithm, Boolean forIntrospection, Boolean suppressSecurityChecks, StackCrawlMark& stackMark)
+   在 System.Reflection.Assembly.LoadFrom(String assemblyFile)
+   在 SqB4pxeMvb9w1Nn08A.vBEEZKVST25F2GmbIV.QyOawmj053acvcENvi5(Object )
+   在 SqB4pxeMvb9w1Nn08A.vBEEZKVST25F2GmbIV.p2AWhQvRJa(String )
+
+[类型]:Error
+[线程]:1
+[内存]:3.71M
+[时间]:2015-01-23 13:01:47
+[内容]:尝试从一个网络位置加载程序集，在早期版本的 .NET Framework 中，这会导致对该程序集进行沙盒处理。此发行版的 .NET Framework 默认情况下不启用 CAS 策略，因此，此加载可能会很危险。如果此加载不是要对程序集进行沙盒处理，请启用 loadFromRemoteSources 开关。有关详细信息，请参见 http://go.microsoft.com/fwlink/?LinkId=155569。
+[来源]:
+[目标]:
+[堆栈]:
+
+2015-01-23 13:03:54==>INFO :BaseDirectory:=C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\XMLDataSourceTest\bin\Debug\
+2015-01-23 13:03:54==>INFO :Load C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\XMLDataSourceTest\bin\Debug\System.Data.SQLite.dll Fail!
+[类型]:Error
+[线程]:1
+[内存]:5.62M
+[时间]:2015-01-23 13:03:54
+[内容]:未能加载文件或程序集“file:///C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\XMLDataSourceTest\bin\Debug\System.Data.SQLite.dll”或它的某一个依赖项。不支持操作。 (异常来自 HRESULT:0x80131515)
+[来源]:mscorlib
+[目标]:System.Reflection.RuntimeAssembly _nLoad(System.Reflection.AssemblyName, System.String, System.Security.Policy.Evidence, System.Reflection.RuntimeAssembly, System.Threading.StackCrawlMark ByRef, IntPtr, Boolean, Boolean, Boolean)
+[堆栈]:   在 System.Reflection.RuntimeAssembly._nLoad(AssemblyName fileName, String codeBase, Evidence assemblySecurity, RuntimeAssembly locationHint, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   在 System.Reflection.RuntimeAssembly.nLoad(AssemblyName fileName, String codeBase, Evidence assemblySecurity, RuntimeAssembly locationHint, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   在 System.Reflection.RuntimeAssembly.InternalLoadAssemblyName(AssemblyName assemblyRef, Evidence assemblySecurity, RuntimeAssembly reqAssembly, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   在 System.Reflection.RuntimeAssembly.InternalLoadFrom(String assemblyFile, Evidence securityEvidence, Byte[] hashValue, AssemblyHashAlgorithm hashAlgorithm, Boolean forIntrospection, Boolean suppressSecurityChecks, StackCrawlMark& stackMark)
+   在 System.Reflection.Assembly.LoadFrom(String assemblyFile)
+   在 SqB4pxeMvb9w1Nn08A.vBEEZKVST25F2GmbIV.QyOawmj053acvcENvi5(Object )
+   在 SqB4pxeMvb9w1Nn08A.vBEEZKVST25F2GmbIV.p2AWhQvRJa(String )
+
+[类型]:Error
+[线程]:1
+[内存]:5.66M
+[时间]:2015-01-23 13:03:54
+[内容]:尝试从一个网络位置加载程序集，在早期版本的 .NET Framework 中，这会导致对该程序集进行沙盒处理。此发行版的 .NET Framework 默认情况下不启用 CAS 策略，因此，此加载可能会很危险。如果此加载不是要对程序集进行沙盒处理，请启用 loadFromRemoteSources 开关。有关详细信息，请参见 http://go.microsoft.com/fwlink/?LinkId=155569。
+[来源]:
+[目标]:
+[堆栈]:
+
+2015-01-23 15:03:57==>INFO :BaseDirectory:=C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\XMLDataSourceTest\bin\Debug\
+2015-01-23 15:03:57==>INFO :Load C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\XMLDataSourceTest\bin\Debug\System.Data.SQLite.dll Fail!
+[类型]:Error
+[线程]:1
+[内存]:5.70M
+[时间]:2015-01-23 15:03:57
+[内容]:未能加载文件或程序集“file:///C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\XMLDataSourceTest\bin\Debug\System.Data.SQLite.dll”或它的某一个依赖项。不支持操作。 (异常来自 HRESULT:0x80131515)
+[来源]:mscorlib
+[目标]:System.Reflection.RuntimeAssembly _nLoad(System.Reflection.AssemblyName, System.String, System.Security.Policy.Evidence, System.Reflection.RuntimeAssembly, System.Threading.StackCrawlMark ByRef, IntPtr, Boolean, Boolean, Boolean)
+[堆栈]:   在 System.Reflection.RuntimeAssembly._nLoad(AssemblyName fileName, String codeBase, Evidence assemblySecurity, RuntimeAssembly locationHint, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   在 System.Reflection.RuntimeAssembly.nLoad(AssemblyName fileName, String codeBase, Evidence assemblySecurity, RuntimeAssembly locationHint, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   在 System.Reflection.RuntimeAssembly.InternalLoadAssemblyName(AssemblyName assemblyRef, Evidence assemblySecurity, RuntimeAssembly reqAssembly, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   在 System.Reflection.RuntimeAssembly.InternalLoadFrom(String assemblyFile, Evidence securityEvidence, Byte[] hashValue, AssemblyHashAlgorithm hashAlgorithm, Boolean forIntrospection, Boolean suppressSecurityChecks, StackCrawlMark& stackMark)
+   在 System.Reflection.Assembly.LoadFrom(String assemblyFile)
+   在 SqB4pxeMvb9w1Nn08A.vBEEZKVST25F2GmbIV.QyOawmj053acvcENvi5(Object )
+   在 SqB4pxeMvb9w1Nn08A.vBEEZKVST25F2GmbIV.p2AWhQvRJa(String )
+
+[类型]:Error
+[线程]:1
+[内存]:5.75M
+[时间]:2015-01-23 15:03:57
+[内容]:尝试从一个网络位置加载程序集，在早期版本的 .NET Framework 中，这会导致对该程序集进行沙盒处理。此发行版的 .NET Framework 默认情况下不启用 CAS 策略，因此，此加载可能会很危险。如果此加载不是要对程序集进行沙盒处理，请启用 loadFromRemoteSources 开关。有关详细信息，请参见 http://go.microsoft.com/fwlink/?LinkId=155569。
+[来源]:
+[目标]:
+[堆栈]:
+
+2015-01-23 15:07:54==>INFO :BaseDirectory:=C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\XMLDataSourceTest\bin\Debug\
+2015-01-23 15:07:54==>INFO :Load C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\XMLDataSourceTest\bin\Debug\System.Data.SQLite.dll Fail!
+[类型]:Error
+[线程]:1
+[内存]:5.68M
+[时间]:2015-01-23 15:07:54
+[内容]:未能加载文件或程序集“file:///C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\XMLDataSourceTest\bin\Debug\System.Data.SQLite.dll”或它的某一个依赖项。不支持操作。 (异常来自 HRESULT:0x80131515)
+[来源]:mscorlib
+[目标]:System.Reflection.RuntimeAssembly _nLoad(System.Reflection.AssemblyName, System.String, System.Security.Policy.Evidence, System.Reflection.RuntimeAssembly, System.Threading.StackCrawlMark ByRef, IntPtr, Boolean, Boolean, Boolean)
+[堆栈]:   在 System.Reflection.RuntimeAssembly._nLoad(AssemblyName fileName, String codeBase, Evidence assemblySecurity, RuntimeAssembly locationHint, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   在 System.Reflection.RuntimeAssembly.nLoad(AssemblyName fileName, String codeBase, Evidence assemblySecurity, RuntimeAssembly locationHint, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   在 System.Reflection.RuntimeAssembly.InternalLoadAssemblyName(AssemblyName assemblyRef, Evidence assemblySecurity, RuntimeAssembly reqAssembly, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   在 System.Reflection.RuntimeAssembly.InternalLoadFrom(String assemblyFile, Evidence securityEvidence, Byte[] hashValue, AssemblyHashAlgorithm hashAlgorithm, Boolean forIntrospection, Boolean suppressSecurityChecks, StackCrawlMark& stackMark)
+   在 System.Reflection.Assembly.LoadFrom(String assemblyFile)
+   在 SqB4pxeMvb9w1Nn08A.vBEEZKVST25F2GmbIV.QyOawmj053acvcENvi5(Object )
+   在 SqB4pxeMvb9w1Nn08A.vBEEZKVST25F2GmbIV.p2AWhQvRJa(String )
+
+[类型]:Error
+[线程]:1
+[内存]:5.72M
+[时间]:2015-01-23 15:07:54
+[内容]:尝试从一个网络位置加载程序集，在早期版本的 .NET Framework 中，这会导致对该程序集进行沙盒处理。此发行版的 .NET Framework 默认情况下不启用 CAS 策略，因此，此加载可能会很危险。如果此加载不是要对程序集进行沙盒处理，请启用 loadFromRemoteSources 开关。有关详细信息，请参见 http://go.microsoft.com/fwlink/?LinkId=155569。
+[来源]:
+[目标]:
+[堆栈]:
+
+2015-01-23 15:11:08==>INFO :BaseDirectory:=C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\XMLDataSourceTest\bin\Debug\
+2015-01-23 15:11:08==>INFO :Load C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\XMLDataSourceTest\bin\Debug\System.Data.SQLite.dll Fail!
+[类型]:Error
+[线程]:1
+[内存]:5.66M
+[时间]:2015-01-23 15:11:08
+[内容]:未能加载文件或程序集“file:///C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\XMLDataSourceTest\bin\Debug\System.Data.SQLite.dll”或它的某一个依赖项。不支持操作。 (异常来自 HRESULT:0x80131515)
+[来源]:mscorlib
+[目标]:System.Reflection.RuntimeAssembly _nLoad(System.Reflection.AssemblyName, System.String, System.Security.Policy.Evidence, System.Reflection.RuntimeAssembly, System.Threading.StackCrawlMark ByRef, IntPtr, Boolean, Boolean, Boolean)
+[堆栈]:   在 System.Reflection.RuntimeAssembly._nLoad(AssemblyName fileName, String codeBase, Evidence assemblySecurity, RuntimeAssembly locationHint, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   在 System.Reflection.RuntimeAssembly.nLoad(AssemblyName fileName, String codeBase, Evidence assemblySecurity, RuntimeAssembly locationHint, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   在 System.Reflection.RuntimeAssembly.InternalLoadAssemblyName(AssemblyName assemblyRef, Evidence assemblySecurity, RuntimeAssembly reqAssembly, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   在 System.Reflection.RuntimeAssembly.InternalLoadFrom(String assemblyFile, Evidence securityEvidence, Byte[] hashValue, AssemblyHashAlgorithm hashAlgorithm, Boolean forIntrospection, Boolean suppressSecurityChecks, StackCrawlMark& stackMark)
+   在 System.Reflection.Assembly.LoadFrom(String assemblyFile)
+   在 SqB4pxeMvb9w1Nn08A.vBEEZKVST25F2GmbIV.QyOawmj053acvcENvi5(Object )
+   在 SqB4pxeMvb9w1Nn08A.vBEEZKVST25F2GmbIV.p2AWhQvRJa(String )
+
+[类型]:Error
+[线程]:1
+[内存]:5.71M
+[时间]:2015-01-23 15:11:08
+[内容]:尝试从一个网络位置加载程序集，在早期版本的 .NET Framework 中，这会导致对该程序集进行沙盒处理。此发行版的 .NET Framework 默认情况下不启用 CAS 策略，因此，此加载可能会很危险。如果此加载不是要对程序集进行沙盒处理，请启用 loadFromRemoteSources 开关。有关详细信息，请参见 http://go.microsoft.com/fwlink/?LinkId=155569。
+[来源]:
+[目标]:
+[堆栈]:
+
+2015-01-23 15:14:40==>INFO :BaseDirectory:=C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\XMLDataSourceTest\bin\Debug\
+2015-01-23 15:14:40==>INFO :Load C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\XMLDataSourceTest\bin\Debug\System.Data.SQLite.dll Fail!
+[类型]:Error
+[线程]:1
+[内存]:5.71M
+[时间]:2015-01-23 15:14:40
+[内容]:未能加载文件或程序集“file:///C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\XMLDataSourceTest\bin\Debug\System.Data.SQLite.dll”或它的某一个依赖项。不支持操作。 (异常来自 HRESULT:0x80131515)
+[来源]:mscorlib
+[目标]:System.Reflection.RuntimeAssembly _nLoad(System.Reflection.AssemblyName, System.String, System.Security.Policy.Evidence, System.Reflection.RuntimeAssembly, System.Threading.StackCrawlMark ByRef, IntPtr, Boolean, Boolean, Boolean)
+[堆栈]:   在 System.Reflection.RuntimeAssembly._nLoad(AssemblyName fileName, String codeBase, Evidence assemblySecurity, RuntimeAssembly locationHint, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   在 System.Reflection.RuntimeAssembly.nLoad(AssemblyName fileName, String codeBase, Evidence assemblySecurity, RuntimeAssembly locationHint, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   在 System.Reflection.RuntimeAssembly.InternalLoadAssemblyName(AssemblyName assemblyRef, Evidence assemblySecurity, RuntimeAssembly reqAssembly, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   在 System.Reflection.RuntimeAssembly.InternalLoadFrom(String assemblyFile, Evidence securityEvidence, Byte[] hashValue, AssemblyHashAlgorithm hashAlgorithm, Boolean forIntrospection, Boolean suppressSecurityChecks, StackCrawlMark& stackMark)
+   在 System.Reflection.Assembly.LoadFrom(String assemblyFile)
+   在 SqB4pxeMvb9w1Nn08A.vBEEZKVST25F2GmbIV.QyOawmj053acvcENvi5(Object )
+   在 SqB4pxeMvb9w1Nn08A.vBEEZKVST25F2GmbIV.p2AWhQvRJa(String )
+
+[类型]:Error
+[线程]:1
+[内存]:5.75M
+[时间]:2015-01-23 15:14:40
+[内容]:尝试从一个网络位置加载程序集，在早期版本的 .NET Framework 中，这会导致对该程序集进行沙盒处理。此发行版的 .NET Framework 默认情况下不启用 CAS 策略，因此，此加载可能会很危险。如果此加载不是要对程序集进行沙盒处理，请启用 loadFromRemoteSources 开关。有关详细信息，请参见 http://go.microsoft.com/fwlink/?LinkId=155569。
+[来源]:
+[目标]:
+[堆栈]:
+
+2015-01-23 15:16:54==>INFO :BaseDirectory:=C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\XMLDataSourceTest\bin\Debug\
+2015-01-23 15:16:54==>INFO :Load C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\XMLDataSourceTest\bin\Debug\System.Data.SQLite.dll Fail!
+[类型]:Error
+[线程]:1
+[内存]:5.74M
+[时间]:2015-01-23 15:16:54
+[内容]:未能加载文件或程序集“file:///C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\XMLDataSourceTest\bin\Debug\System.Data.SQLite.dll”或它的某一个依赖项。不支持操作。 (异常来自 HRESULT:0x80131515)
+[来源]:mscorlib
+[目标]:System.Reflection.RuntimeAssembly _nLoad(System.Reflection.AssemblyName, System.String, System.Security.Policy.Evidence, System.Reflection.RuntimeAssembly, System.Threading.StackCrawlMark ByRef, IntPtr, Boolean, Boolean, Boolean)
+[堆栈]:   在 System.Reflection.RuntimeAssembly._nLoad(AssemblyName fileName, String codeBase, Evidence assemblySecurity, RuntimeAssembly locationHint, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   在 System.Reflection.RuntimeAssembly.nLoad(AssemblyName fileName, String codeBase, Evidence assemblySecurity, RuntimeAssembly locationHint, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   在 System.Reflection.RuntimeAssembly.InternalLoadAssemblyName(AssemblyName assemblyRef, Evidence assemblySecurity, RuntimeAssembly reqAssembly, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   在 System.Reflection.RuntimeAssembly.InternalLoadFrom(String assemblyFile, Evidence securityEvidence, Byte[] hashValue, AssemblyHashAlgorithm hashAlgorithm, Boolean forIntrospection, Boolean suppressSecurityChecks, StackCrawlMark& stackMark)
+   在 System.Reflection.Assembly.LoadFrom(String assemblyFile)
+   在 SqB4pxeMvb9w1Nn08A.vBEEZKVST25F2GmbIV.QyOawmj053acvcENvi5(Object )
+   在 SqB4pxeMvb9w1Nn08A.vBEEZKVST25F2GmbIV.p2AWhQvRJa(String )
+
+[类型]:Error
+[线程]:1
+[内存]:5.78M
+[时间]:2015-01-23 15:16:54
+[内容]:尝试从一个网络位置加载程序集，在早期版本的 .NET Framework 中，这会导致对该程序集进行沙盒处理。此发行版的 .NET Framework 默认情况下不启用 CAS 策略，因此，此加载可能会很危险。如果此加载不是要对程序集进行沙盒处理，请启用 loadFromRemoteSources 开关。有关详细信息，请参见 http://go.microsoft.com/fwlink/?LinkId=155569。
+[来源]:
+[目标]:
+[堆栈]:
+
+2015-01-23 15:19:50==>INFO :BaseDirectory:=C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\XMLDataSourceTest\bin\Debug\
+2015-01-23 15:19:50==>INFO :Load C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\XMLDataSourceTest\bin\Debug\System.Data.SQLite.dll Fail!
+[类型]:Error
+[线程]:1
+[内存]:5.59M
+[时间]:2015-01-23 15:19:50
+[内容]:未能加载文件或程序集“file:///C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\XMLDataSourceTest\bin\Debug\System.Data.SQLite.dll”或它的某一个依赖项。不支持操作。 (异常来自 HRESULT:0x80131515)
+[来源]:mscorlib
+[目标]:System.Reflection.RuntimeAssembly _nLoad(System.Reflection.AssemblyName, System.String, System.Security.Policy.Evidence, System.Reflection.RuntimeAssembly, System.Threading.StackCrawlMark ByRef, IntPtr, Boolean, Boolean, Boolean)
+[堆栈]:   在 System.Reflection.RuntimeAssembly._nLoad(AssemblyName fileName, String codeBase, Evidence assemblySecurity, RuntimeAssembly locationHint, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   在 System.Reflection.RuntimeAssembly.nLoad(AssemblyName fileName, String codeBase, Evidence assemblySecurity, RuntimeAssembly locationHint, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   在 System.Reflection.RuntimeAssembly.InternalLoadAssemblyName(AssemblyName assemblyRef, Evidence assemblySecurity, RuntimeAssembly reqAssembly, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   在 System.Reflection.RuntimeAssembly.InternalLoadFrom(String assemblyFile, Evidence securityEvidence, Byte[] hashValue, AssemblyHashAlgorithm hashAlgorithm, Boolean forIntrospection, Boolean suppressSecurityChecks, StackCrawlMark& stackMark)
+   在 System.Reflection.Assembly.LoadFrom(String assemblyFile)
+   在 SqB4pxeMvb9w1Nn08A.vBEEZKVST25F2GmbIV.QyOawmj053acvcENvi5(Object )
+   在 SqB4pxeMvb9w1Nn08A.vBEEZKVST25F2GmbIV.p2AWhQvRJa(String )
+
+[类型]:Error
+[线程]:1
+[内存]:5.64M
+[时间]:2015-01-23 15:19:50
+[内容]:尝试从一个网络位置加载程序集，在早期版本的 .NET Framework 中，这会导致对该程序集进行沙盒处理。此发行版的 .NET Framework 默认情况下不启用 CAS 策略，因此，此加载可能会很危险。如果此加载不是要对程序集进行沙盒处理，请启用 loadFromRemoteSources 开关。有关详细信息，请参见 http://go.microsoft.com/fwlink/?LinkId=155569。
+[来源]:
+[目标]:
+[堆栈]:
+
+2015-01-23 15:21:21==>INFO :BaseDirectory:=C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\XMLDataSourceTest\bin\Debug\
+2015-01-23 15:21:21==>INFO :Load C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\XMLDataSourceTest\bin\Debug\System.Data.SQLite.dll Fail!
+[类型]:Error
+[线程]:1
+[内存]:5.71M
+[时间]:2015-01-23 15:21:21
+[内容]:未能加载文件或程序集“file:///C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\XMLDataSourceTest\bin\Debug\System.Data.SQLite.dll”或它的某一个依赖项。不支持操作。 (异常来自 HRESULT:0x80131515)
+[来源]:mscorlib
+[目标]:System.Reflection.RuntimeAssembly _nLoad(System.Reflection.AssemblyName, System.String, System.Security.Policy.Evidence, System.Reflection.RuntimeAssembly, System.Threading.StackCrawlMark ByRef, IntPtr, Boolean, Boolean, Boolean)
+[堆栈]:   在 System.Reflection.RuntimeAssembly._nLoad(AssemblyName fileName, String codeBase, Evidence assemblySecurity, RuntimeAssembly locationHint, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   在 System.Reflection.RuntimeAssembly.nLoad(AssemblyName fileName, String codeBase, Evidence assemblySecurity, RuntimeAssembly locationHint, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   在 System.Reflection.RuntimeAssembly.InternalLoadAssemblyName(AssemblyName assemblyRef, Evidence assemblySecurity, RuntimeAssembly reqAssembly, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   在 System.Reflection.RuntimeAssembly.InternalLoadFrom(String assemblyFile, Evidence securityEvidence, Byte[] hashValue, AssemblyHashAlgorithm hashAlgorithm, Boolean forIntrospection, Boolean suppressSecurityChecks, StackCrawlMark& stackMark)
+   在 System.Reflection.Assembly.LoadFrom(String assemblyFile)
+   在 SqB4pxeMvb9w1Nn08A.vBEEZKVST25F2GmbIV.QyOawmj053acvcENvi5(Object )
+   在 SqB4pxeMvb9w1Nn08A.vBEEZKVST25F2GmbIV.p2AWhQvRJa(String )
+
+[类型]:Error
+[线程]:1
+[内存]:5.76M
+[时间]:2015-01-23 15:21:21
+[内容]:尝试从一个网络位置加载程序集，在早期版本的 .NET Framework 中，这会导致对该程序集进行沙盒处理。此发行版的 .NET Framework 默认情况下不启用 CAS 策略，因此，此加载可能会很危险。如果此加载不是要对程序集进行沙盒处理，请启用 loadFromRemoteSources 开关。有关详细信息，请参见 http://go.microsoft.com/fwlink/?LinkId=155569。
+[来源]:
+[目标]:
+[堆栈]:
+
+2015-01-23 15:26:21==>INFO :BaseDirectory:=C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\XMLDataSourceTest\bin\Debug\
+2015-01-23 15:26:21==>INFO :Load C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\XMLDataSourceTest\bin\Debug\System.Data.SQLite.dll Fail!
+[类型]:Error
+[线程]:1
+[内存]:5.71M
+[时间]:2015-01-23 15:26:21
+[内容]:未能加载文件或程序集“file:///C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\XMLDataSourceTest\bin\Debug\System.Data.SQLite.dll”或它的某一个依赖项。不支持操作。 (异常来自 HRESULT:0x80131515)
+[来源]:mscorlib
+[目标]:System.Reflection.RuntimeAssembly _nLoad(System.Reflection.AssemblyName, System.String, System.Security.Policy.Evidence, System.Reflection.RuntimeAssembly, System.Threading.StackCrawlMark ByRef, IntPtr, Boolean, Boolean, Boolean)
+[堆栈]:   在 System.Reflection.RuntimeAssembly._nLoad(AssemblyName fileName, String codeBase, Evidence assemblySecurity, RuntimeAssembly locationHint, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   在 System.Reflection.RuntimeAssembly.nLoad(AssemblyName fileName, String codeBase, Evidence assemblySecurity, RuntimeAssembly locationHint, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   在 System.Reflection.RuntimeAssembly.InternalLoadAssemblyName(AssemblyName assemblyRef, Evidence assemblySecurity, RuntimeAssembly reqAssembly, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   在 System.Reflection.RuntimeAssembly.InternalLoadFrom(String assemblyFile, Evidence securityEvidence, Byte[] hashValue, AssemblyHashAlgorithm hashAlgorithm, Boolean forIntrospection, Boolean suppressSecurityChecks, StackCrawlMark& stackMark)
+   在 System.Reflection.Assembly.LoadFrom(String assemblyFile)
+   在 SqB4pxeMvb9w1Nn08A.vBEEZKVST25F2GmbIV.QyOawmj053acvcENvi5(Object )
+   在 SqB4pxeMvb9w1Nn08A.vBEEZKVST25F2GmbIV.p2AWhQvRJa(String )
+
+[类型]:Error
+[线程]:1
+[内存]:5.75M
+[时间]:2015-01-23 15:26:21
+[内容]:尝试从一个网络位置加载程序集，在早期版本的 .NET Framework 中，这会导致对该程序集进行沙盒处理。此发行版的 .NET Framework 默认情况下不启用 CAS 策略，因此，此加载可能会很危险。如果此加载不是要对程序集进行沙盒处理，请启用 loadFromRemoteSources 开关。有关详细信息，请参见 http://go.microsoft.com/fwlink/?LinkId=155569。
+[来源]:
+[目标]:
+[堆栈]:
+
+2015-01-23 15:31:09==>INFO :BaseDirectory:=C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\XMLDataSourceTest\bin\Debug\
+2015-01-23 15:31:09==>INFO :Load C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\XMLDataSourceTest\bin\Debug\System.Data.SQLite.dll Fail!
+[类型]:Error
+[线程]:1
+[内存]:3.14M
+[时间]:2015-01-23 15:31:09
+[内容]:未能加载文件或程序集“file:///C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\XMLDataSourceTest\bin\Debug\System.Data.SQLite.dll”或它的某一个依赖项。不支持操作。 (异常来自 HRESULT:0x80131515)
+[来源]:mscorlib
+[目标]:System.Reflection.RuntimeAssembly _nLoad(System.Reflection.AssemblyName, System.String, System.Security.Policy.Evidence, System.Reflection.RuntimeAssembly, System.Threading.StackCrawlMark ByRef, IntPtr, Boolean, Boolean, Boolean)
+[堆栈]:   在 System.Reflection.RuntimeAssembly._nLoad(AssemblyName fileName, String codeBase, Evidence assemblySecurity, RuntimeAssembly locationHint, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   在 System.Reflection.RuntimeAssembly.nLoad(AssemblyName fileName, String codeBase, Evidence assemblySecurity, RuntimeAssembly locationHint, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   在 System.Reflection.RuntimeAssembly.InternalLoadAssemblyName(AssemblyName assemblyRef, Evidence assemblySecurity, RuntimeAssembly reqAssembly, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   在 System.Reflection.RuntimeAssembly.InternalLoadFrom(String assemblyFile, Evidence securityEvidence, Byte[] hashValue, AssemblyHashAlgorithm hashAlgorithm, Boolean forIntrospection, Boolean suppressSecurityChecks, StackCrawlMark& stackMark)
+   在 System.Reflection.Assembly.LoadFrom(String assemblyFile)
+   在 SqB4pxeMvb9w1Nn08A.vBEEZKVST25F2GmbIV.QyOawmj053acvcENvi5(Object )
+   在 SqB4pxeMvb9w1Nn08A.vBEEZKVST25F2GmbIV.p2AWhQvRJa(String )
+
+[类型]:Error
+[线程]:1
+[内存]:3.19M
+[时间]:2015-01-23 15:31:09
+[内容]:尝试从一个网络位置加载程序集，在早期版本的 .NET Framework 中，这会导致对该程序集进行沙盒处理。此发行版的 .NET Framework 默认情况下不启用 CAS 策略，因此，此加载可能会很危险。如果此加载不是要对程序集进行沙盒处理，请启用 loadFromRemoteSources 开关。有关详细信息，请参见 http://go.microsoft.com/fwlink/?LinkId=155569。
+[来源]:
+[目标]:
+[堆栈]:
+

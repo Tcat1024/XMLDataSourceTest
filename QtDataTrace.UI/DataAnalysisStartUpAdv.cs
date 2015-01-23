@@ -19,7 +19,7 @@ namespace QtDataTrace.UI
     [Module("33EE9C1F-0AEF-4874-B63B-07C22960F165", "数据分析起始页", "数据分析起始页模块")]
     public partial class DataAnalysisStartUpAdv : UserControl
     {
-        private DataTable data;
+        private DataTable sourceData;
         private DataSet processData;
         private DataSet configFile;
         private DataView configFileView;
@@ -196,21 +196,21 @@ namespace QtDataTrace.UI
         }
         private void btnCPK_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if (data == null)
+            if (sourceData == null)
             {
                 MessageBox.Show("请选择数据源");
                 return;
             }
 
             CpkModule module = new CpkModule();
-            module.DataSource = data;
+            module.DataSource = sourceData;
             (module.DataView as SPC.Base.Control.CanChooseDataGridView).Synchronize(this.gridView1, DevExpress.XtraGrid.Views.Base.SynchronizationMode.Full);
             EAS.Application.Instance.OpenModule(module);
         }
 
         private void btnSampleRun_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if (data == null)
+            if (sourceData == null)
             {
                 MessageBox.Show("请选择数据源");
                 return;
@@ -218,7 +218,7 @@ namespace QtDataTrace.UI
 
             SpcModule module = new SpcModule();
 
-            module.DataSource = data;
+            module.DataSource = sourceData;
             (module.DataView as SPC.Base.Control.CanChooseDataGridView).Synchronize(this.gridView1, DevExpress.XtraGrid.Views.Base.SynchronizationMode.Full);
             module.SelectTabPageIndex = 0;
             module.AccessibleDescription = "样本散点图";
@@ -227,7 +227,7 @@ namespace QtDataTrace.UI
 
         private void btnSampleControl_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if (data == null)
+            if (sourceData == null)
             {
                 MessageBox.Show("请选择数据源");
                 return;
@@ -235,7 +235,7 @@ namespace QtDataTrace.UI
 
             SpcModule module = new SpcModule();
 
-            module.DataSource = data;
+            module.DataSource = sourceData;
             (module.DataView as SPC.Base.Control.CanChooseDataGridView).Synchronize(this.gridView1, DevExpress.XtraGrid.Views.Base.SynchronizationMode.Full);
             module.SelectTabPageIndex = 1;
             module.AccessibleDescription = "样本控制图";
@@ -244,7 +244,7 @@ namespace QtDataTrace.UI
 
         private void btnSamleAvg_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if (data == null)
+            if (sourceData == null)
             {
                 MessageBox.Show("请选择数据源");
                 return;
@@ -252,7 +252,7 @@ namespace QtDataTrace.UI
 
             SpcModule module = new SpcModule();
 
-            module.DataSource = data;
+            module.DataSource = sourceData;
             (module.DataView as SPC.Base.Control.CanChooseDataGridView).Synchronize(this.gridView1, DevExpress.XtraGrid.Views.Base.SynchronizationMode.Full);
             module.SelectTabPageIndex = 2;
             module.AccessibleDescription = "均值运行图";
@@ -261,7 +261,7 @@ namespace QtDataTrace.UI
 
         private void btnNormalCheck_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if (data == null)
+            if (sourceData == null)
             {
                 MessageBox.Show("请选择数据源");
                 return;
@@ -269,7 +269,7 @@ namespace QtDataTrace.UI
 
             SpcModule module = new SpcModule();
 
-            module.DataSource = data;
+            module.DataSource = sourceData;
             (module.DataView as SPC.Base.Control.CanChooseDataGridView).Synchronize(this.gridView1, DevExpress.XtraGrid.Views.Base.SynchronizationMode.Full);
             module.SelectTabPageIndex = 3;
             module.AccessibleDescription = "正态校验";
@@ -277,7 +277,7 @@ namespace QtDataTrace.UI
         }
         private void btnFrequency_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if (data == null)
+            if (sourceData == null)
             {
                 MessageBox.Show("请选择数据源");
                 return;
@@ -285,7 +285,7 @@ namespace QtDataTrace.UI
 
             SpcModule module = new SpcModule();
 
-            module.DataSource = data;
+            module.DataSource = sourceData;
             (module.DataView as SPC.Base.Control.CanChooseDataGridView).Synchronize(this.gridView1, DevExpress.XtraGrid.Views.Base.SynchronizationMode.Full);
             module.SelectTabPageIndex = 4;
             module.AccessibleDescription = "频度分布";
@@ -317,7 +317,7 @@ namespace QtDataTrace.UI
             bool hasdata = false;
             int targetseq = int.Parse(this.ProcessSEQ);
             Func<int, bool> check;
-            if(e.Item == this.btnPreQtrace)
+            if (e.Item == this.btnPreQtrace)
             {
                 check = (a) => { return a <= targetseq; };
                 currentTraceDir = false;
@@ -367,7 +367,7 @@ namespace QtDataTrace.UI
                 MessageBox.Show(re.Item2);
                 return;
             }
-            NewTrace();        
+            NewTrace();
         }
         private void NewTrace()
         {
@@ -392,7 +392,7 @@ namespace QtDataTrace.UI
                         if (process == 1000)
                         {
                             var result = ServiceContainer.GetService<IQtDataTraceService>().GetData(userId, this.currentTraceFactoryId);
-                            this.data = result;
+                            this.sourceData = result;
                             this.Invoke(new Action(() => { traceCallBack(); }));
                             break;
                         }
@@ -417,18 +417,18 @@ namespace QtDataTrace.UI
         private void traceCallBack()
         {
             this.gridView1.Columns.Clear();
-            gridControl1.DataSource = data;
+            gridControl1.DataSource = sourceData;
             currentDataId = currentTraceFactoryId;
             AddTraceHis(currentTraceFactoryId, string.Format("{0}_{1}_{2}", DateTime.Now.ToString("hh:mm:ss"), ProcessNo, currentTraceDir ? "后追" : "前追"));
         }
-        private void AddTraceHis(Guid id,string text)
+        private void AddTraceHis(Guid id, string text)
         {
             stHisNone.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             var btn = new DevExpress.XtraBars.BarButtonItem(this.barManager1, text);
             btn.Tag = id;
             btn.ItemClick += btnHis_ItemClick;
             btn.Name = this.menuTraceHis.ItemLinks.IndexOf(this.menuTraceHis.AddItem(btn)).ToString();
-            
+
         }
 
         void btnHis_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -445,14 +445,15 @@ namespace QtDataTrace.UI
                 }
                 else
                 {
-                    this.data = result;
+                    gridControl1.DataSource = null;
                     this.gridView1.Columns.Clear();
-                    gridControl1.DataSource = data;
+                    this.sourceData = result;
+                    gridControl1.DataSource = sourceData;
                     this.currentDataId = (Guid)con.Tag;
                 }
 
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
@@ -509,14 +510,14 @@ namespace QtDataTrace.UI
 
         private void barButtonItem2_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if (data == null)
+            if (sourceData == null)
             {
                 MessageBox.Show("请选择数据源");
                 return;
             }
 
             RelationMonitorControl module = new RelationMonitorControl();
-            module.DataSource = data;
+            module.DataSource = sourceData;
             (module.DataView as SPC.Base.Control.CanChooseDataGridView).Synchronize(this.gridView1, DevExpress.XtraGrid.Views.Base.SynchronizationMode.Full);
             module.AccessibleDescription = "相关性散点图";
             EAS.Application.Instance.OpenModule(module);
@@ -524,7 +525,7 @@ namespace QtDataTrace.UI
 
         private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if (data == null)
+            if (sourceData == null)
             {
                 MessageBox.Show("请选择数据源");
                 return;
@@ -532,7 +533,7 @@ namespace QtDataTrace.UI
 
             SpcModule module = new SpcModule();
 
-            module.DataSource = data;
+            module.DataSource = sourceData;
             (module.DataView as SPC.Base.Control.CanChooseDataGridView).Synchronize(this.gridView1, DevExpress.XtraGrid.Views.Base.SynchronizationMode.Full);
             module.SelectTabPageIndex = 5;
             module.AccessibleDescription = "箱型图";
@@ -541,7 +542,7 @@ namespace QtDataTrace.UI
 
         private void btnSPCdm_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if (data == null)
+            if (sourceData == null)
             {
                 MessageBox.Show("请选择数据源");
                 return;
@@ -549,7 +550,7 @@ namespace QtDataTrace.UI
 
             SPCDetermineControl module = new SPCDetermineControl();
 
-            module.DataSource = data;
+            module.DataSource = sourceData;
             (module.DataView as SPC.Base.Control.CanChooseDataGridView).Synchronize(this.gridView1, DevExpress.XtraGrid.Views.Base.SynchronizationMode.Full);
             module.AccessibleDescription = "SPC判定";
             EAS.Application.Instance.OpenModule(module);
@@ -557,7 +558,7 @@ namespace QtDataTrace.UI
         private void btnSave_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             TraceDataBackUpForm form = new TraceDataBackUpForm(ServiceContainer.GetService<IDataBackUpService>().GetTableList(this.loginId));
-            if(form.ShowDialog()== DialogResult.OK)
+            if (form.ShowDialog() == DialogResult.OK)
             {
                 if (form.RemoveTables.Count != 0)
                     MessageBox.Show(ServiceContainer.GetService<IDataBackUpService>().RemoveTable(this.loginId, form.RemoveTables.ToArray()));
@@ -570,9 +571,9 @@ namespace QtDataTrace.UI
         private void btnLoad_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             TraceDataLoadForm form = new TraceDataLoadForm(ServiceContainer.GetService<IDataBackUpService>().GetTableList(this.loginId));
-            if(form.ShowDialog()==DialogResult.OK)
+            if (form.ShowDialog() == DialogResult.OK)
             {
-                if(form.TableName!=null)
+                if (form.TableName != null)
                 {
                     var result = ServiceContainer.GetService<IDataBackUpService>().GetTable(this.loginId, this.userId, form.TableName);
                     if (result.Item1 == Guid.Empty)
@@ -587,11 +588,12 @@ namespace QtDataTrace.UI
                         MessageBox.Show("数据已丢失");
                         return;
                     }
-                    this.data = resultdata;
+                    gridControl1.DataSource = null;
                     this.gridView1.Columns.Clear();
-                    gridControl1.DataSource = data;
+                    this.sourceData = resultdata;
+                    gridControl1.DataSource = sourceData;
                     currentDataId = currentTraceFactoryId;
-                    AddTraceHis(currentTraceFactoryId, string.Format("{0}_{1}_{2}", DateTime.Now.ToString("hh:mm:ss"),form.TableName,"归档数据"));
+                    AddTraceHis(currentTraceFactoryId, string.Format("{0}_{1}_{2}", DateTime.Now.ToString("hh:mm:ss"), form.TableName, "归档数据"));
                 }
             }
         }
@@ -678,7 +680,7 @@ namespace QtDataTrace.UI
             SPC.Analysis.ConfigControls.CCTConfigControl configcontrol = new SPC.Analysis.ConfigControls.CCTConfigControl();
             AnalyzeConfigForm configForm = new AnalyzeConfigForm();
             configForm.AddConfigControl(configcontrol);
-            configcontrol.Init(this.gridView1.GetVisibleColumnNames(false,typeof(string),typeof(DateTime),typeof(bool)));
+            configcontrol.Init(this.gridView1.GetVisibleColumnNames(false, typeof(string), typeof(DateTime), typeof(bool)));
             if (configForm.ShowDialog() == DialogResult.OK)
             {
                 var re = ServiceContainer.GetService<IDataAnalyzeService>().CCTStart(userId, currentDataId, this.gridView1.GetChoosedRowIndexs(), configcontrol.TargetColumn, configcontrol.Columns);
@@ -710,7 +712,7 @@ namespace QtDataTrace.UI
             AnalyzeConfigForm configForm = new AnalyzeConfigForm();
             configForm.AddConfigControl(configcontrol);
             var choosed = this.gridView1.GetChoosedRowIndexs();
-            configcontrol.Init(this.gridView1.GetVisibleColumnNames(false, typeof(string), typeof(DateTime), typeof(bool)),choosed.Length);
+            configcontrol.Init(this.gridView1.GetVisibleColumnNames(false, typeof(string), typeof(DateTime), typeof(bool)), choosed.Length);
             if (configForm.ShowDialog() == DialogResult.OK)
             {
                 var re = ServiceContainer.GetService<IDataAnalyzeService>().KMeansStart(userId, currentDataId, choosed, configcontrol.SelectedColumns, configcontrol.MaxCount, configcontrol.StartClustNum, configcontrol.EndClustNum, configcontrol.Avg, configcontrol.Stdev, configcontrol.InitialMode, configcontrol.MaxThread);
@@ -736,18 +738,20 @@ namespace QtDataTrace.UI
             }
         }
 
+        SPC.Analysis.ConfigControls.ContourPlotConfigControl CPlotConfig;
         private void btnCPlot_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            SPC.Analysis.ConfigControls.ContourPlotConfigControl configcontrol = new SPC.Analysis.ConfigControls.ContourPlotConfigControl();
+            if (CPlotConfig == null)
+                CPlotConfig = new SPC.Analysis.ConfigControls.ContourPlotConfigControl();
             AnalyzeConfigForm configForm = new AnalyzeConfigForm();
-            configForm.AddConfigControl(configcontrol);
+            configForm.AddConfigControl(CPlotConfig);
             var choosed = this.gridView1.GetChoosedRowIndexs();
-            configcontrol.Init(this.gridView1.GetVisibleColumnNames(false, typeof(string), typeof(DateTime), typeof(bool)));
+            CPlotConfig.Init(this.gridView1.GetVisibleColumnNames(false, typeof(string), typeof(DateTime), typeof(bool)));
             if (configForm.ShowDialog() == DialogResult.OK)
             {
-                var re = ServiceContainer.GetService<IDataAnalyzeService>().ContourPlotStart(userId, currentDataId, choosed, configcontrol.X, configcontrol.Y, configcontrol.Z, configcontrol.PicWidth, configcontrol.PicHeight, configcontrol.Levels, configcontrol.IsDrawLine);
+                var re = ServiceContainer.GetService<IDataAnalyzeService>().ContourPlotStart(userId, currentDataId, choosed, CPlotConfig.X, CPlotConfig.Y, CPlotConfig.Z, CPlotConfig.PicWidth, CPlotConfig.PicHeight, CPlotConfig.Levels, CPlotConfig.IsDrawLine);
                 currentAnalyzeFactoryId = re.Item1;
-                if (currentTraceFactoryId == Guid.Empty)
+                if (currentAnalyzeFactoryId == Guid.Empty)
                 {
                     MessageBox.Show(re.Item2);
                     return;
@@ -760,7 +764,7 @@ namespace QtDataTrace.UI
                         SPC.Analysis.ResultControls.ContourPlotResultControl resultcontrol = new SPC.Analysis.ResultControls.ContourPlotResultControl();
                         AnalyzeResultControl resultForm = new AnalyzeResultControl();
                         resultForm.AddResultControl(resultcontrol);
-                        resultcontrol.Init(result, configcontrol.X, configcontrol.Y, configcontrol.Z);
+                        resultcontrol.Init(result, CPlotConfig.X, CPlotConfig.Y, CPlotConfig.Z);
                         resultForm.AccessibleDescription = "等高线图" + DateTime.Now.ToString("hh:mm:ss");
                         DebugOpenModule(resultForm);
                     }));
@@ -768,6 +772,166 @@ namespace QtDataTrace.UI
             }
         }
 
+        private void btnCCalCulate_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            var configcontrol = new SPC.Analysis.ConfigControls.ColumnCalculateConfigControl();
+            AnalyzeConfigForm configForm = new AnalyzeConfigForm();
+            configForm.AddConfigControl(configcontrol);
+            var data = new SPC.Base.Interface.ViewChoosedData(this.gridView1, this.gridView1.GetChoosedRowIndexs());
+            configcontrol.Init(this.gridView1.GetVisibleColumnNames(false, typeof(string), typeof(DateTime), typeof(bool)));
+            double[] result = null;
+            if (configForm.ShowDialog() == DialogResult.OK)
+            {
+                switch (configcontrol.MethodIndex)
+                {
+                    case 0:
+                        result = SPC.Base.Operation.ColumnCalculate.Sum(data, configcontrol.SourceColumns); break;
+                    case 1:
+                        result = SPC.Base.Operation.ColumnCalculate.Avg(data, configcontrol.SourceColumns); break;
+                    case 2:
+                        result = SPC.Base.Operation.ColumnCalculate.Stdev(data, configcontrol.SourceColumns); break;
+                    case 3:
+                        result = SPC.Base.Operation.ColumnCalculate.Min(data, configcontrol.SourceColumns); break;
+                    case 4:
+                        result = SPC.Base.Operation.ColumnCalculate.Max(data, configcontrol.SourceColumns); break;
+                    case 5:
+                        result = SPC.Base.Operation.ColumnCalculate.Range(data, configcontrol.SourceColumns); break;
+                    case 6:
+                        result = SPC.Base.Operation.ColumnCalculate.Mid(data, configcontrol.SourceColumns); break;
+                    case 7:
+                        result = SPC.Base.Operation.ColumnCalculate.QuadraticSum(data, configcontrol.SourceColumns); break;
+                    case 8:
+                        result = SPC.Base.Operation.ColumnCalculate.Count(data, configcontrol.SourceColumns); break;
+                    case 9:
+                        result = SPC.Base.Operation.ColumnCalculate.IsNotNull(data, configcontrol.SourceColumns); break;
+                    case 10:
+                        result = SPC.Base.Operation.ColumnCalculate.IsNull(data, configcontrol.SourceColumns); break;
+                    default:
+                        MessageBox.Show("不支持的方法");
+                        return;
+                }
+                DataTable resulttable = new DataTable();
+                resulttable.Columns.Add("列名", typeof(string));
+                resulttable.Columns.Add(configcontrol.MethodString, typeof(double));
+                int count = result.Length;
+                for (int i = 0; i < count; i++)
+                {
+                    resulttable.Rows.Add(configcontrol.SourceColumns[i], result[i]);
+                }
+                SPC.Analysis.ResultControls.CalculateResultControl resultcontrol = new SPC.Analysis.ResultControls.CalculateResultControl();
+                AnalyzeResultControl resultForm = new AnalyzeResultControl();
+                resultForm.AddResultControl(resultcontrol);
+                resultcontrol.Init(resulttable);
+                resultForm.AccessibleDescription = "列统计量" + DateTime.Now.ToString("hh:mm:ss");
+                DebugOpenModule(resultForm);
+            }
+        }
 
+        private void btnRCalculate_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            var configcontrol = new SPC.Analysis.ConfigControls.RowCalculateConfigControl();
+            AnalyzeConfigForm configForm = new AnalyzeConfigForm();
+            configForm.AddConfigControl(configcontrol);
+            var data = new SPC.Base.Interface.ViewChoosedData(this.gridView1, this.gridView1.GetChoosedRowIndexs());
+            configcontrol.Init(this.gridView1.GetVisibleColumnNames(false, typeof(string), typeof(DateTime), typeof(bool)));
+            double[] result = null;
+            if (configForm.ShowDialog() == DialogResult.OK)
+            {
+                switch (configcontrol.MethodIndex)
+                {
+                    case 0:
+                        result = SPC.Base.Operation.RowCalculate.Sum(data, configcontrol.SourceColumns); break;
+                    case 1:
+                        result = SPC.Base.Operation.RowCalculate.Avg(data, configcontrol.SourceColumns); break;
+                    case 2:
+                        result = SPC.Base.Operation.RowCalculate.Stdev(data, configcontrol.SourceColumns); break;
+                    case 3:
+                        result = SPC.Base.Operation.RowCalculate.Min(data, configcontrol.SourceColumns); break;
+                    case 4:
+                        result = SPC.Base.Operation.RowCalculate.Max(data, configcontrol.SourceColumns); break;
+                    case 5:
+                        result = SPC.Base.Operation.RowCalculate.Range(data, configcontrol.SourceColumns); break;
+                    case 6:
+                        result = SPC.Base.Operation.RowCalculate.Mid(data, configcontrol.SourceColumns); break;
+                    case 7:
+                        result = SPC.Base.Operation.RowCalculate.QuadraticSum(data, configcontrol.SourceColumns); break;
+                    case 8:
+                        result = SPC.Base.Operation.RowCalculate.Count(data, configcontrol.SourceColumns); break;
+                    case 9:
+                        result = SPC.Base.Operation.RowCalculate.IsNotNull(data, configcontrol.SourceColumns); break;
+                    case 10:
+                        result = SPC.Base.Operation.RowCalculate.IsNull(data, configcontrol.SourceColumns); break;
+                    default:
+                        MessageBox.Show("不支持的方法");
+                        return;
+                }
+                if (!configcontrol.SaveNewColumn)
+                {
+                    DataTable resulttable = new DataTable();
+                    resulttable.Columns.Add("行号", typeof(int));
+                    resulttable.Columns.Add(configcontrol.MethodString, typeof(double));
+                    int count = result.Length;
+                    for (int i = 0; i < count; i++)
+                    {
+                        resulttable.Rows.Add(i, result[i]);
+                    }
+                    SPC.Analysis.ResultControls.CalculateResultControl resultcontrol = new SPC.Analysis.ResultControls.CalculateResultControl();
+                    AnalyzeResultControl resultForm = new AnalyzeResultControl();
+                    resultForm.AddResultControl(resultcontrol);
+                    resultcontrol.Init(resulttable);
+                    resultForm.AccessibleDescription = "行统计量" + DateTime.Now.ToString("hh:mm:ss");
+                    DebugOpenModule(resultForm);
+                }
+                else
+                {
+                    string col = configcontrol.TargetColumn;
+                    if (!data.ContainsColumn(col))
+                        data.AddColumn(col, typeof(double));
+                    int count = result.Length;
+                    for (int i = 0; i < count; i++)
+                        data[i, col] = result[i];
+                    MessageBox.Show("添加成功");
+                }
+            }
+        }
+        private SPC.Analysis.ConfigControls.StandardizationConfigControl SdzConfig;
+        private void btnSdz_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (SdzConfig == null)
+                SdzConfig = new SPC.Analysis.ConfigControls.StandardizationConfigControl();
+            AnalyzeConfigForm configForm = new AnalyzeConfigForm();
+            configForm.AddConfigControl(SdzConfig);
+            var data = new SPC.Base.Interface.ViewChoosedData(this.gridView1, this.gridView1.GetChoosedRowIndexs());
+            SdzConfig.Init(this.gridView1.GetVisibleColumnNames(false, typeof(string), typeof(DateTime), typeof(bool)));
+            if (configForm.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    switch (SdzConfig.MethodType)
+                    {
+                        case 0:
+                            SPC.Base.Operation.Standardization.ZScore(data, SdzConfig.SourceColumns, SdzConfig.TargetColumns);
+                            break;
+                        case 1:
+                            SPC.Base.Operation.Standardization.MinusAvg(data, SdzConfig.SourceColumns, SdzConfig.TargetColumns);
+                            break;
+                        case 2:
+                            SPC.Base.Operation.Standardization.DivideStdev(data, SdzConfig.SourceColumns, SdzConfig.TargetColumns);
+                            break;
+                        case 3:
+                            SPC.Base.Operation.Standardization.M1D2(data, SdzConfig.SourceColumns, SdzConfig.TargetColumns, SdzConfig.Arg_1, SdzConfig.Arg_2);
+                            break;
+                        case 4:
+                            SPC.Base.Operation.Standardization.F1T2(data, SdzConfig.SourceColumns, SdzConfig.TargetColumns, SdzConfig.Arg_1, SdzConfig.Arg_2);
+                            break;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+
+            }
+        }
     }
 }

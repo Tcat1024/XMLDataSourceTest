@@ -419,7 +419,7 @@ namespace QtDataTrace.Access
         }
         public string GetErrorMessage(string username, Guid id)
         {
-            var factory = DataAnalyzeBLL.GetFactory(username, id);
+            var factory = QtDataTraceBLL.GetFactory(username, id);
             if (factory != null)
                 return factory.Error;
             return null;
