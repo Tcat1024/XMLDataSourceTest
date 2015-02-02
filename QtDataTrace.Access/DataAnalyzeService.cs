@@ -4,122 +4,75 @@ using System.Linq;
 using System.Text;
 using System.Data;
 using QtDataTrace.IService;
-using SPC.Base.Interface;
-using SPC.Algorithm;
 using EAS.Services;
+using QtDataTrace.AnalyzeIService;
 
 namespace QtDataTrace.Access
 {
     [ServiceObject("质量数据分析服务")]
     [ServiceBind(typeof(IDataAnalyzeService))]
-    public class DataAnalyzeService : ServiceObject,IDataAnalyzeService
+    public class DataAnalyzeService : ServiceObject, IDataAnalyzeService
     {
         public Tuple<Guid, string> CCTStart(string username, Guid id, int[] selected, string target, string[] f)
         {
-            DataAnalyzeFactory factory = null;
-            DataTable data = null;
-            try
-            {
-                data = QtDataTraceBLL.BeginAnalyzeData(username, id);
-                factory = new CCTAnalyzeFactory(new ChoosedData(data, selected),target,f);
-                factory.StopedWorking += (sender, e) => { QtDataTraceBLL.EndAnalyzeData(username, id); };
-                return new Tuple<Guid, string>(DataAnalyzeBLL.Add(username, factory), "");
-            }
-            catch (Exception ex)
-            {
-                if (data != null)
-                    QtDataTraceBLL.EndAnalyzeData(username, id);
-                return new Tuple<Guid, string>(Guid.Empty, ex.Message);
-            }
+            return ServiceContainer.GetService<ILocalizationDataAnalyzeService>("LocalServiceBridger").CCTStart(username, id, selected, target, f);
         }
         public double[] CCTget(string username, Guid id)
         {
-            CCTAnalyzeFactory factory = DataAnalyzeBLL.GetFactory(username,id) as CCTAnalyzeFactory;
-            if(factory!=null&&!factory.Working)
-            {
-                return factory.Result;
-            }
-            return null;
+            return ServiceContainer.GetService<ILocalizationDataAnalyzeService>("LocalServiceBridger").CCTget(username, id);
+        
         }
         public Tuple<Guid, string> KMeansStart(string username, Guid id, int[] selected,string[] properties,int maxcount,int minclustercount,int maxclustercount,double m,double s,int initialmode,int maxthread)
         {
-            DataAnalyzeFactory factory = null;
-            DataTable data = null;
-            try
-            {
-                data = QtDataTraceBLL.BeginAnalyzeData(username, id);
-                factory = new KMeansAnalyzeFactory(new ChoosedData(data, selected),properties,maxcount,minclustercount,maxclustercount,m,s,initialmode,maxthread);
-                factory.StopedWorking += (sender, e) => { QtDataTraceBLL.EndAnalyzeData(username, id); };
-                return new Tuple<Guid, string>(DataAnalyzeBLL.Add(username, factory), "");
-            }
-            catch (Exception ex)
-            {
-                if (data != null)
-                    QtDataTraceBLL.EndAnalyzeData(username, id);
-                return new Tuple<Guid, string>(Guid.Empty, ex.Message);
-            }
+            return ServiceContainer.GetService<ILocalizationDataAnalyzeService>("LocalServiceBridger").KMeansStart(username, id, selected, properties, maxcount, minclustercount, maxclustercount, m, s, initialmode, maxthread);
+        
         }
         public DataSet KMeansGet(string username, Guid id)
         {
-            KMeansAnalyzeFactory factory = DataAnalyzeBLL.GetFactory(username, id) as KMeansAnalyzeFactory;
-            if (factory != null && !factory.Working)
-            {
-                return factory.Result;
-            }
-            return null;
+            return ServiceContainer.GetService<ILocalizationDataAnalyzeService>("LocalServiceBridger").KMeansGet(username, id);
+        
         }
         public bool Stop(string username, Guid id)
         {
-            return DataAnalyzeBLL.Stop(username, id);
+            return ServiceContainer.GetService<ILocalizationDataAnalyzeService>("LocalServiceBridger").Stop(username, id);
         }
         public int GetProcess(string username, Guid id)
         {
-            var temp = DataAnalyzeBLL.GetFactory(username, id);
-            if (temp == null)
-                return -2;
-            if (temp.Working)
-                return temp.GetProgress();
-            if (temp.Error != "")
-                return -1;
-            return 1000;
+            return ServiceContainer.GetService<ILocalizationDataAnalyzeService>("LocalServiceBridger").GetProcess(username, id);
         }
         public string GetErrorMessage(string username,Guid id)
         {
-            var factory=DataAnalyzeBLL.GetFactory(username,id);
-            if (factory != null)
-                return factory.Error;
-            return null;
+            return ServiceContainer.GetService<ILocalizationDataAnalyzeService>("LocalServiceBridger").GetErrorMessage(username, id);
         }
         public bool Remove(string username,Guid id)
         {
-            return DataAnalyzeBLL.Remove(username, id);
+            return ServiceContainer.GetService<ILocalizationDataAnalyzeService>("LocalServiceBridger").Remove(username, id);
         }
         public Tuple<Guid,string> ContourPlotStart(string username, Guid id, int[] selected, string x,string y,string z,int width,int height,double[] levels,bool drawline)
         {
-            DataAnalyzeFactory factory = null;
-            DataTable data = null;
-            try
-            {
-                data = QtDataTraceBLL.BeginAnalyzeData(username, id);
-                factory = new ContourPlotFactory(new ChoosedData(data, selected), x, y, z, width, height, levels, drawline);
-                factory.StopedWorking += (sender, e) => { QtDataTraceBLL.EndAnalyzeData(username, id); };
-                return new Tuple<Guid, string>(DataAnalyzeBLL.Add(username,factory), "");
-            }
-            catch(Exception ex)
-            {
-                if(data!=null)
-                    QtDataTraceBLL.EndAnalyzeData(username, id);
-                return new Tuple<Guid, string>(Guid.Empty, ex.Message);
-            }
+            return ServiceContainer.GetService<ILocalizationDataAnalyzeService>("LocalServiceBridger").ContourPlotStart(username, id, selected, x, y, z, width, height, levels, drawline);
         }
         public System.Drawing.Image ContourPlotGet(string username, Guid id)
         {
-            ContourPlotFactory factory = DataAnalyzeBLL.GetFactory(username, id) as ContourPlotFactory;
-            if (factory != null && !factory.Working)
-            {
-                return factory.Result;
-            }
-            return null;
+            return ServiceContainer.GetService<ILocalizationDataAnalyzeService>("LocalServiceBridger").ContourPlotGet(username, id);
+        }
+        public Tuple<Guid, string> RpartStart(string username, Guid id, int[] selected, int width, int height, string targetcolumn, string[] sourcecolumns, string method,double cp)
+        {
+            return ServiceContainer.GetService<ILocalizationDataAnalyzeService>("LocalServiceBridger").RpartStart(username, id, selected, width, height, targetcolumn, sourcecolumns, method,cp);
+        }
+        public Tuple<System.Drawing.Image, string,double[,]> RpartGet(string username, Guid id)
+        {
+            return ServiceContainer.GetService<ILocalizationDataAnalyzeService>("LocalServiceBridger").RpartGet(username, id);
+        }
+        public Tuple<Guid, string> LmRegressStart(string username, Guid id, int[] selected, int width, int height, string targetcolumn, string[] sourcecolumns)
+        {
+            return ServiceContainer.GetService<ILocalizationDataAnalyzeService>("LocalServiceBridger").LmRegressStart(username, id, selected, width, height, targetcolumn, sourcecolumns);
+        
+        }
+        public Tuple<System.Drawing.Image, string, double[]> LmRegressGet(string username, Guid id)
+        {
+            return ServiceContainer.GetService<ILocalizationDataAnalyzeService>("LocalServiceBridger").LmRegressGet(username, id);
+        
         }
     }
 }

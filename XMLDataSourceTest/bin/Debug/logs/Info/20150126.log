@@ -1,0 +1,31 @@
+2015-01-26 09:29:57==>INFO :组件定义:
+	Key=EAS.Services.TimeService,Type=EAS.Services.TimeService,EAS.MicroKernel
+	Key=EAS.Data.DataService,Type=EAS.Data.DataService,EAS.Data
+	Key=EAS.Data.ORM.OrmAccessor,Type=EAS.Data.ORM.OrmAccessor,EAS.Data
+	Key=EAS.Data.Caching.CacheService,Type=EAS.Data.Caching.CacheService,EAS.Data
+
+2015-01-26 10:16:26==>INFO :组件定义:
+	Key=EAS.Services.TimeService,Type=EAS.Services.TimeService,EAS.MicroKernel
+	Key=EAS.Data.DataService,Type=EAS.Data.DataService,EAS.Data
+	Key=EAS.Data.ORM.OrmAccessor,Type=EAS.Data.ORM.OrmAccessor,EAS.Data
+	Key=EAS.Data.Caching.CacheService,Type=EAS.Data.Caching.CacheService,EAS.Data
+	Key=QtDataTrace.Access.BaseTableService,Type=QtDataTrace.Access.BaseTableService,QtDataTrace.Access
+	Key=QtDataTrace.Access.DataAnalyzeService,Type=QtDataTrace.Access.DataAnalyzeService,QtDataTrace.Access
+	Key=QtDataTrace.Access.DataBackUpService,Type=QtDataTrace.Access.DataBackUpService,QtDataTrace.Access
+	Key=QtDataTrace.Access.QtDataTraceService,Type=QtDataTrace.Access.QtDataTraceService,QtDataTrace.Access
+	Key=QtDataTrace.Access.SingleQtTableService,Type=QtDataTrace.Access.SingleQtTableService,QtDataTrace.Access
+
+2015-01-26 10:17:22==>INFO :组件定义:
+	Key=EAS.Services.TimeService,Type=EAS.Services.TimeService,EAS.MicroKernel
+	Key=EAS.Data.DataService,Type=EAS.Data.DataService,EAS.Data
+	Key=EAS.Data.ORM.OrmAccessor,Type=EAS.Data.ORM.OrmAccessor,EAS.Data
+	Key=EAS.Data.Caching.CacheService,Type=EAS.Data.Caching.CacheService,EAS.Data
+	Key=QtDataTrace.Access.BaseTableService,Type=QtDataTrace.Access.BaseTableService,QtDataTrace.Access
+	Key=QtDataTrace.Access.DataAnalyzeService,Type=QtDataTrace.Access.DataAnalyzeService,QtDataTrace.Access
+	Key=QtDataTrace.Access.DataBackUpService,Type=QtDataTrace.Access.DataBackUpService,QtDataTrace.Access
+	Key=QtDataTrace.Access.QtDataTraceService,Type=QtDataTrace.Access.QtDataTraceService,QtDataTrace.Access
+	Key=QtDataTrace.Access.SingleQtTableService,Type=QtDataTrace.Access.SingleQtTableService,QtDataTrace.Access
+	Key=QtDataTrace.AnalyzeService.LocalizationDataAnalyzeService,Type=QtDataTrace.AnalyzeService.LocalizationDataAnalyzeService,QtDataTrace.AnalyzeService
+	Key=QtDataTrace.AnalyzeService.LocalizationDataBackUpService,Type=QtDataTrace.AnalyzeService.LocalizationDataBackUpService,QtDataTrace.AnalyzeService
+	Key=QtDataTrace.AnalyzeService.LocalizationDataTraceService,Type=QtDataTrace.AnalyzeService.LocalizationDataTraceService,QtDataTrace.AnalyzeService
+

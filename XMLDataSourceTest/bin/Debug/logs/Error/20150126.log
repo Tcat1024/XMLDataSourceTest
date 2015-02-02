@@ -1,0 +1,36 @@
+[类型]:Error
+[线程]:1
+[内存]:4.77M
+[时间]:2015-01-26 09:29:57
+[内容]:容器中没有类型为QtDataTrace.IService.IBaseTableService的组件
+[来源]:EAS.MicroKernel
+[目标]:System.Object GetComponentInstance(System.Type)
+[堆栈]:   在 eo7h0vNo9ly5At5wg4E.nqQTAyNjFglBeHOc9im.GetComponentInstance(Type )
+   在 MwNMJthZR9oAdV7S7Xs.sNqrBjh2kea1Ukuk8fe.M3MXqKKZNp(Type )
+   在 EAS.Services.DirectServiceBridger.InvokeMethod(Type serviceType, MethodBase method, Object[] args)
+
+
+[类型]:Error
+[线程]:1
+[内存]:6.26M
+[时间]:2015-01-26 10:16:26
+[内容]:容器中没有类型为QtDataTrace.AnalyzeIService.ILocalizationDataTraceService的组件
+[来源]:EAS.MicroKernel
+[目标]:System.Object GetComponentInstance(System.Type)
+[堆栈]:   在 eo7h0vNo9ly5At5wg4E.nqQTAyNjFglBeHOc9im.GetComponentInstance(Type )
+   在 MwNMJthZR9oAdV7S7Xs.sNqrBjh2kea1Ukuk8fe.M3MXqKKZNp(Type )
+   在 EAS.Services.DirectServiceBridger.InvokeMethod(Type serviceType, MethodBase method, Object[] args)
+
+
+[类型]:Error
+[线程]:1
+[内存]:9.15M
+[时间]:2015-01-26 10:17:22
+[内容]:容器中没有类型为QtDataTrace.IService.IDataAnalyzeService的组件
+[来源]:EAS.MicroKernel
+[目标]:System.Object GetComponentInstance(System.Type)
+[堆栈]:   在 eo7h0vNo9ly5At5wg4E.nqQTAyNjFglBeHOc9im.GetComponentInstance(Type )
+   在 MwNMJthZR9oAdV7S7Xs.sNqrBjh2kea1Ukuk8fe.M3MXqKKZNp(Type )
+   在 EAS.Services.DirectServiceBridger.InvokeMethod(Type serviceType, MethodBase method, Object[] args)
+
+

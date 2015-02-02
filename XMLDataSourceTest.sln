@@ -15,6 +15,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QtDataTrace.IService", "QtD
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MPPOAccess", "MPPOAccess\MPPOAccess.csproj", "{3F992AD7-5A86-4522-A34D-D6551BB8A262}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QtDataTrace.AnalyzeService", "QtDataTrace.AnalyzeService\QtDataTrace.AnalyzeService.csproj", "{1768BB50-DC35-4903-A9AE-7B091F409076}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QtDataTrace.AnalyzeIService", "QtDataTrace.AnalyzeIService\QtDataTrace.AnalyzeIService.csproj", "{CF0E6554-6B4C-4C0E-BEAC-E52905D1F963}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +49,14 @@ Global
 		{3F992AD7-5A86-4522-A34D-D6551BB8A262}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3F992AD7-5A86-4522-A34D-D6551BB8A262}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3F992AD7-5A86-4522-A34D-D6551BB8A262}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1768BB50-DC35-4903-A9AE-7B091F409076}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1768BB50-DC35-4903-A9AE-7B091F409076}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1768BB50-DC35-4903-A9AE-7B091F409076}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1768BB50-DC35-4903-A9AE-7B091F409076}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF0E6554-6B4C-4C0E-BEAC-E52905D1F963}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF0E6554-6B4C-4C0E-BEAC-E52905D1F963}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF0E6554-6B4C-4C0E-BEAC-E52905D1F963}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF0E6554-6B4C-4C0E-BEAC-E52905D1F963}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

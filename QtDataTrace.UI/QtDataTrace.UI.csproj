@@ -93,13 +93,13 @@
     <Reference Include="QtDataTrace.Data">
       <HintPath>..\QtDataTrace.Data\obj\Debug\QtDataTrace.Data.dll</HintPath>
     </Reference>
-    <Reference Include="SPC.Analysis, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Library\SPC.Analysis.dll</HintPath>
-    </Reference>
     <Reference Include="SPC.Base, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\Library\SPC.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="SPC.Controls, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Library\SPC.Controls.dll</HintPath>
     </Reference>
     <Reference Include="SPC.CPKtool, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>

@@ -14,9 +14,9 @@ using System.Runtime.InteropServices;
 using System.Diagnostics;
 using SPC.Base.Interface;
 
-namespace QtDataTrace.Access
+namespace QtDataTrace.AnalyzeService
 {
-    internal class DataAnalyzeBLL
+    internal class LocalizationDataAnalyzeBLL
     {
         private static Dictionary<string, Dictionary<Guid, DataAnalyzeFactory>> DataAnalyzeFactoryContainer = new Dictionary<string, Dictionary<Guid, DataAnalyzeFactory>>();
         public static Guid Add(string username, DataAnalyzeFactory factory)
@@ -240,15 +240,15 @@ namespace QtDataTrace.Access
         int process = 0;
         double[] Levels;
         bool Drawline;
-        public ContourPlotFactory(IDataTable<DataRow> data, string x, string y, string z, int Width,int Height,double[] levels,bool drawline)
+        public ContourPlotFactory(IDataTable<DataRow> data, string x, string y, string z, int width,int height,double[] levels,bool drawline)
             : base()
         {
             this.data = data;
             this.X = x;
             this.Y = y;
             this.Z = z;
-            this.Width = Width;
-            this.Height = Height;
+            this.Width = width;
+            this.Height = height;
             this.Levels = levels;
             this.Drawline = drawline;
             this.doMethod = () => { Result = SPC.Rnet.Methods.DrawContourPlot(this.data, this.X, this.Y, this.Z, this.Width, this.Height, this.Levels, this.Drawline); };
@@ -256,6 +256,58 @@ namespace QtDataTrace.Access
         public override int GetProgress()
         {
             return process = (process+10)%100;
+        }
+    }
+    public class RpartFactory : DataAnalyzeFactory
+    {
+        IDataTable<DataRow> data;
+        int Width;
+        int Height;
+        public Tuple<System.Drawing.Image,string,double[,]> Result;
+        string targetColumn;
+        string[] sourceColumns;
+        int process = 0;
+        string Method;
+        double CP = -1;
+        public RpartFactory(IDataTable<DataRow> data, int width, int height,string targetcolumn,string[] sourcecolumns, string method,double cp)
+            : base()
+        {
+            this.data = data;
+            this.Width = width;
+            this.Height = height;
+            this.Method = method;
+            this.targetColumn = targetcolumn;
+            this.sourceColumns = sourcecolumns;
+            this.CP = cp;
+            this.doMethod = () => { Result = SPC.Rnet.Methods.Rpart(this.data,this.Width,this.Height,this.targetColumn,this.sourceColumns,this.Method,this.CP ); };
+        }
+        public override int GetProgress()
+        {
+            return process = (process + 10) % 100;
+        }
+    }
+    public class LmRegressFactory : DataAnalyzeFactory
+    {
+        IDataTable<DataRow> data;
+        int Width;
+        int Height;
+        public Tuple<System.Drawing.Image, string, double[]> Result;
+        string targetColumn;
+        string[] sourceColumns;
+        int process = 0;
+        public LmRegressFactory(IDataTable<DataRow> data, int width, int height, string targetcolumn, string[] sourcecolumns)
+            : base()
+        {
+            this.data = data;
+            this.Width = width;
+            this.Height = height;
+            this.targetColumn = targetcolumn;
+            this.sourceColumns = sourcecolumns;
+            this.doMethod = () => { Result = SPC.Rnet.Methods.LmGress(this.data, this.Width, this.Height, this.targetColumn, this.sourceColumns); };
+        }
+        public override int GetProgress()
+        {
+            return process = (process + 10) % 100;
         }
     }
 }

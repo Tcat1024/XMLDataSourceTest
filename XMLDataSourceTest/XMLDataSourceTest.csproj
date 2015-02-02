@@ -91,9 +91,21 @@
       <Project>{830843c1-ac61-4a99-bf5f-42eec143e352}</Project>
       <Name>QtDataTrace.Access</Name>
     </ProjectReference>
+    <ProjectReference Include="..\QtDataTrace.AnalyzeIService\QtDataTrace.AnalyzeIService.csproj">
+      <Project>{cf0e6554-6b4c-4c0e-beac-e52905d1f963}</Project>
+      <Name>QtDataTrace.AnalyzeIService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\QtDataTrace.AnalyzeService\QtDataTrace.AnalyzeService.csproj">
+      <Project>{1768bb50-dc35-4903-a9ae-7b091f409076}</Project>
+      <Name>QtDataTrace.AnalyzeService</Name>
+    </ProjectReference>
     <ProjectReference Include="..\QtDataTrace.Interfaces\QtDataTrace.Interfaces.csproj">
       <Project>{41ecbe03-933e-41d6-a1c6-eb7b20ee46bd}</Project>
       <Name>QtDataTrace.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\QtDataTrace.IService\QtDataTrace.IService.csproj">
+      <Project>{74e2e529-8309-4e7d-81eb-f134cf29195f}</Project>
+      <Name>QtDataTrace.IService</Name>
     </ProjectReference>
     <ProjectReference Include="..\QtDataTrace.UI\QtDataTrace.UI.csproj">
       <Project>{089c6e00-e2da-4e88-bfd1-71e8668331ca}</Project>

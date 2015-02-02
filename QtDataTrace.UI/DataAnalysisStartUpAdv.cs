@@ -204,7 +204,7 @@ namespace QtDataTrace.UI
 
             CpkModule module = new CpkModule();
             module.DataSource = sourceData;
-            (module.DataView as SPC.Base.Control.CanChooseDataGridView).Synchronize(this.gridView1, DevExpress.XtraGrid.Views.Base.SynchronizationMode.Full);
+            (module.DataView as SPC.Controls.Base.CanChooseDataGridView).Synchronize(this.gridView1, DevExpress.XtraGrid.Views.Base.SynchronizationMode.Full);
             EAS.Application.Instance.OpenModule(module);
         }
 
@@ -219,7 +219,7 @@ namespace QtDataTrace.UI
             SpcModule module = new SpcModule();
 
             module.DataSource = sourceData;
-            (module.DataView as SPC.Base.Control.CanChooseDataGridView).Synchronize(this.gridView1, DevExpress.XtraGrid.Views.Base.SynchronizationMode.Full);
+            (module.DataView as SPC.Controls.Base.CanChooseDataGridView).Synchronize(this.gridView1, DevExpress.XtraGrid.Views.Base.SynchronizationMode.Full);
             module.SelectTabPageIndex = 0;
             module.AccessibleDescription = "样本散点图";
             EAS.Application.Instance.OpenModule(module);
@@ -236,7 +236,7 @@ namespace QtDataTrace.UI
             SpcModule module = new SpcModule();
 
             module.DataSource = sourceData;
-            (module.DataView as SPC.Base.Control.CanChooseDataGridView).Synchronize(this.gridView1, DevExpress.XtraGrid.Views.Base.SynchronizationMode.Full);
+            (module.DataView as SPC.Controls.Base.CanChooseDataGridView).Synchronize(this.gridView1, DevExpress.XtraGrid.Views.Base.SynchronizationMode.Full);
             module.SelectTabPageIndex = 1;
             module.AccessibleDescription = "样本控制图";
             EAS.Application.Instance.OpenModule(module);
@@ -253,7 +253,7 @@ namespace QtDataTrace.UI
             SpcModule module = new SpcModule();
 
             module.DataSource = sourceData;
-            (module.DataView as SPC.Base.Control.CanChooseDataGridView).Synchronize(this.gridView1, DevExpress.XtraGrid.Views.Base.SynchronizationMode.Full);
+            (module.DataView as SPC.Controls.Base.CanChooseDataGridView).Synchronize(this.gridView1, DevExpress.XtraGrid.Views.Base.SynchronizationMode.Full);
             module.SelectTabPageIndex = 2;
             module.AccessibleDescription = "均值运行图";
             EAS.Application.Instance.OpenModule(module);
@@ -270,7 +270,7 @@ namespace QtDataTrace.UI
             SpcModule module = new SpcModule();
 
             module.DataSource = sourceData;
-            (module.DataView as SPC.Base.Control.CanChooseDataGridView).Synchronize(this.gridView1, DevExpress.XtraGrid.Views.Base.SynchronizationMode.Full);
+            (module.DataView as SPC.Controls.Base.CanChooseDataGridView).Synchronize(this.gridView1, DevExpress.XtraGrid.Views.Base.SynchronizationMode.Full);
             module.SelectTabPageIndex = 3;
             module.AccessibleDescription = "正态校验";
             EAS.Application.Instance.OpenModule(module);
@@ -286,7 +286,7 @@ namespace QtDataTrace.UI
             SpcModule module = new SpcModule();
 
             module.DataSource = sourceData;
-            (module.DataView as SPC.Base.Control.CanChooseDataGridView).Synchronize(this.gridView1, DevExpress.XtraGrid.Views.Base.SynchronizationMode.Full);
+            (module.DataView as SPC.Controls.Base.CanChooseDataGridView).Synchronize(this.gridView1, DevExpress.XtraGrid.Views.Base.SynchronizationMode.Full);
             module.SelectTabPageIndex = 4;
             module.AccessibleDescription = "频度分布";
             EAS.Application.Instance.OpenModule(module);
@@ -502,7 +502,7 @@ namespace QtDataTrace.UI
                     currentTraceFactoryId = Guid.Empty;
                     break;
                 case WorkingMode.Analyze:
-                    ServiceContainer.GetService<IDataAnalyzeService>().Stop(userId, currentAnalyzeFactoryId);
+                    ServiceContainer.GetService<IQtDataTraceService>().Stop(userId, currentAnalyzeFactoryId);
                     currentAnalyzeFactoryId = Guid.Empty;
                     break;
             }
@@ -518,7 +518,7 @@ namespace QtDataTrace.UI
 
             RelationMonitorControl module = new RelationMonitorControl();
             module.DataSource = sourceData;
-            (module.DataView as SPC.Base.Control.CanChooseDataGridView).Synchronize(this.gridView1, DevExpress.XtraGrid.Views.Base.SynchronizationMode.Full);
+            (module.DataView as SPC.Controls.Base.CanChooseDataGridView).Synchronize(this.gridView1, DevExpress.XtraGrid.Views.Base.SynchronizationMode.Full);
             module.AccessibleDescription = "相关性散点图";
             EAS.Application.Instance.OpenModule(module);
         }
@@ -534,7 +534,7 @@ namespace QtDataTrace.UI
             SpcModule module = new SpcModule();
 
             module.DataSource = sourceData;
-            (module.DataView as SPC.Base.Control.CanChooseDataGridView).Synchronize(this.gridView1, DevExpress.XtraGrid.Views.Base.SynchronizationMode.Full);
+            (module.DataView as SPC.Controls.Base.CanChooseDataGridView).Synchronize(this.gridView1, DevExpress.XtraGrid.Views.Base.SynchronizationMode.Full);
             module.SelectTabPageIndex = 5;
             module.AccessibleDescription = "箱型图";
             EAS.Application.Instance.OpenModule(module);
@@ -551,7 +551,7 @@ namespace QtDataTrace.UI
             SPCDetermineControl module = new SPCDetermineControl();
 
             module.DataSource = sourceData;
-            (module.DataView as SPC.Base.Control.CanChooseDataGridView).Synchronize(this.gridView1, DevExpress.XtraGrid.Views.Base.SynchronizationMode.Full);
+            (module.DataView as SPC.Controls.Base.CanChooseDataGridView).Synchronize(this.gridView1, DevExpress.XtraGrid.Views.Base.SynchronizationMode.Full);
             module.AccessibleDescription = "SPC判定";
             EAS.Application.Instance.OpenModule(module);
         }
@@ -605,8 +605,8 @@ namespace QtDataTrace.UI
             {
                 Form debugform = new Form();
                 debugform.Controls.Add(target);
-                debugform.Size = target.Size;
                 target.Dock = DockStyle.Fill;
+                debugform.Size = target.Size;
                 debugform.Show();
             }
         }
@@ -677,7 +677,7 @@ namespace QtDataTrace.UI
         }
         private void btnRelationAnalyze_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            SPC.Analysis.ConfigControls.CCTConfigControl configcontrol = new SPC.Analysis.ConfigControls.CCTConfigControl();
+            SPC.Controls.ConfigControls.CCTConfigControl configcontrol = new SPC.Controls.ConfigControls.CCTConfigControl();
             AnalyzeConfigForm configForm = new AnalyzeConfigForm();
             configForm.AddConfigControl(configcontrol);
             configcontrol.Init(this.gridView1.GetVisibleColumnNames(false, typeof(string), typeof(DateTime), typeof(bool)));
@@ -695,7 +695,7 @@ namespace QtDataTrace.UI
                     var result = ServiceContainer.GetService<IDataAnalyzeService>().CCTget(userId, currentAnalyzeFactoryId);
                     this.Invoke(new Action(() =>
                     {
-                        SPC.Analysis.ResultControls.CCTResultControl resultcontrol = new SPC.Analysis.ResultControls.CCTResultControl();
+                        SPC.Controls.ResultControls.CCTResultControl resultcontrol = new SPC.Controls.ResultControls.CCTResultControl();
                         AnalyzeResultControl resultForm = new AnalyzeResultControl();
                         resultForm.AddResultControl(resultcontrol);
                         resultcontrol.Init(configcontrol.Columns, result);
@@ -708,7 +708,7 @@ namespace QtDataTrace.UI
 
         private void btnQuickCluster_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            SPC.Analysis.ConfigControls.KMeansConfigControl configcontrol = new SPC.Analysis.ConfigControls.KMeansConfigControl();
+            SPC.Controls.ConfigControls.KMeansConfigControl configcontrol = new SPC.Controls.ConfigControls.KMeansConfigControl();
             AnalyzeConfigForm configForm = new AnalyzeConfigForm();
             configForm.AddConfigControl(configcontrol);
             var choosed = this.gridView1.GetChoosedRowIndexs();
@@ -727,10 +727,10 @@ namespace QtDataTrace.UI
                     var result = ServiceContainer.GetService<IDataAnalyzeService>().KMeansGet(userId, currentAnalyzeFactoryId);
                     this.Invoke(new Action(() =>
                     {
-                        SPC.Analysis.ResultControls.KMeansResultControl resultcontrol = new SPC.Analysis.ResultControls.KMeansResultControl();
+                        SPC.Controls.ResultControls.KMeansResultControl resultcontrol = new SPC.Controls.ResultControls.KMeansResultControl();
                         AnalyzeResultControl resultForm = new AnalyzeResultControl();
                         resultForm.AddResultControl(resultcontrol);
-                        resultcontrol.Init(result, new SPC.Base.Interface.ViewChoosedData(this.gridView1, choosed));
+                        resultcontrol.Init(result,this.gridView1.GetIDataTable(choosed));
                         resultForm.AccessibleDescription = "快速聚类" + DateTime.Now.ToString("hh:mm:ss");
                         DebugOpenModule(resultForm);
                     }));
@@ -738,11 +738,11 @@ namespace QtDataTrace.UI
             }
         }
 
-        SPC.Analysis.ConfigControls.ContourPlotConfigControl CPlotConfig;
+        SPC.Controls.ConfigControls.ContourPlotConfigControl CPlotConfig;
         private void btnCPlot_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             if (CPlotConfig == null)
-                CPlotConfig = new SPC.Analysis.ConfigControls.ContourPlotConfigControl();
+                CPlotConfig = new SPC.Controls.ConfigControls.ContourPlotConfigControl();
             AnalyzeConfigForm configForm = new AnalyzeConfigForm();
             configForm.AddConfigControl(CPlotConfig);
             var choosed = this.gridView1.GetChoosedRowIndexs();
@@ -761,7 +761,7 @@ namespace QtDataTrace.UI
                     var result = ServiceContainer.GetService<IDataAnalyzeService>().ContourPlotGet(userId, currentAnalyzeFactoryId);
                     this.Invoke(new Action(() =>
                     {
-                        SPC.Analysis.ResultControls.ContourPlotResultControl resultcontrol = new SPC.Analysis.ResultControls.ContourPlotResultControl();
+                        SPC.Controls.ResultControls.ContourPlotResultControl resultcontrol = new SPC.Controls.ResultControls.ContourPlotResultControl();
                         AnalyzeResultControl resultForm = new AnalyzeResultControl();
                         resultForm.AddResultControl(resultcontrol);
                         resultcontrol.Init(result, CPlotConfig.X, CPlotConfig.Y, CPlotConfig.Z);
@@ -771,13 +771,12 @@ namespace QtDataTrace.UI
                 }));
             }
         }
-
         private void btnCCalCulate_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            var configcontrol = new SPC.Analysis.ConfigControls.ColumnCalculateConfigControl();
+            var configcontrol = new SPC.Controls.ConfigControls.ColumnCalculateConfigControl();
             AnalyzeConfigForm configForm = new AnalyzeConfigForm();
             configForm.AddConfigControl(configcontrol);
-            var data = new SPC.Base.Interface.ViewChoosedData(this.gridView1, this.gridView1.GetChoosedRowIndexs());
+            var data = this.gridView1.GetIDataTable();
             configcontrol.Init(this.gridView1.GetVisibleColumnNames(false, typeof(string), typeof(DateTime), typeof(bool)));
             double[] result = null;
             if (configForm.ShowDialog() == DialogResult.OK)
@@ -818,7 +817,7 @@ namespace QtDataTrace.UI
                 {
                     resulttable.Rows.Add(configcontrol.SourceColumns[i], result[i]);
                 }
-                SPC.Analysis.ResultControls.CalculateResultControl resultcontrol = new SPC.Analysis.ResultControls.CalculateResultControl();
+                SPC.Controls.ResultControls.CalculateResultControl resultcontrol = new SPC.Controls.ResultControls.CalculateResultControl();
                 AnalyzeResultControl resultForm = new AnalyzeResultControl();
                 resultForm.AddResultControl(resultcontrol);
                 resultcontrol.Init(resulttable);
@@ -829,10 +828,10 @@ namespace QtDataTrace.UI
 
         private void btnRCalculate_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            var configcontrol = new SPC.Analysis.ConfigControls.RowCalculateConfigControl();
+            var configcontrol = new SPC.Controls.ConfigControls.RowCalculateConfigControl();
             AnalyzeConfigForm configForm = new AnalyzeConfigForm();
             configForm.AddConfigControl(configcontrol);
-            var data = new SPC.Base.Interface.ViewChoosedData(this.gridView1, this.gridView1.GetChoosedRowIndexs());
+            var data = this.gridView1.GetIDataTable();
             configcontrol.Init(this.gridView1.GetVisibleColumnNames(false, typeof(string), typeof(DateTime), typeof(bool)));
             double[] result = null;
             if (configForm.ShowDialog() == DialogResult.OK)
@@ -875,7 +874,7 @@ namespace QtDataTrace.UI
                     {
                         resulttable.Rows.Add(i, result[i]);
                     }
-                    SPC.Analysis.ResultControls.CalculateResultControl resultcontrol = new SPC.Analysis.ResultControls.CalculateResultControl();
+                    SPC.Controls.ResultControls.CalculateResultControl resultcontrol = new SPC.Controls.ResultControls.CalculateResultControl();
                     AnalyzeResultControl resultForm = new AnalyzeResultControl();
                     resultForm.AddResultControl(resultcontrol);
                     resultcontrol.Init(resulttable);
@@ -894,14 +893,14 @@ namespace QtDataTrace.UI
                 }
             }
         }
-        private SPC.Analysis.ConfigControls.StandardizationConfigControl SdzConfig;
+        private SPC.Controls.ConfigControls.StandardizationConfigControl SdzConfig;
         private void btnSdz_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             if (SdzConfig == null)
-                SdzConfig = new SPC.Analysis.ConfigControls.StandardizationConfigControl();
+                SdzConfig = new SPC.Controls.ConfigControls.StandardizationConfigControl();
             AnalyzeConfigForm configForm = new AnalyzeConfigForm();
             configForm.AddConfigControl(SdzConfig);
-            var data = new SPC.Base.Interface.ViewChoosedData(this.gridView1, this.gridView1.GetChoosedRowIndexs());
+            var data = this.gridView1.GetIDataTable();
             SdzConfig.Init(this.gridView1.GetVisibleColumnNames(false, typeof(string), typeof(DateTime), typeof(bool)));
             if (configForm.ShowDialog() == DialogResult.OK)
             {
@@ -931,6 +930,90 @@ namespace QtDataTrace.UI
                     MessageBox.Show(ex.Message);
                 }
 
+            }
+        }
+
+        private void btnCommit_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            var data = this.sourceData.Copy();
+            data.Columns.Remove(this.gridView1.ChooseColumnName);
+            try
+            {
+                var result = ServiceContainer.GetService<IQtDataTraceService>().CommitData(userId, currentDataId, data);
+                if (result != "")
+                    MessageBox.Show(result);
+                else
+                    MessageBox.Show("提交成功");
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        SPC.Controls.ConfigControls.RpartConfigControl BDtreeConfig;
+        private void btnBuildDtree_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (BDtreeConfig == null)
+                BDtreeConfig = new SPC.Controls.ConfigControls.RpartConfigControl();
+            AnalyzeConfigForm configForm = new AnalyzeConfigForm();
+            configForm.AddConfigControl(BDtreeConfig);
+            var choosed = this.gridView1.GetChoosedRowIndexs();
+            BDtreeConfig.Init(this.gridView1.GetVisibleColumnNames(false, typeof(DateTime)));
+            if (configForm.ShowDialog() == DialogResult.OK)
+            {
+                var re = ServiceContainer.GetService<IDataAnalyzeService>().RpartStart(userId, currentDataId, choosed, BDtreeConfig.PicWidth, BDtreeConfig.PicHeight, BDtreeConfig.TargetColumn, BDtreeConfig.Columns, BDtreeConfig.Method, BDtreeConfig.CP);
+                currentAnalyzeFactoryId = re.Item1;
+                if (currentAnalyzeFactoryId == Guid.Empty)
+                {
+                    MessageBox.Show(re.Item2);
+                    return;
+                }
+                NewAnalyze(1000, new Action(() =>
+                {
+                    var result = ServiceContainer.GetService<IDataAnalyzeService>().RpartGet(userId, currentAnalyzeFactoryId);
+                    this.Invoke(new Action(() =>
+                    {
+                        SPC.Controls.ResultControls.RpartResultControl resultcontrol = new SPC.Controls.ResultControls.RpartResultControl();
+                        AnalyzeResultControl resultForm = new AnalyzeResultControl();
+                        resultForm.AddResultControl(resultcontrol);
+                        resultcontrol.Init(result.Item1,result.Item2,result.Item3);
+                        resultForm.AccessibleDescription = "决策树" + DateTime.Now.ToString("hh:mm:ss");
+                        DebugOpenModule(resultForm);
+                    }));
+                }));
+            }
+        }
+        SPC.Controls.ConfigControls.LmregressConfigControl LmRegressConfig;
+        private void btnLmRegress_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (LmRegressConfig == null)
+                LmRegressConfig = new SPC.Controls.ConfigControls.LmregressConfigControl();
+            AnalyzeConfigForm configForm = new AnalyzeConfigForm();
+            configForm.AddConfigControl(LmRegressConfig);
+            var choosed = this.gridView1.GetChoosedRowIndexs();
+            LmRegressConfig.Init(this.gridView1.GetVisibleColumnNames(false, typeof(DateTime),typeof(string),typeof(bool)));
+            if (configForm.ShowDialog() == DialogResult.OK)
+            {
+                var re = ServiceContainer.GetService<IDataAnalyzeService>().LmRegressStart(userId, currentDataId, choosed, LmRegressConfig.PicWidth, LmRegressConfig.PicHeight, LmRegressConfig.TargetColumn, LmRegressConfig.Columns);
+                currentAnalyzeFactoryId = re.Item1;
+                if (currentAnalyzeFactoryId == Guid.Empty)
+                {
+                    MessageBox.Show(re.Item2);
+                    return;
+                }
+                NewAnalyze(1000, new Action(() =>
+                {
+                    var result = ServiceContainer.GetService<IDataAnalyzeService>().LmRegressGet(userId, currentAnalyzeFactoryId);
+                    this.Invoke(new Action(() =>
+                    {
+                        SPC.Controls.ResultControls.LmregressResultControl resultcontrol = new SPC.Controls.ResultControls.LmregressResultControl();
+                        AnalyzeResultControl resultForm = new AnalyzeResultControl();
+                        resultForm.AddResultControl(resultcontrol);
+                        resultcontrol.Init(result.Item1, result.Item2, result.Item3,LmRegressConfig.Columns);
+                        resultForm.AccessibleDescription = "多元线性回归" + DateTime.Now.ToString("hh:mm:ss");
+                        DebugOpenModule(resultForm);
+                    }));
+                }));
             }
         }
     }

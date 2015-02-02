@@ -13,9 +13,9 @@ using System.Threading.Tasks;
 using System.Runtime.InteropServices;
 using System.Diagnostics;
 
-namespace QtDataTrace.Access
+namespace QtDataTrace.AnalyzeService
 {
-    internal class QtDataTraceBLL
+    internal class LocalizationDataTraceBLL
     {
         private static Dictionary<string, Dictionary<Guid, DataFactoryBase>> DataFactoryContainer = new Dictionary<string, Dictionary<Guid, DataFactoryBase>>();
         public static Guid Add(string username,DataFactoryBase factory)
@@ -50,6 +50,41 @@ namespace QtDataTrace.Access
                 }
                 id = Guid.NewGuid();
                 factories.Add(id,factory);
+            }
+            return id;
+        }
+        public static Guid Add(string username, DataFactoryBase factory,Guid id)
+        {
+            Dictionary<Guid, DataFactoryBase> factories;
+            lock (DataFactoryContainer)
+            {
+                if (!DataFactoryContainer.TryGetValue(username, out factories))
+                {
+                    factories = new Dictionary<Guid, DataFactoryBase>();
+                    DataFactoryContainer.Add(username, factories);
+                }
+            }
+            lock (factories)
+            {
+                if (factories.Keys.Contains(id))
+                    throw new Exception("ID已存在");
+                if (factories.Count > 3)
+                {
+                    bool temp = false;
+                    foreach (var k in factories.Keys)
+                    {
+                        var f = factories[k];
+                        if (!f.Writing && !f.Reading)
+                        {
+                            factories.Remove(k);
+                            temp = true;
+                            break;
+                        }
+                    }
+                    if (!temp)
+                        throw new Exception("历史数据均在处理，无法新建数据");
+                }
+                factories.Add(id, factory);
             }
             return id;
         }
@@ -153,7 +188,7 @@ namespace QtDataTrace.Access
                 this._Writing = value;
             }
         }
-        public DataTable ResultData { get; protected set; }
+        public DataTable ResultData { get; set; }
         protected string _Error = "";
         public string Error
         {
@@ -218,7 +253,7 @@ namespace QtDataTrace.Access
             this.RootProcessNo = processNo;
             this.IDList = iDList;
             this.Processes = processes;
-            this.ConfigFile = new BaseTableService().GetProcessQtTableConfigFile();
+            this.ConfigFile = new LocalizationDataTraceService().GetProcessQtTableConfigFile();
             this.rowcount = iDList.Count;
             this.Writing = false;
             int rcount = ConfigFile.Tables["Table"].Rows.Count;

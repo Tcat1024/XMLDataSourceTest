@@ -1,0 +1,8 @@
+C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\QtDataTrace.AnalyzeIService\bin\Debug\QtDataTrace.AnalyzeIService.dll
+C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\QtDataTrace.AnalyzeIService\bin\Debug\QtDataTrace.AnalyzeIService.pdb
+C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\QtDataTrace.AnalyzeIService\bin\Debug\QtDataTrace.Interfaces.dll
+C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\QtDataTrace.AnalyzeIService\bin\Debug\Expression.dll
+C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\QtDataTrace.AnalyzeIService\bin\Debug\QtDataTrace.Interfaces.pdb
+C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\QtDataTrace.AnalyzeIService\obj\Debug\QtDataTrace.AnalyzeIService.csprojResolveAssemblyReference.cache
+C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\QtDataTrace.AnalyzeIService\obj\Debug\QtDataTrace.AnalyzeIService.dll
+C:\Users\Tcat\Desktop\WorkSpace\Program\XMLDataSourceTest\QtDataTrace.AnalyzeIService\obj\Debug\QtDataTrace.AnalyzeIService.pdb

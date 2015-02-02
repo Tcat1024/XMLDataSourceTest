@@ -33,16 +33,17 @@
             this.dateTimeStart = new System.Windows.Forms.DateTimePicker();
             this.dateTimeStop = new System.Windows.Forms.DateTimePicker();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.triStateTreeView1 = new SPC.Base.Control.TriStateTreeView();
+            this.triStateTreeView1 = new SPC.Controls.Base.TriStateTreeView();
             this.standaloneBarDockControl2 = new DevExpress.XtraBars.StandaloneBarDockControl();
-            this.waitPanel1 = new SPC.Base.Control.WaitPanel();
+            this.waitPanel1 = new SPC.Controls.Base.WaitPanel();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.imageCollection1 = new DevExpress.Utils.ImageCollection(this.components);
-            this.gridView1 = new SPC.Base.Control.CanChooseDataGridView();
+            this.gridView1 = new SPC.Controls.Base.CanChooseDataGridView();
             this.standaloneBarDockControl1 = new DevExpress.XtraBars.StandaloneBarDockControl();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar1 = new DevExpress.XtraBars.Bar();
             this.menuFile = new DevExpress.XtraBars.BarSubItem();
+            this.btnCommit = new DevExpress.XtraBars.BarButtonItem();
             this.menuTraceHis = new DevExpress.XtraBars.BarSubItem();
             this.stHisNone = new DevExpress.XtraBars.BarStaticItem();
             this.btnSave = new DevExpress.XtraBars.BarButtonItem();
@@ -54,6 +55,7 @@
             this.menuAnalyze = new DevExpress.XtraBars.BarSubItem();
             this.btnRelationAnalyze = new DevExpress.XtraBars.BarButtonItem();
             this.btnQuickCluster = new DevExpress.XtraBars.BarButtonItem();
+            this.btnBuildDtree = new DevExpress.XtraBars.BarButtonItem();
             this.btnCPK = new DevExpress.XtraBars.BarButtonItem();
             this.btnSPCdm = new DevExpress.XtraBars.BarButtonItem();
             this.menuGraphics = new DevExpress.XtraBars.BarSubItem();
@@ -102,7 +104,7 @@
             this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
             this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
             this.gridControl2 = new DevExpress.XtraGrid.GridControl();
-            this.gridView2 = new SPC.Base.Control.CanChooseDataGridView();
+            this.gridView2 = new SPC.Controls.Base.CanChooseDataGridView();
             this.colTime = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colInId = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colOutId = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -112,6 +114,7 @@
             this.colBatch = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colOrderId = new DevExpress.XtraGrid.Columns.GridColumn();
             this.xtraTabPage2 = new DevExpress.XtraTab.XtraTabPage();
+            this.btnLmRegress = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -169,7 +172,7 @@
             this.splitContainer1.Panel2.Controls.Add(this.gridControl1);
             this.splitContainer1.Panel2.Controls.Add(this.standaloneBarDockControl1);
             this.splitContainer1.Size = new System.Drawing.Size(1523, 492);
-            this.splitContainer1.SplitterDistance = 306;
+            this.splitContainer1.SplitterDistance = 305;
             this.splitContainer1.SplitterWidth = 5;
             this.splitContainer1.TabIndex = 22;
             // 
@@ -179,7 +182,7 @@
             this.triStateTreeView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.triStateTreeView1.Location = new System.Drawing.Point(0, 34);
             this.triStateTreeView1.Name = "triStateTreeView1";
-            this.triStateTreeView1.Size = new System.Drawing.Size(306, 458);
+            this.triStateTreeView1.Size = new System.Drawing.Size(305, 458);
             this.triStateTreeView1.TabIndex = 0;
             // 
             // standaloneBarDockControl2
@@ -190,7 +193,7 @@
             this.standaloneBarDockControl2.Location = new System.Drawing.Point(0, 0);
             this.standaloneBarDockControl2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.standaloneBarDockControl2.Name = "standaloneBarDockControl2";
-            this.standaloneBarDockControl2.Size = new System.Drawing.Size(306, 34);
+            this.standaloneBarDockControl2.Size = new System.Drawing.Size(305, 34);
             this.standaloneBarDockControl2.Text = "standaloneBarDockControl2";
             // 
             // waitPanel1
@@ -225,7 +228,7 @@
             this.gridControl1.Location = new System.Drawing.Point(0, 34);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(1212, 458);
+            this.gridControl1.Size = new System.Drawing.Size(1213, 458);
             this.gridControl1.TabIndex = 1;
             this.gridControl1.UseEmbeddedNavigator = true;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -272,7 +275,7 @@
             this.standaloneBarDockControl1.Location = new System.Drawing.Point(0, 0);
             this.standaloneBarDockControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.standaloneBarDockControl1.Name = "standaloneBarDockControl1";
-            this.standaloneBarDockControl1.Size = new System.Drawing.Size(1212, 34);
+            this.standaloneBarDockControl1.Size = new System.Drawing.Size(1213, 34);
             this.standaloneBarDockControl1.Text = "standaloneBarDockControl1";
             // 
             // barManager1
@@ -316,8 +319,11 @@
             this.btnRCalculate,
             this.btnSdz,
             this.menuGraphics,
-            this.barSubItem1});
-            this.barManager1.MaxItemId = 53;
+            this.barSubItem1,
+            this.btnCommit,
+            this.btnBuildDtree,
+            this.btnLmRegress});
+            this.barManager1.MaxItemId = 56;
             this.barManager1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemTextEdit1,
             this.repositoryItemProgressBar1,
@@ -349,10 +355,18 @@
             this.menuFile.Id = 30;
             this.menuFile.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("menuFile.LargeGlyph")));
             this.menuFile.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnCommit),
             new DevExpress.XtraBars.LinkPersistInfo(this.menuTraceHis),
             new DevExpress.XtraBars.LinkPersistInfo(this.btnSave),
             new DevExpress.XtraBars.LinkPersistInfo(this.btnLoad)});
             this.menuFile.Name = "menuFile";
+            // 
+            // btnCommit
+            // 
+            this.btnCommit.Caption = "提交更改";
+            this.btnCommit.Id = 53;
+            this.btnCommit.Name = "btnCommit";
+            this.btnCommit.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnCommit_ItemClick);
             // 
             // menuTraceHis
             // 
@@ -426,6 +440,8 @@
             this.menuAnalyze.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.btnRelationAnalyze),
             new DevExpress.XtraBars.LinkPersistInfo(this.btnQuickCluster),
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnBuildDtree),
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnLmRegress),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnCPK, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnSPCdm, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
             this.menuAnalyze.Name = "menuAnalyze";
@@ -443,6 +459,13 @@
             this.btnQuickCluster.Id = 25;
             this.btnQuickCluster.Name = "btnQuickCluster";
             this.btnQuickCluster.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnQuickCluster_ItemClick);
+            // 
+            // btnBuildDtree
+            // 
+            this.btnBuildDtree.Caption = "决策树生成";
+            this.btnBuildDtree.Id = 54;
+            this.btnBuildDtree.Name = "btnBuildDtree";
+            this.btnBuildDtree.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnBuildDtree_ItemClick);
             // 
             // btnCPK
             // 
@@ -990,6 +1013,13 @@
             this.xtraTabPage2.Size = new System.Drawing.Size(1523, 492);
             this.xtraTabPage2.Text = "数据追溯";
             // 
+            // btnLmRegress
+            // 
+            this.btnLmRegress.Caption = "多元线性回归";
+            this.btnLmRegress.Id = 55;
+            this.btnLmRegress.Name = "btnLmRegress";
+            this.btnLmRegress.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnLmRegress_ItemClick);
+            // 
             // DataAnalysisStartUpAdv
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
@@ -1053,9 +1083,9 @@
         private System.Windows.Forms.TextBox textMinThick;
         private System.Windows.Forms.TextBox textMaxThick;
         private System.Windows.Forms.CheckBox checkThick;
-        private SPC.Base.Control.TriStateTreeView triStateTreeView1;
+        private SPC.Controls.Base.TriStateTreeView triStateTreeView1;
         private DevExpress.XtraGrid.GridControl gridControl1;
-        private SPC.Base.Control.CanChooseDataGridView gridView1;
+        private SPC.Controls.Base.CanChooseDataGridView gridView1;
         private DevExpress.XtraBars.StandaloneBarDockControl standaloneBarDockControl1;
         private DevExpress.XtraEditors.SimpleButton btnQuery;
         private DevExpress.XtraTab.XtraTabControl xtraTabControl1;
@@ -1075,7 +1105,7 @@
         private DevExpress.XtraBars.BarDockControl barDockControlRight;
         private DevExpress.XtraBars.StandaloneBarDockControl standaloneBarDockControl2;
         private DevExpress.XtraGrid.GridControl gridControl2;
-        private SPC.Base.Control.CanChooseDataGridView gridView2;
+        private SPC.Controls.Base.CanChooseDataGridView gridView2;
         private DevExpress.XtraGrid.Columns.GridColumn colTime;
         private DevExpress.XtraGrid.Columns.GridColumn colInId;
         private DevExpress.XtraGrid.Columns.GridColumn colOutId;
@@ -1104,7 +1134,7 @@
         private DevExpress.XtraBars.BarSubItem menuFile;
         private DevExpress.XtraBars.BarButtonItem btnLoad;
         private DevExpress.XtraBars.BarButtonItem btnSave;
-        private SPC.Base.Control.WaitPanel waitPanel1;
+        private SPC.Controls.Base.WaitPanel waitPanel1;
         private DevExpress.XtraBars.BarSubItem menuTraceHis;
         private DevExpress.XtraBars.BarStaticItem stHisNone;
         private DevExpress.XtraBars.BarButtonItem btnCPlot;
@@ -1117,5 +1147,8 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemPopupContainerEdit repositoryItemPopupContainerEdit1;
         private DevExpress.XtraEditors.Repository.RepositoryItemProgressBar repositoryItemProgressBar2;
         private DevExpress.XtraEditors.Repository.RepositoryItemMarqueeProgressBar repositoryItemMarqueeProgressBar1;
+        private DevExpress.XtraBars.BarButtonItem btnCommit;
+        private DevExpress.XtraBars.BarButtonItem btnBuildDtree;
+        private DevExpress.XtraBars.BarButtonItem btnLmRegress;
     }
 }

@@ -15,7 +15,7 @@ namespace QtDataTrace.UI
         {
             InitializeComponent();
         }
-        public void AddConfigControl(SPC.Analysis.ConfigControls.ConfigControlBase con)
+        public void AddConfigControl(SPC.Controls.ConfigControls.ConfigControlBase con)
         {
             this.Controls.Add(con);
             con.Dock = DockStyle.Fill;

@@ -9,6 +9,7 @@ using System.Data.OleDb;
 using EAS.Services;
 using QtDataTrace.Interfaces;
 using QtDataTrace.IService;
+using QtDataTrace.AnalyzeIService;
 
 namespace QtDataTrace.Access
 {
@@ -385,48 +386,27 @@ namespace QtDataTrace.Access
         //DataTrace//
         public Tuple<Guid, string> NewDataTrace(string processNo, IList<string> iDList, IList<QtDataProcessConfig> processes, bool back, string username)
         {
-            try
-            {
-                var factory = new DataTraceFactory(processNo,iDList,processes,back);
-                var result = new Tuple<Guid, string>(QtDataTraceBLL.Add(username,factory), "");
-                factory.Start();
-                return result;
-            }
-            catch (Exception ex)
-            {
-                return new Tuple<Guid, string>(Guid.Empty, ex.Message);
-            }
+            return ServiceContainer.GetService<ILocalizationDataTraceService>("LocalServiceBridger").NewDataTrace(processNo, iDList, processes, back, username);
         }
         public DataTable GetData(string username, Guid id)
         {
-            var factory = QtDataTraceBLL.GetFactory(username, id);
-            if (factory != null && !factory.Writing)
-            {
-                return factory.ResultData;
-            }
-            return null;
+            return ServiceContainer.GetService<ILocalizationDataTraceService>("LocalServiceBridger").GetData(username, id);
         }
         public int GetProcess(string username, Guid id)
         {
-            var temp = QtDataTraceBLL.GetFactory(username, id);
-            if (temp == null)
-                return -2;
-            if (temp.Writing)
-                return temp.GetProgress();
-            if (temp.Error != "")
-                return -1;
-            return 1000;
+            return ServiceContainer.GetService<ILocalizationDataTraceService>("LocalServiceBridger").GetProcess(username, id);
         }
         public string GetErrorMessage(string username, Guid id)
         {
-            var factory = QtDataTraceBLL.GetFactory(username, id);
-            if (factory != null)
-                return factory.Error;
-            return null;
+            return ServiceContainer.GetService<ILocalizationDataTraceService>("LocalServiceBridger").GetErrorMessage(username, id);
+        }
+        public string CommitData(string username,Guid id,DataTable data)
+        {
+            return ServiceContainer.GetService<ILocalizationDataTraceService>("LocalServiceBridger").CommitData(username, id, data);
         }
         public bool Stop(string username, Guid id)
         {
-            return QtDataTraceBLL.Stop(username, id);
+            return ServiceContainer.GetService<ILocalizationDataTraceService>("LocalServiceBridger").Stop(username, id);
         }
     }
     public class ConfigException : Exception
